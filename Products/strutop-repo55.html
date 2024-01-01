@@ -6,51 +6,409 @@
     <title>Document</title>
     <link rel="stylesheet" href="../src/css/main.css" />
     <style>
-      .hero {
+      main {
+        background: #f2ecdc;
+        font-family: "YekanBakhFaNum", "vazir", "nazanin", "Dubai", Arial, sans-serif;
+        direction: rtl;
+      }
+
+      h3,
+      h4,
+      h4,
+      h6 {
+        font-weight: 600;
+      }
+      .flexGrow {
+        flex-shrink: 0.8;
+      }
+      .width50 {
+        width: 50%;
+      }
+      .flexClass {
         display: flex;
       }
+
+      /* start hero */
+      .hero {
+        display: flex;
+        justify-content: space-between;
+        padding: 5vmax 10vmax;
+      }
+
       .hero img {
         border-radius: 100%;
         width: 55vmin;
         height: 55vmin;
       }
+
+      .hero div {
+        width: 50%;
+      }
+
+      .hero div h1 {
+        font-size: clamp(1.3rem, 4vw, 100rem);
+      }
+
+      .hero div h2 {
+        font-family: "Montserrat";
+        font-size: clamp(1.1rem, 2vw, 100rem);
+        font-weight: 400;
+      }
+
+      /* end of hero */
+      /* start section2 */
+      .section2 {
+        display: flex;
+        justify-content: space-between;
+        padding: 0 10vmax;
+        column-gap: 5vmax;
+        font-size: clamp(1rem, 1vw, 100rem);
+      }
+
+      .section2 > div {
+        padding: 5vmin 0 5vmin 0;
+      }
+      .section2 ul {
+        margin: 2vmin 5vmin 0 0;
+      }
+      /* end of section2 */
+      /* start section3 */
+      .section3 {
+        background: #e9e5db;
+        display: flex;
+        justify-content: space-between;
+        padding: 5vmax 10vmax;
+        column-gap: 5vmax;
+        font-size: clamp(1rem, 1vw, 100rem);
+        position: relative;
+      }
+      .section3 > img {
+        position: absolute;
+        top: 5vmin;
+        left: 5vmin;
+        width: 15vmax;
+      }
+      .section3 h3 {
+        padding: 5vmin 0 3vmin 0;
+      }
+      .section3 .leftSide {
+        width: 40%;
+      }
+      .section3 .leftSide > div {
+        display: flex;
+      }
+      .section3 .leftSide > div > div {
+        width: 50%;
+        margin: 2vmin;
+      }
+      .section3 .leftSide > div > div h4 {
+        margin: 2vmin 0 0 0;
+      }
+      /* end of section3 */
+      /* start section4 */
+      .section4 {
+        padding: 5vmax 10vmax;
+        font-size: clamp(1rem, 1vw, 100rem);
+
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        grid-template-rows: repeat(3, auto);
+        grid-column-gap: 25vmin;
+        grid-row-gap: 10vmin;
+      }
+      .section4 div:nth-child(-n + 3) h3 {
+        margin-right: -3vmin;
+        padding: 5vmin 0 3vmin 0;
+      }
+      .section4 .table tr td:last-child {
+        text-align: left;
+        padding-right: 5vmin;
+      }
+      .section4 div:nth-child(1) {
+        grid-area: 1 / 2 / 2 / 3;
+      }
+      .section4 div:nth-child(2) {
+        grid-area: 1 / 1 / 3 / 2;
+      }
+      .section4 div:nth-child(3) {
+        grid-area: 2 / 2 / 3 / 3;
+      }
+      .section4 div:nth-child(4) {
+        grid-area: 3 / 1 / 4 / 2;
+        background: #a1b29b;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        padding: 3vmin;
+        height: fit-content;
+      }
+      .section4 div:nth-child(5) {
+        grid-area: 3 / 2 / 4 / 3;
+        background: #ffce47;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        padding: 3vmin;
+        height: fit-content;
+      }
+
+      /* responsive layout */
+
+      @media only screen and (max-width: 1200px) {
+        .hero,
+        .section2,
+        .section3,
+        .section4 {
+          padding: 2vmax 5vmax;
+          column-gap: 2vmax;
+          grid-column-gap: 10vmin;
+        }
+      }
+      @media only screen and (max-width: 992px) {
+        .hero,
+        .section2,
+        .section3 {
+          flex-direction: column;
+        }
+        .section3 .leftSide {
+          width: 100%;
+        }
+        .hero {
+          align-items: end;
+        }
+        .hero div {
+          width: 100%;
+          order: 1;
+          padding: 5vmin 0;
+        }
+      }
+      @media only screen and (max-width: 768px) {
+        .section4 {
+          grid-template-columns: 1fr;
+          grid-template-rows: repeat(5, auto);
+        }
+        .section4 div:nth-child(1) {
+          grid-area: 1 / 1 / 2 / 2;
+        }
+        .section4 div:nth-child(2) {
+          grid-area: 2 / 1 / 3 / 2;
+        }
+        .section4 div:nth-child(3) {
+          grid-area: 3 / 1 / 4 / 2;
+        }
+        .section4 div:nth-child(4) {
+          grid-area: 4 / 1 / 5 / 2;
+        }
+        .section4 div:nth-child(5) {
+          grid-area: 5 / 1 / 6 / 2;
+        }
+      }
+      @media only screen and (max-width: 576px) {
+        .section3 .leftSide > div {
+          flex-direction: column;
+        }
+        .section3 .leftSide > div > div {
+          width: 100%;
+        }
+      }
     </style>
   </head>
+
   <body>
-    <section class="hero">
-      <img src="../assets/img/strutop-repo55.png" alt="" />
-      <div>
-        <h2>STRUTOP REPO55</h2>
-        <h1>ملات ترمیمی و چسب خمیری چند منظوره بر پایه اپوکسی و مقاوم در برابر اسید</h1>
-      </div>
-    </section>
-    <section>
-      <div>
-        <p>
-          ملات ترمیمی ضد اسید استراتاپ Repo55 یک ملات ترمیمی بتن سه جزئی بر پایه رزین اپوکسی اصالح
-          شده بدون حلال با قدرت چسبندگی و قوام زیاد و مقاومت مکانیکی و شیمیایی بالا می باشد. این
-          ملات ترمیمی ضد اسید برای ترمیم انواع سطوح عمودی و افقی بکار می رود و همچنین قوام ملات
-          آماده Repo55 به ما اجازه می دهد تا در سطوح بالاسری نیز از آن استفاده کنیم. این ترمیم کننده
-          را در هر مرحله تا 2 سانتیمتر بدون افت میتوانید اجرا کنید.این ملات ترمیمی ضد اسید جهت
-          بندکشی و کاشیکاری ضد اسید نیز می تواند مصرف گردد.
-        </p>
-      </div>
-      <div>
-        <h3>کاربری</h3>
-        <p>
-          ملات ترمیمی ضد اسید استراتاپ Repo55 برای ترمیم انواع بتن سازه ها و بخصوص سازه های تحت بار
-          مکانیکی و دینامیکی بالا به کار می رود. این محصول جهت ترمیم سازه های ذیل کاربرد دارد:
-        </p>
-        <p>
-          ترمیم انواع پی های تحت بار لرزه ای ترميم کلیه سطوح عمودی و افقی و بالاسری جهت ایجاد لایه
-          سطحی با مقاومت مکانیکی بالا، مقاوم در برابر سایش و مقاوم در برابر مواد شیمیایی ماهیچه کشی
-          انواع کفپوش های اپوکسی پرکردن درز ها و بندکشی ضد اسید چسباندن انواع کاشی و سرامیک به سطوح
-          نصب آرماتور و میلگرد در انواع مصالح ساختمانی چسباندن انواع صفحات فلزی به سطوح ساختمانی
-          مانند بتن، سنگ، آجر و … بسترسازی ضربه گیرهای پل
-        </p>
-      </div>
-    </section>
-    <section></section>
-    <section></section>
+    <main>
+      <section class="hero">
+        <div>
+          <h2>STRUTOP REPO55</h2>
+          <h1>ملات ترمیمی و چسب خمیری چند منظوره بر پایه اپوکسی و مقاوم در برابر اسید</h1>
+        </div>
+        <img src="../assets/img/strutop-repo55.png" alt="" />
+      </section>
+      <section class="section2">
+        <div>
+          <p>
+            ملات ترمیمی ضد اسید استراتاپ Repo55 یک ملات ترمیمی بتن سه جزئی بر پایه رزین اپوکسی اصالح
+            شده بدون حلال با قدرت چسبندگی و قوام زیاد و مقاومت مکانیکی و شیمیایی بالا می باشد. این
+            ملات ترمیمی ضد اسید برای ترمیم انواع سطوح عمودی و افقی بکار می رود و همچنین قوام ملات
+            آماده Repo55 به ما اجازه می دهد تا در سطوح بالاسری نیز از آن استفاده کنیم. این ترمیم
+            کننده را در هر مرحله تا 2 سانتیمتر بدون افت میتوانید اجرا کنید.این ملات ترمیمی ضد اسید
+            جهت بندکشی و کاشیکاری ضد اسید نیز می تواند مصرف گردد.
+          </p>
+        </div>
+        <div class="flexGrow">
+          <h3>کاربری</h3>
+          <p>
+            ملات ترمیمی ضد اسید استراتاپ Repo55 برای ترمیم انواع بتن سازه ها و بخصوص سازه های تحت
+            بار مکانیکی و دینامیکی بالا به کار می رود. این محصول جهت ترمیم سازه های ذیل کاربرد دارد:
+          </p>
+          <ul>
+            <li>ترمیم انواع پی های تحت بار لرزه ای</li>
+            <li>ترميم کلیه سطوح عمودی و افقی و بالاسری</li>
+            <li>
+              جهت ایجاد لایه سطحی با مقاومت مکانیکی بالا، مقاوم در برابر سایش و مقاوم در برابر مواد
+              شیمیایی
+            </li>
+            <li>ماهیچه کشی انواع کفپوش های اپوکسی</li>
+            <li>پرکردن درز ها و بندکشی ضد اسید</li>
+            <li>چسباندن انواع کاشی و سرامیک به سطوح</li>
+            <li>نصب آرماتور و میلگرد در انواع مصالح ساختمانی</li>
+            <li>چسباندن انواع صفحات فلزی به سطوح ساختمانی مانند بتن، سنگ، آجر و …</li>
+            <li>بسترسازی ضربه گیرهای پل</li>
+          </ul>
+        </div>
+      </section>
+      <section class="section3">
+        <img src="../assets/VectorProduct.svg" alt="" />
+        <div>
+          <h3>عملکرد و مزایا</h3>
+          <ul>
+            <li>دارای مقاومت‌های مکانیکی بالا در سنین اولیه و نهایی</li>
+            <li>بدون افت تا ضخامت 2 سانتیمتر و دارای خاصیت تيكسوتروپيك</li>
+            <li>مقاومت شیمیایی بالا در برابر مواد هیدروکربنی و شیمیایی</li>
+            <li>چسبندگی بالا به بتن، فولاد و سایر مصالح ساختمانی</li>
+            <li>بدون جمع‌شدگی</li>
+            <li>دارای قوام بالا و قابل استفاده در سطوح بالاسری</li>
+            <li>بدون انقباض</li>
+            <li>کاملا آب بند و مقاوم در برابر نفوذ یون های خورنده</li>
+            <li>فاقد یون کلر</li>
+          </ul>
+          <h3>استاندارد ها</h3>
+          <p>
+            ملات ترمیمی ضد اسید استراتاپ REPO55 با الزامات استاندارد ASTM C881/C881M مطابقت دارد.
+          </p>
+        </div>
+        <div class="leftSide">
+          <h3>اطلاعات محصول</h3>
+          <div>
+            <div>
+              <h4>شکل ظاهری</h4>
+              <p>جزء A : کرم رنگ</p>
+              <p>جزء B : مشکی رنگ</p>
+              <p>مخلوط: طوسی رنگ</p>
+              <h4>دانسیته ملات آماده</h4>
+              <p>مخلوط: gr/cm3 1/75±0/1 در 20 درجه سانتیگراد</p>
+              <h4>نسبت اختلاط</h4>
+              <p>3 قسمت وزنی جزء A به 1 قسمت وزنی جزء B</p>
+              <h4>دمای بهره ­برداری</h4>
+              <p>35- تا 65 درجه سانتیگراد</p>
+            </div>
+            <div>
+              <h4>میزان یون کلر</h4>
+              <p>فاقد یون کلر</p>
+              <h4>زمان ماندگاری</h4>
+              <p>حداقل 12 ماه</p>
+              <h4>شرایط نگهداری</h4>
+              <p>
+                در بسته­ بندی اولیه باز نشده به دور از نور مستقیم آفتاب، یخبندان، رطوبت و در دمای 5
+                تا 35 درجه سانتیگراد نگهداری گردد
+              </p>
+              <h4>بسته ­بندی</h4>
+              <p>مجموع 4 کیلوگرمی</p>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section class="section4">
+        <div>
+          <h3>اطلاعات عملکرد فنی</h3>
+          <table class="table">
+            <tbody>
+              <tr>
+                <td>روانی (ASTM C827) (cm)</td>
+                <td>12-15</td>
+              </tr>
+              <tr>
+                <td>حداقل زمان کارپذیری در دمای 25 درجه (دقیقه)</td>
+                <td>60</td>
+              </tr>
+              <tr>
+                <td>مقاومت چسبندگی (Pull off) (MPa)</td>
+                <td>بیشتر از 3/5 (مقاومت چسبندگی بتن)</td>
+              </tr>
+              <tr>
+                <td>حداقل مقاومت چسبندگی به فولاد (Pull Off) (MPa) (ISO 4624)</td>
+                <td>12</td>
+              </tr>
+              <tr>
+                <td>حداقل مقاومت فشاری 1، 7 روزه (ASTM C579) (MPa)</td>
+                <td>45، 70</td>
+              </tr>
+              <tr>
+                <td>حداقل مقاومت خمشی 7 روزه (ASTM C580) (MPa)</td>
+                <td>25</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <div>
+          <h3>اطلاعات نحوه مصرف</h3>
+          <ul>
+            <li>
+              میزان مصرف: میزان مصرف ملات ترمیمی ضد اسید بسته به شرایط ناهمواری سطح متغییر می ­باشد.
+              هر یک میلیمتر ضخامت پوشش برای یک متر مربع حدود 1/75 کیلوگرم از محصول استراتاپ
+              Repo55-M2 استفاده می­ گردد.
+            </li>
+            <li>
+              آماده سازی سطح زیر کار: باید سطح از کلیه آلودگی­ ها، روغن، چربی، رنگ، مواد کیورینگ و
+              آبگریز کننده ­های سیلیکونی یا سیلان و سایر عواملی که از چسبندگی ملات ترمیمی اپوکسی به
+              بتن جلوگیری می­ کنند پاک گردد.
+            </li>
+            <li>
+              اختلاط: جزء B را به جزء A اضافه کنید و با یک مخلوط کن مناسب با دور کند کمتر از 350 دور
+              در دقیقه (دریل و پره) به مدت سه دقیقه مخلوط کنید و پس از رسیدن به مخلوط همگن مدت
+              کوتاهی اجازه دهید تا هوای اضافه مخلوط خارج گردد. مخلوط ملات اپوکسی آماده اجراست. مخلوط
+              آماده در کمتر از 45 دقیقه مصرف گردد.
+            </li>
+            <li>
+              نحوه اعمال روی سطح: ملات آماده با کاردک یا ماله اجرا گردد. دمای سطح اجرا باید بین 5 تا
+              40 درجه باشد. این ملات به صورت تک جزئی در هر مرحله برای سطوح بالاسری و عمودی تا ضخامت
+              5 میلیمتر و برای سطوح افقی تا 2 سانتیمتر قابل اجرا می­ باشد.
+            </li>
+            <li>
+              تمیزکاری: بلافاصله بعد از اجرا، تجهیزات را با حلال اپوکسی استراکلین EPO تمیز و شستشو
+              دهید. مواد سخت شده فقط به روش­ های مکانیکی پاک می­ شوند.
+            </li>
+          </ul>
+        </div>
+        <div>
+          <h3>محدودیت ها</h3>
+          <ul>
+            <li>عمر بتن زیر کار حداقل 28 روز باشد.</li>
+            <li>دمای هوا زمان اجرا بیشتر از 5 درجه سانتیگراد و رطوبت هوا کمتر از 75 درصد باشد.</li>
+            <li>دمای سطوح ترمیمی کمتر از 3 درجه بیشتر از نقطه شبنم نباشد.</li>
+            <li>
+              در زمان ترمیم در گرما دمای اجزای ترمیم کننده اپوکسی باید 15 تا 25 درجه باشد. گرمای
+              بالای مخلوط زمان کارپذیری را به شدت کاهش می دهد.
+            </li>
+            <li>مخلوط ترمیم کننده اپوکسی را رقیق نکنید.</li>
+            <li>
+              مواد را در حجم کم و عمق کم در ظرف مناسب مخلوط کنید. اختلاط در حجم زیاد ماندن حرارت
+              حاصل از واکنش گروت تازه را افزایش داده و زمان کاربری ملات ترمیمی اپوکسی را کاهش می
+              دهد.
+            </li>
+          </ul>
+        </div>
+        <div>
+          <h3>محیط زیست، سلامت و ایمنی</h3>
+          <p>
+            بهتر است محصول ملات ترمیمی ضد اسید استراتاپ REPO55 در محیط زیست ریخته نشود و هرگونه
+            شستشوی ظروف پس از مصرف و … به فاضلاب قابل تصفیه انتقال پیدا کند. این محصول برای سلامت و
+            ایمنی افراد خطرناک نمی باشد ولی در تماس با پوست و چشم می تواند ایجاد حساسیت کند. برای
+            مصرف بهتر است که از عینک، ماسک و دستکش مناسب استفاده گردد. این محصول قبل از خشک شدن
+            آتشکیر می باشد. برای اطلاعات بیشتر به برگه مشخصات ایمنی محصول رجوع گردد.
+          </p>
+        </div>
+        <div>
+          <h3>مرجع اطلاعات داده شده</h3>
+          <p>
+            تمام اطلاعات این مشخصات فنی براساس آزمایشات آزمایشگاهی و تجربیات پروژه ای شرکت Strumix
+            می باشد. داده های واقعی اندازه گیری ممکن است به علت شرایطی فراتر از کنترل ما متفاوت
+            باشد. توصیه می شود که همیشه از ما آخرین برگه مشخصات فنی محصولات را بخواهید. همچنین زیر
+            ساخت های استفاده و روش درست استفاده در کارگاه بر عهده مشتریان می باشد و بخش فنی Strumix
+            می تواند اطلاعات لازم را در اختیار مشتری قرار دهد و یا با حضور در محل پروژه خدمات فنی
+            لازم را ارائه دهد.
+          </p>
+        </div>
+      </section>
+    </main>
   </body>
 </html>
