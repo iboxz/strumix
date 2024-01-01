@@ -1,0 +1,554 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-4PJ8JE8SW8"></script>
+    <script src="src/js/googleAnalytics.js"></script>
+
+    <script defer src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
+    <script defer src="https://www.gstatic.com/firebasejs/8.10.1/firebase-firestore.js"></script>
+    <script defer src="https://www.gstatic.com/firebasejs/8.10.1/firebase-storage.js"></script>
+    <script defer src="src/js/googleFirebase.js"></script>
+
+    <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="src/css/main.css" />
+    <style>
+      body {
+        font-family: "YekanBakhFaNum";
+        direction: rtl;
+        height: fit-content;
+        background: #f2ecdc;
+      }
+
+      main {
+        padding: 8vmin;
+      }
+
+      .topSection {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 10vmin;
+      }
+
+      .topSection h1 {
+        font-size: clamp(2rem, 4vw, 100rem);
+        line-height: 0.5;
+      }
+
+      .topSection h3 {
+        font-size: clamp(1rem, 1vw, 100rem);
+        font-weight: 400;
+        width: 25vw;
+        text-align: justify;
+        text-justify: auto;
+      }
+
+      .bottomSection {
+        display: flex;
+        justify-content: space-between;
+        align-items: start;
+      }
+
+      .bottomSection div:nth-child(1) {
+        font-size: clamp(0.8rem, 1vw, 100rem);
+        width: 40vw;
+        text-align: justify;
+        text-justify: auto;
+      }
+
+      .bottomSection .inputContainer {
+        width: 50%;
+      }
+
+      .bottomSection .inputContainer .flex {
+        display: flex;
+        justify-content: space-between;
+        width: 100%;
+      }
+
+      .bottomSection .inputContainer .inputCards {
+        border-bottom: 0.4vmin #c5c5c5 solid;
+        font-size: clamp(1rem, 1vw, 100rem);
+        width: 50vw;
+        position: relative;
+        margin: 3vmin;
+      }
+
+      .bottomSection .inputContainer .messageInputCard {
+        border: none;
+        display: block;
+        margin: 3vmin;
+
+        min-height: 20vh;
+        width: 100%;
+        font-size: clamp(1rem, 1vw, 100rem);
+      }
+
+      .bottomSection .messageInput {
+        min-height: 20vh;
+        width: 90%;
+        resize: vertical;
+        position: initial !important;
+        border: 0.4vmin #c5c5c5 solid !important;
+        border-radius: 2vmin;
+        padding: 1vmin;
+        transition: none;
+      }
+
+      .bottomSection .inputCards p {
+        z-index: 1;
+        pointer-events: none;
+      }
+
+      .bottomSection .inputCards p {
+        z-index: 1;
+        pointer-events: none;
+      }
+
+      .bottomSection .TextInput {
+        border: none;
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        top: 0;
+        right: 0;
+        background: 0 0;
+        padding: 1vmin;
+      }
+
+      .TextInput:focus {
+        outline: 0;
+      }
+
+      .inputCards input:focus ~ p,
+      .inputCards input:not(:placeholder-shown) ~ p {
+        transform: translate(0vmin, -3vmin);
+        font-size: clamp(0.8rem, 0.8vw, 100rem);
+      }
+
+      .bottomSection .fileInput {
+        font-size: clamp(1rem, 1vw, 100rem);
+        background: #ffab2e;
+        border-radius: 1vmin;
+        padding: 1vmin 2vmin;
+        margin: 3vmin;
+        color: white;
+        cursor: pointer;
+      }
+
+      input[type="file"] {
+        display: none;
+      }
+
+      .bottomSection .fileInputSpan {
+        font-size: clamp(0.6rem, 0.6vw, 100rem);
+        margin: 1vmin 3vmin;
+        white-space: nowrap;
+        display: table;
+      }
+
+      .bottomSection .rulesCheckBox {
+        font-size: clamp(0.8rem, 1vw, 100rem);
+        display: flex;
+        align-items: center;
+        justify-content: right;
+        margin-top: 1vmin;
+        padding: 0 2vmin;
+      }
+
+      .bottomSection .rulesCheckBox * {
+        cursor: pointer;
+      }
+
+      .bottomSection .rulesCheckBox input {
+        margin: 0 1vmin;
+        width: 4vmin;
+        height: 100%;
+        background-color: #ffcc80 !important;
+      }
+
+      .bottomSection .buttonCards {
+        margin: 1vmin 3vmin;
+        width: fit-content;
+        margin-right: auto;
+        background: #ffab2e;
+        color: #fff;
+        font-size: clamp(1rem, 1vw, 100rem);
+        border-radius: 1vmin;
+        cursor: pointer;
+        overflow: hidden;
+        position: relative;
+        padding: 1vmin 2vmin;
+      }
+
+      .bottomSection .buttonCards div:first-child {
+        position: absolute;
+        top: 100%;
+        font-size: clamp(1rem, 1vw, 100rem);
+      }
+
+      .bottomSection .buttonCards:hover div:first-child {
+        top: 50%;
+        transform: translateY(-50%);
+      }
+
+      .bottomSection .buttonCards:hover div:nth-child(2) {
+        transform: translateY(-150%);
+      }
+
+      .bottomSection .buttonCards div {
+        display: flex;
+      }
+
+      .bottomSection .buttonCards div > img {
+        width: 5vmin;
+        object-position: center;
+      }
+
+      @media only screen and (max-width: 767px) {
+        .topSection {
+          margin-top: 10vh;
+          flex-direction: column;
+        }
+
+        .topSection h1 {
+          line-height: 1;
+        }
+
+        .topSection h3 {
+          width: 100%;
+        }
+
+        .bottomSection {
+          flex-direction: column;
+          border-top: 0.4vmin #c5c5c5 solid;
+          padding-top: 10vmin;
+        }
+
+        .bottomSection div:nth-child(1) {
+          width: 100%;
+        }
+
+        .bottomSection .inputContainer {
+          width: 100%;
+        }
+
+        .bottomSection .inputContainer .flex {
+          flex-direction: column;
+        }
+
+        .bottomSection .inputContainer .inputCards {
+          width: 90%;
+        }
+
+        .inputCards input:focus ~ p,
+        .inputCards input:not(:placeholder-shown) ~ p {
+          transform: translate(0vmin, -5vmin);
+        }
+      }
+    </style>
+  </head>
+
+  <body>
+    <main>
+      <section class="topSection">
+        <h1>فرم درخواست همکاری</h1>
+        <h3>
+          در ارسال درخواست شک نکنید، ما همیشه برای ارتباط با افراد توانمند در این حوزه فعالیتی آماده
+          هستیم.
+        </h3>
+      </section>
+      <section class="bottomSection">
+        <div>
+          <p>
+            جهت ارسال درخواست همکاری، فرم را به دقت و به همراه رزومه تکميل کرده و ارسال نماييد،
+            اطلاعات ارتباطی خود را به صورت دقیق وارد کنید، بین 1-3 روز کاری برسی می‌کنیم و در صورت
+            پذیرش با شما تماس می‌گیریم.
+          </p>
+        </div>
+        <div class="inputContainer">
+          <div class="flex">
+            <div class="inputCards">
+              <input
+                id="name"
+                class="TextInput"
+                title="name"
+                type="text"
+                placeholder=" "
+                maxlength="70"
+                tabindex="1"
+                onkeydown="pushInputByEnter(event, 2)"
+                onblur="validateInput('name')"
+              />
+
+              <p>نام و نام خانوادگی*</p>
+            </div>
+            <div class="inputCards">
+              <input
+                id="email"
+                class="TextInput"
+                title="email"
+                type="text"
+                placeholder=" "
+                maxlength="100"
+                tabindex="2"
+                onkeydown="pushInputByEnter(event, 3)"
+                onblur="validateEmail()"
+              />
+
+              <p id="emailText">ایمیل*</p>
+            </div>
+          </div>
+          <div class="flex">
+            <div class="inputCards">
+              <input
+                id="phone"
+                class="TextInput"
+                title="phone"
+                type="text"
+                placeholder=" "
+                maxlength="20"
+                tabindex="3"
+                onkeydown="pushInputByEnter(event, 4)"
+                onblur="validateInput('phone')"
+              />
+
+              <p>تلفن تماس*</p>
+            </div>
+            <div class="inputCards">
+              <input
+                id="address"
+                class="TextInput"
+                title="address"
+                type="text"
+                placeholder=" "
+                maxlength="250"
+                tabindex="4"
+                onkeydown="pushInputByEnter(event, 5)"
+                onblur="validateInput('address')"
+              />
+
+              <p>ادرس سکونت*</p>
+            </div>
+          </div>
+          <div class="messageInputCard">
+            <p>پیام درخواست</p>
+            <textarea
+              id="message"
+              class="messageInput"
+              title="message"
+              rows="10"
+              cols="30"
+              name="comment"
+              maxlength="2000"
+              tabindex="5"
+              onkeydown="pushInputByEnter(event, 6)"
+              form="usrform"
+            ></textarea>
+            <span class="fileInputSpan" style="margin-top: -1vmin">حداکثر 2000 کرکتر*</span>
+          </div>
+          <label class="fileInput">
+            <input
+              type="file"
+              title="file"
+              id="file"
+              name="uploadFile"
+              accept=".pdf,.doc,.docx,.jpg,.jpeg,.png"
+              onchange="onUploadFile()"
+            />
+            <span id="fileLabelText">برای اپلود فایل کلیک کنید</span>
+          </label>
+          <span class="fileInputSpan">حداکثر حجم مجاز 10 مگابایت میباشد*</span>
+
+          <div class="g-recaptcha" data-sitekey="6LfrvkApAAAAAHB2MC--LcgsVUxGFyoem7weH7nR"></div>
+          <div class="rulesCheckBox">
+            <input
+              type="checkbox"
+              id="rules"
+              title="websiteRules"
+              name="tos"
+              value="active"
+              tabindex="6"
+            />
+            <label for="rules"
+              >با کلیک روی این دکمه تایید می‌کنید که قوانین وبسایت را مطالعه کرده‌اید.</label
+            >
+          </div>
+
+          <div type="submit" class="buttonCards" onclick="sendButton(this)">
+            <div>
+              <img src="assets/VectorFlesh1.svg" alt="" />
+              <p>ارسال</p>
+            </div>
+            <div>
+              <img src="assets/VectorFlesh1.svg" alt="" />
+              <p>ارسال</p>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+    <script>
+      function pushInputByEnter(event, nextTabIndex) {
+        if (event.key === "Enter") {
+          event.preventDefault();
+          const nextInput = document.querySelector(`[tabindex="${nextTabIndex}"]`);
+          if (nextInput) {
+            nextInput.focus();
+          }
+        }
+      }
+
+      function validateEmail() {
+        const emailCard = document.getElementById("email").parentElement;
+        const emailInput = document.getElementById("email");
+        const isValidEmail = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(emailInput.value);
+
+        emailCard.style.borderBottom = isValidEmail
+          ? "0.4vmin #c5c5c5 solid"
+          : "0.2vmin #FF2727 solid";
+        emailCard.style.color = isValidEmail ? "#000" : "#FF2727";
+
+        return isValidEmail;
+      }
+      function validateInput(inputId) {
+        const inputElement = document.getElementById(inputId);
+        const card = inputElement.parentElement;
+        const isEmpty = inputElement.value === "";
+
+        card.style.borderBottom = isEmpty ? "0.2vmin #FF2727 solid" : "0.4vmin #c5c5c5 solid";
+        card.style.color = isEmpty ? "#FF2727" : "#000";
+
+        return !isEmpty;
+      }
+      function validateCheckbox() {
+        var checkbox = document.getElementById("rules");
+        const isActive = checkbox.checked;
+        if (isActive) {
+          checkbox.parentElement.style.color = "#000";
+        } else {
+          checkbox.parentElement.style.color = "#FF2727";
+        }
+        return isActive;
+      }
+      function onUploadFile() {
+        var maxFileSizeMB = 10;
+        var fileInput = document.getElementById("file");
+        var fileSize = fileInput.files[0]?.size / (1024 * 1024) || 0;
+
+        const card = fileInput.parentElement;
+        const fileLabelText = card.getElementsByTagName("span");
+        const isFileUploaded = fileSize <= maxFileSizeMB;
+
+        if (fileSize > maxFileSizeMB) {
+          card.style.background = "#FF2727";
+          fileLabelText[0].innerText = `حجم فایل بیشتر از حداکثر مجاز است`;
+        } else if (fileSize < 0.001) {
+          card.style.background = "#FF2727";
+          fileLabelText[0].innerText = "فایل اپلود نشده";
+        } else {
+          card.style.background = "#4dc44b";
+          fileLabelText[0].innerText = `فایل تایید شد`;
+        }
+        return isFileUploaded;
+      }
+
+      async function sendButton(button) {
+        const nameValid = validateInput("name");
+        const phoneValid = validateInput("phone");
+        const addressValid = validateInput("address");
+        const isValid = validateEmail();
+        const isActive = validateCheckbox();
+        const isFileUploaded = onUploadFile();
+
+        var paragraphs = button.getElementsByTagName("p");
+
+        const recaptchaResponse = grecaptcha.getResponse();
+        const isRecaptchaFilled = recaptchaResponse !== "";
+
+        if (
+          isActive &&
+          isValid &&
+          nameValid &&
+          phoneValid &&
+          addressValid &&
+          isRecaptchaFilled &&
+          isFileUploaded
+        ) {
+          grecaptcha.reset();
+
+          for (var i = 0; i < paragraphs.length; i++) {
+            paragraphs[i].innerText = "در حال ارسال...";
+          }
+
+          const db = firebase.firestore();
+          jobRef = db.collection("job");
+
+          const { serverTimestamp } = firebase.firestore.FieldValue;
+
+          const nameInput = document.getElementById("name").value;
+          const emailInput = document.getElementById("email").value;
+          const phoneInput = document.getElementById("phone").value;
+          const addressInput = document.getElementById("address").value;
+          const customMessageInput = document.getElementById("message").value;
+
+          const fileInput = document.getElementById("file");
+          const file = fileInput.files[0];
+          var storageRef = firebase.storage().ref();
+          var jobRefFile = storageRef.child("job/" + nameInput);
+          var uploadTask = jobRefFile.put(file);
+          uploadTask.on(
+            "state_changed",
+            function (snapshot) {
+              var progress = (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
+
+              for (var i = 0; i < paragraphs.length; i++) {
+                paragraphs[i].innerText = `${progress.toFixed(2)}% در حال ارسال...`;
+              }
+            },
+            function (error) {
+              for (var i = 0; i < paragraphs.length; i++) {
+                paragraphs[i].innerText = `مشکلی در ارسال فایل ایجاد شده`;
+              }
+            },
+            function () {
+              jobRef
+                .add({
+                  name: nameInput,
+                  email: emailInput,
+                  phone: phoneInput,
+                  address: addressInput,
+                  message: customMessageInput,
+                  createdAt: serverTimestamp(),
+                })
+                .then((docRef) => {
+                  button.style.background = "#4dc44b";
+                  for (var i = 0; i < paragraphs.length; i++) {
+                    paragraphs[i].innerText = "ارسال شد، منتظر برسی باشید";
+                  }
+                  console.log("Data has been successfully added to the database.");
+                })
+                .catch((error) => {
+                  button.style.background = "#db2323";
+                  for (var i = 0; i < paragraphs.length; i++) {
+                    paragraphs[i].innerText = "به دیتابیس ارسال نشد، دوباره تلاش کنید";
+                  }
+                  console.error("Error adding document: ", error);
+                });
+            }
+          );
+        } else {
+          button.style.background = "#db2323";
+          for (var i = 0; i < paragraphs.length; i++) {
+            paragraphs[i].innerText = "جاهای خالی را پر کنید";
+          }
+          console.log("The required content is not filled (Please submit all required content)");
+        }
+      }
+    </script>
+  </body>
+</html>

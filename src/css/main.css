@@ -1,0 +1,58 @@
+@font-face {
+  font-family: YekanBakhFaNum;
+  src: url("../../assets/fonts/YekanBakhFaNum-Regular.woff2") format("woff2");
+  font-weight: 400;
+}
+@font-face {
+  font-family: YekanBakhFaNum;
+  src: url("../../assets/fonts/YekanBakhFaNum-Bold.woff2") format("woff2");
+  font-weight: 600;
+}
+
+@font-face {
+  font-family: YekanBakhFaNum;
+  src: url("../../assets/fonts/YekanBakhFaNum-Fat.woff2") format("woff2");
+  font-weight: 900;
+}
+
+body,
+html {
+  margin: 0;
+  padding: 0;
+  scroll-behavior: smooth;
+  -webkit-text-size-adjust: 100%;
+  -webkit-font-smoothing: antialiased;
+}
+
+* {
+  box-sizing: border-box;
+  transition: 0.2s;
+  user-select: none;
+  margin: 0;
+  padding: 0;
+}
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: #c5c3a8;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #22272c;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #000;
+}
+
+::-moz-selection {
+  color: #000;
+  background: #b18a46;
+}
+
+::selection {
+  color: #000;
+  background: #b18a46;
+}
