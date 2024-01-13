@@ -78,6 +78,8 @@ span {
   border-radius: 100%;
   width: 55vmin;
   height: 55vmin;
+
+  object-fit: cover;
 }
 .hero div {
   width: 50%;
@@ -303,6 +305,8 @@ span {
   height: 45vmin;
   border-radius: 100vmax;
 
+  object-fit: cover;
+
   -webkit-user-drag: none;
   -khtml-user-drag: none;
   -moz-user-drag: none;
@@ -322,6 +326,7 @@ span {
   font-weight: 900;
   padding: 0 2vmin;
   background-color: #fdfaf3;
+  user-select: none;
 }
 
 .otherProduct .otherProductContent {
@@ -343,7 +348,7 @@ span {
 
   display: flex;
   flex-direction: column;
-  justify-content: space-around;
+  justify-content: space-between;
 
   height: 70vh;
   padding: 4vmin;

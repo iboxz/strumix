@@ -118,7 +118,7 @@ function addSection(products) {
     const titleFa = document.createElement("h3");
     titleFa.textContent = product.name.fa;
 
-    const titleEn = document.createElement("h3");
+    const titleEn = document.createElement("span");
     titleEn.textContent = product.name.en;
 
     productInfo.appendChild(titleEn);
