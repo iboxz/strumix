@@ -138,14 +138,28 @@ function addSection(products) {
     otherProductContent.appendChild(otherProductItem);
   });
 }
-
 fetch("products.json")
   .then((response) => response.json())
   .then((data) => {
-    const strutopProducts = data.categories.find(
-      (category) => category.name === "strutop"
-    ).products;
-    addSection(strutopProducts);
+    const currentUrl = window.location.href;
+
+    if (
+      ["strutop", "strutile", "struseal", "strufiber"].some((keyword) =>
+        currentUrl.includes(keyword)
+      )
+    ) {
+      const strutopProducts = data.categories.find(
+        (category) => category.name === "strutop"
+      ).products;
+      addSection(strutopProducts);
+    } else if (currentUrl.includes("strubond")) {
+      const strubondProducts = data.categories.find(
+        (category) => category.name === "strubond"
+      ).products;
+      addSection(strubondProducts);
+    } else {
+      console.error("Invalid category specified in the URL");
+    }
   })
   .catch((error) => console.error("Error fetching data:", error));
 
@@ -206,7 +220,7 @@ window.addEventListener("load", async () => {
     const mousemoveHandler = (e) => {
       const mx2 = e.pageX - content.offsetLeft;
       if (mx) {
-      content.classList.add("dragging");
+        content.classList.add("dragging");
         content.scrollLeft = content.sx + mx - mx2;
       }
     };

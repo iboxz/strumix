@@ -193,7 +193,6 @@ span {
 }
 .section4 .table tr td:last-child {
   text-align: left;
-  padding-right: 5vmin;
 }
 .section4 div:nth-child(1) {
   grid-area: 1 / 2 / 2 / 3;
@@ -216,6 +215,7 @@ span {
   display: flex;
   flex-direction: column;
   justify-content: center;
+  align-self: flex-end;
   padding: 3vmin;
   height: fit-content;
 }
