@@ -90,7 +90,7 @@ if (window.innerWidth > 992) {
       trigger: ".section2",
       start: "top center",
       end: `+=${document.body.offsetHeight} bottom`,
-      toggleActions: "play reverse play reverse", 
+      toggleActions: "play reverse play reverse",
     },
   });
 
@@ -128,8 +128,12 @@ function addSection(products) {
     image.src = `../assets/img/${product.image}`;
     image.alt = `${product.image} Image`;
 
-    otherProductItem.appendChild(productInfo);
-    otherProductItem.appendChild(image);
+    const LinkContainer = document.createElement("a");
+    LinkContainer.href = product.url;
+
+    LinkContainer.appendChild(productInfo);
+    LinkContainer.appendChild(image);
+    otherProductItem.appendChild(LinkContainer);
 
     otherProductContent.appendChild(otherProductItem);
   });
@@ -202,13 +206,13 @@ window.addEventListener("load", async () => {
     const mousemoveHandler = (e) => {
       const mx2 = e.pageX - content.offsetLeft;
       if (mx) {
+      content.classList.add("dragging");
         content.scrollLeft = content.sx + mx - mx2;
       }
     };
     const mousedownHandler = (e) => {
       content.sx = content.scrollLeft;
       mx = e.pageX - content.offsetLeft;
-      content.classList.add("dragging");
       otherProductHeader.classList.add("active");
     };
 

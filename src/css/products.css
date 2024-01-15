@@ -159,8 +159,8 @@ span {
 .section3 h3 {
   padding: 5vmin 0 3vmin 0;
 }
-.section3 .leftSide {
-  width: 40%;
+.section3 > div {
+  width: 50%;
 }
 .section3 .leftSide > div {
   display: flex;
@@ -249,7 +249,7 @@ span {
   .section3 {
     flex-direction: column;
   }
-  .section3 .leftSide {
+  .section3 > div {
     width: 100%;
   }
   .hero {
@@ -313,6 +313,9 @@ span {
   -o-user-drag: none;
   user-drag: none;
 }
+.otherProduct a {
+  text-decoration: none;
+}
 .otherProduct .otherProductWrapper {
   position: relative;
 }
@@ -346,15 +349,22 @@ span {
   user-select: none;
   cursor: pointer;
 
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-
   height: 70vh;
   padding: 4vmin;
   margin: 7vmin 1.5vmin;
 
   transition: background-color 0.3s ease;
+}
+.otherProduct .dragging a {
+  pointer-events: none;
+}
+.otherProduct .otherProductItem > a {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100%;
+
+  color: black;
 }
 .otherProduct .otherProductItem:nth-child(1) {
   background-color: #e9e5db;
