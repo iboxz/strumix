@@ -9,8 +9,9 @@ h4,
 h4,
 h6 {
   font-weight: 600;
+  font-family: "Rokh";
 }
-span {
+.englishText {
   font-family: "Montserrat", "YekanBakhFaNum";
 }
 .flexGrow {
@@ -68,6 +69,11 @@ span {
   z-index: 999;
 }
 /* start hero */
+@font-face {
+  font-family: "Rokh";
+  src: url("../../assets/fonts/Rokh-Bold.woff2") format("woff2");
+  font-weight: 900;
+}
 .hero {
   display: flex;
   justify-content: space-between;
@@ -112,6 +118,8 @@ span {
 
 .hero div h1 {
   font-size: clamp(1.3rem, 4vw, 100rem);
+  font-family: "Rokh";
+  font-weight: 900;
 }
 
 .hero div h2 {
@@ -155,6 +163,11 @@ span {
   top: 5vmin;
   left: 5vmin;
   width: 15vmax;
+  -webkit-user-drag: none;
+  -khtml-user-drag: none;
+  -moz-user-drag: none;
+  -o-user-drag: none;
+  user-drag: none;
 }
 .section3 h3 {
   padding: 5vmin 0 3vmin 0;
@@ -191,8 +204,12 @@ span {
 .section4 .table {
   width: 100%;
 }
-.section4 .table tr td:last-child {
+.section4 .table tr td:not(:first-child) {
   text-align: left;
+  white-space: nowrap;
+}
+.section4 .table tr td:first-child {
+  max-width: 10vw;
 }
 .section4 div:nth-child(1) {
   grid-area: 1 / 2 / 2 / 3;
@@ -283,6 +300,9 @@ span {
   }
   .section4 div:nth-child(5) {
     grid-area: 5 / 1 / 6 / 2;
+  }
+  .section4 .table tr td:first-child {
+    max-width: 50vw;
   }
 }
 @media only screen and (max-width: 576px) {

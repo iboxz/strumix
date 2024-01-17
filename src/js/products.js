@@ -157,6 +157,11 @@ fetch("products.json")
         (category) => category.name === "strubond"
       ).products;
       addSection(strubondProducts);
+    } else if (currentUrl.includes("strugrout")) {
+      const strubondProducts = data.categories.find(
+        (category) => category.name === "strugrout"
+      ).products;
+      addSection(strubondProducts);
     } else {
       console.error("Invalid category specified in the URL");
     }
