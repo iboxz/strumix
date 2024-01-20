@@ -119,6 +119,7 @@ function addSection(products) {
     titleFa.textContent = product.name.fa;
 
     const titleEn = document.createElement("span");
+    titleEn.classList.add("englishText");
     titleEn.textContent = product.name.en;
 
     productInfo.appendChild(titleEn);
@@ -138,33 +139,61 @@ function addSection(products) {
     otherProductContent.appendChild(otherProductItem);
   });
 }
+function getRandomItems(array, count) {
+  const shuffledArray = array.sort(() => 0.5 - Math.random());
+  return shuffledArray.slice(0, count);
+}
+
 fetch("products.json")
   .then((response) => response.json())
   .then((data) => {
     const currentUrl = window.location.href;
 
+    if (currentUrl.includes("strutile")) {
+      selectedProducts = data.categories.find((category) => category.name === "strutile").products;
+
+      const randomProducts = getRandomItems(selectedProducts, 10);
+      addSection(randomProducts);
+    }
+    if (currentUrl.includes("strubond")) {
+      selectedProducts = data.categories.find((category) => category.name === "strubond").products;
+
+      const randomProducts = getRandomItems(selectedProducts, 10);
+      addSection(randomProducts);
+    }
+    if (currentUrl.includes("strugrout")) {
+      selectedProducts = data.categories.find((category) => category.name === "strugrout").products;
+
+      const randomProducts = getRandomItems(selectedProducts, 10);
+      addSection(randomProducts);
+    }
+    if (currentUrl.includes("strumould")) {
+      selectedProducts = data.categories.find((category) => category.name === "strumould").products;
+
+      const randomProducts = getRandomItems(selectedProducts, 10);
+      addSection(randomProducts);
+    }
     if (
       ["strutop", "strutile", "struseal", "strufiber"].some((keyword) =>
         currentUrl.includes(keyword)
       )
     ) {
-      const strutopProducts = data.categories.find(
-        (category) => category.name === "strutop"
-      ).products;
-      addSection(strutopProducts);
-    } else if (currentUrl.includes("strubond")) {
-      const strubondProducts = data.categories.find(
-        (category) => category.name === "strubond"
-      ).products;
-      addSection(strubondProducts);
-    } else if (currentUrl.includes("strugrout")) {
-      const strubondProducts = data.categories.find(
-        (category) => category.name === "strugrout"
-      ).products;
-      addSection(strubondProducts);
-    } else {
-      console.error("Invalid category specified in the URL");
+      selectedProducts = data.categories.find((category) => category.name === "strutop").products;
+
+      const randomProducts = getRandomItems(selectedProducts, 10);
+      addSection(randomProducts);
     }
+    if (
+      ["strufloor", "strutile", "dalcoub", "strufiber"].some((keyword) =>
+        currentUrl.includes(keyword)
+      )
+    ) {
+      selectedProducts = data.categories.find((category) => category.name === "strufloor").products;
+
+      const randomProducts = getRandomItems(selectedProducts, 10);
+      addSection(randomProducts);
+    }
+    console.log(selectedProducts);
   })
   .catch((error) => console.error("Error fetching data:", error));
 

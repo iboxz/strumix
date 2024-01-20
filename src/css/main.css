@@ -68,6 +68,13 @@
     U+0308, U+0329, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF,
     U+FFFD;
 }
+/* Rokh bold */
+
+@font-face {
+  font-family: "Rokh";
+  src: url("../../assets/fonts/Rokh-Bold.woff2") format("woff2");
+  font-weight: 700;
+}
 html {
   margin: 0;
   padding: 0;
@@ -75,7 +82,8 @@ html {
   -webkit-text-size-adjust: 100%;
   -webkit-font-smoothing: antialiased;
 }
-body, html{
+body,
+html {
   height: 100lvh;
 }
 
