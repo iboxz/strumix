@@ -170,6 +170,10 @@ h6 {
 .section3 h3 {
   padding: 5vmin 0 3vmin 0;
 }
+.section3 p {
+  text-align: justify;
+  text-justify: auto;
+}
 .section3 > div {
   width: 50%;
 }
@@ -201,6 +205,9 @@ h6 {
 }
 .section4 .table {
   width: 100%;
+}
+.section4 .table thead {
+  white-space: nowrap;
 }
 .section4 .table tr td:not(:first-child) {
   text-align: left;
