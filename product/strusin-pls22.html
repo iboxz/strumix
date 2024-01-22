@@ -14,6 +14,9 @@
     <script src="https://cdn.glitch.global/8352fc0e-bebe-4680-ae0b-269da8b54259/SplitText.min.js"></script>
     <script src="https://cdn.glitch.global/8352fc0e-bebe-4680-ae0b-269da8b54259/CSSRulePlugin.min.js"></script>
 
+    <script src="https://cdn.glitch.global/6f0f9fdb-4150-44df-9526-2d7aa35d32a8/chart.js"></script>
+    <script defer src="../src/js/lineChart.js"></script>
+
     <script defer src="../src/js/addSpanForEnglish.js"></script>
     <script defer src="../src/js/products.js"></script>
     <script defer src="../src/js/horizontalScrollbar.js"></script>
@@ -156,10 +159,11 @@
           <div>
             <h3>نتایج تست موردی</h3>
             <p>
-              طرح اختلاط حاوی ۵۵ درصد ماسه (۶۰) با ۴۵ درصد شن (۴-۲۵/۷۵) و با عیار سیمانی ۳۷۵ کیلوگرم
-              :در متر مکعب و نسبت آب به سیمان برابر ۴۵ بود که نتایج ذیل حاصل شد
+              طرح اختلاط حاوی ۵۵ درصد ماسه (0-6) با ۴۵ درصد شن (۴-۲۵/۷۵) و با عیار سیمانی ۳۷۵
+              کیلوگرم در متر مکعب و نسبت آب به سیمان برابر 0/45 بود که نتایج ذیل حاصل شد
             </p>
             <br />
+
             <table class="table">
               <thead>
                 <tr>
@@ -190,6 +194,12 @@
                 </tr>
               </tbody>
             </table>
+            <br />
+            <div class="chartContainer">
+              <canvas id="Chart"
+                >المنت کانوا نمایش داده نشد، صفحه را رفرش کنید یا مرورگر را بروزرسانی کنی</canvas
+              >
+            </div>
           </div>
           <div>
             <h3>محدودیت ها</h3>
@@ -241,5 +251,12 @@
         </section>
       </div>
     </main>
+    <script>
+      var labelYellow = "w/c=0.45 & Dosage(r=0.3)% weight of cement";
+      var labelRed = "w(c=0.45) & Dosage=0.50% weight of cement";
+      var dataYellow = [17, 16, 14, 10, 7, 5, 3];
+      var dataRed = [23, 22, 18, 15, 12, 7, 5];
+      var titleText = "Slump Retention (Strusin PLS22)";
+    </script>
   </body>
 </html>

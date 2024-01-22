@@ -14,6 +14,9 @@
     <script src="https://cdn.glitch.global/8352fc0e-bebe-4680-ae0b-269da8b54259/SplitText.min.js"></script>
     <script src="https://cdn.glitch.global/8352fc0e-bebe-4680-ae0b-269da8b54259/CSSRulePlugin.min.js"></script>
 
+    <script src="https://cdn.glitch.global/6f0f9fdb-4150-44df-9526-2d7aa35d32a8/chart.js"></script>
+    <script defer src="../src/js/lineChart.js"></script>
+
     <script defer src="../src/js/addSpanForEnglish.js"></script>
     <script defer src="../src/js/products.js"></script>
     <script defer src="../src/js/horizontalScrollbar.js"></script>
@@ -188,6 +191,12 @@
                 </tr>
               </tbody>
             </table>
+            <br />
+            <div class="chartContainer">
+              <canvas id="Chart"
+                >المنت کانوا نمایش داده نشد، صفحه را رفرش کنید یا مرورگر را بروزرسانی کنی</canvas
+              >
+            </div>
           </div>
           <div>
             <h3>محدودیت ها</h3>
@@ -239,5 +248,12 @@
         </section>
       </div>
     </main>
+    <script>
+      var labelYellow = "w/c=0.34 & Dosage=0.4% weight of cement";
+      var labelRed = "w/c=0.34 & Dosage=0.5% weight of cement";
+      var dataYellow = [18, 18, 17, 15, 13, 10, 8];
+      var dataRed = [22, 21, 21, 20, 20, 17, 15];
+      var titleText = "Slump Retention (Strusin R530)";
+    </script>
   </body>
 </html>
