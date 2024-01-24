@@ -1,0 +1,31 @@
+{
+    "categories": [
+      {
+        "name": "strutop",
+        "products": [
+          {
+            "id": 1,
+            "url": "strutop-repo55.html"
+          },
+          {
+            "id": 2,
+            "url": "strutop-cem260.html"
+          }
+        ]
+      },
+      {
+        "name": "strubond",
+        "products": [
+          {
+            "id": 1,
+            "url": "strubond-ep500.html"
+          },
+          {
+            "id": 2,
+            "url": "strutop-cem260.html"
+          }
+        ]
+      }
+    ]
+  }
+  
