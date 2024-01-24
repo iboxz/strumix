@@ -148,20 +148,17 @@ fetch("products.json")
   .then((data) => {
     const currentUrl = window.location.href;
 
-    const selectedCategory = data.categories.find((category) => {
-      if (Array.isArray(category.name)) {
-        return category.name.some((name) => currentUrl.includes(name));
-      } else {
-        return currentUrl.includes(category.name);
+    const selectedCategories = [];
+    for (const category of data.categories) {
+      const products = category.products.filter((product) => currentUrl.includes(product.url));
+      if (products.length) {
+        selectedCategories.push(category);
       }
-    });
+    }
 
-    console.log(data.categories);
-    console.log(selectedCategory);
-    if (selectedCategory) {
-      const randomProducts = getRandomItems(selectedCategory.products, 10);
+    for (const category of selectedCategories) {
+      const randomProducts = getRandomItems(category.products, 10);
       addSection(randomProducts);
-      console.log(selectedCategory.products);
     }
   })
   .catch((error) => console.error("Error fetching data:", error));
