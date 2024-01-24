@@ -64,10 +64,10 @@ gsap.to(".hero img", {
 if (window.innerWidth > 992) {
   // pin: true .hero div section
   var section4 = document.querySelector(".section4");
-  gsap.to(".hero div", {
+  gsap.to(".hero > div", {
     scrollTrigger: {
-      trigger: ".hero div",
-      start: "-40% top",
+      trigger: ".hero > div",
+      start: "-10% top",
       end: `+=${section4.offsetTop} 20%`,
       scrub: 2,
       pin: true,
