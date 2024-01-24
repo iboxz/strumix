@@ -2,7 +2,7 @@ async function initializeChart() {
   var ctx = document.getElementById("Chart").getContext("2d");
   if (window.myChart) window.myChart.destroy();
   var lineChartData = {
-    labels: ["0", "15", "30", "45", "60", "75", "90"],
+    labels: labels,
     datasets: [
       {
         label: labelYellow,
@@ -31,7 +31,9 @@ async function initializeChart() {
       scales: {
         y: {
           beginAtZero: true,
-          stepSize: 4,
+          ticks: {
+            stepSize: 4,
+          },
           max: 24,
           title: {
             display: true,
