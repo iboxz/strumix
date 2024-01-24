@@ -9,14 +9,14 @@ async function initializeChart() {
         borderColor: "rgba(220,180,0,1)",
         pointBackgroundColor: "rgba(220,180,0,1)",
         data: dataYellow,
-        tension: 0.1,
+        tension: 0.3,
       },
       {
         label: labelRed,
         borderColor: "rgba(193, 27, 33, 1)",
         pointBackgroundColor: "rgba(193, 27, 33, 1)",
         data: dataRed,
-        tension: 0.1,
+        tension: 0.3,
       },
     ],
   };

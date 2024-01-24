@@ -165,7 +165,6 @@ h6 {
   -khtml-user-drag: none;
   -moz-user-drag: none;
   -o-user-drag: none;
-  user-drag: none;
 }
 .section3 h3 {
   padding: 5vmin 0 3vmin 0;
@@ -355,7 +354,6 @@ h6 {
   -khtml-user-drag: none;
   -moz-user-drag: none;
   -o-user-drag: none;
-  user-drag: none;
 }
 .otherProduct a {
   text-decoration: none;
