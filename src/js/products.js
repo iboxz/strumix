@@ -204,7 +204,7 @@ window.addEventListener("load", async () => {
         });
       });
     }
-
+ 
     if (prevButton) {
       prevButton.addEventListener("click", function (event) {
         otherProductHeader.classList.add("active");
