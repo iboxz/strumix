@@ -1,31 +1,59 @@
 {
-    "categories": [
-      {
-        "name": "strutop",
-        "products": [
-          {
-            "id": 1,
-            "url": "strutop-repo55.html"
+  "categories": [
+    {
+      "name": "strubar",
+      "faName": "واتراستاپ پی وی سی",
+      "subCategory": "waterstop",
+      "products": [
+        {
+          "id": 1,
+          "url": "strubar.html",
+          "name": {
+            "fa": "واتراستاپ پی وی سی",
+            "en": "STRUBAR"
           },
-          {
-            "id": 2,
-            "url": "strutop-cem260.html"
-          }
-        ]
-      },
-      {
-        "name": "strubond",
-        "products": [
-          {
-            "id": 1,
-            "url": "strubond-ep500.html"
+          "image": "strumin-complex.jpg"
+        }
+      ]
+    },
+    {
+      "name": "struswell",
+      "faName": "واتراستاپ هیدروفیلی منبسط شونده",
+      "subCategory": "waterstop",
+      "products": [
+        {
+          "id": 1,
+          "url": "struswell.html",
+          "name": {
+            "fa": "واتراستاپ هیدروفیلی منبسط شونده",
+            "en": "STRUSWELL"
           },
-          {
-            "id": 2,
-            "url": "strutop-cem260.html"
-          }
-        ]
-      }
-    ]
-  }
-  
+          "image": "struproof-ws.png"
+        }
+      ]
+    },
+    {
+      "name": "plastic-spacers",
+      "products": [
+        {
+          "id": 1,
+          "url": "plastic-spacers.html",
+          "name": {
+            "fa": "اسپیسر پلاستیکی بتن",
+            "en": "Plastic Spacers"
+          },
+          "image": "Spacers.jpg"
+        },
+        {
+          "id": 2,
+          "url": "spacers.html",
+          "name": {
+            "fa": "2اسپیسر پلاستیکی بتن",
+            "en": "Plastic Spacers2"
+          },
+          "image": "Spacers.jpg"
+        }
+      ]
+    }
+  ]
+}
