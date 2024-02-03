@@ -63,24 +63,25 @@ gsap.to(".hero img", {
 
 if (window.innerWidth > 992) {
   // pin: true .hero div section
-  var section4 = document.querySelector(".section4");
+  var section3 = document.querySelector(".section3");
   gsap.to(".hero > div", {
     scrollTrigger: {
       trigger: ".hero > div",
       start: "-10% top",
-      end: `+=${section4.offsetTop} 20%`,
+      end: `+=${section3.offsetTop} top`,
       scrub: 2,
       pin: true,
       // markers: true,
+      markers: true,
       pinSpacing: false,
     },
     duration: 1,
   });
 
   // change text color
-  gsap.to(".hero div", {
-    opacity: "0.9",
+  gsap.to(".hero > div", {
     scale: "0.8",
+    opacity: "0.8",
     x: "10%",
     zIndex: -1,
     color: "#f2ecdc",
@@ -93,7 +94,6 @@ if (window.innerWidth > 992) {
       toggleActions: "play reverse play reverse",
     },
   });
-
   // add background color
   gsap.to(CSSRulePlugin.getRule(".hero div > div:before"), {
     transform: "scaleX(1)",
@@ -201,7 +201,7 @@ window.addEventListener("load", async () => {
         });
       });
     }
- 
+
     if (prevButton) {
       prevButton.addEventListener("click", function (event) {
         otherProductHeader.classList.add("active");

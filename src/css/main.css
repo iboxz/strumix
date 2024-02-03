@@ -75,6 +75,13 @@
   src: url("../../assets/fonts/Rokh-Bold.woff2") format("woff2");
   font-weight: 700;
 }
+/* damn font */
+
+@font-face {
+  font-family: "Damn";
+  src: url("../../assets/fonts/Damn.woff") format("woff");
+  font-weight: 400;
+}
 html {
   margin: 0;
   padding: 0;
@@ -116,4 +123,23 @@ html {
 ::selection {
   color: #000;
   background: #b18a46;
+}
+
+/* start scrollbar */
+
+#scrollbar-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 0.5vmin;
+  min-height: 4px;
+  background-color: #f1f1f1;
+  z-index: 998;
+}
+
+#scrollbar {
+  width: 0;
+  height: 100%;
+  background-color: hsl(47, 37%, 44%);
 }

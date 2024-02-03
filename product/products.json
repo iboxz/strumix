@@ -2,6 +2,8 @@
   "categories": [
     {
       "name": "strutop",
+      "faName": "پوشش های سطحی،درزگیر و ترمیم کننده های سطحی بتن",
+      "subCategory": "constructionChemicals",
       "products": [
         {
           "id": 1,
@@ -227,6 +229,8 @@
     },
     {
       "name": "strubond",
+      "faName": "چسب بتن آب بند و استحکامی",
+      "subCategory": "constructionChemicals",
       "products": [
         {
           "id": 1,
@@ -282,6 +286,8 @@
     },
     {
       "name": "strugrout",
+      "faName": "گروت سیمانی و اپوکسی",
+      "subCategory": "constructionChemicals",
       "products": [
         {
           "id": 1,
@@ -336,7 +342,9 @@
       ]
     },
     {
-      "name": ["strufloor", "strutile", "strufiber"],
+      "name": "strufloor",
+      "faName": "کفپوش های صنعتی و ساختمان",
+      "subCategory": "constructionChemicals",
       "products": [
         {
           "id": 1,
@@ -382,6 +390,8 @@
     },
     {
       "name": "strutile",
+      "faName": "چسب کاشی و پودر بندکشی",
+      "subCategory": "constructionChemicals",
       "products": [
         {
           "id": 1,
@@ -447,6 +457,8 @@
     },
     {
       "name": "strumould",
+      "faName": "روغن قالب بتن",
+      "subCategory": "constructionChemicals",
       "products": [
         {
           "id": 1,
@@ -482,6 +494,8 @@
     },
     {
       "name": "strucure",
+      "faName": "کیورینگ (عمل آورنده) بتن",
+      "subCategory": "constructionChemicals",
       "products": [
         {
           "id": 1,
@@ -517,6 +531,8 @@
     },
     {
       "name": "struclean",
+      "faName": "حلال و تمیز کننده های سطوح و ابزار",
+      "subCategory": "constructionChemicals",
       "products": [
         {
           "id": 1,
@@ -542,6 +558,8 @@
     },
     {
       "name": "strusin",
+      "faName": "ابر روان کننده کربوکسیلاتی بتن",
+      "subCategory": "concreteAdditive",
       "products": [
         {
           "id": 1,
@@ -687,6 +705,8 @@
     },
     {
       "name": "struplast",
+      "faName": "فوق روان کننده بتن و روان کننده های بتن",
+      "subCategory": "concreteAdditive",
       "products": [
         {
           "id": 1,
@@ -812,6 +832,8 @@
     },
     {
       "name": "struseal",
+      "faName": "آب بند کننده های کریستالی بتن با عملکرد خود ترمیمی",
+      "subCategory": "concreteAdditive",
       "products": [
         {
           "id": 1,
@@ -867,6 +889,8 @@
     },
     {
       "name": "strumin",
+      "faName": "ژل میکروسیلیس بتن / دوغاب میکروسیلیس",
+      "subCategory": "concreteAdditive",
       "products": [
         {
           "id": 1,
@@ -942,6 +966,8 @@
     },
     {
       "name": "struproof",
+      "faName": "آب بند کننده های حجمی بتن",
+      "subCategory": "concreteAdditive",
       "products": [
         {
           "id": 1,
@@ -977,6 +1003,8 @@
     },
     {
       "name": "struset",
+      "faName": "ضد یخ بتن، زودگیرها و دیرگیر های بتن و ملات",
+      "subCategory": "concreteAdditive",
       "products": [
         {
           "id": 1,
@@ -1042,6 +1070,8 @@
     },
     {
       "name": "struton",
+      "faName": "رزین سنگ مصنوعی",
+      "subCategory": "concreteAdditive",
       "products": [
         {
           "id": 1,
@@ -1067,6 +1097,8 @@
     },
     {
       "name": "other",
+      "faName": "سایر افزودنی های بتن",
+      "subCategory": "concreteAdditive",
       "products": [
         {
           "id": 1,
@@ -1102,6 +1134,8 @@
     },
     {
       "name": "strubar",
+      "faName": "واتراستاپ پی وی سی",
+      "subCategory": "waterstop",
       "products": [
         {
           "id": 1,
@@ -1117,6 +1151,8 @@
     },
     {
       "name": "struswell",
+      "faName": "واتراستاپ هیدروفیلی منبسط شونده",
+      "subCategory": "waterstop",
       "products": [
         {
           "id": 1,
@@ -1141,7 +1177,22 @@
             "en": "Plastic Spacers"
           },
           "description": "تهاجم عوامل محیطی یکی از اصلی ترین دلایل تخریب بتن تقویت شده با میلگرد فولادی می باشد. پوشش بتن که به فاصله سطح بتن تا سطح اولین میلگرد گفته می شود، یکی از مهم ترین پارامترهای سنجش کیفیت اجرای بتن است. در صورت عدم رعایت پوشش بتن و کم بودن آن، املاح خورنده با سرعت بیشتری به میلگرد رسیده و سبب خوردگی آن و در نتیجه انبساط دور آرماتور و ترک بتن می گردند و با رشد ترکها سرعت تخریب بتن نیز به شدت افزایش می یابد. به طور کلی کاهش پوشش بتن در میحط های خورنده می تواند به شدت عمر و دوام سازه را کاهش دهد. اسپیسرهای پلاستیکی بتن با تنظیم دقیق پوشش بتن و استحکام بالا می توانند عمر سازه های بتنی را افزایش دهند. اسپیسرهای پلاستیکی بتن در سایز و ابعاد مختلف و کاربردهای گوناگون مورد استفاده قرار میگیرند. در ادامه محصولات این دسته قابل مشاهده می باشد.",
-          "image": "Spacers.jp"
+          "image": "Spacers.jpg"
+        }
+      ]
+    },
+    {
+      "name": "raw-materials",
+      "products": [
+        {
+          "id": 1,
+          "url": "polycarboxylate-ether.html",
+          "name": {
+            "fa": "رزین پلی کربوکسلات اتر با کاهندگی آب بالا در کنار حفظ اسلامپ مطلوب",
+            "en": "STRUSIN DRAGON-WSR501"
+          },
+          "description": "تهاجم عوامل محیطی یکی از اصلی ترین دلایل تخریب بتن تقویت شده با میلگرد فولادی می باشد. پوشش بتن که به فاصله سطح بتن تا سطح اولین میلگرد گفته می شود، یکی از مهم ترین پارامترهای سنجش کیفیت اجرای بتن است. در صورت عدم رعایت پوشش بتن و کم بودن آن، املاح خورنده با سرعت بیشتری به میلگرد رسیده و سبب خوردگی آن و در نتیجه انبساط دور آرماتور و ترک بتن می گردند و با رشد ترکها سرعت تخریب بتن نیز به شدت افزایش می یابد. به طور کلی کاهش پوشش بتن در میحط های خورنده می تواند به شدت عمر و دوام سازه را کاهش دهد. اسپیسرهای پلاستیکی بتن با تنظیم دقیق پوشش بتن و استحکام بالا می توانند عمر سازه های بتنی را افزایش دهند. اسپیسرهای پلاستیکی بتن در سایز و ابعاد مختلف و کاربردهای گوناگون مورد استفاده قرار میگیرند. در ادامه محصولات این دسته قابل مشاهده می باشد.",
+          "image": "polycarboxylate.png"
         }
       ]
     }
