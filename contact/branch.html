@@ -2,19 +2,18 @@
 <html lang="en">
   <head>
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-4PJ8JE8SW8"></script>
-    <script src="src/js/googleAnalytics.js"></script>
+    <script src="../src/js/googleAnalytics.js"></script>
 
     <script defer src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
     <script defer src="https://www.gstatic.com/firebasejs/8.10.1/firebase-firestore.js"></script>
-    <script defer src="https://www.gstatic.com/firebasejs/8.10.1/firebase-storage.js"></script>
-    <script defer src="src/js/googleFirebase.js"></script>
+    <script defer src="../src/js/googleFirebase.js"></script>
 
     <script src="https://www.google.com/recaptcha/api.js" async defer></script>
 
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
-    <link rel="stylesheet" href="src/css/main.css" />
+    <link rel="stylesheet" href="../src/css/main.css" />
     <style>
       body {
         font-family: "YekanBakhFaNum";
@@ -26,7 +25,6 @@
         user-select: none;
         transition: 0.2s;
       }
-
       main {
         padding: 8vmin;
       }
@@ -260,18 +258,14 @@
   <body>
     <main>
       <section class="topSection">
-        <h1>فرم درخواست همکاری</h1>
-        <h3>
-          در ارسال درخواست شک نکنید، ما همیشه برای ارتباط با افراد توانمند در این حوزه فعالیتی آماده
-          هستیم.
-        </h3>
+        <h1>فرم درخواست نمایندگی</h1>
+        <h3>در ارسال درخواست شک نکنید، ما همیشه نیازمند به گسترش کمپانی و همکاری های بیشتر هستیم.</h3>
       </section>
       <section class="bottomSection">
         <div>
           <p>
-            جهت ارسال درخواست همکاری، فرم را به دقت و به همراه رزومه تکميل کرده و ارسال نماييد،
-            اطلاعات ارتباطی خود را به صورت دقیق وارد کنید، بین 1-3 روز کاری برسی می‌کنیم و در صورت
-            پذیرش با شما تماس می‌گیریم.
+            جهت ارسال درخواست همکاری، فرم را پر کنید، اطلاعات ارتباطی خود را به صورت دقیق وارد کنید،
+            بین 1-3 روز کاری برسی می‌کنیم و در صورت پذیرش با شما تماس می‌گیریم.
           </p>
         </div>
         <div class="inputContainer">
@@ -289,22 +283,22 @@
                 onblur="validateInput('name')"
               />
 
-              <p>نام و نام خانوادگی*</p>
+              <p>نام شرکت یا فروشگاه*</p>
             </div>
             <div class="inputCards">
               <input
-                id="email"
+                id="ownername"
                 class="TextInput"
-                title="email"
+                title="ownername"
                 type="text"
                 placeholder=" "
-                maxlength="100"
+                maxlength="70"
                 tabindex="2"
                 onkeydown="pushInputByEnter(event, 3)"
-                onblur="validateEmail()"
+                onblur="validateInput('ownername')"
               />
 
-              <p id="emailText">ایمیل*</p>
+              <p>نام مدیریت*</p>
             </div>
           </div>
           <div class="flex">
@@ -325,18 +319,66 @@
             </div>
             <div class="inputCards">
               <input
+                id="email"
+                class="TextInput"
+                title="email"
+                type="text"
+                placeholder=" "
+                maxlength="100"
+                tabindex="4"
+                onkeydown="pushInputByEnter(event, 5)"
+                onblur="validateEmail()"
+              />
+
+              <p>ایمیل*</p>
+            </div>
+          </div>
+          <div class="flex">
+            <div class="inputCards">
+              <input
+                id="workers"
+                class="TextInput"
+                title="workers"
+                type="text"
+                placeholder=" "
+                maxlength="20"
+                tabindex="5"
+                onkeydown="pushInputByEnter(event, 6)"
+                onblur="validateInput('workers')"
+              />
+
+              <p>تعداد نیروی کار*</p>
+            </div>
+            <div class="inputCards">
+              <input
                 id="address"
                 class="TextInput"
                 title="address"
                 type="text"
                 placeholder=" "
                 maxlength="250"
-                tabindex="4"
-                onkeydown="pushInputByEnter(event, 5)"
+                tabindex="6"
+                onkeydown="pushInputByEnter(event, 7)"
                 onblur="validateInput('address')"
               />
 
-              <p>ادرس سکونت*</p>
+              <p>آدرس فروشگاه*</p>
+            </div>
+          </div>
+          <div class="flex">
+            <div class="inputCards">
+              <input
+                id="fields"
+                class="TextInput"
+                title="fields"
+                type="text"
+                placeholder=" "
+                tabindex="7"
+                onkeydown="pushInputByEnter(event, 8)"
+                onblur="validateInput('fields')"
+              />
+
+              <p>زمینه های فعالیت*</p>
             </div>
           </div>
           <div class="messageInputCard">
@@ -349,25 +391,12 @@
               cols="30"
               name="comment"
               maxlength="2000"
-              tabindex="5"
-              onkeydown="pushInputByEnter(event, 6)"
               form="usrform"
+              tabindex="8"
+              onkeydown="pushInputByEnter(event, 9)"
             ></textarea>
             <span class="fileInputSpan" style="margin-top: -1vmin">حداکثر 2000 کرکتر*</span>
           </div>
-          <label class="fileInput">
-            <input
-              type="file"
-              title="file"
-              id="file"
-              name="uploadFile"
-              accept=".pdf,.doc,.docx,.jpg,.jpeg,.png"
-              onchange="onUploadFile()"
-            />
-            <span id="fileLabelText">برای اپلود فایل کلیک کنید</span>
-          </label>
-          <span class="fileInputSpan">حداکثر حجم مجاز 10 مگابایت میباشد*</span>
-
           <div class="g-recaptcha" data-sitekey="6LfrvkApAAAAAHB2MC--LcgsVUxGFyoem7weH7nR"></div>
           <div class="rulesCheckBox">
             <input
@@ -376,20 +405,20 @@
               title="websiteRules"
               name="tos"
               value="active"
-              tabindex="6"
+              tabindex="9"
             />
             <label for="rules"
               >با کلیک روی این دکمه تایید می‌کنید که قوانین وبسایت را مطالعه کرده‌اید.</label
             >
           </div>
 
-          <div type="submit" class="buttonCards" onclick="sendButton(this)">
+          <div class="buttonCards" onclick="sendButton(this)">
             <div>
-              <img src="assets/VectorFlesh1.svg" alt="" />
+              <img src="../assets/VectorFlesh1.svg" alt="" />
               <p>ارسال</p>
             </div>
             <div>
-              <img src="assets/VectorFlesh1.svg" alt="" />
+              <img src="../assets/VectorFlesh1.svg" alt="" />
               <p>ارسال</p>
             </div>
           </div>
@@ -406,10 +435,10 @@
           }
         }
       }
-
       function validateEmail() {
         const emailCard = document.getElementById("email").parentElement;
         const emailInput = document.getElementById("email");
+
         const isValidEmail = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(emailInput.value);
 
         emailCard.style.borderBottom = isValidEmail
@@ -429,7 +458,7 @@
 
         return !isEmpty;
       }
-      function validateCheckbox() {
+      function isCheckboxChecked() {
         var checkbox = document.getElementById("rules");
         const isActive = checkbox.checked;
         if (isActive) {
@@ -439,36 +468,15 @@
         }
         return isActive;
       }
-      function onUploadFile() {
-        var maxFileSizeMB = 10;
-        var fileInput = document.getElementById("file");
-        var fileSize = fileInput.files[0]?.size / (1024 * 1024) || 0;
-
-        const card = fileInput.parentElement;
-        const fileLabelText = card.getElementsByTagName("span");
-        const isFileUploaded = fileSize <= maxFileSizeMB;
-
-        if (fileSize > maxFileSizeMB) {
-          card.style.background = "#FF2727";
-          fileLabelText[0].innerText = `حجم فایل بیشتر از حداکثر مجاز است`;
-        } else if (fileSize < 0.001) {
-          card.style.background = "#FF2727";
-          fileLabelText[0].innerText = "فایل اپلود نشده";
-        } else {
-          card.style.background = "#4dc44b";
-          fileLabelText[0].innerText = `فایل تایید شد`;
-        }
-        return isFileUploaded;
-      }
-
-      async function sendButton(button) {
+      function sendButton(button) {
         const nameValid = validateInput("name");
+        const ownernameValid = validateInput("ownername");
         const phoneValid = validateInput("phone");
+        const workersValid = validateInput("workers");
         const addressValid = validateInput("address");
+        const fieldsValid = validateInput("fields");
         const isValid = validateEmail();
-        const isActive = validateCheckbox();
-        const isFileUploaded = onUploadFile();
-
+        const isActive = isCheckboxChecked();
         var paragraphs = button.getElementsByTagName("p");
 
         const recaptchaResponse = grecaptcha.getResponse();
@@ -478,10 +486,12 @@
           isActive &&
           isValid &&
           nameValid &&
+          ownernameValid &&
           phoneValid &&
+          workersValid &&
           addressValid &&
-          isRecaptchaFilled &&
-          isFileUploaded
+          fieldsValid &&
+          isRecaptchaFilled
         ) {
           grecaptcha.reset();
 
@@ -490,61 +500,44 @@
           }
 
           const db = firebase.firestore();
-          jobRef = db.collection("job");
+          branchRef = db.collection("branch");
 
           const { serverTimestamp } = firebase.firestore.FieldValue;
 
           const nameInput = document.getElementById("name").value;
-          const emailInput = document.getElementById("email").value;
+          const ownernameInput = document.getElementById("ownername").value;
           const phoneInput = document.getElementById("phone").value;
+          const emailInput = document.getElementById("email").value;
+          const workersInput = document.getElementById("workers").value;
           const addressInput = document.getElementById("address").value;
+          const fieldsInput = document.getElementById("fields").value;
           const customMessageInput = document.getElementById("message").value;
-
-          const fileInput = document.getElementById("file");
-          const file = fileInput.files[0];
-          var storageRef = firebase.storage().ref();
-          var jobRefFile = storageRef.child("job/" + nameInput);
-          var uploadTask = jobRefFile.put(file);
-          uploadTask.on(
-            "state_changed",
-            function (snapshot) {
-              var progress = (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
-
+          branchRef
+            .add({
+              name: nameInput,
+              owner: ownernameInput,
+              email: emailInput,
+              phone: phoneInput,
+              workers: workersInput,
+              address: addressInput,
+              fields: fieldsInput,
+              message: customMessageInput,
+              createdAt: serverTimestamp(),
+            })
+            .then((docRef) => {
+              button.style.background = "#4dc44b";
               for (var i = 0; i < paragraphs.length; i++) {
-                paragraphs[i].innerText = `${progress.toFixed(2)}% در حال ارسال...`;
+                paragraphs[i].innerText = "ارسال شد، منتظر برسی باشید";
               }
-            },
-            function (error) {
+              console.log("Data has been successfully added to the database.");
+            })
+            .catch((error) => {
+              button.style.background = "#db2323";
               for (var i = 0; i < paragraphs.length; i++) {
-                paragraphs[i].innerText = `مشکلی در ارسال فایل ایجاد شده`;
+                paragraphs[i].innerText = "به دیتابیس ارسال نشد، دوباره تلاش کنید";
               }
-            },
-            function () {
-              jobRef
-                .add({
-                  name: nameInput,
-                  email: emailInput,
-                  phone: phoneInput,
-                  address: addressInput,
-                  message: customMessageInput,
-                  createdAt: serverTimestamp(),
-                })
-                .then((docRef) => {
-                  button.style.background = "#4dc44b";
-                  for (var i = 0; i < paragraphs.length; i++) {
-                    paragraphs[i].innerText = "ارسال شد، منتظر برسی باشید";
-                  }
-                  console.log("Data has been successfully added to the database.");
-                })
-                .catch((error) => {
-                  button.style.background = "#db2323";
-                  for (var i = 0; i < paragraphs.length; i++) {
-                    paragraphs[i].innerText = "به دیتابیس ارسال نشد، دوباره تلاش کنید";
-                  }
-                  console.error("Error adding document: ", error);
-                });
-            }
-          );
+              console.error("Error adding document: ", error);
+            });
         } else {
           button.style.background = "#db2323";
           for (var i = 0; i < paragraphs.length; i++) {
