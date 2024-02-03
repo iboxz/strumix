@@ -1,0 +1,520 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    <script src="https://cdn.glitch.global/8352fc0e-bebe-4680-ae0b-269da8b54259/ScrollSmoother.min.js"></script>
+    <script src="https://cdn.glitch.global/8352fc0e-bebe-4680-ae0b-269da8b54259/SplitText.min.js"></script>
+    <script src="https://cdn.glitch.global/8352fc0e-bebe-4680-ae0b-269da8b54259/CSSRulePlugin.min.js"></script>
+
+    <link rel="stylesheet" href="src/css/main.css" />
+    <link rel="stylesheet" href="src/css/productsMainPage.css" />
+    <style>
+      html {
+        background: #f2ecdc;
+        font-family: Rokh;
+        direction: rtl;
+      }
+      .splashScreen {
+        position: fixed;
+        top: 0;
+        background-color: #1a1a1a;
+        width: 100%;
+        height: 100vh;
+        height: 100lvh;
+
+        font-family: Arial, Helvetica, sans-serif;
+        font-weight: 900;
+        font-size: clamp(3rem, 10vw, 100rem);
+        text-transform: uppercase;
+        color: white;
+
+        display: flex;
+        justify-content: center;
+        align-items: end;
+
+        padding-bottom: 20%;
+
+        z-index: 999;
+      }
+      .englishText {
+        font-family: "Montserrat", "Rokh";
+      }
+
+      .hero {
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+        padding: 30vmin 0 10vmin 0;
+      }
+      .hero > p:nth-child(1) {
+        font-size: clamp(3rem, 28.5vw, 100rem);
+        text-transform: uppercase;
+        color: #e7c774;
+        line-height: 0.25;
+        font-family: Damn !important;
+      }
+      /* .hero > p:nth-child(1) span {
+      } */
+      .hero > p:nth-child(2) {
+        font-size: clamp(2rem, 9vw, 100rem);
+        line-height: 0.5;
+      }
+      .selection {
+        width: 100%;
+      }
+      .selection .topSectionContainer {
+        position: relative;
+        font-size: clamp(0.9rem, 1vw, 100rem);
+      }
+      .selection .topSectionContainer::after {
+        position: absolute;
+        content: "";
+        left: 0;
+        top: 0;
+        bottom: 0;
+        width: 15vw;
+        background: rgb(242, 236, 220);
+        background: linear-gradient(49deg, rgba(242, 236, 220, 1) 30%, rgba(255, 255, 255, 0) 100%);
+        pointer-events: none;
+      }
+      .selection .main {
+        color: #3c3a35;
+        display: flex;
+        flex-wrap: nowrap;
+
+        overflow-x: scroll;
+        overflow-y: hidden;
+
+        scroll-behavior: smooth;
+        -ms-overflow-style: none;
+        scrollbar-width: none;
+        padding: 0 15vmin 0 15vmin;
+
+        -ms-overflow-style: none;
+        scrollbar-width: none;
+      }
+      .selection .main::-webkit-scrollbar {
+        display: none;
+      }
+      .selection .buttonCards {
+        cursor: pointer;
+        position: relative;
+        white-space: nowrap;
+        padding: 1vmin 4vmin;
+        display: flex;
+        background-color: #00ff0800;
+        -webkit-tap-highlight-color: transparent;
+        -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+      }
+      .selection .buttonCards:active {
+        background-color: #d4cfc2;
+        scale: 1.1;
+        transition: all 0.1s ease-in-out;
+      }
+      .selection .main * {
+        transition: all 0.5s ease-in-out;
+      }
+      .selection .buttonCards::before {
+        position: absolute;
+        content: "";
+        right: 1.5vmin;
+        top: 35%;
+        bottom: 50%;
+        width: 1vmin;
+        height: 1vmin;
+        border: 0.1vmin solid #8e847d;
+        border-radius: 50%;
+      }
+      .selection .buttonCards.active::before {
+        border: 0.1vmin solid #212121;
+        background: #212121;
+      }
+      .selection .buttonCards.active {
+        color: #212121;
+      }
+
+      .selection .buttonCards p:first-child {
+        position: absolute;
+        top: 105%;
+      }
+
+      .selection .buttonCards:hover p:first-child {
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+      }
+
+      .selection .buttonCards:hover p:nth-child(2) {
+        transform: translateY(-150%);
+      }
+      /* ----------------------------------------- */
+
+      .selection .bottomSectionContainer {
+        background: #f0e7ce;
+        color: #3c3a35;
+        font-size: clamp(0.8rem, 0.9vw, 100rem);
+
+        margin: 3vmin 20vmin;
+        padding: 3vmin;
+
+        display: flex;
+        flex-wrap: wrap;
+        flex-direction: row;
+      }
+      .selection .bottomSectionContainer * {
+        transition: all 0.2s ease-in-out;
+      }
+      .selection .bottomSectionContainer > div {
+        overflow: hidden;
+        padding: 1.5vmin 4vmin;
+      }
+      .selection hr {
+        margin: 5vmin 15vmin 0 15vmin;
+        border: 0;
+        border-top: 0.1vmin solid #a6a6a6;
+        padding: 0;
+      }
+      .selection .counter {
+        align-items: end;
+        justify-content: end;
+        display: flex;
+        margin: 2vmin 15vmin;
+        font-size: clamp(0.8rem, 0.8vw, 100rem);
+        color: #3b3a35;
+      }
+      @media only screen and (max-width: 768px) {
+        .selection .bottomSectionContainer {
+          margin: 3vmin 3vmin;
+        }
+        .selection hr {
+          margin: 5vmin 5vmin 0 5vmin;
+        }
+        .selection .counter {
+          margin: 2vmin 5vmin;
+        }
+        .selection .main {
+          padding: 0 5vmin 0 15vmin;
+        }
+      }
+      /* ----------------------------------------- */
+
+      .productList {
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+        margin: 0 10vmin;
+        font-size: clamp(0.7rem, 1vw, 100rem);
+      }
+      .productList > div {
+        width: 30%;
+        padding: 3vmin;
+        margin: 1vw;
+        background: #dcd2b6;
+      }
+      .productList > div:hover {
+        filter: brightness(1.1);
+      }
+      .productList a {
+        text-decoration: none;
+        color: black;
+
+        -webkit-tap-highlight-color: transparent;
+        -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+      }
+      .productList img {
+        object-fit: cover;
+        width: 100%;
+        height: 30vw;
+
+        -webkit-user-drag: none;
+        -khtml-user-drag: none;
+        -moz-user-drag: none;
+        -o-user-drag: none;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+        user-select: none;
+      }
+      .productList > div > a > p:first-of-type {
+        padding: 5vmin 0 0 0;
+      }
+
+      @media only screen and (max-width: 992px) {
+        .productList {
+          margin: 0 3vmin;
+        }
+        .productList > div {
+          width: 47%;
+        }
+      }
+    </style>
+  </head>
+
+  <body>
+    <section class="splashScreen">
+      <p>Strumix</p>
+    </section>
+    <main id="smooth-wrapper">
+      <div id="smooth-content">
+        <section class="hero">
+          <p>strumix</p>
+          <p>کاتالوگ محصولات</p>
+        </section>
+        <section class="selection">
+          <div class="topSectionContainer">
+            <div class="main" id="scrollContainer">
+              <div id="allProducts" class="buttonCards active">
+                <p>همه‌ی محصولات</p>
+                <p>همه‌ی محصولات</p>
+              </div>
+              <div id="concreteAdditive" class="buttonCards">
+                <p>افزودنی بتن</p>
+                <p>افزودنی بتن</p>
+              </div>
+              <div id="constructionChemicals" class="buttonCards">
+                <p>مواد شیمیایی صنعت ساخمان</p>
+                <p>مواد شیمیایی صنعت ساخمان</p>
+              </div>
+              <div id="waterstop" class="buttonCards">
+                <p>واتراستاپ</p>
+                <p>واتراستاپ</p>
+              </div>
+              <div id="plastic-spacers" class="buttonCards">
+                <p>اسپیسر پلاستیکی بتن</p>
+                <p>اسپیسر پلاستیکی بتن</p>
+              </div>
+              <div id="raw-materials" class="buttonCards">
+                <p>مواد اولیه افزودنی بتن و شیمی ساختمان</p>
+                <p>مواد اولیه افزودنی بتن و شیمی ساختمان</p>
+              </div>
+            </div>
+          </div>
+          <div id="bottomSection"></div>
+          <hr />
+          <div class="counter">12 محصول</div>
+        </section>
+        <section class="productList"></section>
+      </div>
+    </main>
+    <script>
+      const scrollContainer = document.getElementById("scrollContainer");
+
+      scrollContainer.addEventListener("wheel", (event) => {
+        event.preventDefault();
+
+        scrollContainer.scrollLeft += -event.deltaY;
+      });
+      //---------------------------------------------------------------------------
+      gsap.registerPlugin(ScrollTrigger, ScrollSmoother, SplitText);
+      window.addEventListener("load", (event) => {
+        gsap.to(".splashScreen", {
+          y: "-100%",
+          delay: 1,
+          duration: 1,
+          ease: "power3.out",
+        });
+        ScrollSmoother.create({
+          wrapper: "#smooth-wrapper",
+          contect: "#smooth-content",
+          smooth: 1,
+          effects: true,
+          smoothTouch: false,
+        });
+        gsap.from(
+          new SplitText(".hero > p:nth-child(2)", {
+            type: "chars",
+            tagName: "span",
+            tag: "span",
+          }).chars,
+          {
+            delay: 1.2,
+            opacity: 0.2,
+            duration: 0.5,
+            ease: "power3.out",
+            stagger: 0.15,
+          }
+        );
+      });
+      //---------------------------------------------------------------------------
+      function fetchDataAndRender(subCategory) {
+        return async () => {
+          try {
+            const data = await (await fetch("./product/products.json")).json();
+            const categoryLists = data.categories.filter(
+              (category) => category.subCategory === subCategory
+            );
+            const bottomSectionContainer = document.getElementById("bottomSection");
+            bottomSectionContainer.className = "bottomSectionContainer";
+
+            bottomSectionContainer.innerHTML = "";
+
+            let buttons = document.querySelectorAll(".selection .buttonCards");
+            buttons.forEach((button) => button.classList.remove("active"));
+            document.getElementById(subCategory).classList.add("active");
+
+            const productList = document.querySelector(".productList");
+            productList.innerHTML = "";
+
+            let productCount = 0;
+
+            categoryLists.forEach((category) => {
+              const buttonCard = document.createElement("div");
+              buttonCard.className = "buttonCards";
+
+              [1, 2].forEach(() => {
+                const paragraph = document.createElement("p");
+                paragraph.textContent = category.faName;
+                buttonCard.id = category.name;
+                buttonCard.appendChild(paragraph);
+              });
+
+              bottomSectionContainer.appendChild(buttonCard);
+
+              productCount += renderProducts(category.products);
+
+              document
+                .getElementById(category.name)
+                .addEventListener("click", () => fetchAndLogProducts(category.name));
+            });
+
+            const counter = document.querySelector(".counter");
+            counter.textContent = `${productCount} محصول`;
+          } catch (error) {
+            console.error("Error fetching data:", error);
+          }
+        };
+      }
+
+      const renderProducts = (products) => {
+        const productList = document.querySelector(".productList");
+
+        let categoryProductCount = 0;
+
+        products.forEach((product) => {
+          const div = document.createElement("div");
+          const link = document.createElement("a");
+          link.href = `product/${product.url}`;
+          const img = document.createElement("img");
+          img.src = `./assets/img/${product.image}`;
+          img.alt = "";
+          link.appendChild(img);
+          [product.name.en, product.name.fa].forEach((name) => {
+            const p = document.createElement("p");
+            p.className = "englishText";
+            p.textContent = name;
+            link.appendChild(p);
+          });
+          div.appendChild(link);
+          productList.appendChild(div);
+
+          categoryProductCount++;
+        });
+
+        return categoryProductCount;
+      };
+
+      document
+        .getElementById("concreteAdditive")
+        .addEventListener("click", fetchDataAndRender("concreteAdditive"));
+      document
+        .getElementById("constructionChemicals")
+        .addEventListener("click", fetchDataAndRender("constructionChemicals"));
+      document
+        .getElementById("waterstop")
+        .addEventListener("click", fetchDataAndRender("waterstop"));
+
+      const fetchData = async () => {
+        try {
+          const data = await (await fetch("./product/products.json")).json();
+          const productList = document.querySelector(".productList");
+          productList.innerHTML = "";
+
+          let buttons = document.querySelectorAll(".selection .buttonCards");
+          buttons.forEach((button) => button.classList.remove("active"));
+          document.getElementById("allProducts").classList.add("active");
+
+          const bottomSectionContainer = document.getElementById("bottomSection");
+          bottomSectionContainer.className = "";
+          bottomSectionContainer.innerHTML = "";
+
+          let productCount = 0;
+          data.categories
+            .flatMap((category) =>
+              category.products.map((product) => {
+                const div = document.createElement("div");
+                const link = document.createElement("a");
+                link.href = `product/${product.url}`;
+                const img = document.createElement("img");
+                img.src = `./assets/img/${product.image}`;
+                img.alt = "";
+                link.appendChild(img);
+                [product.name.en, product.name.fa].forEach((name) => {
+                  const p = document.createElement("p");
+                  p.className = "englishText";
+                  p.textContent = name;
+                  link.appendChild(p);
+                });
+                div.appendChild(link);
+                productCount++;
+                return div;
+              })
+            )
+            .forEach((productDiv) => productList.appendChild(productDiv));
+
+          const counter = document.querySelector(".counter");
+          counter.textContent = `${productCount} محصول`;
+        } catch (error) {
+          console.error("Error fetching data:", error);
+        }
+      };
+
+      const fetchAndLogProducts = async (categoryName) => {
+        try {
+          let buttons = document.querySelectorAll(".selection .buttonCards");
+          buttons.forEach((button) => button.classList.remove("active"));
+          document.getElementById(categoryName).classList.add("active");
+
+          const data = await (await fetch("./product/products.json")).json();
+          const category = data.categories.find((cat) => cat.name === categoryName);
+
+          const counter = document.querySelector(".counter");
+          counter.textContent = `${category.products.length} محصول`;
+
+          if (category) {
+            const productList = document.querySelector(".productList");
+            productList.innerHTML = "";
+            renderProducts(category.products);
+          } else {
+            console.log(`Category "${categoryName}" not found.`);
+          }
+        } catch (error) {
+          console.error("Error yfetching or logging data:", error);
+        }
+      };
+
+      const resetData = () => {
+        const bottomSectionContainer = document.getElementById("bottomSection");
+        bottomSectionContainer.className = "";
+        bottomSectionContainer.innerHTML = "";
+      };
+
+      document.getElementById("allProducts").addEventListener("click", fetchData);
+      document.getElementById("plastic-spacers").addEventListener("click", () => {
+        fetchAndLogProducts("plastic-spacers");
+        resetData();
+      });
+
+      document.getElementById("raw-materials").addEventListener("click", () => {
+        fetchAndLogProducts("raw-materials");
+        resetData();
+      });
+      fetchData();
+    </script>
+  </body>
+</html>
