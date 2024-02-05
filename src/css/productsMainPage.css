@@ -1,7 +1,6 @@
 html {
   background: #f2ecdc;
   font-family: Rokh;
-  direction: rtl;
 }
 .splashScreen {
   position: fixed;
@@ -85,6 +84,9 @@ html {
 .selection .main::-webkit-scrollbar {
   display: none;
 }
+.selection .main * {
+  transition: all 0.5s ease-in-out;
+}
 .selection .buttonCards {
   cursor: pointer;
   position: relative;
@@ -99,9 +101,6 @@ html {
   background-color: #d4cfc2;
   scale: 1.1;
   transition: all 0.1s ease-in-out;
-}
-.selection .main * {
-  transition: all 0.5s ease-in-out;
 }
 .selection .buttonCards::before {
   position: absolute;

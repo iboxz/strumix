@@ -92,6 +92,7 @@ html {
 body,
 html {
   height: 100lvh;
+  direction: rtl;
 }
 
 * {
