@@ -1,11 +1,680 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
-</head>
-<body>
-    
-</body>
+
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-4PJ8JE8SW8"></script>
+    <script src="../src/js/googleAnalytics.js"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    <script src="https://cdn.glitch.global/8352fc0e-bebe-4680-ae0b-269da8b54259/ScrollSmoother.min.js"></script>
+    <script src="https://cdn.glitch.global/8352fc0e-bebe-4680-ae0b-269da8b54259/SplitText.min.js"></script>
+
+    <script defer src="../src/js/horizontalScrollbar.js"></script>
+
+    <link rel="stylesheet" href="src/css/main.css" />
+    <style>
+      .splashScreen {
+        position: fixed;
+        top: 0;
+        background-color: #1a1a1a;
+        width: 100%;
+        height: 100vh;
+        height: 100lvh;
+
+        font-family: Arial, Helvetica, sans-serif;
+        font-weight: 900;
+        font-size: clamp(3rem, 10vw, 100rem);
+        text-transform: uppercase;
+        color: white;
+
+        display: flex;
+        justify-content: center;
+        align-items: end;
+
+        padding-bottom: 20%;
+
+        z-index: 999;
+      }
+      /* scroll bar */
+      ::-webkit-scrollbar {
+        display: none;
+      }
+      html {
+        -ms-overflow-style: none;
+        scrollbar-width: none;
+      }
+      body {
+        background: #f2ecdc;
+        font-family: "YekanBakhFaNum";
+      }
+      h1,
+      h2 {
+        font-family: Rokh;
+        white-space: nowrap;
+      }
+      h3,
+      h4,
+      h5,
+      h6 {
+        font-weight: 600;
+      }
+
+      /*----------------hero section-------------------*/
+      .hero {
+        font-family: Damn !important;
+        text-transform: uppercase;
+
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        background: #262626;
+        color: #f5f5f5;
+        padding: 30vmin 0 10vmin 0;
+        border-bottom-right-radius: 5vmin;
+        border-bottom-left-radius: 5vmin;
+
+        -webkit-box-shadow: 0px 0px 2vmin 0.5vmin rgba(0, 0, 0, 0.6);
+        box-shadow: 0px 0px 2vmin 0.5vmin rgba(0, 0, 0, 0.6);
+
+        position: relative;
+        overflow: hidden;
+      }
+      .hero::before {
+        content: "";
+        position: absolute;
+        top: -20%;
+        right: -10%;
+        height: 75vmin;
+        width: 150vmin;
+        background: #141414;
+        border-radius: 50%;
+        animation: blobRadius 10s ease infinite;
+      }
+      @keyframes blobRadius {
+        0%,
+        100% {
+          border-radius: 50% 50% 48% 52% / 60% 30% 70% 40%;
+        }
+        20% {
+          border-radius: 28% 72% 12% 88% / 78% 55% 45% 22%;
+        }
+        40% {
+          border-radius: 82% 18% 72% 28% / 23% 82% 18% 77%;
+        }
+        60% {
+          border-radius: 47% 53% 44% 56% / 42% 43% 57% 58%;
+        }
+        80% {
+          border-radius: 61% 39% 61% 39% / 24% 33% 67% 76%;
+        }
+      }
+      .hero p:nth-child(1) {
+        font-size: clamp(3rem, 28.5vw, 100rem);
+        line-height: 0.5;
+        position: relative;
+        z-index: 2;
+      }
+      .hero p:nth-child(2) {
+        font-size: clamp(2.5rem, 4vw, 100rem);
+        text-align: start;
+        position: relative;
+        z-index: 2;
+      }
+      @media only screen and (max-width: 768px) {
+        .hero {
+          background: #26262600;
+          -webkit-box-shadow: none;
+          box-shadow: none;
+          padding: 30vmin 0 15vmin 0;
+        }
+        .hero::before {
+          height: 80vmin;
+        }
+        .hero::after {
+          content: "";
+          position: absolute;
+          top: 0;
+          height: 20vmin;
+          width: 100%;
+          background: #141414;
+        }
+      }
+      /*----------------main Section-------------------*/
+      .mainSection {
+        padding: 10vmin 45vmax 0 10vw;
+        font-size: clamp(1rem, 1vw, 100rem);
+      }
+      .mainSection > h1 {
+        font-size: clamp(2.1rem, 6vw, 100rem);
+        position: relative;
+        width: min-content;
+        padding: 0 5vmin;
+      }
+      .mainSection > h1::before {
+        transform: scaleX(0);
+        transform-origin: bottom right;
+        height: 100%;
+        clip-path: polygon(2vmin 0, 100% 0, calc(100% - 2vmin) 100%, 0% 100%);
+      }
+
+      .mainSection > h1:hover::before {
+        transform: scaleX(1);
+        transform-origin: bottom left;
+      }
+
+      .mainSection > h1::before {
+        content: " ";
+        display: block;
+        position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        inset: 0 0 0 0;
+        background: #efd467;
+        z-index: -1;
+        transition: transform 0.3s ease;
+      }
+      .mainSection > div {
+        display: flex;
+        justify-content: space-between;
+      }
+      .mainSection hr {
+        border: 0;
+        border-top: 0.1vmin solid #a6a6a6;
+        padding: 0;
+        margin: 7vmin 0;
+      }
+      .mainSection .cardsContainer {
+        display: grid;
+        grid-template-columns: 0.8fr 1.2fr;
+        grid-template-rows: repeat(2, auto);
+        grid-column-gap: 20vmin;
+        grid-row-gap: 7vmin;
+      }
+
+      .mainSection .cardsContainer div:nth-child(1) {
+        grid-area: 1 / 1 / 2 / 2;
+      }
+      .mainSection .cardsContainer div:nth-child(2) {
+        grid-area: 1 / 2 / 2 / 3;
+      }
+      .mainSection .cardsContainer div:nth-child(3) {
+        grid-area: 2 / 1 / 3 / 2;
+      }
+      .mainSection .cardsContainer div:nth-child(4) {
+        grid-area: 2 / 2 / 3 / 3;
+      }
+      .mainSection .cards h2 {
+        position: relative;
+        background: #f2ecdc;
+        margin-bottom: 3vmin;
+        margin-right: -15%;
+        padding: 0 10%;
+        font-size: clamp(1.1rem, 2vw, 100rem);
+        z-index: 2;
+      }
+      .mainSection .cardsContainer div:nth-child(1) h2,
+      .mainSection .cardsContainer div:nth-child(3) h2 {
+        position: relative;
+        width: min-content;
+      }
+      .mainSection .cardsContainer div:nth-child(1) h2::before,
+      .mainSection .cardsContainer div:nth-child(3) h2::before {
+        content: "";
+        position: absolute;
+        top: 50%;
+        bottom: 50%;
+        right: 110%;
+        width: 20vw;
+
+        border-top: 0.1vmin solid #a6a6a6;
+        z-index: -1;
+      }
+
+      .mainSection .cards h4 {
+        font-weight: 400;
+      }
+      .mainSection .buttonContainer {
+        display: flex;
+      }
+      .mainSection .cards a {
+        text-decoration: none;
+        color: #141414;
+      }
+
+      .mainSection .buttonContainer > div {
+        background: #e9e5db;
+        padding: 2.5vmin;
+        margin: 0 3vmin;
+        border-radius: 100vmin;
+        width: 50%;
+      }
+
+      .mainSection .buttonContainer a {
+        text-decoration: none;
+        color: #141414;
+        font-family: Rokh;
+        white-space: nowrap;
+      }
+      @media only screen and (max-width: 992px) {
+        .mainSection {
+          padding: 10vmin 5vmin 0 5vmin;
+        }
+        .mainSection .cardsContainer {
+          grid-template-columns: 1fr;
+          grid-template-rows: repeat(4, auto);
+          grid-column-gap: 0;
+          grid-row-gap: 0;
+        }
+        .mainSection .cardsContainer > div {
+          margin-bottom: 10vmin;
+        }
+        .mainSection .cardsContainer div:nth-child(1) {
+          grid-area: 1 / 1 / 2 / 2;
+        }
+        .mainSection .cardsContainer div:nth-child(2) {
+          grid-area: 2 / 1 / 3 / 2;
+        }
+        .mainSection .cardsContainer div:nth-child(3) {
+          grid-area: 3 / 1 / 4 / 2;
+        }
+        .mainSection .cardsContainer div:nth-child(4) {
+          grid-area: 4 / 1 / 5 / 2;
+        }
+        .mainSection .cards h2 {
+          margin-bottom: 0;
+          margin-right: 0;
+          padding: 0;
+        }
+        .mainSection .cardsContainer div:nth-child(1) h2::before,
+        .mainSection .cardsContainer div:nth-child(3) h2::before {
+          border-top: none;
+        }
+        .mainSection .buttonContainer {
+          flex-direction: column;
+          padding: 0 10vmin;
+        }
+        .mainSection .buttonContainer > div {
+          width: 100%;
+          margin: 1.5vmin 0;
+        }
+      }
+      /*----------------QandA section-------------------*/
+      .QandA {
+        display: flex;
+        flex-grow: 1;
+        background: #ffce47;
+        margin: 10vmin;
+        padding: 5vmin;
+        font-size: clamp(1rem, 1vw, 100rem);
+      }
+      .QandA h5 {
+        font-family: Rokh;
+        font-size: clamp(1.2rem, 2vw, 100rem);
+        margin-bottom: 3vmin;
+      }
+      .QandA > div {
+        text-align: justify;
+        text-justify: auto;
+        width: 50%;
+      }
+      .QandA > div:last-child {
+        display: flex;
+        justify-content: end;
+        height: fit-content;
+      }
+      .QandA > div > div {
+        background: #fca31d;
+        width: min-content;
+        padding: 1.5vmin 5vmin;
+        white-space: nowrap;
+        border-radius: 100vmin;
+      }
+      .QandA a {
+        font-family: Rokh;
+        text-decoration: none;
+        color: #141414;
+      }
+
+      @media only screen and (max-width: 768px) {
+        .QandA {
+          flex-direction: column;
+        }
+        .QandA > div {
+          width: 100%;
+        }
+        .QandA > div > div {
+          margin: 7vmin 0 0 0;
+        }
+      }
+      /*----------------button effect-------------------*/
+
+      .mainSection .cardsContainer *,
+      .mainSection .buttonContainer *,
+      .QandA * {
+        transition: 0.3s ease-in-out;
+      }
+      .mainSection .cardsContainer .cards:nth-child(2) .buttonCards {
+        display: flex;
+        justify-content: right;
+      }
+      .mainSection .cardsContainer .buttonCards {
+        display: flex;
+        justify-content: end;
+      }
+      .mainSection .buttonContainer .buttonCards {
+        display: flex;
+        justify-content: center;
+      }
+      .buttonCards {
+        cursor: pointer;
+        position: relative;
+        white-space: nowrap;
+        display: flex;
+        background-color: #00ff0800;
+        -webkit-tap-highlight-color: transparent;
+        -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+
+        overflow: hidden;
+      }
+
+      .buttonCards:active {
+        background-color: #d4cfc2;
+        scale: 1.1;
+        transition: all 0.1s ease-in-out;
+      }
+      .buttonCards.active::before {
+        border: 0.1vmin solid #212121;
+        background: #212121;
+      }
+      .buttonCards.active {
+        color: #212121;
+      }
+
+      .buttonCards > :first-child {
+        position: absolute;
+        top: 105%;
+      }
+
+      .buttonCards:hover > :first-child {
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+      }
+
+      .buttonCards:hover > :nth-child(2) {
+        transform: translateY(-150%);
+      }
+      /*-----------------icon------------------*/
+      .iconFlesh {
+        content: url(assets/VectorFlesh2.svg);
+        vertical-align: middle;
+        height: 100%;
+        width: 2vmin;
+        min-width: 15px;
+        margin-left: 1vmin;
+      }
+      .iconFleshS {
+        content: url(assets/VectorFlesh2.svg);
+        vertical-align: middle;
+        height: 100%;
+        width: 1.5vmin;
+        min-width: 15px;
+        margin: 0 1vmin;
+      }
+      .iconCopy {
+        content: url(assets/VectorCopy.svg);
+        vertical-align: middle;
+        height: 100%;
+        width: 2vmin;
+        min-width: 15px;
+        margin: 0 1vmin;
+      }
+      .iconInstagram {
+        content: url(assets/VectorInstagram.svg);
+        vertical-align: middle;
+        height: 100%;
+        width: 2vmin;
+        min-width: 15px;
+        margin: 0 1vmin;
+      }
+      .iconWhatsapp {
+        content: url(assets/VectorWhatsapp.svg);
+        vertical-align: middle;
+        height: 100%;
+        width: 2vmin;
+        min-width: 15px;
+        margin: 0 1vmin;
+      }
+      textarea {
+        height: 0px;
+        padding: 0;
+        margin: 0;
+        width: 0;
+        opacity: 0;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="scrollbar-container">
+      <div id="scrollbar"></div>
+    </div>
+    <section class="splashScreen">
+      <p>Strumix</p>
+    </section>
+    <main id="smooth-wrapper">
+      <div id="smooth-content">
+        <section class="hero">
+          <div>
+            <p>Strumix</p>
+            <p>Team</p>
+          </div>
+        </section>
+        <section class="mainSection">
+          <h1>راه های ارتباطی</h1>
+          <hr />
+          <div class="cardsContainer">
+            <div class="cards">
+              <h2>اطلاعات تماس</h2>
+              <h4>تلفن ثابت</h4>
+              <div id="Landline1Button" class="buttonCards">
+                <p><span class="iconCopy"></span>021-44403448</p>
+                <p>021-44403448</p>
+                <textarea id="Landline1">02144403448</textarea>
+              </div>
+              <div id="Landline2Button" class="buttonCards">
+                <p><span class="iconCopy"></span>021-44000408</p>
+                <p>021-44000408</p>
+                <textarea id="Landline2">02144000408</textarea>
+              </div>
+              <h4>تماس ضروری</h4>
+              <div id="PhoneLine1Button" class="buttonCards">
+                <p><span class="iconCopy"></span>0912-2991782</p>
+                <p>0912-2991782</p>
+                <textarea id="PhoneLine1">09122991782</textarea>
+              </div>
+              <div id="PhoneLine2Button" class="buttonCards">
+                <p><span class="iconCopy"></span>0912-2087393</p>
+                <p>0912-2087393</p>
+                <textarea id="PhoneLine2">09122087393</textarea>
+              </div>
+              <h4>کد پستی</h4>
+              <div id="postCodeButton" class="buttonCards">
+                <p><span class="iconCopy"></span>1469916541</p>
+                <p>1469916541</p>
+                <textarea id="postCode">1469916541</textarea>
+              </div>
+              <h4>ایمیل</h4>
+              <a href="mailto:info@strumix.com">
+                <div id="emailButton" class="buttonCards">
+                  <p><span class="iconFleshS"></span>info@strumix.com</p>
+                  <p>info@strumix.com</p>
+                  <textarea id="email">info@strumix.com</textarea>
+                </div>
+              </a>
+            </div>
+            <div class="cards">
+              <h2>موقعیت مکانی</h2>
+              <div id="address1Button" class="buttonCards">
+                <h4><span class="iconFlesh"></span>آدرس دفتر مرکزی</h4>
+                <h4><span class="iconFlesh"></span>آدرس دفتر مرکزی</h4>
+                <textarea id="address1">
+تهران، اتوبان اشرفی اصفهانی، بالاتر از میدان پونک، نبش خیابان هفدهم، پلاک 337، طبقه اول، واحد 1</textarea
+                >
+              </div>
+              <p>
+                تهران، اتوبان اشرفی اصفهانی، بالاتر از میدان پونک، نبش خیابان هفدهم، پلاک 337، طبقه
+                اول، واحد 1
+              </p>
+              <div id="address2Button" class="buttonCards">
+                <h4><span class="iconFlesh"></span>آدرس کارخانه</h4>
+                <h4><span class="iconFlesh"></span>آدرس کارخانه</h4>
+                <textarea id="address1">
+استان تهران، شهرستان ورامین، خیرآباد، خیابان شهدای هفتم تیر، بعد از پمپ گاز و بنزین آریا، پلاک 12</textarea
+                >
+              </div>
+              <p>
+                استان تهران، شهرستان ورامین، خیرآباد، خیابان شهدای هفتم تیر، بعد از پمپ گاز و بنزین
+                آریا، پلاک 12
+              </p>
+            </div>
+            <div class="cards">
+              <h2>ساعات فعال</h2>
+              <p>شنبه - چهارشنبه</p>
+              <p>08:00 - 17:00</p>
+            </div>
+            <div class="cards">
+              <h2>شبکه های مجازی</h2>
+              <a target="_blank" href="https://www.instagram.com/strumix.co/">
+                <div class="buttonCards">
+                  <p>اینستاگرام<span class="iconInstagram"></span></p>
+                  <p>اینستاگرام<span class="iconInstagram"></span></p>
+                </div>
+              </a>
+              <a target="_blank" href="https://api.whatsapp.com/send?phone=989122087393">
+                <div class="buttonCards">
+                  <p>پشتیبانی فنی<span class="iconWhatsapp"></span></p>
+                  <p>پشتیبانی فنی<span class="iconWhatsapp"></span></p>
+                </div>
+              </a>
+              <a target="_blank" href="https://api.whatsapp.com/send?phone=989928210625">
+                <div class="buttonCards">
+                  <p>پشتیبانی فروش<span class="iconWhatsapp"></span></p>
+                  <p>پشتیبانی فروش<span class="iconWhatsapp"></span></p>
+                </div>
+              </a>
+            </div>
+          </div>
+          <hr />
+          <div class="buttonContainer">
+            <div>
+              <a href="contact/job.html">
+                <div class="buttonCards">
+                  <h4><span class="iconFlesh"></span>فرم درخواست همکاری</h4>
+                  <h4><span class="iconFlesh"></span>فرم درخواست همکاری</h4>
+                </div>
+              </a>
+            </div>
+            <div>
+              <a href="contact/branch.html">
+                <div class="buttonCards">
+                  <h4><span class="iconFlesh"></span>فرم درخواست نمایندگی</h4>
+                  <h4><span class="iconFlesh"></span>فرم درخواست نمایندگی</h4>
+                </div>
+              </a>
+            </div>
+          </div>
+        </section>
+        <section class="QandA">
+          <div>
+            <h5>آیا سؤالات عمومی دارید؟</h5>
+            <p>
+              ضدیخ بتن در فریز یخ میزند، آیا عملکرد مناسبی دارد؟ ژل میکروسیلیس بتن برای آب بندی بتن
+              استخر به چه میزانی باید مصرف گردد؟ برای پر کردن زیر صفحه ماشین آلاتی که دارای بار
+              دینامیکی هستند بهتره از گروت اپوکسی استفاده بشه یا گروت سیمانی؟ آیا استفاده از ابر
+              روان کننده کربوکسیلاتی مقاومت بتن را افزایش می دهد؟ و...
+            </p>
+          </div>
+          <div>
+            <div>
+              <a href="#">
+                <div class="buttonCards">
+                  <p><span class="iconFlesh"></span>مطالعه کنید</p>
+                  <p><span class="iconFlesh"></span>مطالعه کنید</p>
+                </div>
+              </a>
+            </div>
+          </div>
+        </section>
+      </div>
+    </main>
+    <script>
+      gsap.registerPlugin(ScrollTrigger, ScrollSmoother, SplitText);
+      window.addEventListener("load", (event) => {
+        gsap.to(".splashScreen", {
+          y: "-100%",
+          delay: 1,
+          duration: 1,
+          ease: "power3.out",
+        });
+        ScrollSmoother.create({
+          wrapper: "#smooth-wrapper",
+          contect: "#smooth-content",
+          smooth: 1,
+          effects: true,
+          smoothTouch: false,
+        });
+        gsap.from(
+          new SplitText(".hero > p:nth-child(2)", {
+            type: "chars",
+            tagName: "span",
+            tag: "span",
+          }).chars,
+          {
+            delay: 1.2,
+            opacity: 0.2,
+            duration: 0.5,
+            ease: "power3.out",
+            stagger: 0.15,
+          }
+        );
+        gsap.from(".hero", {
+          delay: 1.3,
+          y: "-100%",
+          duration: 3,
+          ease: "power3.out",
+        });
+      });
+
+      function addCopyEvent(targetId) {
+        var buttonId = targetId + "Button";
+        document.getElementById(buttonId).onclick = function () {
+          var copyText = document.getElementById(targetId);
+          copyText.select();
+          copyText.setSelectionRange(0, 99999);
+          document.execCommand("copy");
+        };
+      }
+
+      addCopyEvent("Landline1");
+      addCopyEvent("Landline2");
+      addCopyEvent("PhoneLine1");
+      addCopyEvent("PhoneLine2");
+      addCopyEvent("postCode");
+      addCopyEvent("email");
+
+      function openEmailPage() {
+        var emailAddress = "info@strumix.com";
+        var emailURL = "mailto:" + emailAddress;
+        window.open(emailURL);
+      }
+      document.getElementById("emailButton").addEventListener("click", openEmailPage);
+    </script>
+  </body>
 </html>
