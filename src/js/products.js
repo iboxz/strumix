@@ -126,7 +126,7 @@ function addSection(products) {
     productInfo.appendChild(titleFa);
 
     const image = document.createElement("img");
-    image.src = `../assets/img/${product.image}`;
+    image.src = `../assets/productImg/${product.image}`;
     image.alt = `${product.image} Image`;
 
     const LinkContainer = document.createElement("a");

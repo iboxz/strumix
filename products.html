@@ -16,7 +16,6 @@
 
     <link rel="stylesheet" href="src/css/main.css" />
     <link rel="stylesheet" href="src/css/productsMainPage.css" />
-
   </head>
 
   <body>
@@ -164,7 +163,7 @@
           const link = document.createElement("a");
           link.href = `product/${product.url}`;
           const img = document.createElement("img");
-          img.src = `./assets/img/${product.image}`;
+          img.src = `./assets/productImg/${product.image}`;
           img.alt = `${product.name.en} image, تصویر ${product.name.fa}`;
 
           img.setAttribute("loading", "lazy");
@@ -216,7 +215,7 @@
                 const link = document.createElement("a");
                 link.href = `product/${product.url}`;
                 const img = document.createElement("img");
-                img.src = `./assets/img/${product.image}`;
+                img.src = `./assets/productImg/${product.image}`;
                 img.alt = `${product.name.en} image, تصویر ${product.name.fa}`;
 
                 img.setAttribute("loading", "lazy");
