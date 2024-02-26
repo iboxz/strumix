@@ -207,32 +207,36 @@
           bottomSectionContainer.className = "";
           bottomSectionContainer.innerHTML = "";
 
-          let productCount = 0;
-          data.categories
-            .flatMap((category) =>
-              category.products.map((product) => {
+          const uniqueNames = new Set();
+
+          data.categories.forEach((category) => {
+            category.products.forEach((product) => {
+              if (!uniqueNames.has(product.name.en)) {
+                uniqueNames.add(product.name.en);
+
                 const div = document.createElement("div");
                 const link = document.createElement("a");
                 link.href = `product/${product.url}`;
                 const img = document.createElement("img");
                 img.src = `./assets/productImg/${product.image}`;
                 img.alt = `${product.name.en} image, تصویر ${product.name.fa}`;
-
                 img.setAttribute("loading", "lazy");
                 link.appendChild(img);
+
                 [product.name.en, product.name.fa].forEach((name) => {
                   const p = document.createElement("p");
                   p.className = "englishText";
                   p.textContent = name;
                   link.appendChild(p);
                 });
-                div.appendChild(link);
-                productCount++;
-                return div;
-              })
-            )
-            .forEach((productDiv) => productList.appendChild(productDiv));
 
+                div.appendChild(link);
+                productList.appendChild(div);
+              }
+            });
+          });
+
+          const productCount = uniqueNames.size;
           const counter = document.querySelector(".counter");
           counter.textContent = `${productCount} محصول`;
         } catch (error) {
