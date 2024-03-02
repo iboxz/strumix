@@ -72,7 +72,6 @@ if (window.innerWidth > 992) {
       scrub: 2,
       pin: true,
       // markers: true,
-      markers: true,
       pinSpacing: false,
     },
     duration: 1,
@@ -167,7 +166,7 @@ fetch("products.json")
           const MainImg = document.querySelector(".hero img");
 
           MainImg.src = `../assets/productImg/${product.image}`;
-          MainImg.alt = `This is ${product.image} products photo`;
+          MainImg.alt = `The ${product.name.en} product img - ${product.name.fa} تصویر `;
         }
       });
     });
