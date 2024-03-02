@@ -1,6 +1,11 @@
 {
   "dependencies": {
+    "cheerio": "^1.0.0-rc.12",
+    "cheerio-httpcli": "^0.8.3",
     "fs": "^0.0.1-security",
-    "node-fetch": "^3.3.2"
+    "fs.promises": "^0.1.2",
+    "http": "^0.0.1-security",
+    "node-fetch": "^3.3.2",
+    "path": "^0.12.7"
   }
 }
