@@ -1,6 +1,6 @@
-const fs = require("fs").promises;
-const path = require("path");
-const cheerio = require("cheerio");
+// const fs = require("fs").promises;
+// const path = require("path");
+// const cheerio = require("cheerio");
 
 // Helper function to handle errors gracefully
 function handleError(err) {

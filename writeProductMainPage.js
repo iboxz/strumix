@@ -23,34 +23,42 @@ async function updateImages() {
     // Parse JSON data asynchronously for potential errors
     const jsonData = JSON.parse(data);
 
+    const uniqueNames = new Set();
+
     for (const category of jsonData.categories) {
       for (const product of category.products) {
-        const filePath = path.join(productPath, product.url);
+        const filePath = path.join("products.html");
 
-        console.log(`Processing product: ${product.url}`);
+        if (!uniqueNames.has(product.name.en)) {
+          uniqueNames.add(product.name.en);
+          console.log(`Processing product: ${product.url}`);
 
-        try {
-          // Read product file asynchronously
-          const htmlContent = await fs.readFile(filePath, "utf-8");
+          try {
+            // Read product file asynchronously
+            const htmlContent = await fs.readFile("products.html", "utf-8");
 
-          // Load Cheerio instance asynchronously, handling potential errors
-          const $ = await cheerio.load(htmlContent);
+            // Load Cheerio instance asynchronously, handling potential errors
+            const $ = await cheerio.load(htmlContent);
 
-          // Update content within the "section.hero" element
-          /*             $("section.hero").html(`
-            <div>
-              <h2>${product.name.en}</h2>
-              <h1>${product.name.fa}</h1>
-            </div>
-            <img src="${product.img}" alt="The ${product.name.en} product img - ${product.name.fa} تصویر " />
-            `); */
+            const divHTML = `<div>
+                <a href="products/${product.url}">
+                  <img src="./assets/productImg/${product.image}" alt="${product.name.en} image, تصویر ${product.name.fa}" loading="lazy" />
+                  <p class="englishText">${product.name.en}</p>
+                  <p class="englishText">${product.name.fa}</p>
+                </a>
+              </div>`;
 
-          // Write changes to the file asynchronously
-          await fs.writeFile(filePath, $.html(), "utf-8");
+            // Update content within the "section.hero" element
+            $(".productList").append(divHTML);
+            // $(".productList").html(divHTML);
 
-          console.log(`File ${product.url} successfully updated.`);
-        } catch (err) {
-          console.error(`Error updating ${product.url}: ${err.message}`);
+            // Write changes to the file asynchronously
+            await fs.writeFile(filePath, $.html(), "utf-8");
+
+            console.log(`File ${product.url} successfully updated.`);
+          } catch (err) {
+            console.error(`Error updating ${product.url}: ${err.message}`);
+          }
         }
       }
     }
