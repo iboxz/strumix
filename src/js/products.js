@@ -106,6 +106,7 @@ if (window.innerWidth > 992) {
   });
 }
 
+// --------------------------------------------------
 function addSection(products) {
   const otherProductContent = document.querySelector(".otherProductContent");
 
@@ -160,6 +161,16 @@ fetch("products.json")
       const randomProducts = getRandomItems(category.products, 10);
       addSection(randomProducts);
     }
+    data.categories.forEach((category) => {
+      category.products.forEach((product) => {
+        if (currentUrl.includes(product.url)) {
+          const MainImg = document.querySelector(".hero img");
+
+          MainImg.src = `../assets/productImg/${product.image}`;
+          MainImg.alt = `This is ${product.image} products photo`;
+        }
+      });
+    });
   })
   .catch((error) => console.error("Error fetching data:", error));
 
