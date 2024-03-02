@@ -107,7 +107,7 @@
       function fetchDataAndRender(subCategory) {
         return async () => {
           try {
-            const data = await (await fetch("./product/products.json")).json();
+            const data = await (await fetch("./products/products.json")).json();
             const categoryLists = data.categories.filter(
               (category) => category.subCategory === subCategory
             );
@@ -161,7 +161,7 @@
         products.forEach((product) => {
           const div = document.createElement("div");
           const link = document.createElement("a");
-          link.href = `product/${product.url}`;
+          link.href = `products/${product.url}`;
           const img = document.createElement("img");
           img.src = `./assets/productImg/${product.image}`;
           img.alt = `${product.name.en} image, تصویر ${product.name.fa}`;
@@ -195,7 +195,7 @@
 
       const fetchData = async () => {
         try {
-          const data = await (await fetch("./product/products.json")).json();
+          const data = await (await fetch("./products/products.json")).json();
           const productList = document.querySelector(".productList");
           productList.innerHTML = "";
 
@@ -216,7 +216,7 @@
 
                 const div = document.createElement("div");
                 const link = document.createElement("a");
-                link.href = `product/${product.url}`;
+                link.href = `products/${product.url}`;
                 const img = document.createElement("img");
                 img.src = `./assets/productImg/${product.image}`;
                 img.alt = `${product.name.en} image, تصویر ${product.name.fa}`;
@@ -250,7 +250,7 @@
           buttons.forEach((button) => button.classList.remove("active"));
           document.getElementById(categoryName).classList.add("active");
 
-          const data = await (await fetch("./product/products.json")).json();
+          const data = await (await fetch("./products/products.json")).json();
           const category = data.categories.find((cat) => cat.name === categoryName);
 
           const counter = document.querySelector(".counter");
