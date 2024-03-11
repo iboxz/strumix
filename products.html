@@ -57,9 +57,26 @@
               </div>
             </div>
           </div>
+
           <div id="bottomSection"></div>
           <hr />
-          <div class="counter">12 محصول</div>
+          <div class="searchCounterSection">
+            <div class="search">
+              <input
+                id="name"
+                class="TextInput"
+                title="productSearch"
+                type="text"
+                placeholder=" "
+                maxlength="70"
+                tabindex="1"
+                oninput="searchProduct(this.value)"
+                onclick="fetchData()"
+              />
+              <p><img src="assets/VectorSearch.svg" alt="Search Vector" /> جستجو</p>
+            </div>
+            <div class="counter"></div>
+          </div>
         </section>
         <section class="productList">
           <div>
@@ -1293,6 +1310,71 @@
         scrollContainer.scrollLeft += -event.deltaY;
       });
       //---------------------------------------------------------------------------
+
+      const fetchDataForSearch = async () => {
+        try {
+          const data = await (await fetch("./products/products.json")).json();
+          return data;
+        } catch (error) {
+          console.error("Error fetching data:", error);
+        }
+      };
+
+      const searchProduct = async (productName) => {
+        const data = await fetchDataForSearch();
+        if (data) {
+          const foundProducts = findProductsByName(data, productName);
+          displaySearchResults(foundProducts);
+        }
+      };
+
+      const findProductsByName = (data, productName) => {
+        const foundProducts = [];
+        for (const category of data.categories) {
+          for (const product of category.products) {
+            const productNameFa = product.name.fa.toLowerCase();
+            const productNameEn = product.name.en.toLowerCase();
+            if (
+              productNameFa.includes(productName.toLowerCase()) ||
+              productNameEn.includes(productName.toLowerCase())
+            ) {
+              foundProducts.push(product);
+            }
+          }
+        }
+        return foundProducts;
+      };
+
+      const displaySearchResults = (products) => {
+        const searchResultsContainer = document.querySelector(".productList");
+        searchResultsContainer.innerHTML = "";
+        if (products.length > 0) {
+          for (const product of products) {
+            const div = document.createElement("div");
+            const link = document.createElement("a");
+            link.href = `products/${product.url}`;
+            const img = document.createElement("img");
+            img.src = `./assets/productImg/${product.image}`;
+            img.alt = `${product.name.en} image, تصویر ${product.name.fa}`;
+
+            img.setAttribute("loading", "lazy");
+            link.appendChild(img);
+            [product.name.en, product.name.fa].forEach((name) => {
+              const p = document.createElement("p");
+              p.className = "englishText";
+              p.textContent = name;
+              link.appendChild(p);
+            });
+            div.appendChild(link);
+            searchResultsContainer.appendChild(div);
+          }
+        } else {
+          searchResultsContainer.textContent = "محصولی یافت نشد";
+        }
+        const counter = document.querySelector(".counter");
+        counter.textContent = `${products.length} محصول`;
+      };
+      //-----------------------------------search system--------------------------------
       gsap.registerPlugin(ScrollTrigger, ScrollSmoother, SplitText);
       window.addEventListener("load", (event) => {
         gsap.to(".splashScreen", {
