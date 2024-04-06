@@ -1587,6 +1587,20 @@
         resetData();
       });
       fetchData();
+
+      function getUrlParameter(name) {
+        const url = new URL(window.location.href);
+        const searchParams = url.searchParams;
+        const value = searchParams.get(name);
+        return value;
+      }
+      const UrlGetProductID = getUrlParameter("productID");
+      console.log(UrlGetProductID);
+      if (UrlGetProductID != null) {
+        setTimeout(() => {
+          fetchAndLogProducts(UrlGetProductID);
+        }, 1000);
+      }
     </script>
   </body>
 </html>
