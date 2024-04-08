@@ -186,13 +186,15 @@ main {
 }
 .section3 .textSide p {
   margin: 1.5vmin 0;
+  text-align: justify;
+  text-justify: auto;
 }
 .section3 .textSide p:nth-child(2)::first-line {
   /* text-indent: 2em; */
   border-right: 10px solid #fff;
   padding-right: 10px;
 }
-.section3 .textSide p:nth-child(2) span {
+.section3 .textSide p:nth-child(2) > span {
   display: inline-block;
   width: 25vmin;
   height: 0.1vmin;
@@ -278,7 +280,7 @@ main {
   transform: translateY(-50%);
   transition: ease 0.5s;
 }
-.section4 > div:not(:last-child):not(:first-child){
+.section4 > div:not(:last-child):not(:first-child) {
   cursor: pointer;
 }
 .section4 > div:not(:last-child):not(:first-child)::before {
@@ -384,9 +386,111 @@ main {
   height: 100%;
   object-fit: cover;
 }
-.section5 {
+.noPinSection {
   background: #000000;
   color: wheat;
   height: 270vh;
   border-radius: 5vmin 5vmin 0 0;
+  overflow: hidden;
+}
+.section5 {
+  height: 100vh;
+
+  background-image: url(../../assets/img/Strumix-structure-view3.jpg);
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  padding-top: 10vh;
+}
+.section5 .infiniteScrollText {
+  display: flex;
+  align-items: center;
+  direction: ltr;
+  width: 110vw;
+
+  font-family: "Damn";
+  text-transform: uppercase;
+  font-weight: 200;
+  background-color: rgba(242, 236, 220, 0.47);
+  color: black;
+  font-size: clamp(5rem, 6vw, 100rem);
+  padding: 2vmin 0;
+  transform: rotate(5deg) translateX(5vw);
+}
+.section5 .infiniteScrollText:last-child {
+  font-family: "rokh";
+  background-color: rgba(54, 48, 41, 0.87);
+  color: white;
+  font-size: clamp(2rem, 3vw, 100rem);
+  padding: 2vmin 0;
+  transform: rotate(-5deg) translate(5vw, -15vmin);
+}
+.section5 .infiniteScrollText div {
+  position: relative;
+  white-space: nowrap;
+  will-change: transform;
+}
+
+.section5 .infiniteScrollText div span {
+  display: inline-block;
+}
+
+.section6 {
+  padding: 10vmin 10vw;
+  color: white;
+}
+
+.section6 > div:first-child {
+  border-bottom: 0.1vmin white solid;
+  font-family: "Rokh";
+  font-size: clamp(1rem, 3vmin, 100rem);
+  padding: 2vmin 0;
+}
+.section6 > div:nth-child(2) {
+  padding: 5vmin 5vw;
+}
+.section6 > div #line {
+  display: inline-block;
+  width: 0vmin;
+  height: 0.1vmin;
+  vertical-align: middle;
+  margin-left: 3vmin;
+  background: #ffffff;
+}
+.section6 table {
+  table-layout: auto;
+  width: 100%;
+}
+.section6 table thead {
+  font-family: "Rokh";
+  text-align: right;
+  font-size: clamp(1rem, 3vmin, 100rem);
+}
+.section6 table thead th {
+  padding: 2vmin 0;
+}
+.section6 table th,
+.section6 table td {
+  white-space: nowrap;
+}
+.section6 table th:last-child,
+.section6 table td:last-child {
+  width: 0;
+}
+.section6 table tbody td {
+  position: relative;
+  text-indent: 5vmin;
+  font-size: clamp(1rem, 2.5vmin, 100rem);
+}
+.section6 table td::before {
+  content: "";
+  position: absolute;
+  right: 2vmin;
+  top: 50%;
+  bottom: 50%;
+  transform: translateY(-50%);
+  background: white;
+  height: 0.8vmin;
+  width: 0.8vmin;
+  border-radius: 50%;
 }
