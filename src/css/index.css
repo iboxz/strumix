@@ -53,6 +53,8 @@ main {
   display: flex;
   align-items: center;
   font-size: clamp(1rem, 3vmin, 100rem);
+  font-size: clamp(1rem, 1.7vw, 100rem);
+
 }
 .hero .titleSide > .top hr {
   width: 10vmin;
@@ -63,7 +65,7 @@ main {
   height: 0.1vmin;
 }
 .hero .titleSide > .midOne {
-  font-size: clamp(3rem, 55vmin, 100rem);
+  font-size: clamp(4rem, 28vw, 100rem);
   font-weight: 400;
   text-transform: uppercase;
   line-height: 0.9;
@@ -72,11 +74,12 @@ main {
   display: flex;
   align-items: end;
   justify-content: left;
-  font-size: clamp(3rem, 7vmin, 100rem);
+  font-size: clamp(2rem, 4vw, 100rem);
+
   height: 3vmin;
 }
 .hero .titleSide > .midTwo p:nth-child(2) {
-  font-size: clamp(3rem, 15vmin, 100rem);
+  font-size: clamp(3rem, 8vw, 100rem);
   line-height: 0.7;
   margin: 0 1vmin;
 }
@@ -86,6 +89,7 @@ main {
   bottom: 0;
   animation: jiggle 1s alternate infinite;
 }
+
 @keyframes jiggle {
   0% {
     transform: translateY(0);
@@ -94,6 +98,42 @@ main {
     transform: translateY(-2vmin);
   }
 }
+.hero .midThree {
+  display: flex;
+  justify-content: end;
+}
+.hero .iconInstagram {
+  content: url(../../assets/VectorInstagram.svg);
+  vertical-align: middle;
+  height: 100%;
+  width: 4vmin;
+  min-width: 15px;
+  padding: 0.7vmin;
+  border: 0.1vmin black solid;
+  border-radius: 50%;
+}
+.hero .iconPhonecall {
+  content: url(../../assets/VectorPhonecall.svg);
+  vertical-align: middle;
+  height: 100%;
+  width: 4vmin;
+  min-width: 15px;
+  margin: 0 1vmin;
+  padding: 0.7vmin;
+  border: 0.1vmin black solid;
+  border-radius: 50%;
+}
+.hero .iconWhatsapp {
+  content: url(../../assets/VectorWhatsapp.svg);
+  vertical-align: middle;
+  height: 100%;
+  width: 4vmin;
+  min-width: 15px;
+  padding: 0.7vmin;
+  border: 0.1vmin black solid;
+  border-radius: 50%;
+}
+
 .section2 {
   display: flex;
   justify-content: center;
@@ -171,7 +211,7 @@ main {
 .section3 .textSide {
   width: fit-content;
   color: white;
-  font-size: clamp(1rem, 2.5vmin, 100rem);
+  font-size: clamp(0.9rem, 1vw, 100rem);
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -182,7 +222,7 @@ main {
   font-family: "Damn", "Rokh";
   width: 100%;
 
-  font-size: clamp(2rem, 5vmin, 100rem);
+  font-size: clamp(1rem, 1.6vw, 100rem);
 }
 .section3 .textSide p {
   margin: 1.5vmin 0;
@@ -239,7 +279,7 @@ main {
   border-bottom: 0.1vmin #363029 solid;
 }
 .section4 h3 {
-  font-size: clamp(1rem, 4vmin, 100rem);
+  font-size: clamp(1rem, 1.6vw, 100rem);
 }
 .section4 h3 > #line {
   display: inline-block;
@@ -250,7 +290,7 @@ main {
   background: #363029;
 }
 .section4 p {
-  font-size: clamp(0.8rem, 2.5vmin, 100rem);
+  font-size: clamp(0.9rem, 1.2vw, 100rem);
 }
 
 .section4 > div:not(:last-child) > div {
@@ -457,7 +497,7 @@ main {
 .section6 > div:first-child {
   border-bottom: 0.1vmin white solid;
   font-family: "Rokh";
-  font-size: clamp(1rem, 3vmin, 100rem);
+  font-size: clamp(1rem, 1.6vw, 100rem);
   padding: 2vmin 0;
 }
 .section6 > div:nth-child(2) {
@@ -483,7 +523,7 @@ main {
 .section6 table thead {
   font-family: "Rokh";
   text-align: right;
-  font-size: clamp(1rem, 3vmin, 100rem);
+  font-size: clamp(1rem, 1.2vw, 100rem);
   position: sticky;
   background: #000000;
   z-index: 1;
@@ -503,7 +543,7 @@ main {
 .section6 table tbody td {
   position: relative;
   text-indent: 5vmin;
-  font-size: clamp(1rem, 2.5vmin, 100rem);
+  font-size: clamp(0.9rem, 1vw, 100rem);
 }
 .section6 table td::before {
   content: "";
@@ -527,6 +567,7 @@ main {
   align-items: end;
   padding-bottom: 20vh;
   overflow: hidden;
+  font-size: clamp(0.9rem, 1vw, 100rem);
 }
 .section7::before {
   content: "";
@@ -621,8 +662,6 @@ main {
 }
 .section7 .leftSide p {
   padding: 0 1vmin;
-
-  font-size: clamp(0.9rem, 1vw, 100rem);
 }
 .section7 .leftSide > .button div {
   background: #3e362e;

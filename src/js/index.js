@@ -124,11 +124,11 @@ gsap.to(".cyclingCircles", {
   display: "none",
 });
 // section3---------------------------
-gsap.to(".section3 div:nth-child(1) img", {
+gsap.from(".section3 div:nth-child(1) img", {
   scrollTrigger: {
     trigger: ".section3",
-    start: "70% bottom",
-    end: "70% top",
+    start: "top center",
+    end: "top top",
     scrub: 4,
   },
   height: "200%",
