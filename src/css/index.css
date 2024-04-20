@@ -52,9 +52,7 @@ main {
 .hero .titleSide > .top {
   display: flex;
   align-items: center;
-  font-size: clamp(1rem, 3vmin, 100rem);
-  font-size: clamp(1rem, 1.7vw, 100rem);
-
+  font-size: clamp(1.1rem, 1.7vw, 100rem);
 }
 .hero .titleSide > .top hr {
   width: 10vmin;
@@ -65,7 +63,7 @@ main {
   height: 0.1vmin;
 }
 .hero .titleSide > .midOne {
-  font-size: clamp(4rem, 28vw, 100rem);
+  font-size: clamp(10rem, 28vw, 100rem);
   font-weight: 400;
   text-transform: uppercase;
   line-height: 0.9;
@@ -107,7 +105,7 @@ main {
   vertical-align: middle;
   height: 100%;
   width: 4vmin;
-  min-width: 15px;
+  min-width: 40px;
   padding: 0.7vmin;
   border: 0.1vmin black solid;
   border-radius: 50%;
@@ -117,7 +115,7 @@ main {
   vertical-align: middle;
   height: 100%;
   width: 4vmin;
-  min-width: 15px;
+  min-width: 40px;
   margin: 0 1vmin;
   padding: 0.7vmin;
   border: 0.1vmin black solid;
@@ -128,12 +126,43 @@ main {
   vertical-align: middle;
   height: 100%;
   width: 4vmin;
-  min-width: 15px;
+  min-width: 40px;
   padding: 0.7vmin;
   border: 0.1vmin black solid;
   border-radius: 50%;
 }
 
+@media only screen and (max-width: 1200px) {
+  .hero > .imageSide {
+    display: none;
+  }
+}
+@media only screen and (max-width: 768px) {
+  .hero {
+    flex-direction: column;
+    align-items: center;
+  }
+  .hero > div {
+    margin: 0 !important;
+    padding: 0 !important;
+  }
+  .hero > .imageSide {
+    display: block;
+    order: 1;
+  }
+  .hero .imageSide img {
+    width: 80vmin;
+    height: 50vh;
+    max-height: 70vw;
+  }
+  .hero .midThree {
+    justify-content: center;
+    padding: 3vmin;
+  }
+  .hero .midThree span {
+    padding: 1vh;
+  }
+}
 .section2 {
   display: flex;
   justify-content: center;

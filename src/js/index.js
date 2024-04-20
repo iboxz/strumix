@@ -12,46 +12,63 @@ window.addEventListener("load", (event) => {
 
 // section pining effect
 
+let triggers = [];
 window.addEventListener("load", (event) => {
-  setTimeout(() => {
+  initializeTriggers();
+  window.addEventListener("resize", () => {
+    initializeTriggers();
+  });
+});
+
+function initializeTriggers() {
+  if (window.innerWidth > 992) {
     let sections = gsap.utils.toArray(".section2, .section3, .section4, .noPinSection");
+    triggers.forEach((trigger) => {
+      if (trigger) trigger.kill();
+    });
 
     sections.forEach((section, i) => {
+      let trigger = null;
       if (i < 3) {
-        ScrollTrigger.create({
+        trigger = ScrollTrigger.create({
           trigger: section,
           start: "top top",
           pin: true,
           pinSpacing: false,
           onUpdate: (self) => {
             if (self.direction === -1) {
-              section.style.borderRadius = ""; // Set border-radius to 0 when section is scrolled up
+              section.style.borderRadius = "";
             } else {
-              section.style.borderRadius = "0"; // Revert border-radius to default when section is scrolled down
+              section.style.borderRadius = "0";
             }
           },
         });
       } else if (i === 3) {
-        ScrollTrigger.create({
+        trigger = ScrollTrigger.create({
           trigger: section,
           start: "top top",
           endTrigger: sections[i - 1],
           end: "top top",
           pin: true,
           pinSpacing: false,
-          // markers: true,
           onUpdate: (self) => {
             if (self.direction === -1) {
-              section.style.borderRadius = ""; // Set border-radius to 0 when section is scrolled up
+              section.style.borderRadius = "";
             } else {
-              section.style.borderRadius = "0"; // Revert border-radius to default when section is scrolled down
+              section.style.borderRadius = "0";
             }
           },
         });
       }
+      triggers.push(trigger);
     });
-  }, 500);
-});
+  } else {
+    triggers.forEach((trigger) => {
+      if (trigger) trigger.kill();
+    });
+  }
+}
+
 // hero---------------------------
 document.addEventListener("mousemove", function (e) {
   var { innerWidth: pageWidth, innerHeight: pageHeight } = window;
