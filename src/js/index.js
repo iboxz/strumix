@@ -116,37 +116,23 @@ window.addEventListener("load", (event) => {
   });
 });
 async function section2Gsap() {
-  section2Triggers.forEach((trigger) => {
-    trigger.restart();
-    trigger.kill();
-  });
-
-  let trigger = gsap.to(".section2 img", {
-    scrollTrigger: {
-      trigger: ".section2 img",
-      start: "top 90%",
-      end: "bottom 90%",
-      scrub: 2,
-    },
-    width: "100%",
-    duration: 1,
-  });
-  section2Triggers.push(trigger);
-
   if (window.innerWidth > 768) {
-    let trigger = gsap.to(".section2 img", {
+    /*     section2Triggers.forEach((trigger) => {
+      trigger.kill();
+    }); */
+    section2Triggers = [];
+    gsap.to(".section2 img", {
       scrollTrigger: {
         trigger: ".section2 img",
         start: "top 90%",
         end: "bottom 90%",
         scrub: 2,
       },
-      margin: "2vw 0",
       width: "100%",
+      margin: "2vw 0",
       duration: 1,
     });
-    section2Triggers.push(trigger);
-    trigger = gsap.to(".section2", {
+    gsap.to(".section2", {
       scrollTrigger: {
         trigger: ".section2 img",
         start: "bottom 70%",
@@ -155,9 +141,7 @@ async function section2Gsap() {
       },
       filter: "blur(5px)",
     });
-    section2Triggers.push(trigger);
-
-    trigger = gsap.to(".section2 .Circles", {
+    gsap.to(".section2 .Circles", {
       scrollTrigger: {
         trigger: ".section2 .Circles",
         start: "top 100%",
@@ -166,9 +150,7 @@ async function section2Gsap() {
       },
       transform: "rotate3d(0, 1, 0, 180deg)",
     });
-    section2Triggers.push(trigger);
-
-    trigger = gsap.to(".cyclingCircles", {
+    gsap.to(".cyclingCircles", {
       scrollTrigger: {
         trigger: ".section2",
         start: "100vh top",
@@ -177,7 +159,6 @@ async function section2Gsap() {
       },
       display: "none",
     });
-    section2Triggers.push(trigger);
   }
 }
 

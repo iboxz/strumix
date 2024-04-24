@@ -231,7 +231,9 @@ main {
   }
 
   .section2 img {
+    margin: 10vmin 0 0 0;
     height: 30vh;
+    width: 100%;
   }
 }
 .section3 {
@@ -308,6 +310,7 @@ main {
   }
 }
 .section4 {
+  overflow: hidden;
   font-family: "Damn", "Rokh";
   color: #363029;
 
@@ -493,6 +496,18 @@ main {
   }
   .section4 > div:last-child > div div {
     padding: 2vmin;
+  }
+  .section4 #productImg {
+    display: none;
+    z-index: -1;
+  }
+  .section4 > div:not(:last-child) img:last-child,
+  .section4 > div:not(:last-child) p:last-child {
+    display: none;
+  }
+  .section4 > div:not(:last-child):hover img:first-child,
+  .section4 > div:not(:last-child):hover p:first-child {
+    transform: none;
   }
 }
 @media only screen and (max-width: 992px) {
@@ -871,6 +886,6 @@ main {
     position: relative;
     width: 100%;
     height: 10vmin;
-    margin: 3vw 0 ;
+    margin: 3vw 0;
   }
 }
