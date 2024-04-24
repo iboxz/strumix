@@ -52,7 +52,7 @@ main {
 .hero .titleSide > .top {
   display: flex;
   align-items: center;
-  font-size: clamp(1.1rem, 1.7vw, 100rem);
+  font-size: clamp(1rem, 1.7vw, 15rem);
 }
 .hero .titleSide > .top hr {
   width: 10vmin;
@@ -63,7 +63,7 @@ main {
   height: 0.1vmin;
 }
 .hero .titleSide > .midOne {
-  font-size: clamp(10rem, 28vw, 100rem);
+  font-size: clamp(9rem, 28vw, 80rem);
   font-weight: 400;
   text-transform: uppercase;
   line-height: 0.9;
@@ -72,19 +72,21 @@ main {
   display: flex;
   align-items: end;
   justify-content: left;
-  font-size: clamp(2rem, 4vw, 100rem);
+  font-size: clamp(2rem, 4vw, 15rem);
 
   height: 3vmin;
 }
 .hero .titleSide > .midTwo p:nth-child(2) {
-  font-size: clamp(3rem, 8vw, 100rem);
+  font-size: clamp(3rem, 8vw, 20rem);
   line-height: 0.7;
   margin: 0 1vmin;
 }
 .hero .scrollFlesh {
   position: absolute;
   right: 5vmin;
+  height: 16vmin;
   bottom: 0;
+  pointer-events: none;
   animation: jiggle 1s alternate infinite;
 }
 
@@ -137,10 +139,12 @@ main {
     display: none;
   }
 }
-@media only screen and (max-width: 768px) {
+@media only screen and (max-width: 600px) {
   .hero {
     flex-direction: column;
     align-items: center;
+    height: min-content;
+    padding: 10vmin 0;
   }
   .hero > div {
     margin: 0 !important;
@@ -152,8 +156,7 @@ main {
   }
   .hero .imageSide img {
     width: 80vmin;
-    height: 50vh;
-    max-height: 70vw;
+    height: 45vh;
   }
   .hero .midThree {
     justify-content: center;
@@ -161,6 +164,9 @@ main {
   }
   .hero .midThree span {
     padding: 1vh;
+  }
+  .hero .titleSide > .midTwo p:nth-child(2) {
+    line-height: 0.5;
   }
 }
 .section2 {
@@ -189,11 +195,6 @@ main {
   transform: translateY(-50%);
   z-index: 11;
 }
-/* @media only screen and (max-width: 768px) {
-  .section2 .cyclingCircles {
-    display: none;
-  }
-} */
 .section2 .Circles {
   display: flex;
   align-items: center;
@@ -218,7 +219,21 @@ main {
 .section2 .Circles2 {
   transform: rotateX(50deg);
 }
+@media only screen and (max-width: 768px) {
+  .section2 {
+    padding: 0;
+  }
+  .section2 .cyclingCircles {
+    display: none;
+  }
+  .section2 .Circles {
+    display: none;
+  }
 
+  .section2 img {
+    height: 30vh;
+  }
+}
 .section3 {
   background: #0f0f0f;
   height: 100vh;
@@ -274,6 +289,23 @@ main {
 .section3 .textSide hr {
   width: 70%;
   margin: 3vmin 0;
+}
+@media only screen and (max-width: 768px) {
+  .section3 div:nth-child(1) {
+    display: none;
+  }
+  .section3 {
+    border-radius: 0;
+    height: min-content;
+  }
+}
+@media only screen and (max-width: 992px) {
+  .section3 {
+    padding: 5vmin;
+  }
+  .section3 .textSide {
+    margin: 5vmin;
+  }
 }
 .section4 {
   font-family: "Damn", "Rokh";
@@ -455,6 +487,19 @@ main {
   height: 100%;
   object-fit: cover;
 }
+@media only screen and (max-width: 768px) {
+  .section4 > div {
+    padding: 4vh 2vmin;
+  }
+  .section4 > div:last-child > div div {
+    padding: 2vmin;
+  }
+}
+@media only screen and (max-width: 992px) {
+  .section4 > div:last-child > div div {
+    padding: 2vmin;
+  }
+}
 .noPinSection {
   background: #000000;
   color: wheat;
@@ -470,6 +515,7 @@ main {
   background-repeat: no-repeat;
   background-size: cover;
   padding-top: 10vh;
+  overflow: hidden;
 }
 .section5 .infiniteScrollText {
   display: flex;
@@ -504,6 +550,12 @@ main {
   display: inline-block;
 }
 
+@media only screen and (max-width: 768px) {
+  .section5 {
+    height: 50vh;
+    border: 3vw #f2ecdc solid;
+  }
+}
 .section6 {
   padding: 10vmin 10vw;
   color: white;
@@ -552,7 +604,7 @@ main {
 .section6 table thead {
   font-family: "Rokh";
   text-align: right;
-  font-size: clamp(1rem, 1.2vw, 100rem);
+  font-size: clamp(0.9rem, 1.2vw, 100rem);
   position: sticky;
   background: #000000;
   z-index: 1;
@@ -572,7 +624,7 @@ main {
 .section6 table tbody td {
   position: relative;
   text-indent: 5vmin;
-  font-size: clamp(0.9rem, 1vw, 100rem);
+  font-size: clamp(0.8rem, 1vw, 100rem);
 }
 .section6 table td::before {
   content: "";
@@ -587,6 +639,12 @@ main {
   border-radius: 50%;
 }
 
+@media only screen and (max-width: 768px) {
+  .section6 table tbody tr td:nth-child(3),
+  .section6 table thead tr th:nth-child(3) {
+    display: none;
+  }
+}
 .section7 {
   background: #f2ecdc;
   height: 100vh;
@@ -780,4 +838,39 @@ main {
   transform: translate(-35%, -50%);
   background-color: #3e362e;
   border-radius: 50%;
+}
+
+@media only screen and (max-width: 768px) {
+  .section7 {
+    height: min-content;
+    align-items: center;
+    justify-content: center;
+    padding-bottom: 0;
+  }
+  .section7::before {
+    top: calc(0% + 3vw);
+    bottom: calc(0% + 3vw);
+    right: calc(0% + 3vw);
+    left: calc(0% + 3vw);
+    background-size: cover;
+  }
+  .section7 > div {
+    width: 80vw;
+    margin: 10vmin 0;
+    padding: 5vw;
+    flex-direction: column;
+  }
+  .section7 > div > div {
+    width: 100%;
+    overflow: hidden;
+  }
+  .section7 .leftSide > .button div {
+    padding: 2vmin;
+  }
+  .section7 .circleAnimation {
+    position: relative;
+    width: 100%;
+    height: 10vmin;
+    margin: 3vw 0 ;
+  }
 }
