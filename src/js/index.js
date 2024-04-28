@@ -1,37 +1,23 @@
 gsap.registerPlugin(ScrollTrigger, ScrollSmoother, SplitText);
 
-window.addEventListener("load", (event) => {});
 
 let Smoother = null;
 
-async function ScrollSmootherfunction() {
-  Smoother = await ScrollSmoother.create({
-    wrapper: "#smooth-wrapper",
-    content: "#smooth-content",
-    smooth: 1,
-    effects: true,
-    smoothTouch: false,
-  });
-}
-
-// section pining effect
-let triggers = [];
-window.addEventListener("load", (event) => {
-  initializeTriggers();
-  ScrollSmootherfunction();
-  window.addEventListener("resize", () => {
-    initializeTriggers();
-    ScrollSmootherfunction();
-  });
+Smoother = ScrollSmoother.create({
+  wrapper: "#smooth-wrapper",
+  content: "#smooth-content",
+  smooth: 1,
+  effects: true,
+  smoothTouch: false,
 });
+/* window.addEventListener("resize", function () {
+  location.reload();
+}); */
 
 async function initializeTriggers() {
   if (window.innerWidth > 768) {
     await new Promise((resolve) => setTimeout(resolve, 400));
     let sections = gsap.utils.toArray(".section2, .section3, .section4, .noPinSection");
-    triggers.forEach((trigger) => {
-      if (trigger) trigger.kill();
-    });
 
     sections.forEach((section, i) => {
       let trigger = null;
@@ -66,15 +52,10 @@ async function initializeTriggers() {
           },
         });
       }
-      triggers.push(trigger);
-    });
-  } else {
-    triggers.forEach((trigger) => {
-      if (trigger) trigger.kill();
     });
   }
 }
-
+initializeTriggers();
 // hero---------------------------
 document.addEventListener("mousemove", function (e) {
   var { innerWidth: pageWidth, innerHeight: pageHeight } = window;
@@ -108,58 +89,47 @@ gsap.to(".hero .scrollFlesh", {
   duration: 0.5,
 });
 // section2---------------------------
-let section2Triggers = [];
-window.addEventListener("load", (event) => {
-  section2Gsap();
-  window.addEventListener("resize", () => {
-    section2Gsap();
+
+if (window.innerWidth > 768) {
+  section2Triggers = [];
+  gsap.to(".section2 img", {
+    scrollTrigger: {
+      trigger: ".section2 img",
+      start: "top 90%",
+      end: "bottom 90%",
+      scrub: 2,
+    },
+    width: "100%",
+    margin: "2vw 0",
+    duration: 1,
   });
-});
-async function section2Gsap() {
-  if (window.innerWidth > 768) {
-    /*     section2Triggers.forEach((trigger) => {
-      trigger.kill();
-    }); */
-    section2Triggers = [];
-    gsap.to(".section2 img", {
-      scrollTrigger: {
-        trigger: ".section2 img",
-        start: "top 90%",
-        end: "bottom 90%",
-        scrub: 2,
-      },
-      width: "100%",
-      margin: "2vw 0",
-      duration: 1,
-    });
-    gsap.to(".section2", {
-      scrollTrigger: {
-        trigger: ".section2 img",
-        start: "bottom 70%",
-        end: "bottom 50%",
-        scrub: 2,
-      },
-      filter: "blur(5px)",
-    });
-    gsap.to(".section2 .Circles", {
-      scrollTrigger: {
-        trigger: ".section2 .Circles",
-        start: "top 100%",
-        end: "bottom 10%",
-        scrub: 2,
-      },
-      transform: "rotate3d(0, 1, 0, 180deg)",
-    });
-    gsap.to(".cyclingCircles", {
-      scrollTrigger: {
-        trigger: ".section2",
-        start: "100vh top",
-        end: "100vh top",
-        toggleActions: "play none none reset",
-      },
-      display: "none",
-    });
-  }
+  gsap.to(".section2", {
+    scrollTrigger: {
+      trigger: ".section2 img",
+      start: "bottom 70%",
+      end: "bottom 50%",
+      scrub: 2,
+    },
+    filter: "blur(5px)",
+  });
+  gsap.to(".section2 .Circles", {
+    scrollTrigger: {
+      trigger: ".section2 .Circles",
+      start: "top 100%",
+      end: "bottom 10%",
+      scrub: 2,
+    },
+    transform: "rotate3d(0, 1, 0, 180deg)",
+  });
+  gsap.to(".cyclingCircles", {
+    scrollTrigger: {
+      trigger: ".section2",
+      start: "100vh top",
+      end: "100vh top",
+      toggleActions: "play none none reset",
+    },
+    display: "none",
+  });
 }
 
 // section3---------------------------

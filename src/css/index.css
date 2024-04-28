@@ -549,7 +549,7 @@ main {
 }
 .section5 .infiniteScrollText:last-child {
   font-family: "rokh";
-  background-color: rgba(54, 48, 41, 0.87);
+  background-color: #363029de;
   color: white;
   font-size: clamp(2rem, 3vw, 100rem);
   padding: 2vmin 0;
@@ -699,6 +699,7 @@ main {
   color: #3e362e;
   position: relative;
   display: flex;
+  flex-wrap: wrap;
   width: 80vmin;
   padding: 3vmin;
   z-index: 1;
@@ -707,6 +708,9 @@ main {
   width: 50%;
 }
 
+.section7 > div > div:last-child {
+  width: 100%;
+}
 .section7 h3 {
   font-family: "Rokh";
   white-space: nowrap;
@@ -743,49 +747,51 @@ main {
   background: #f2ecdc;
 }
 /**/
-.section7 .leftSide > .button {
+.section7 .button {
   overflow: hidden;
   font-family: "Rokh";
+  padding: 1vmin 0;
 }
-.section7 .leftSide > .button a {
+.section7 .button a {
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: left;
 
   border: 0.1vmin solid #3e362e;
   border-radius: 0.5vmin;
 
   text-decoration: none;
   color: #3e362e;
+  white-space: nowrap;
 }
-.section7 .leftSide .button a:hover {
+.section7 .button a:hover {
   background: #3e362e;
   color: white;
 }
-.section7 .leftSide p {
+.section7 p {
   padding: 0 1vmin;
 }
-.section7 .leftSide > .button div {
+.section7 .button div {
   background: #3e362e;
   display: flex;
   flex-direction: column;
   padding: 1vmin;
   position: relative;
 }
-.section7 .leftSide > .button div img:last-child {
+.section7 .button div img:last-child {
   position: absolute;
   top: 105%;
 }
-.section7 .leftSide > .button:hover div img:first-child {
+.section7 .button:hover div img:first-child {
   transform: translateX(-200%);
   transition: ease 0.5s;
 }
-.section7 .leftSide > .button:hover div img:last-child {
+.section7 .button:hover div img:last-child {
   top: 50%;
   transform: translateY(-50%);
   transition: ease 0.5s;
 }
-.section7 .leftSide img {
+.section7 img {
   filter: brightness(100);
   width: 2vmin;
   height: 2vmin;
@@ -879,7 +885,7 @@ main {
     width: 100%;
     overflow: hidden;
   }
-  .section7 .leftSide > .button div {
+  .section7 .button div {
     padding: 2vmin;
   }
   .section7 .circleAnimation {
@@ -888,4 +894,105 @@ main {
     height: 10vmin;
     margin: 3vw 0;
   }
+}
+.downloadDataSheet {
+  position: fixed;
+  z-index: 99;
+
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
+
+  background: hsla(0, 0%, 0%, 0.6);
+
+  font-family: "Rokh";
+  font-size: clamp(0.9rem, 1.1vw, 100rem);
+  color: white;
+}
+
+.downloadDataSheet > div {
+  background: hsla(0, 0%, 0%, 0.8);
+  backdrop-filter: blur(0.5vmin);
+
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  width: 60vw;
+}
+
+.downloadDataSheet h3 {
+  position: relative;
+  padding: 4vmin 10vmin;
+  cursor: pointer;
+  transition: ease 0.5s;
+}
+.downloadDataSheet h3:hover {
+  font-size: clamp(1rem, 1.3vw, 100rem);
+}
+
+.downloadDataSheet h3::before {
+  content: "";
+  position: absolute;
+  right: 0;
+  left: 0;
+  bottom: 0;
+  top: 100%;
+  background: #363029de;
+  transition: ease 0.5s;
+  z-index: -1;
+}
+
+.downloadDataSheet h3:hover::before {
+  top: 0;
+}
+
+.downloadDataSheet h3::after {
+  content: "";
+  position: absolute;
+  right: 0;
+  left: 100%;
+  bottom: 0;
+  top: calc(100% - 0.1vmin);
+  background: rgb(255, 255, 255);
+  transition: ease 0.5s;
+  z-index: -1;
+}
+
+.downloadDataSheet h3:hover::after {
+  left: 0;
+}
+
+.downloadDataSheet a {
+  font-weight: 200;
+  order: 2;
+  padding: 2vmin 10vmin;
+  cursor: pointer;
+  position: relative;
+  font-size: clamp(1rem, 1.1vw, 100rem);
+
+  color: white;
+  text-decoration: none;
+  font-family: "YekanBakhFaNum", "vazir", "nazanin", "Dubai", Arial, sans-serif;
+}
+.downloadDataSheet a::before {
+  content: "";
+  position: absolute;
+  background: white;
+  top: 50%;
+  bottom: 50%;
+  height: 0.1vmin;
+  right: 2vmin;
+  width: 0;
+  transition: ease 0.5s;
+}
+
+.downloadDataSheet a:hover::before {
+  background: white;
+  width: 6vmin;
 }
