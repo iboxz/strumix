@@ -525,6 +525,9 @@
       });
 
       const h3Tag = document.createElement("h3");
+      const ImgTag = document.createElement("img");
+      ImgTag.src = "assets/VectorFlesh4.svg";
+      h3Tag.appendChild(ImgTag);
       h3Tag.appendChild(document.createTextNode(element.innerText));
       h3Tag.onclick = function () {
         const removeMainContainer = document.querySelector(".downloadDataSheet");

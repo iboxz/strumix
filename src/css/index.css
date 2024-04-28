@@ -996,3 +996,15 @@ main {
   background: white;
   width: 6vmin;
 }
+
+.downloadDataSheet img {
+  filter: brightness(100);
+  height: 2vmin;
+  padding: 0 2vmin;
+  transform: rotate(45deg) translateY(50%);
+}
+@media only screen and (max-width: 768px) {
+  .downloadDataSheet > div {
+    width: 95vw;
+  }
+}
