@@ -1,18 +1,17 @@
 gsap.registerPlugin(ScrollTrigger, ScrollSmoother, SplitText);
 
-
 let Smoother = null;
 
 Smoother = ScrollSmoother.create({
   wrapper: "#smooth-wrapper",
   content: "#smooth-content",
-  smooth: 1,
+  smooth: 0.8,
   effects: true,
   smoothTouch: false,
 });
-/* window.addEventListener("resize", function () {
+window.addEventListener("resize", function () {
   location.reload();
-}); */
+});
 
 async function initializeTriggers() {
   if (window.innerWidth > 768) {
