@@ -305,6 +305,11 @@ nav > .active > span:last-child {
   nav > div:not(:last-of-type) {
     display: none;
   }
+  nav > div:first-child {
+    width: 10vmin;
+    height: 10vmin;
+    display: flex;
+  }
   nav > div:last-of-type {
     display: block;
     padding: 4vmin 4vmax;

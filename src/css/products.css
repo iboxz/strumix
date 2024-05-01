@@ -70,7 +70,7 @@ html {
 .hero {
   display: flex;
   justify-content: space-between;
-  padding: 5vmax 10vmax;
+  padding: 10vmax 10vmax;
 }
 
 .hero img {

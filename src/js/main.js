@@ -1,48 +1,51 @@
-const nav = document.createElement("nav");
-const div1 = document.createElement("div");
-const img = document.createElement("img");
-const div2 = document.createElement("div");
-const p1 = document.createElement("p");
-const span1 = document.createElement("span");
-const div3 = document.createElement("div");
-const p2 = document.createElement("p");
-const div4 = document.createElement("div");
-const p3 = document.createElement("p");
-const div5 = document.createElement("div");
-const span2 = document.createElement("span");
-const span3 = document.createElement("span");
-const section = document.createElement("section");
+const navigation = document.createElement("nav");
+const divLogo = document.createElement("div");
+const logoImg = document.createElement("img");
+const divProducts = document.createElement("div");
+const productsParagraph = document.createElement("p");
+const productsSpan = document.createElement("span");
+const divArticles = document.createElement("div");
+const articlesParagraph = document.createElement("p");
+const divContact = document.createElement("div");
+const contactParagraph = document.createElement("p");
+const divHamburger = document.createElement("div");
+const hamburgerSpan1 = document.createElement("span");
+const hamburgerSpan2 = document.createElement("span");
+const sectionProducts = document.createElement("section");
 
-img.src = "assets/VectorLogo.svg";
-img.alt = "";
-p1.textContent = "محصولات و خدمات";
-p1.appendChild(span1);
-p1.classList.add("productsButton");
-p2.textContent = "مقالات";
-p3.textContent = "ارتباط با ما";
-div5.classList.add("hamburger");
-section.classList.add("products");
+const baseUrl = window.location.origin;
+console.log(baseUrl);
+logoImg.src = new URL("/assets/VectorLogo.svg", baseUrl);
+logoImg.alt = "Strumix mini logo";
+productsParagraph.textContent = "محصولات و خدمات";
+productsSpan.classList.add("fleshDown");
+productsParagraph.appendChild(productsSpan);
+productsParagraph.classList.add("productsButton");
+articlesParagraph.textContent = "مقالات";
+contactParagraph.textContent = "ارتباط با ما";
+divHamburger.classList.add("hamburger");
+sectionProducts.classList.add("products");
 
-nav.appendChild(div1);
-div1.appendChild(img);
-nav.appendChild(div2);
-div2.appendChild(p1);
-nav.appendChild(div3);
-div3.appendChild(p2);
-nav.appendChild(div4);
-div4.appendChild(p3);
-nav.appendChild(div5);
-div5.appendChild(span2);
-div5.appendChild(span3);
-nav.appendChild(section);
+navigation.appendChild(divLogo);
+divLogo.appendChild(logoImg);
+navigation.appendChild(divProducts);
+divProducts.appendChild(productsParagraph);
+navigation.appendChild(divArticles);
+divArticles.appendChild(articlesParagraph);
+navigation.appendChild(divContact);
+divContact.appendChild(contactParagraph);
+navigation.appendChild(divHamburger);
+divHamburger.appendChild(hamburgerSpan1);
+divHamburger.appendChild(hamburgerSpan2);
+navigation.appendChild(sectionProducts);
 
-document.body.appendChild(nav);
+document.body.appendChild(navigation);
 
 gsap.registerPlugin(ScrollTrigger, ScrollSmoother, SplitText, TextPlugin);
 
 gsap.set("nav .products", { y: "0%" });
 
-var menu = gsap
+var menuTimeline = gsap
   .timeline({ paused: true, reversed: true })
   .from("nav .products", { y: "-100%", duration: 1, ease: "power2.inOut" })
   .to(
@@ -73,14 +76,14 @@ var menu = gsap
   );
 
 document.querySelector(".hamburger").addEventListener("click", function () {
-  if (buttonEnabled) {
-    buttonEnabled = false;
+  if (menuEnabled) {
+    menuEnabled = false;
     fetchDataForProducts();
     toggleMenu();
     toggleActiveClass();
     document.body.style.overflow = "hidden";
   } else {
-    buttonEnabled = true;
+    menuEnabled = true;
     toggleMenu();
     toggleActiveClass();
     document.body.style.overflow = "visible";
@@ -93,13 +96,13 @@ function toggleActiveClass() {
 }
 
 function toggleMenu() {
-  menu.reversed() ? menu.timeScale(1).play() : menu.timeScale(2).reverse();
+  menuTimeline.reversed() ? menuTimeline.timeScale(1).play() : menuTimeline.timeScale(2).reverse();
 }
-let buttonEnabled = true;
+let menuEnabled = true;
 
 document.querySelector("nav > div:nth-child(2)").addEventListener("click", function () {
-  if (buttonEnabled) {
-    buttonEnabled = false;
+  if (menuEnabled) {
+    menuEnabled = false;
     fetchDataForProducts();
     toggleMenu();
     document.body.style.overflow = "hidden";
@@ -107,23 +110,29 @@ document.querySelector("nav > div:nth-child(2)").addEventListener("click", funct
 });
 
 document.querySelector("nav > div:nth-child(3)").addEventListener("click", function () {
-  if (!buttonEnabled) {
+  if (!menuEnabled) {
     toggleMenu();
-    buttonEnabled = true;
+    menuEnabled = true;
     document.body.style.overflow = "visible";
+  } else {
+    window.open(baseUrl + "/#", "_self");
   }
 });
+document.querySelector("nav > div:nth-child(4)").addEventListener("click", function () {
+  window.open(baseUrl + "/contact.html", "_self");
+});
 
+document.querySelector("nav > div:nth-child(3)").addEventListener("click", function () {});
 document.body.addEventListener("click", function (event) {
-  if (!buttonEnabled && !event.target.closest("nav")) {
-    buttonEnabled = true;
+  if (!menuEnabled && !event.target.closest("nav")) {
+    menuEnabled = true;
     toggleMenu();
     document.body.style.overflow = "visible";
   }
 });
 
 function fetchDataForProducts() {
-  fetch("products/products.json")
+  fetch(new URL("/products/products.json", baseUrl))
     .then((response) => response.json())
     .then((data) => {
       const selectedProducts = [];
@@ -137,12 +146,12 @@ function fetchDataForProducts() {
 
       document.querySelector("nav .products").innerHTML = "";
 
-      addSection(randomSelectedProducts);
+      addSectionProducts(randomSelectedProducts);
     })
     .catch((error) => console.error("Error fetching data:", error));
 }
 
-function addSection(products) {
+function addSectionProducts(products) {
   const otherProductContent = document.querySelector("nav .products");
 
   const outerDiv = document.createElement("div");
@@ -150,7 +159,7 @@ function addSection(products) {
   const innerDiv = document.createElement("div");
   const paragraph = document.createElement("p");
 
-  link.setAttribute("href", "./products.html");
+  link.setAttribute("href", baseUrl + "/products.html");
   paragraph.textContent = "همه‌ی محصولات";
   innerDiv.appendChild(paragraph);
   link.appendChild(innerDiv);
@@ -177,22 +186,20 @@ function addSection(products) {
     image.src = `../assets/productImg/${product.image}`;
     image.alt = `${product.image} Image`;
 
-    // var hostname = window.location.hostname;
+    const linkContainer = document.createElement("a");
+    linkContainer.href = baseUrl + "/products/" + product.url;
 
-    const LinkContainer = document.createElement("a");
-    LinkContainer.href = `./products/${product.url}`;
-
-    LinkContainer.appendChild(image);
-    LinkContainer.appendChild(productInfo);
-    otherProductItem.appendChild(LinkContainer);
+    linkContainer.appendChild(image);
+    linkContainer.appendChild(productInfo);
+    otherProductItem.appendChild(linkContainer);
 
     otherProductContent.appendChild(otherProductItem);
   });
 
   var links = [
-    { text: "لیست همه‌ی محصولات", href: "wqdwqd" },
-    { text: "مقالات", href: "dqwdwq" },
-    { text: "ارتباط با ما", href: "dqwqwdqdw" },
+    { text: "لیست همه‌ی محصولات", href: baseUrl + "/products.html" },
+    { text: "مقالات", href: "#" },
+    { text: "ارتباط با ما", href: baseUrl + "/contact.html" },
   ];
 
   for (var i = 0; i < links.length; i++) {

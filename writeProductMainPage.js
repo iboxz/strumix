@@ -1,6 +1,5 @@
-// const fs = require("fs").promises;
-// const path = require("path");
-// const cheerio = require("cheerio");
+const fs = require("fs-extra");
+const path = require("path");
 
 // Helper function to handle errors gracefully
 function handleError(err) {
@@ -9,56 +8,36 @@ function handleError(err) {
 }
 
 // Improved main function with error handling and logging
-async function updateImages() {
+async function updateHTMLFiles() {
   try {
     const productPath = "products";
 
     // Read directory contents asynchronously
-    const files = await fs.readdir("products");
+    const files = await fs.readdir(productPath);
 
-    // Read product data asynchronously
-    const jsonFilePath = path.join(productPath, "products.json");
-    const data = await fs.readFile(jsonFilePath, "utf-8");
+    for (const file of files) {
+      if (file.endsWith(".html")) {
+        const filePath = path.join(productPath, file);
 
-    // Parse JSON data asynchronously for potential errors
-    const jsonData = JSON.parse(data);
+        try {
+          // Read HTML file asynchronously
+          let htmlContent = await fs.readFile(filePath, "utf-8");
 
-    const uniqueNames = new Set();
+          // Add script tags to the head section
+          htmlContent = htmlContent.replace(
+            /<head>([\s\S]*?)<\/head>/,
+            `<head>$1
+              <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/TextPlugin.min.js"></script>
+              <script async src="../src/js/main.js"></script>
+            </head>`
+          );
 
-    for (const category of jsonData.categories) {
-      for (const product of category.products) {
-        const filePath = path.join("products.html");
+          // Write changes to the file asynchronously
+          await fs.writeFile(filePath, htmlContent, "utf-8");
 
-        if (!uniqueNames.has(product.name.en)) {
-          uniqueNames.add(product.name.en);
-          console.log(`Processing product: ${product.url}`);
-
-          try {
-            // Read product file asynchronously
-            const htmlContent = await fs.readFile("products.html", "utf-8");
-
-            // Load Cheerio instance asynchronously, handling potential errors
-            const $ = await cheerio.load(htmlContent);
-
-            const divHTML = `<div>
-                <a href="products/${product.url}">
-                  <img src="./assets/productImg/${product.image}" alt="${product.name.en} image, تصویر ${product.name.fa}" loading="lazy" />
-                  <p class="englishText">${product.name.en}</p>
-                  <p class="englishText">${product.name.fa}</p>
-                </a>
-              </div>`;
-
-            // Update content within the "section.hero" element
-            $(".productList").append(divHTML);
-            // $(".productList").html(divHTML);
-
-            // Write changes to the file asynchronously
-            await fs.writeFile(filePath, $.html(), "utf-8");
-
-            console.log(`File ${product.url} successfully updated.`);
-          } catch (err) {
-            console.error(`Error updating ${product.url}: ${err.message}`);
-          }
+          console.log(`File ${file} successfully updated.`);
+        } catch (err) {
+          console.error(`Error updating ${file}: ${err.message}`);
         }
       }
     }
@@ -70,4 +49,4 @@ async function updateImages() {
 }
 
 // Call the main function
-updateImages();
+updateHTMLFiles();

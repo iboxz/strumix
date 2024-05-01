@@ -14,6 +14,9 @@
     <script src="https://cdn.glitch.global/8352fc0e-bebe-4680-ae0b-269da8b54259/ScrollSmoother.min.js"></script>
     <script src="https://cdn.glitch.global/8352fc0e-bebe-4680-ae0b-269da8b54259/SplitText.min.js"></script>
 
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/TextPlugin.min.js"></script>
+    <script async="" src="src/js/main.js"></script>
+    
     <link rel="stylesheet" href="src/css/main.css" />
     <link rel="stylesheet" href="src/css/productsMainPage.css" />
   </head>
@@ -1595,7 +1598,6 @@
         return value;
       }
       const UrlGetProductID = getUrlParameter("productID");
-      console.log(UrlGetProductID);
       if (UrlGetProductID != null) {
         setTimeout(() => {
           fetchAndLogProducts(UrlGetProductID);
