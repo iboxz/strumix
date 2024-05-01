@@ -9,8 +9,13 @@ Smoother = ScrollSmoother.create({
   effects: true,
   smoothTouch: false,
 });
+
+var previousWidth = window.innerWidth;
+
 window.addEventListener("resize", function () {
-  location.reload();
+  if (window.innerWidth !== previousWidth) {
+    location.reload();
+  }
 });
 
 async function initializeTriggers() {

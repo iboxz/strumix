@@ -166,7 +166,7 @@ nav {
   padding: 3vmin 0;
 
   transition: top ease-in-out 0.5s;
-  z-index: 999;
+  z-index: 900;
 }
 nav > div {
   background: hsla(39, 100%, 70%, 0.8);
@@ -316,7 +316,7 @@ nav > .active > span:last-child {
   }
   nav .products {
     width: 100%;
-    height: 100vh;
+    height: 100dvh;
     flex-direction: column;
   }
   nav .products > div {

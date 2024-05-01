@@ -121,6 +121,9 @@ document.querySelector("nav > div:nth-child(3)").addEventListener("click", funct
 document.querySelector("nav > div:nth-child(4)").addEventListener("click", function () {
   window.open(baseUrl + "/contact.html", "_self");
 });
+document.querySelector("nav > div:nth-child(1)").addEventListener("click", function () {
+  window.open(baseUrl, "_self");
+});
 
 document.querySelector("nav > div:nth-child(3)").addEventListener("click", function () {});
 document.body.addEventListener("click", function (event) {
