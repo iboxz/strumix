@@ -154,3 +154,236 @@ html {
   height: 100%;
   background-color: hsl(47, 37%, 44%);
 }
+
+nav {
+  position: fixed;
+  width: 100%;
+  top: 0;
+  display: flex;
+  font-family: "Montserrat", "Rokh";
+  font-weight: 300;
+  justify-content: center;
+  padding: 3vmin 0;
+
+  transition: top ease-in-out 0.5s;
+  z-index: 999;
+}
+nav > div {
+  background: hsla(39, 100%, 70%, 0.8);
+  backdrop-filter: blur(0.5vmin);
+  padding: 1vmin 5vmin;
+  border-radius: 10vmin;
+  z-index: 10;
+  font-size: clamp(0.9rem, 1vw, 100rem);
+  cursor: pointer;
+}
+nav > div:first-child {
+  position: absolute;
+  padding: 0;
+  left: 3vmin;
+  top: 50%;
+  transform: translateY(-50%);
+  margin: 0;
+  width: 7vmin;
+  height: 7vmin;
+  padding: 1vmin;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  background: #ffab2e;
+}
+nav > div:first-child img {
+  object-fit: contain;
+  width: 100%;
+  height: 100%;
+}
+nav > div:nth-child(3) {
+  border: 0vmin black solid;
+}
+nav .fleshDown {
+  content: url(../../assets/VectorFlesh5.svg);
+  vertical-align: middle;
+  height: 100%;
+  width: 1.5vmin;
+  min-width: 10px;
+  margin: 0 1vmin;
+}
+nav .products {
+  width: 100%;
+  height: 80vmin;
+  position: absolute;
+  left: 0;
+  top: 0;
+  background: hsla(39, 100%, 70%, 0.9);
+  backdrop-filter: blur(1vmin);
+  display: flex;
+  font-size: clamp(0.8rem, 1vw, 100rem);
+  overflow: hidden;
+}
+nav .products h5 {
+  font-size: clamp(0.9rem, 1.2vw, 100rem);
+}
+nav .products > div {
+  width: 25%;
+  height: 100%;
+  padding: 12vmin 2vmin;
+}
+nav .products > div div {
+  padding: 3vmin 0;
+}
+nav .products a {
+  text-decoration: none;
+  color: black;
+
+  -webkit-tap-highlight-color: transparent;
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+}
+nav .products > div img {
+  object-fit: cover;
+  width: 100%;
+  height: 80%;
+
+  border: 0.1vmin black solid;
+
+  -webkit-user-drag: none;
+  -khtml-user-drag: none;
+  -moz-user-drag: none;
+  -o-user-drag: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+nav .products div:first-child div {
+  width: 100%;
+  height: 80%;
+  border: 0.1vmin black solid;
+  font-weight: 600;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: clamp(1rem, 2vw, 100rem);
+}
+nav .products > a:nth-child(5),
+nav .products > a:nth-child(6),
+nav .products > a:nth-child(7) {
+  display: none;
+}
+
+nav > div:last-of-type {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  display: none;
+}
+nav > div:last-of-type > span {
+  display: block;
+  width: 5vmax;
+  border-bottom: 0.1vmin solid black;
+  transition: all 0.3s ease;
+}
+nav > .hamburger > span:first-child {
+  transform: rotate(0deg) translateY(-0.7vmin);
+}
+nav > .hamburger > span:last-child {
+  transform: rotate(0deg) translateY(0.7vmin);
+}
+nav > .active > span:first-child {
+  transform: rotate(15deg);
+}
+nav > .active > span:last-child {
+  transform: rotate(-15deg);
+}
+@media only screen and (max-width: 768px) {
+  nav {
+    justify-content: right;
+    padding: 5vmin 5vmin;
+  }
+  nav > div:not(:last-of-type) {
+    display: none;
+  }
+  nav > div:last-of-type {
+    display: block;
+    padding: 4vmin 4vmax;
+  }
+  nav .products {
+    width: 100%;
+    height: 100vh;
+    flex-direction: column;
+  }
+  nav .products > div {
+    width: 100%;
+    height: fit-content;
+    padding: 0;
+  }
+  nav .products a {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 2vmin 1vmin;
+  }
+  nav .products > div img {
+    object-fit: cover;
+    width: 30vmin;
+    height: 30vmin;
+    order: 1;
+  }
+  nav .products > a:nth-child(5),
+  nav .products > a:nth-child(6),
+  nav .products > a:nth-child(7) {
+    display: block;
+    border: 0.1vmin black solid;
+    border-radius: 10vmin;
+    justify-content: center;
+    display: flex;
+    justify-content: center;
+    margin: 1vmin 1vmin;
+  }
+  nav .products > a:nth-child(5) {
+    margin-top: auto;
+  }
+
+  nav .products > div:nth-child(2) {
+    margin-top: auto;
+  }
+  nav .products > div:nth-child(3) {
+    display: none;
+  }
+  nav .products > div div {
+    padding: 3vmin 2vmin;
+  }
+  nav .products div:first-child div {
+    display: none;
+  }
+}
+@media only screen and (max-width: 470px) {
+  nav .products > div:nth-child(3) {
+    display: block;
+  }
+  nav .products > a:nth-child(5),
+  nav .products > a:nth-child(6),
+  nav .products > a:nth-child(7) {
+    display: block;
+    border: 0.1vmin black solid;
+    border-radius: 10vmin;
+    justify-content: center;
+    display: flex;
+    justify-content: center;
+    margin: 2vmin 3vmin;
+  }
+  nav .products a {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 3vmin 3vmin;
+  }
+  nav .products > a:nth-child(5) {
+    margin-top: auto;
+  }
+  nav .products > div:nth-child(2) {
+    margin-top: auto;
+  }
+}

@@ -76,11 +76,11 @@
         background: #fecb66;
         backdrop-filter: blur(0.5vmin);
         display: flex;
-        font-size: clamp(0.9rem, 1vw, 100rem);
+        font-size: clamp(0.8rem, 1vw, 100rem);
         overflow: hidden;
       }
       nav .products h5 {
-        font-size: clamp(1rem, 1.2vw, 100rem);
+        font-size: clamp(0.9rem, 1.2vw, 100rem);
       }
       nav .products > div {
         width: 25%;
@@ -113,7 +113,7 @@
         -ms-user-select: none;
         user-select: none;
       }
-      nav .products div:first-child > div {
+      nav .products div:first-child div {
         width: 100%;
         height: 80%;
         border: 0.1vmin black solid;
@@ -122,7 +122,128 @@
         display: flex;
         align-items: center;
         justify-content: center;
-        font-size: clamp(1.5rem, 2vw, 100rem);
+        font-size: clamp(1rem, 2vw, 100rem);
+      }
+      nav .products > a:nth-child(5),
+      nav .products > a:nth-child(6),
+      nav .products > a:nth-child(7) {
+        display: none;
+      }
+
+      nav > div:last-of-type {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        display: none;
+      }
+      nav > div:last-of-type > span {
+        display: block;
+        width: 5vmax;
+        border-bottom: 0.1vmin solid black;
+        transition: all 0.3s ease;
+      }
+      nav > .hamburger > span:first-child {
+        transform: rotate(0deg) translateY(-0.7vmin);
+      }
+      nav > .hamburger > span:last-child {
+        transform: rotate(0deg) translateY(0.7vmin);
+      }
+      nav > .active > span:first-child {
+        transform: rotate(15deg);
+      }
+      nav > .active > span:last-child {
+        transform: rotate(-15deg);
+      }
+      @media only screen and (max-width: 768px) {
+        nav {
+          justify-content: right;
+          padding: 5vmin 5vmin;
+        }
+        nav > div:not(:last-of-type) {
+          display: none;
+        }
+        nav > div:last-of-type {
+          display: block;
+          padding: 4vmin 4vmax;
+        }
+        nav .products {
+          width: 100%;
+          height: 100vh;
+          flex-direction: column;
+        }
+        nav .products > div {
+          width: 100%;
+          height: fit-content;
+          padding: 0;
+        }
+        nav .products a {
+          display: flex;
+          flex-direction: row;
+          justify-content: space-between;
+          padding: 2vmin 1vmin;
+        }
+        nav .products > div img {
+          object-fit: cover;
+          width: 30vmin;
+          height: 30vmin;
+          order: 1;
+        }
+        nav .products > a:nth-child(5),
+        nav .products > a:nth-child(6),
+        nav .products > a:nth-child(7) {
+          display: block;
+          border: 0.1vmin black solid;
+          border-radius: 10vmin;
+          justify-content: center;
+          display: flex;
+          justify-content: center;
+          margin: 1vmin 1vmin;
+        }
+        nav .products > a:nth-child(5) {
+          margin-top: auto;
+        }
+
+        nav .products > div:nth-child(2) {
+          margin-top: auto;
+        }
+        nav .products > div:nth-child(3) {
+          display: none;
+        }
+        nav .products > div div {
+          padding: 3vmin 2vmin;
+        }
+        nav .products div:first-child div {
+          display: none;
+        }
+      }
+      @media only screen and (max-width: 470px) {
+        nav .products > div:nth-child(3) {
+          display: block;
+        }
+        nav .products > a:nth-child(5),
+        nav .products > a:nth-child(6),
+        nav .products > a:nth-child(7) {
+          display: block;
+          border: 0.1vmin black solid;
+          border-radius: 10vmin;
+          justify-content: center;
+          display: flex;
+          justify-content: center;
+          margin: 2vmin 3vmin;
+        }
+        nav .products a {
+          display: flex;
+          flex-direction: row;
+          justify-content: space-between;
+          padding: 3vmin 3vmin;
+        }
+        nav .products > a:nth-child(5) {
+          margin-top: auto;
+        }
+        nav .products > div:nth-child(2) {
+          margin-top: auto;
+        }
       }
     </style>
   </head>
@@ -136,17 +257,17 @@
       </div>
       <div><p>مقالات</p></div>
       <div><p>ارتباط با ما</p></div>
-      <section class="products">
-        <div>
-          <div><p>همه‌ی محصولات</p></div>
-        </div>
-      </section>
+      <div class="hamburger">
+        <span></span>
+        <span></span>
+      </div>
+      <section class="products"></section>
     </nav>
 
     <script>
       gsap.registerPlugin(ScrollTrigger, ScrollSmoother, SplitText, TextPlugin);
 
-      gsap.set("nav .products", { y: "0%", autoAlpha: 1 });
+      gsap.set("nav .products", { y: "0%" });
 
       var menu = gsap
         .timeline({ paused: true, reversed: true })
@@ -181,6 +302,27 @@
           },
           0.5
         );
+
+      var buttonEnabledHamburger = true;
+
+      document.querySelector(".hamburger").addEventListener("click", function () {
+        if (buttonEnabled) {
+          buttonEnabled = false;
+          fetchDataForProducts();
+          toggleMenu();
+          toggleActiveClass();
+        } else {
+          toggleMenu();
+          toggleActiveClass();
+
+          buttonEnabled = true;
+        }
+      });
+
+      function toggleActiveClass() {
+        var hamburger = document.querySelector(".hamburger");
+        hamburger.classList.toggle("active");
+      }
 
       function toggleMenu() {
         menu.reversed() ? menu.timeScale(1).play() : menu.timeScale(2).reverse();
@@ -233,11 +375,17 @@
         const otherProductContent = document.querySelector("nav .products");
 
         const outerDiv = document.createElement("div");
+        const link = document.createElement("a");
         const innerDiv = document.createElement("div");
         const paragraph = document.createElement("p");
+
+        link.setAttribute("href", "#");
         paragraph.textContent = "همه‌ی محصولات";
+
         innerDiv.appendChild(paragraph);
-        outerDiv.appendChild(innerDiv);
+        link.appendChild(innerDiv);
+        outerDiv.appendChild(link);
+
         otherProductContent.appendChild(outerDiv);
 
         products.forEach((product) => {
@@ -268,6 +416,23 @@
 
           otherProductContent.appendChild(otherProductItem);
         });
+
+        var links = [
+          { text: "لیست همه‌ی محصولات", href: "wqdwqd" },
+          { text: "مقالات", href: "dqwdwq" },
+          { text: "ارتباط با ما", href: "dqwqwdqdw" },
+        ];
+
+        for (var i = 0; i < links.length; i++) {
+          var newLink = document.createElement("a");
+          newLink.textContent = links[i].text;
+          newLink.setAttribute("href", links[i].href);
+
+          var newDiv = document.createElement("div");
+          newDiv.appendChild(newLink);
+
+          otherProductContent.appendChild(newLink);
+        }
       }
 
       function getRandomItems(array, count) {
