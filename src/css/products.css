@@ -42,13 +42,12 @@ html {
   scrollbar-width: none;
 }
 
-
 /* start hero */
 
 .hero {
   display: flex;
   justify-content: space-between;
-  padding: 10vmax 10vmax;
+  padding: 5vmax 10vmax;
 }
 
 .hero img {
@@ -259,8 +258,8 @@ html {
     width: 100%;
   }
   .hero {
-    align-items: end;
     padding: 10vmax 2vmax 0 2vmax;
+    align-items: end;
   }
   .hero div {
     width: 100%;
