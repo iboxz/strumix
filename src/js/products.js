@@ -8,12 +8,6 @@ ScrollSmoother.create({
   smoothTouch: false,
 });
 window.addEventListener("load", (event) => {
-  gsap.to(".splashScreen", {
-    y: "-100%",
-    delay: 1,
-    duration: 1,
-    ease: "power3.out",
-  });
   gsap.from(
     new SplitText(".hero div h1", {
       type: "words",

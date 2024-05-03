@@ -237,3 +237,33 @@ function hideNavbarOnScroll() {
 }
 
 document.addEventListener("scroll", hideNavbarOnScroll);
+
+window.addEventListener("load", (event) => {
+  const path = document.querySelector(".splashScreen svg path");
+  var pathData =
+    "M3 252.473C7 236.473 36.2346 186.5 41 179C44.3333 142 80.9 58.4725 198.5 16.4725C222.333 6.30583 282.5 -7.9275 332.5 16.4725C319.167 31.3059 293 71 283.5 83.9727C274 96.9453 245 132.473 183 132.473C150.667 129.982 72.6582 138.3 39.4582 181.5C39.4582 181.5 91.5 54.5 265.5 33";
+
+  path.setAttribute("d", pathData);
+  var length = path.getTotalLength();
+  gsap.set(path, { strokeDasharray: length, strokeDashoffset: length });
+
+  gsap.to(path, { strokeDashoffset: 0, duration: 3, ease: "ease-in-out" });
+
+  var splashScreenTimeline = gsap
+    .timeline({ paused: true, reversed: true })
+    .from(
+      new SplitText(".splashScreen p:nth-child(1)", {
+        type: "chars",
+        tagName: "span",
+        tag: "span",
+      }).chars,
+      {
+        opacity: 0.2,
+        ease: "power3.out",
+        stagger: 0.3,
+      }
+    )
+    .to(".splashScreen", { y: "-100%", delay: 1, duration: 1, ease: "power3.out" });
+
+  splashScreenTimeline.play();
+});

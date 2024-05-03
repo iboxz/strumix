@@ -20,28 +20,6 @@
 
     <link rel="stylesheet" href="src/css/main.css" />
     <style>
-      .splashScreen {
-        position: fixed;
-        top: 0;
-        background-color: #1a1a1a;
-        width: 100%;
-        height: 100vh;
-        height: 100lvh;
-
-        font-family: Arial, Helvetica, sans-serif;
-        font-weight: 900;
-        font-size: clamp(3rem, 10vw, 100rem);
-        text-transform: uppercase;
-        color: white;
-
-        display: flex;
-        justify-content: center;
-        align-items: end;
-
-        padding-bottom: 20%;
-
-        z-index: 999;
-      }
       /* scroll bar */
       ::-webkit-scrollbar {
         display: none;
@@ -478,7 +456,13 @@
       <div id="scrollbar"></div>
     </div>
     <section class="splashScreen">
-      <p>Strumix</p>
+      <p>
+        Strumix
+        <svg viewBox="0 0 337 255" fill="none">
+          <path class="svg-path" />
+        </svg>
+      </p>
+      <p>بسپار بتن ايرانيان هوشمند</p>
     </section>
     <main id="smooth-wrapper">
       <div id="smooth-content">
@@ -629,12 +613,6 @@
     <script>
       gsap.registerPlugin(ScrollTrigger, ScrollSmoother, SplitText);
       window.addEventListener("load", (event) => {
-        gsap.to(".splashScreen", {
-          y: "-100%",
-          delay: 1,
-          duration: 1,
-          ease: "power3.out",
-        });
         ScrollSmoother.create({
           wrapper: "#smooth-wrapper",
           contect: "#smooth-content",
