@@ -230,7 +230,7 @@ function hideNavbarOnScroll() {
   if (prevScrollpos > currentScrollPos) {
     nav.style.top = "0";
   } else {
-    nav.style.top = "-10vmax";
+    nav.style.top = "-15vmax";
   }
 
   prevScrollpos = currentScrollPos;
