@@ -16,8 +16,6 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/TextPlugin.min.js"></script>
     <script async="" src="src/js/main.js"></script>
 
-    <script defer src="../src/js/horizontalScrollbar.js"></script>
-
     <link rel="stylesheet" href="src/css/main.css" />
     <style>
       /* scroll bar */
@@ -452,9 +450,6 @@
     </style>
   </head>
   <body>
-    <div id="scrollbar-container">
-      <div id="scrollbar"></div>
-    </div>
     <section class="splashScreen">
       <p>
         Strumix
@@ -620,20 +615,6 @@
           effects: true,
           smoothTouch: false,
         });
-        gsap.from(
-          new SplitText(".hero > p:nth-child(2)", {
-            type: "chars",
-            tagName: "span",
-            tag: "span",
-          }).chars,
-          {
-            delay: 1.2,
-            opacity: 0.2,
-            duration: 0.5,
-            ease: "power3.out",
-            stagger: 0.15,
-          }
-        );
       });
 
       function addCopyEvent(targetId) {

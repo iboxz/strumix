@@ -1,6 +1,6 @@
-const fs = require("fs").promises;
-const path = require("path");
-const cheerio = require("cheerio");
+// const fs = require("fs").promises;
+// const path = require("path");
+// const cheerio = require("cheerio");
 
 // Helper function to handle errors gracefully
 function handleError(err) {
@@ -8,20 +8,10 @@ function handleError(err) {
   process.exit(1); // Exit the process with an error code
 }
 
+// Improved main function with error handling and logging
 async function updateImages() {
   try {
     const productPath = "products";
-    const splashScreenSection = `
-      <section class="splashScreen">
-        <p>
-          Strumix
-          <svg viewBox="0 0 337 255" fill="none">
-            <path class="svg-path" />
-          </svg>
-        </p>
-        <p>بسپار بتن ايرانيان هوشمند</p>
-      </section>
-    `;
 
     // Read directory contents asynchronously
     const files = await fs.readdir(productPath);
@@ -47,9 +37,15 @@ async function updateImages() {
             // Load Cheerio instance asynchronously, handling potential errors
             const $ = await cheerio.load(htmlContent);
 
-            // Add splashScreenSection to the end of the file
-            $("body").append(splashScreenSection);
-
+            // Update content within the "section.hero" element
+            $("section.hero").html(`
+            <div>
+              <h2>${product.name.en}</h2>
+              <h1>${product.name.fa}</h1>
+            </div>
+            <img src="../assets/productImg/${product.image}" alt="The ${product.name.en} product img - ${product.name.fa} تصویر " />
+            `);
+            console.log(product.image);
             // Write changes to the file asynchronously
             await fs.writeFile(filePath, $.html(), "utf-8");
 

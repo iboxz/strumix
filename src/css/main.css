@@ -146,7 +146,7 @@ html {
 
   font-family: Arial, Helvetica, sans-serif;
   text-transform: uppercase;
-  color: white;
+  color: #000;
 
   display: flex;
   justify-content: center;
@@ -162,14 +162,14 @@ html {
 .splashScreen::before {
   content: "";
   position: absolute;
-  background: #ff3232;
+  background: #ffa216;
   width: 70vw;
-  height: 80vmin;
+  height: 50vh;
   border-radius: 50%;
   top: 0;
   left: 0;
   transform: translate(-50%, -50%);
-  filter: blur(10vmin);
+  filter: blur(20vmin);
   z-index: -1;
 }
 .splashScreen::after {
@@ -177,20 +177,18 @@ html {
   position: absolute;
   background: #ffa216;
   width: 80vw;
-  height: 80vmin;
+  height: 50vh;
   border-radius: 50%;
   bottom: 0;
   right: 0;
   transform: translate(50%, 50%);
-  filter: blur(10vmin);
+  filter: blur(20vmin);
   z-index: -1;
 }
 .splashScreen p:nth-child(1) {
   position: relative;
   font-size: clamp(6rem, 25vw, 100rem);
   line-height: 0.6;
-  text-shadow: -0.2vmin -0.2vmin 0.2vmin rgba(255, 255, 255, 0.1),
-    0.2vmin 0.2vmin 0.2vmin rgba(0, 0, 0, 0.5);
 }
 .splashScreen p:nth-child(2) {
   font-size: clamp(1rem, 1vw, 100rem);
@@ -203,7 +201,7 @@ html {
   width: 30vmin;
 }
 .splashScreen svg path {
-  stroke: #ffffff;
+  stroke: #df1218;
   stroke-width: 1vmin;
   stroke-dasharray: 1000;
   stroke-dashoffset: 1000;
@@ -471,4 +469,10 @@ nav > .active > span:last-child {
     height: 15vmin;
     transform: translateY(-40%);
   }
+}
+
+@media (prefers-color-scheme: dark) {
+}
+:root {
+  color-scheme: light only;
 }

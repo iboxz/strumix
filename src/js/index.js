@@ -10,13 +10,14 @@ Smoother = ScrollSmoother.create({
   smoothTouch: false,
 });
 
-var previousWidth = window.innerWidth;
-
-window.addEventListener("resize", function () {
-  if (window.innerWidth !== previousWidth) {
-    location.reload();
-  }
-});
+if (!("ontouchstart" in window)) {
+  window.addEventListener("resize", () => {
+    if (window.innerWidth !== window.__pw) {
+      location.reload();
+    }
+  });
+  window.__pw = window.innerWidth;
+}
 
 async function initializeTriggers() {
   if (window.innerWidth > 768) {
