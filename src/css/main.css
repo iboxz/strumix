@@ -205,15 +205,6 @@ html {
   }
 }
 
-@media only screen and (max-width: 768px) {
-  #cursor,
-  #cursor-border {
-    display: none;
-  }
-  * {
-    cursor: auto;
-  }
-}
 /*-------------------*/
 .splashScreen {
   position: fixed;
@@ -234,7 +225,7 @@ html {
 
   font-family: "damn", "rokh";
 
-  z-index: 999;
+  z-index: 996;
   overflow: hidden;
 }
 

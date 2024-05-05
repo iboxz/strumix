@@ -25,8 +25,8 @@ async function updateHTMLFiles() {
 
           // Add or modify attribute in section tag
           htmlContent = htmlContent.replace(
-            /<section class="hero"(.*?)>/g,
-            '<section class="hero" data-cursor="pointerWaveBorder">'
+            /<section class="splashScreen"(.*?)>/g,
+            '<section class="splashScreen" data-cursor="pointerWaveBorder">'
           );
 
           // Write changes to the file asynchronously

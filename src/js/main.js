@@ -326,7 +326,13 @@ document.addEventListener("click", function () {
     });
   }, 150);
 });
+
+if ("ontouchstart" in window || navigator.maxTouchPoints) {
+  cursorBorder.style.display = "none";
+  cursor.style.display = "none";
+}
 function activateCustomCursors() {
+  if ("ontouchstart" in window || navigator.maxTouchPoints) return;
   document.querySelectorAll("[data-cursor]").forEach((item) => {
     item.addEventListener("mouseover", (e) => {
       switch (item.dataset.cursor) {
