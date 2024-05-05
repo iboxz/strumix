@@ -17,8 +17,8 @@ const baseUrl = window.location.origin;
 console.log(baseUrl);
 logoImg.src = new URL("/assets/VectorLogo.svg", baseUrl);
 logoImg.alt = "Strumix mini logo";
+
 productsSpan.classList.add("fleshDown");
-productsParagraph.appendChild(productsSpan);
 productsParagraph.classList.add("productsButton");
 productsParagraph.textContent = "محصولات و خدمات";
 articlesParagraph.textContent = "مقالات";
@@ -26,8 +26,10 @@ contactParagraph.textContent = "ارتباط با ما";
 divHamburger.classList.add("hamburger");
 sectionProducts.classList.add("products");
 
+productsParagraph.appendChild(productsSpan);
 navigation.appendChild(divLogo);
 divLogo.appendChild(logoImg);
+divLogo.setAttribute("data-cursor", "pointerNavbar");
 navigation.appendChild(divProducts);
 divProducts.appendChild(productsParagraph);
 divProducts.setAttribute("data-cursor", "pointerNavbar");

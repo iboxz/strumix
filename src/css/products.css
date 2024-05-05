@@ -47,7 +47,7 @@ html {
 .hero {
   display: flex;
   justify-content: space-between;
-  padding: 5vmax 10vmax;
+  padding: 10vmax 10vmax 5vmax 10vmax;
 }
 
 .hero img {
@@ -356,7 +356,6 @@ html {
   -ms-overflow-style: none;
   display: flex;
   -webkit-overflow-scrolling: touch;
-  cursor: grab;
 }
 .otherProduct .otherProductContent::-webkit-scrollbar {
   display: none;
@@ -364,7 +363,6 @@ html {
 .otherProduct .otherProductItem {
   position: relative;
   user-select: none;
-  cursor: pointer;
 
   height: 70vh;
   width: min-content;

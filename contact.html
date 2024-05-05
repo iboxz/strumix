@@ -468,41 +468,41 @@
           </div>
         </section>
         <section class="mainSection">
-          <h1>راه های ارتباطی</h1>
+          <h1 data-cursor="pointerWaveBorder">راه های ارتباطی</h1>
           <hr />
           <div class="cardsContainer">
             <div class="cards">
               <h2>اطلاعات تماس</h2>
               <h4>تلفن ثابت</h4>
-              <div id="Landline1Button" class="buttonCards">
+              <div id="Landline1Button" class="buttonCards" data-cursor="pointerNavbar">
                 <p><span class="iconCopy"></span>021-44403448</p>
                 <p>021-44403448</p>
                 <textarea id="Landline1">02144403448</textarea>
               </div>
-              <div id="Landline2Button" class="buttonCards">
+              <div id="Landline2Button" class="buttonCards" data-cursor="pointerNavbar">
                 <p><span class="iconCopy"></span>021-44000408</p>
                 <p>021-44000408</p>
                 <textarea id="Landline2">02144000408</textarea>
               </div>
               <h4>تماس ضروری</h4>
-              <div id="PhoneLine1Button" class="buttonCards">
+              <div id="PhoneLine1Button" class="buttonCards" data-cursor="pointerNavbar">
                 <p><span class="iconCopy"></span>0912-2991782</p>
                 <p>0912-2991782</p>
                 <textarea id="PhoneLine1">09122991782</textarea>
               </div>
-              <div id="PhoneLine2Button" class="buttonCards">
+              <div id="PhoneLine2Button" class="buttonCards" data-cursor="pointerNavbar">
                 <p><span class="iconCopy"></span>0912-2087393</p>
                 <p>0912-2087393</p>
                 <textarea id="PhoneLine2">09122087393</textarea>
               </div>
               <h4>کد پستی</h4>
-              <div id="postCodeButton" class="buttonCards">
+              <div id="postCodeButton" class="buttonCards" data-cursor="pointerNavbar">
                 <p><span class="iconCopy"></span>1469916541</p>
                 <p>1469916541</p>
                 <textarea id="postCode">1469916541</textarea>
               </div>
               <h4>ایمیل</h4>
-              <a href="mailto:info@strumix.com">
+              <a href="mailto:info@strumix.com" data-cursor="pointerNavbar">
                 <div id="emailButton" class="buttonCards">
                   <p><span class="iconFleshS"></span>info@strumix.com</p>
                   <p>info@strumix.com</p>
@@ -512,7 +512,7 @@
             </div>
             <div class="cards">
               <h2>موقعیت مکانی</h2>
-              <div id="address1Button" class="buttonCards">
+              <div id="address1Button" class="buttonCards" data-cursor="pointerNavbar">
                 <h4><span class="iconFlesh"></span>آدرس دفتر مرکزی</h4>
                 <h4><span class="iconFlesh"></span>آدرس دفتر مرکزی</h4>
                 <textarea id="address1">
@@ -523,7 +523,7 @@
                 تهران، اتوبان اشرفی اصفهانی، بالاتر از میدان پونک، نبش خیابان هفدهم، پلاک 337، طبقه
                 اول، واحد 1
               </p>
-              <div id="address2Button" class="buttonCards">
+              <div id="address2Button" class="buttonCards" data-cursor="pointerNavbar">
                 <h4><span class="iconFlesh"></span>آدرس کارخانه</h4>
                 <h4><span class="iconFlesh"></span>آدرس کارخانه</h4>
                 <textarea id="address2">
@@ -542,19 +542,31 @@
             </div>
             <div class="cards">
               <h2>شبکه های مجازی</h2>
-              <a target="_blank" href="https://www.instagram.com/strumix.co/">
+              <a
+                target="_blank"
+                href="https://www.instagram.com/strumix.co/"
+                data-cursor="pointerNavbar"
+              >
                 <div class="buttonCards">
                   <p>اینستاگرام<span class="iconInstagram"></span></p>
                   <p>اینستاگرام<span class="iconInstagram"></span></p>
                 </div>
               </a>
-              <a target="_blank" href="https://api.whatsapp.com/send?phone=989122087393">
+              <a
+                target="_blank"
+                href="https://api.whatsapp.com/send?phone=989122087393"
+                data-cursor="pointerNavbar"
+              >
                 <div class="buttonCards">
                   <p>پشتیبانی فنی<span class="iconWhatsapp"></span></p>
                   <p>پشتیبانی فنی<span class="iconWhatsapp"></span></p>
                 </div>
               </a>
-              <a target="_blank" href="https://api.whatsapp.com/send?phone=989928210625">
+              <a
+                target="_blank"
+                href="https://api.whatsapp.com/send?phone=989928210625"
+                data-cursor="pointerNavbar"
+              >
                 <div class="buttonCards">
                   <p>پشتیبانی فروش<span class="iconWhatsapp"></span></p>
                   <p>پشتیبانی فروش<span class="iconWhatsapp"></span></p>
@@ -635,6 +647,15 @@
       addCopyEvent("address2");
       addCopyEvent("postCode");
       addCopyEvent("email");
+
+      function openLocation(targetId, url) {
+        document.getElementById(targetId + "Button").onclick = function () {
+          window.open(url, "_blank");
+        };
+      }
+
+      openLocation("address1", "https://maps.app.goo.gl/XiUivPqFN4RcLCuj8");
+      openLocation("address2", "https://maps.app.goo.gl/tBP4kdVBRh9ZWgYJ8");
 
       function openEmailPage() {
         var emailAddress = "info@strumix.com";

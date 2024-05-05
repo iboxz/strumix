@@ -105,6 +105,7 @@ function addSection(products) {
 
   products.forEach((product) => {
     const otherProductItem = document.createElement("div");
+    otherProductItem.setAttribute("data-cursor", "pointerLink");
     otherProductItem.classList.add("otherProductItem");
 
     const productInfo = document.createElement("div");
@@ -132,6 +133,8 @@ function addSection(products) {
 
     otherProductContent.appendChild(otherProductItem);
   });
+
+  activateCustomCursors();
 }
 function getRandomItems(array, count) {
   return array.sort(() => 0.5 - Math.random()).slice(0, count);

@@ -23,13 +23,10 @@ async function updateHTMLFiles() {
           // Read HTML file asynchronously
           let htmlContent = await fs.readFile(filePath, "utf-8");
 
-          // Add script tags to the head section
+          // Add or modify attribute in section tag
           htmlContent = htmlContent.replace(
-            /<head>([\s\S]*?)<\/head>/,
-            `<head>$1
-              <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/TextPlugin.min.js"></script>
-              <script async src="../src/js/main.js"></script>
-            </head>`
+            /<section class="hero"(.*?)>/g,
+            '<section class="hero" data-cursor="pointerWaveBorder">'
           );
 
           // Write changes to the file asynchronously
