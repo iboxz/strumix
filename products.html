@@ -40,27 +40,27 @@
         <section class="selection">
           <div class="topSectionContainer">
             <div class="main" id="scrollContainer">
-              <div id="allProducts" class="buttonCards active">
+              <div id="allProducts" class="buttonCards active" data-cursor="pointerNavbar">
                 <p>همه‌ی محصولات</p>
                 <p>همه‌ی محصولات</p>
               </div>
-              <div id="concreteAdditive" class="buttonCards">
+              <div id="concreteAdditive" class="buttonCards" data-cursor="pointerNavbar">
                 <p>افزودنی بتن</p>
                 <p>افزودنی بتن</p>
               </div>
-              <div id="constructionChemicals" class="buttonCards">
+              <div id="constructionChemicals" class="buttonCards" data-cursor="pointerNavbar">
                 <p>مواد شیمیایی صنعت ساخمان</p>
                 <p>مواد شیمیایی صنعت ساخمان</p>
               </div>
-              <div id="waterstop" class="buttonCards">
+              <div id="waterstop" class="buttonCards" data-cursor="pointerNavbar">
                 <p>واتراستاپ</p>
                 <p>واتراستاپ</p>
               </div>
-              <div id="plastic-spacers" class="buttonCards">
+              <div id="plastic-spacers" class="buttonCards" data-cursor="pointerNavbar">
                 <p>اسپیسر پلاستیکی بتن</p>
                 <p>اسپیسر پلاستیکی بتن</p>
               </div>
-              <div id="raw-materials" class="buttonCards">
+              <div id="raw-materials" class="buttonCards" data-cursor="pointerNavbar">
                 <p>مواد اولیه افزودنی بتن و شیمی ساختمان</p>
                 <p>مواد اولیه افزودنی بتن و شیمی ساختمان</p>
               </div>
@@ -1319,6 +1319,8 @@
         scrollContainer.scrollLeft += -event.deltaY;
       });
       //---------------------------------------------------------------------------
+      const productList = document.querySelector(".productList");
+      const bottomSectionContainer = document.getElementById("bottomSection");
 
       const fetchDataForSearch = async () => {
         try {
@@ -1330,6 +1332,7 @@
       };
 
       const searchProduct = async (productName) => {
+        smoother.scrollTo(bottomSectionContainer, true, "bottom top");
         const data = await fetchDataForSearch();
         if (data) {
           const foundProducts = findProductsByName(data, productName);
@@ -1355,11 +1358,11 @@
       };
 
       const displaySearchResults = (products) => {
-        const searchResultsContainer = document.querySelector(".productList");
-        searchResultsContainer.innerHTML = "";
+        productList.innerHTML = "";
         if (products.length > 0) {
           for (const product of products) {
             const div = document.createElement("div");
+            div.setAttribute("data-cursor", "pointerLinkNavbar");
             const link = document.createElement("a");
             link.href = `products/${product.url}`;
             const img = document.createElement("img");
@@ -1375,18 +1378,21 @@
               link.appendChild(p);
             });
             div.appendChild(link);
-            searchResultsContainer.appendChild(div);
+            productList.appendChild(div);
+
+            activateCustomCursors();
           }
         } else {
-          searchResultsContainer.textContent = "محصولی یافت نشد";
+          productList.textContent = "محصولی یافت نشد";
         }
         const counter = document.querySelector(".counter");
         counter.textContent = `${products.length} محصول`;
       };
       //-----------------------------------search system--------------------------------
+      let smoother;
       gsap.registerPlugin(ScrollTrigger, ScrollSmoother, SplitText);
       window.addEventListener("load", (event) => {
-        ScrollSmoother.create({
+        smoother = ScrollSmoother.create({
           wrapper: "#smooth-wrapper",
           contect: "#smooth-content",
           smooth: 1,
@@ -1416,7 +1422,6 @@
             const categoryLists = data.categories.filter(
               (category) => category.subCategory === subCategory
             );
-            const bottomSectionContainer = document.getElementById("bottomSection");
             bottomSectionContainer.className = "bottomSectionContainer";
 
             bottomSectionContainer.innerHTML = "";
@@ -1425,7 +1430,6 @@
             buttons.forEach((button) => button.classList.remove("active"));
             document.getElementById(subCategory).classList.add("active");
 
-            const productList = document.querySelector(".productList");
             productList.innerHTML = "";
 
             let productCount = 0;
@@ -1445,9 +1449,10 @@
 
               productCount += renderProducts(category.products);
 
-              document
-                .getElementById(category.name)
-                .addEventListener("click", () => fetchAndLogProducts(category.name));
+              document.getElementById(category.name).addEventListener("click", () => {
+                fetchAndLogProducts(category.name);
+                smoother.scrollTo(bottomSectionContainer, true, "bottom top");
+              });
             });
 
             const counter = document.querySelector(".counter");
@@ -1459,12 +1464,11 @@
       }
 
       const renderProducts = (products) => {
-        const productList = document.querySelector(".productList");
-
         let categoryProductCount = 0;
 
         products.forEach((product) => {
           const div = document.createElement("div");
+          div.setAttribute("data-cursor", "pointerLinkNavbar");
           const link = document.createElement("a");
           link.href = `products/${product.url}`;
           const img = document.createElement("img");
@@ -1485,6 +1489,7 @@
           categoryProductCount++;
         });
 
+        activateCustomCursors();
         return categoryProductCount;
       };
 
@@ -1501,7 +1506,6 @@
       const fetchData = async () => {
         try {
           const data = await (await fetch("./products/products.json")).json();
-          const productList = document.querySelector(".productList");
           productList.innerHTML = "";
 
           let buttons = document.querySelectorAll(".selection .buttonCards");
@@ -1520,6 +1524,8 @@
                 uniqueNames.add(product.name.en);
 
                 const div = document.createElement("div");
+
+                div.setAttribute("data-cursor", "pointerLinkNavbar");
                 const link = document.createElement("a");
                 link.href = `products/${product.url}`;
                 const img = document.createElement("img");
@@ -1541,6 +1547,7 @@
             });
           });
 
+          activateCustomCursors();
           const productCount = uniqueNames.size;
           const counter = document.querySelector(".counter");
           counter.textContent = `${productCount} محصول`;
@@ -1562,7 +1569,6 @@
           counter.textContent = `${category.products.length} محصول`;
 
           if (category) {
-            const productList = document.querySelector(".productList");
             productList.innerHTML = "";
             renderProducts(category.products);
           } else {
@@ -1582,11 +1588,13 @@
       document.getElementById("allProducts").addEventListener("click", fetchData);
       document.getElementById("plastic-spacers").addEventListener("click", () => {
         fetchAndLogProducts("plastic-spacers");
+        smoother.scrollTo(bottomSectionContainer, true, "bottom top");
         resetData();
       });
 
       document.getElementById("raw-materials").addEventListener("click", () => {
         fetchAndLogProducts("raw-materials");
+        smoother.scrollTo(bottomSectionContainer, true, "bottom top");
         resetData();
       });
       fetchData();

@@ -135,7 +135,85 @@ html {
   color: #000;
   background: #b18a46;
 }
+/*-------------------*/
+.cursor {
+  --sizeMainCursor: 0.8vmin;
+  position: fixed;
+  top: calc(var(--sizeMainCursor) / -2);
+  left: calc(var(--sizeMainCursor) / -2);
+  width: var(--sizeMainCursor);
+  height: var(--sizeMainCursor);
+  background-color: rgb(0, 0, 0);
+  border-radius: 50%;
+  pointer-events: none;
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: contain;
 
+  transition: top 0.15s ease-out, left 0.15s ease-out, width 0.15s ease-out, height 0.15s ease-out,
+    background-color 0.15s ease-out;
+
+  z-index: 998;
+}
+
+.cursorBorder {
+  --size: 5vmin;
+  position: fixed;
+  top: calc(var(--size) / -2);
+  left: calc(var(--size) / -2);
+  width: var(--size);
+  height: var(--size);
+  border-radius: 50%;
+  box-shadow: 0 0 0 0.1vmin black;
+  pointer-events: none;
+
+  background-position: center center;
+  background-repeat: no-repeat;
+
+  transition: top 0.15s ease-out, left 0.15s ease-out, width 0.15s ease-out, height 0.15s ease-out,
+    background-color 0.15s ease-out, all 0.1s ease-out;
+  z-index: 997;
+}
+
+@keyframes blobRadius {
+  0%,
+  100% {
+    border-radius: 43% 77% 80% 40% / 40% 40% 80% 80%;
+  }
+  20% {
+    border-radius: 47% 73% 61% 59% / 47% 75% 45% 73%;
+  }
+  40% {
+    border-radius: 46% 74% 74% 46% / 74% 58% 62% 46%;
+  }
+  60% {
+    border-radius: 47% 73% 61% 59% / 40% 40% 80% 80%;
+  }
+  80% {
+    border-radius: 50% 70% 52% 68% / 51% 61% 59% 69%;
+  }
+}
+
+@keyframes blobBackground {
+  0%,
+  100% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+}
+
+@media only screen and (max-width: 768px) {
+  #cursor,
+  #cursor-border {
+    display: none;
+  }
+  * {
+    cursor: auto;
+  }
+}
+/*-------------------*/
 .splashScreen {
   position: fixed;
   top: 0;

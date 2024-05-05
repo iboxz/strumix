@@ -17,10 +17,10 @@ const baseUrl = window.location.origin;
 console.log(baseUrl);
 logoImg.src = new URL("/assets/VectorLogo.svg", baseUrl);
 logoImg.alt = "Strumix mini logo";
-productsParagraph.textContent = "محصولات و خدمات";
 productsSpan.classList.add("fleshDown");
 productsParagraph.appendChild(productsSpan);
 productsParagraph.classList.add("productsButton");
+productsParagraph.textContent = "محصولات و خدمات";
 articlesParagraph.textContent = "مقالات";
 contactParagraph.textContent = "ارتباط با ما";
 divHamburger.classList.add("hamburger");
@@ -30,10 +30,13 @@ navigation.appendChild(divLogo);
 divLogo.appendChild(logoImg);
 navigation.appendChild(divProducts);
 divProducts.appendChild(productsParagraph);
+divProducts.setAttribute("data-cursor", "pointerNavbar");
 navigation.appendChild(divArticles);
 divArticles.appendChild(articlesParagraph);
+divArticles.setAttribute("data-cursor", "pointerNavbar");
 navigation.appendChild(divContact);
 divContact.appendChild(contactParagraph);
+divContact.setAttribute("data-cursor", "pointerNavbar");
 navigation.appendChild(divHamburger);
 divHamburger.appendChild(hamburgerSpan1);
 divHamburger.appendChild(hamburgerSpan2);
@@ -166,6 +169,7 @@ function addSectionProducts(products) {
   paragraph.textContent = "همه‌ی محصولات";
   innerDiv.appendChild(paragraph);
   link.appendChild(innerDiv);
+  innerDiv.setAttribute("data-cursor", "pointerLinkNavbar");
   outerDiv.appendChild(link);
 
   otherProductContent.appendChild(outerDiv);
@@ -186,6 +190,8 @@ function addSectionProducts(products) {
     productInfo.appendChild(titleFa);
 
     const image = document.createElement("img");
+    productInfo.setAttribute("data-cursor", "pointerLinkNavbar");
+    image.setAttribute("data-cursor", "pointerLinkNavbar");
     image.src = `../assets/productImg/${product.image}`;
     image.alt = `${product.image} Image`;
 
@@ -215,6 +221,7 @@ function addSectionProducts(products) {
 
     otherProductContent.appendChild(newLink);
   }
+  activateCustomCursors();
 }
 
 function getRandomItems(array, count) {
@@ -267,3 +274,139 @@ window.addEventListener("load", (event) => {
 
   splashScreenTimeline.play();
 });
+
+/*----------------------------------- */
+
+const cursor = document.createElement("div");
+const cursorBorder = document.createElement("div");
+
+cursor.classList.add("cursor");
+cursorBorder.classList.add("cursorBorder");
+
+document.body.appendChild(cursor);
+document.body.appendChild(cursorBorder);
+
+if (window.innerWidth < 768) {
+  cursorBorder.style.display = "none";
+  cursor.style.display = "none";
+} else {
+  cursorBorder.style.display = "inline";
+  cursor.style.display = "inline";
+}
+
+const cursorPos = { x: 0, y: 0 };
+const cursorBorderPos = { x: 0, y: 0 };
+
+document.addEventListener("mousemove", (e) => {
+  cursorPos.x = e.clientX;
+  cursorPos.y = e.clientY;
+  cursor.style.transform = `translate(${e.clientX}px, ${e.clientY}px)`;
+});
+
+const easting = 8;
+
+function loop() {
+  cursorBorderPos.x += (cursorPos.x - cursorBorderPos.x) / easting;
+  cursorBorderPos.y += (cursorPos.y - cursorBorderPos.y) / easting;
+  cursorBorder.style.transform = `translate(${cursorBorderPos.x}px, ${cursorBorderPos.y}px) rotate(45deg)`;
+  requestAnimationFrame(loop);
+}
+
+requestAnimationFrame(loop);
+
+document.addEventListener("click", function () {
+  cursorBorder.style.borderRadius = "0";
+  cursorBorder.style.setProperty("--size", "2vmin");
+  setTimeout(function () {
+    requestAnimationFrame(function () {
+      cursorBorder.style.borderRadius = "50%";
+      cursorBorder.style.setProperty("--size", "5vmin");
+    });
+  }, 150);
+});
+function activateCustomCursors() {
+  document.querySelectorAll("[data-cursor]").forEach((item) => {
+    item.addEventListener("mouseover", (e) => {
+      switch (item.dataset.cursor) {
+        case "pointerWhite":
+          cursorBorder.style.boxShadow = "0 0 0 0.1vmin white";
+          cursor.style.backgroundColor = "white";
+          break;
+        case "pointerDisable":
+          cursorBorder.style.display = "none";
+          cursor.style.display = "none";
+          break;
+        case "pointerBlendMode":
+          cursorBorder.style.backgroundColor = "white";
+          cursorBorder.style.mixBlendMode = "difference";
+          cursorBorder.style.setProperty("--size", "15vmin");
+          break;
+        case "pointerFocus":
+          cursor.style.backgroundColor = "black";
+          cursorBorder.style.borderRadius = "0";
+          cursorBorder.style.setProperty("--size", "4vmin");
+          cursorBorder.style.backgroundColor = "white";
+          cursorBorder.style.mixBlendMode = "difference";
+          break;
+        case "pointerLink":
+          cursor.style.display = "none";
+          cursorBorder.style.setProperty("--size", "15vmin");
+          cursorBorder.style.backgroundColor = "#f2ecdc ";
+          cursorBorder.style.backgroundImage = "url(../../assets/VectorFlesh4.svg)";
+          cursorBorder.style.backgroundSize = "3vmin 3vmin";
+
+          break;
+        case "pointerLinkNavbar":
+          cursor.style.display = "none";
+          cursorBorder.style.setProperty("--size", "15vmin");
+          cursorBorder.style.backgroundColor = "#f8dba0";
+          cursorBorder.style.backgroundImage = "url(../../assets/VectorFlesh4.svg)";
+          cursorBorder.style.backgroundSize = "3vmin 3vmin";
+
+          break;
+        case "pointerWaveBorder":
+          cursorBorder.style.display = "none";
+
+          cursor.style.setProperty("--sizeMainCursor", "30vmin");
+          cursor.style.background =
+            "linear-gradient(120deg, #ffffff, #000000, #ffffff, #000000, #ffffff)";
+          cursor.style.backgroundSize = " 1600% 1600%";
+
+          cursor.style.animation = "blobRadius 5s ease infinite, blobBackground 15s ease infinite";
+          cursor.style.mixBlendMode = "difference";
+
+          break;
+        case "pointerNavbar":
+          cursorBorder.style.borderRadius = "0";
+          cursorBorder.style.setProperty("--size", "3vmin");
+          break;
+      }
+    });
+
+    item.addEventListener("mouseout", (e) => {
+      cursorBorder.style.backgroundImage = "unset";
+      cursorBorder.style.backgroundColor = "unset";
+      cursor.style.background = "unset";
+
+      cursorBorder.style.mixBlendMode = "unset";
+
+      cursorBorder.style.setProperty("--size", "5vmin");
+      cursor.style.setProperty("--sizeMainCursor", "0.8vmin");
+
+      cursor.style.animation = "unset";
+      cursorBorder.style.animation = "unset";
+
+      cursor.style.display = "inline";
+      cursorBorder.style.display = "inline";
+      cursorBorder.style.borderRadius = "50%";
+
+      cursorBorder.style.boxShadow = "0 0 0 0.1vmin black";
+      cursor.style.backgroundColor = "black";
+      cursor.style.mixBlendMode = "unset";
+
+      cursor.style.width = "var(--sizeMainCursor)";
+      cursor.style.borderRadius = "50%";
+    });
+  });
+}
+activateCustomCursors();
