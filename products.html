@@ -1399,20 +1399,22 @@
           effects: true,
           smoothTouch: false,
         });
-        gsap.from(
-          new SplitText(".hero > p:nth-child(2)", {
-            type: "chars",
-            tagName: "span",
-            tag: "span",
-          }).chars,
-          {
-            delay: 1.2,
-            opacity: 0.2,
-            duration: 0.5,
-            ease: "power3.out",
-            stagger: 0.15,
-          }
-        );
+        if (!navigator.userAgent.match(/iPhone/i)) {
+          gsap.from(
+            new SplitText(".hero > p:nth-child(2)", {
+              type: "chars",
+              tagName: "span",
+              tag: "span",
+            }).chars,
+            {
+              delay: 3.5,
+              opacity: 0.2,
+              duration: 0.5,
+              ease: "power3.out",
+              stagger: 0.15,
+            }
+          );
+        }
       });
       //---------------------------------------------------------------------------
       function fetchDataAndRender(subCategory) {

@@ -157,46 +157,50 @@ gsap.to(".section3 .textSide hr", {
   },
   width: "100%",
 });
-gsap.from(
-  new SplitText(".section3 .textSide h2", {
-    type: "chars",
-    tagName: "span",
-    tag: "span",
-  }).chars,
-  {
-    scrollTrigger: {
-      trigger: ".section3 .textSide h2",
-      start: "40% bottom",
-      end: "40% top",
-      toggleActions: "play none none reset",
-    },
-    delay: 0.5,
-    opacity: 0.2,
-    ease: "power3.out",
-    stagger: 0.15,
-  }
-);
+if (!navigator.userAgent.match(/iPhone/i)) {
+  gsap.from(
+    new SplitText(".section3 .textSide h2", {
+      type: "chars",
+      tagName: "span",
+      tag: "span",
+    }).chars,
+    {
+      scrollTrigger: {
+        trigger: ".section3 .textSide h2",
+        start: "40% bottom",
+        end: "40% top",
+        toggleActions: "play none none reset",
+      },
+      delay: 0.5,
+      opacity: 0.2,
+      ease: "power3.out",
+      stagger: 0.15,
+    }
+  );
+}
 //section4--------------------
-gsap.from(
-  new SplitText(".section4 h3", {
-    type: "chars",
-    tagName: "span",
-    tag: "span",
-  }).chars,
-  {
-    scrollTrigger: {
-      trigger: ".section4 h3",
-      start: "40% bottom",
-      end: "40% top",
-      toggleActions: "play none none reset",
-      // markers: true,
-    },
-    delay: 0.5,
-    opacity: 0.3,
-    ease: "power3.out",
-    stagger: 0.15,
-  }
-);
+if (!navigator.userAgent.match(/iPhone/i)) {
+  gsap.from(
+    new SplitText(".section4 h3", {
+      type: "chars",
+      tagName: "span",
+      tag: "span",
+    }).chars,
+    {
+      scrollTrigger: {
+        trigger: ".section4 h3",
+        start: "40% bottom",
+        end: "40% top",
+        toggleActions: "play none none reset",
+        // markers: true,
+      },
+      delay: 0.5,
+      opacity: 0.3,
+      ease: "power3.out",
+      stagger: 0.15,
+    }
+  );
+}
 gsap.to(".section4 h3 > #line", {
   scrollTrigger: {
     trigger: ".section4 h3",

@@ -330,7 +330,7 @@ nav > div:first-child {
   left: 3vmin;
   top: 3vmin;
   margin: 0;
-  padding: 1.5vmin;
+  padding: 2vmin;
   width: 16vmin;
   height: 10vmin;
   display: flex;
@@ -452,7 +452,7 @@ nav > .active > span:last-child {
     display: none;
   }
   nav > div:first-child {
-    width: 10vmin;
+    width: 15vmin;
     height: 10vmin;
     display: flex;
   }
@@ -539,8 +539,8 @@ nav > .active > span:last-child {
   }
 
   nav > div:first-child {
-    width: 15vmin;
-    height: 15vmin;
+    width: 20vmin;
+    height: 10vmin;
   }
 }
 

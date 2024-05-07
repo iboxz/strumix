@@ -15,7 +15,7 @@ window.addEventListener("load", (event) => {
       tag: "span",
     }).words,
     {
-      delay: 1.2,
+      delay: 3.5,
       opacity: 0.2,
       duration: 0.5,
       ease: "power3.out",
@@ -24,8 +24,8 @@ window.addEventListener("load", (event) => {
   );
 
   gsap.from(".hero img", {
-    delay: 1.1,
-    x: "40vw",
+    delay: 3.5,
+    x: "30vw",
     duration: 1,
     ease: "back.out(1.7)",
   });
