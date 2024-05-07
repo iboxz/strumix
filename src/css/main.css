@@ -286,9 +286,8 @@ html {
   left: 0;
   width: 100%;
   height: 0.5vmin;
-  min-height: 4px;
-  background-color: #f1f1f1;
-  z-index: 998;
+  min-height: 6px;
+  z-index: 996;
 }
 
 #scrollbar {
@@ -297,6 +296,12 @@ html {
   background-color: hsl(47, 37%, 44%);
 }
 
+@media only screen and (max-width: 768px) {
+  #scrollbar-container {
+    top: unset;
+    bottom: 0;
+  }
+}
 nav {
   position: fixed;
   width: 100%;
@@ -323,12 +328,11 @@ nav > div:first-child {
   position: absolute;
   padding: 0;
   left: 3vmin;
-  top: 50%;
-  transform: translateY(-50%);
+  top: 3vmin;
   margin: 0;
-  width: 7vmin;
-  height: 7vmin;
-  padding: 1vmin;
+  padding: 1.5vmin;
+  width: 16vmin;
+  height: 10vmin;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -353,7 +357,7 @@ nav .fleshDown {
 }
 nav .products {
   width: 100%;
-  height: 80vmin;
+  height: 85vmin;
   position: absolute;
   left: 0;
   top: 0;
@@ -369,7 +373,7 @@ nav .products h5 {
 nav .products > div {
   width: 25%;
   height: 100%;
-  padding: 12vmin 2vmin;
+  padding: 14vmin 2vmin;
 }
 nav .products > div div {
   padding: 3vmin 0;
@@ -537,7 +541,6 @@ nav > .active > span:last-child {
   nav > div:first-child {
     width: 15vmin;
     height: 15vmin;
-    transform: translateY(-40%);
   }
 }
 

@@ -48,6 +48,7 @@ html {
   display: flex;
   justify-content: space-between;
   padding: 10vmax 10vmax 5vmax 10vmax;
+  overflow: hidden;
 }
 
 .hero img {

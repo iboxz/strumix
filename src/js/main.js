@@ -20,7 +20,7 @@ logoImg.alt = "Strumix mini logo";
 
 productsSpan.classList.add("fleshDown");
 productsParagraph.classList.add("productsButton");
-productsParagraph.textContent = "محصولات و خدمات";
+productsParagraph.textContent = "محصولات";
 articlesParagraph.textContent = "مقالات";
 contactParagraph.textContent = "ارتباط با ما";
 divHamburger.classList.add("hamburger");
@@ -55,7 +55,7 @@ var menuTimeline = gsap
   .from("nav .products", { y: "-100%", duration: 1, ease: "power2.inOut" })
   .to(
     "nav > div:nth-child(3) > p",
-    { text: "محصولات و خدمات", scale: "1.3", duration: 0.5, ease: "none" },
+    { text: "محصولات", scale: "1.3", duration: 0.5, ease: "none" },
     0.5
   )
   .to("nav > div:nth-child(2) > p", { text: "", duration: 0.5, ease: "none" }, 0.5)
