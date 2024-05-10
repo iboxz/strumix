@@ -1,4 +1,4 @@
-const createEl = (tag, attrs = {}, textContent = '') => {
+const createEl = (tag, attrs = {}, textContent = "") => {
   const el = document.createElement(tag);
   Object.entries(attrs).forEach(([key, value]) => el.setAttribute(key, value));
   el.textContent = textContent;
@@ -12,12 +12,15 @@ const categories = [
   { name: "مواد شیمیایی صنعت ساختمان", id: "constructionChemicals" },
   { name: "واتراستاپ", id: "waterstop" },
   { name: "اسپیسر پلاستیکی بتن", id: "plastic-spacers" },
-  { name: "مواد اولیه افزودنی بتن و شیمی ساختمان", id: "raw-materials" }
+  { name: "مواد اولیه افزودنی بتن و شیمی ساختمان", id: "raw-materials" },
 ];
 
 const navigation = createEl("nav");
 const divLogo = createEl("div");
-const logoImg = createEl("img", { src: new URL("/assets/VectorLogo.svg", baseUrl), alt: "Strumix mini logo" });
+const logoImg = createEl("img", {
+  src: new URL("/assets/VectorLogo.svg", baseUrl),
+  alt: "Strumix mini logo",
+});
 const divProducts = createEl("div");
 const productsParagraph = createEl("p", { class: "productsButton" }, "محصولات");
 const productsSpan = createEl("span", { class: "fleshDown" });
@@ -34,7 +37,9 @@ const sectionProductsDiv2 = createEl("div");
 
 for (const category of categories) {
   const catagoryList = createEl("p", { "data-cursor": "pointerFocus" }, category.name);
-  const linkContainer = createEl("a", { href: `${baseUrl}/products.html?productID=${category.id}` });
+  const linkContainer = createEl("a", {
+    href: `${baseUrl}/products.html?productID=${category.id}`,
+  });
   linkContainer.appendChild(catagoryList);
   sectionProductsDiv1.appendChild(linkContainer);
 }
@@ -48,7 +53,6 @@ divContact.append(contactParagraph);
 divHamburger.append(hamburgerSpan1, hamburgerSpan2);
 sectionProducts.append(sectionProductsDiv1, sectionProductsDiv2);
 document.body.appendChild(navigation);
-
 
 gsap.registerPlugin(ScrollTrigger, ScrollSmoother, SplitText, TextPlugin);
 

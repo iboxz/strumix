@@ -9,7 +9,7 @@ function handleError(err) {
 }
 
 // Improved main function with error handling and logging
-async function updateTitles() {
+async function updateMetaTags() {
   try {
     const productPath = "products";
 
@@ -31,15 +31,37 @@ async function updateTitles() {
           // Load Cheerio instance asynchronously, handling potential errors
           const $ = cheerio.load(htmlContent);
 
-          // Update title tag content
-          $("head title").text(`${product.name.fa}`);
+          // Add meta tag for description
+          $("head").append(
+            `
+            <meta
+              property="og:image"
+              content="https://cdn.glitch.global/62cf8202-93e0-4197-a517-cb7c64990d83/${product.image}"
+            />
+            <meta property="og:url" content="strumix.com/products/${product.url}" />
+            <meta property="og:type" content="website" />
+            <meta
+            name="twitter:card"
+            content="https://cdn.glitch.global/62cf8202-93e0-4197-a517-cb7c64990d83/${product.image}"
+          />
+          <meta
+            name="twitter:image"
+            content="https://cdn.glitch.global/62cf8202-93e0-4197-a517-cb7c64990d83/${product.image}"
+          />
+          <meta name="twitter:title" content="${product.name.fa}" />
+          <meta
+            name="twitter:description"
+            content="مـشخصات فیزیکـی و شیمیایی محصول ${product.name.fa}، ${product.name.en}"/>
+
+            `
+          );
 
           // Write changes to the file asynchronously
           await fs.writeFile(filePath, $.html(), "utf-8");
 
-          console.log(`Title of ${product.url} successfully updated.`);
+          console.log(`Meta tags of ${product.url} successfully updated.`);
         } catch (err) {
-          console.error(`Error updating title of ${product.url}: ${err.message}`);
+          console.error(`Error updating meta tags of ${product.url}: ${err.message}`);
         }
       }
     }
@@ -47,8 +69,8 @@ async function updateTitles() {
     handleError(err);
   }
 
-  console.log("All titles processed.");
+  console.log("All meta tags processed.");
 }
 
 // Call the main function
-updateTitles();
+updateMetaTags();
