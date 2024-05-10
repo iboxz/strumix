@@ -1,50 +1,54 @@
-const navigation = document.createElement("nav");
-const divLogo = document.createElement("div");
-const logoImg = document.createElement("img");
-const divProducts = document.createElement("div");
-const productsParagraph = document.createElement("p");
-const productsSpan = document.createElement("span");
-const divArticles = document.createElement("div");
-const articlesParagraph = document.createElement("p");
-const divContact = document.createElement("div");
-const contactParagraph = document.createElement("p");
-const divHamburger = document.createElement("div");
-const hamburgerSpan1 = document.createElement("span");
-const hamburgerSpan2 = document.createElement("span");
-const sectionProducts = document.createElement("section");
+const createEl = (tag, attrs = {}, textContent = '') => {
+  const el = document.createElement(tag);
+  Object.entries(attrs).forEach(([key, value]) => el.setAttribute(key, value));
+  el.textContent = textContent;
+  return el;
+};
 
 const baseUrl = window.location.origin;
-console.log(baseUrl);
-logoImg.src = new URL("/assets/VectorLogo.svg", baseUrl);
-logoImg.alt = "Strumix mini logo";
+const categories = [
+  { name: "همه‌ی محصولات", id: "" },
+  { name: "افزودنی بتن", id: "concreteAdditive" },
+  { name: "مواد شیمیایی صنعت ساختمان", id: "constructionChemicals" },
+  { name: "واتراستاپ", id: "waterstop" },
+  { name: "اسپیسر پلاستیکی بتن", id: "plastic-spacers" },
+  { name: "مواد اولیه افزودنی بتن و شیمی ساختمان", id: "raw-materials" }
+];
 
-productsSpan.classList.add("fleshDown");
-productsParagraph.classList.add("productsButton");
-productsParagraph.textContent = "محصولات";
-articlesParagraph.textContent = "مقالات";
-contactParagraph.textContent = "ارتباط با ما";
-divHamburger.classList.add("hamburger");
-sectionProducts.classList.add("products");
+const navigation = createEl("nav");
+const divLogo = createEl("div");
+const logoImg = createEl("img", { src: new URL("/assets/VectorLogo.svg", baseUrl), alt: "Strumix mini logo" });
+const divProducts = createEl("div");
+const productsParagraph = createEl("p", { class: "productsButton" }, "محصولات");
+const productsSpan = createEl("span", { class: "fleshDown" });
+const divArticles = createEl("div");
+const articlesParagraph = createEl("p", {}, "مقالات");
+const divContact = createEl("div");
+const contactParagraph = createEl("p", {}, "ارتباط با ما");
+const divHamburger = createEl("div", { class: "hamburger" });
+const hamburgerSpan1 = createEl("span");
+const hamburgerSpan2 = createEl("span");
+const sectionProducts = createEl("section", { class: "products" });
+const sectionProductsDiv1 = createEl("div");
+const sectionProductsDiv2 = createEl("div");
+
+for (const category of categories) {
+  const catagoryList = createEl("p", { "data-cursor": "pointerFocus" }, category.name);
+  const linkContainer = createEl("a", { href: `${baseUrl}/products.html?productID=${category.id}` });
+  linkContainer.appendChild(catagoryList);
+  sectionProductsDiv1.appendChild(linkContainer);
+}
 
 productsParagraph.appendChild(productsSpan);
-navigation.appendChild(divLogo);
-divLogo.appendChild(logoImg);
-divLogo.setAttribute("data-cursor", "pointerNavbar");
-navigation.appendChild(divProducts);
-divProducts.appendChild(productsParagraph);
-divProducts.setAttribute("data-cursor", "pointerNavbar");
-navigation.appendChild(divArticles);
-divArticles.appendChild(articlesParagraph);
-divArticles.setAttribute("data-cursor", "pointerNavbar");
-navigation.appendChild(divContact);
-divContact.appendChild(contactParagraph);
-divContact.setAttribute("data-cursor", "pointerNavbar");
-navigation.appendChild(divHamburger);
-divHamburger.appendChild(hamburgerSpan1);
-divHamburger.appendChild(hamburgerSpan2);
-navigation.appendChild(sectionProducts);
-
+navigation.append(divLogo, divProducts, divArticles, divContact, divHamburger, sectionProducts);
+divLogo.append(logoImg);
+divProducts.append(productsParagraph);
+divArticles.append(articlesParagraph);
+divContact.append(contactParagraph);
+divHamburger.append(hamburgerSpan1, hamburgerSpan2);
+sectionProducts.append(sectionProductsDiv1, sectionProductsDiv2);
 document.body.appendChild(navigation);
+
 
 gsap.registerPlugin(ScrollTrigger, ScrollSmoother, SplitText, TextPlugin);
 
@@ -150,9 +154,9 @@ function fetchDataForProducts() {
         selectedProducts.push(...randomProducts);
       });
 
-      const randomSelectedProducts = getRandomItems(selectedProducts, 3);
+      const randomSelectedProducts = getRandomItems(selectedProducts, 4);
 
-      document.querySelector("nav .products").innerHTML = "";
+      document.querySelector("nav .products div:nth-child(2)").innerHTML = "";
 
       addSectionProducts(randomSelectedProducts);
     })
@@ -160,21 +164,7 @@ function fetchDataForProducts() {
 }
 
 function addSectionProducts(products) {
-  const otherProductContent = document.querySelector("nav .products");
-
-  const outerDiv = document.createElement("div");
-  const link = document.createElement("a");
-  const innerDiv = document.createElement("div");
-  const paragraph = document.createElement("p");
-
-  link.setAttribute("href", baseUrl + "/products.html");
-  paragraph.textContent = "همه‌ی محصولات";
-  innerDiv.appendChild(paragraph);
-  link.appendChild(innerDiv);
-  innerDiv.setAttribute("data-cursor", "pointerLinkNavbar");
-  outerDiv.appendChild(link);
-
-  otherProductContent.appendChild(outerDiv);
+  const otherProductContent = document.querySelector("nav .products div:nth-child(2)");
 
   products.forEach((product) => {
     const otherProductItem = document.createElement("div");
@@ -208,7 +198,6 @@ function addSectionProducts(products) {
   });
 
   var links = [
-    { text: "لیست همه‌ی محصولات", href: baseUrl + "/products.html" },
     { text: "مقالات", href: "#" },
     { text: "ارتباط با ما", href: baseUrl + "/contact.html" },
   ];
@@ -418,3 +407,11 @@ function activateCustomCursors() {
   });
 }
 activateCustomCursors();
+
+const scrollContainer2 = document.querySelector("nav .products > div:nth-child(1) ");
+
+scrollContainer2.addEventListener("wheel", (event) => {
+  event.preventDefault();
+
+  scrollContainer2.scrollLeft += -event.deltaY;
+});

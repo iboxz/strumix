@@ -101,39 +101,36 @@ main {
 .hero .midThree {
   display: flex;
   justify-content: end;
+  font-family: Montserrat;
+}
+.hero .midThree a {
+  padding: 0.7vmin;
+  border: 0.1vmin black solid;
+  border-radius: 1vmin;
+  color: #000000;
+  text-decoration: none;
+  margin: 0 0.5vmin;
+}
+
+.hero .midThree a:hover {
+  transform: translate(0.2vmin, 0.2vmin);
 }
 .hero .iconInstagram {
   content: url(../../assets/VectorInstagram.svg);
   vertical-align: middle;
   height: 100%;
-  width: 4vmin;
-  min-width: 40px;
-  padding: 0.7vmin;
-  border: 0.1vmin black solid;
-  border-radius: 50%;
+  width: 2vmin;
+  min-width: 15px;
+  margin: 0 1vmin;
 }
 .hero .iconPhonecall {
   content: url(../../assets/VectorPhonecall.svg);
   vertical-align: middle;
   height: 100%;
-  width: 4vmin;
-  min-width: 40px;
+  width: 2vmin;
+  min-width: 15px;
   margin: 0 1vmin;
-  padding: 0.7vmin;
-  border: 0.1vmin black solid;
-  border-radius: 50%;
 }
-.hero .iconWhatsapp {
-  content: url(../../assets/VectorWhatsapp.svg);
-  vertical-align: middle;
-  height: 100%;
-  width: 4vmin;
-  min-width: 40px;
-  padding: 0.7vmin;
-  border: 0.1vmin black solid;
-  border-radius: 50%;
-}
-
 @media only screen and (max-width: 1200px) {
   .hero > .imageSide {
     display: none;
@@ -160,10 +157,8 @@ main {
   }
   .hero .midThree {
     justify-content: center;
-    padding: 3vmin;
-  }
-  .hero .midThree span {
-    padding: 1vh;
+    font-size: clamp(0.7rem, 1vw, 20rem);
+    padding: 3vmin 0;
   }
   .hero .titleSide > .midTwo p:nth-child(2) {
     line-height: 0.5;

@@ -20,7 +20,7 @@ if (!("ontouchstart" in window)) {
 }
 
 async function initializeTriggers() {
-  if (window.innerWidth > 768) {
+  if (window.innerWidth >= 769) {
     await new Promise((resolve) => setTimeout(resolve, 400));
     let sections = gsap.utils.toArray(".section2, .section3, .section4, .noPinSection");
 

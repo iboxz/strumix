@@ -1,6 +1,6 @@
-// const fs = require("fs").promises;
-// const path = require("path");
-// const cheerio = require("cheerio");
+const fs = require("fs").promises;
+const path = require("path");
+const cheerio = require("cheerio");
 
 // Helper function to handle errors gracefully
 function handleError(err) {
@@ -9,12 +9,9 @@ function handleError(err) {
 }
 
 // Improved main function with error handling and logging
-async function updateImages() {
+async function updateTitles() {
   try {
     const productPath = "products";
-
-    // Read directory contents asynchronously
-    const files = await fs.readdir(productPath);
 
     // Read product data asynchronously
     const jsonFilePath = path.join(productPath, "products.json");
@@ -27,32 +24,22 @@ async function updateImages() {
       for (const product of category.products) {
         const filePath = path.join(productPath, product.url);
 
-        if (files.includes(product.url)) {
-          console.log(`Processing product: ${product.url}`);
+        try {
+          // Read product file asynchronously
+          const htmlContent = await fs.readFile(filePath, "utf-8");
 
-          try {
-            // Read product file asynchronously
-            const htmlContent = await fs.readFile(filePath, "utf-8");
+          // Load Cheerio instance asynchronously, handling potential errors
+          const $ = cheerio.load(htmlContent);
 
-            // Load Cheerio instance asynchronously, handling potential errors
-            const $ = await cheerio.load(htmlContent);
+          // Update title tag content
+          $("head title").text(`${product.name.fa}`);
 
-            // Update content within the "section.hero" element
-            $("section.hero").html(`
-            <div>
-              <h2>${product.name.en}</h2>
-              <h1>${product.name.fa}</h1>
-            </div>
-            <img src="../assets/productImg/${product.image}" alt="The ${product.name.en} product img - ${product.name.fa} تصویر " />
-            `);
-            console.log(product.image);
-            // Write changes to the file asynchronously
-            await fs.writeFile(filePath, $.html(), "utf-8");
+          // Write changes to the file asynchronously
+          await fs.writeFile(filePath, $.html(), "utf-8");
 
-            console.log(`File ${product.url} successfully updated.`);
-          } catch (err) {
-            console.error(`Error updating ${product.url}: ${err.message}`);
-          }
+          console.log(`Title of ${product.url} successfully updated.`);
+        } catch (err) {
+          console.error(`Error updating title of ${product.url}: ${err.message}`);
         }
       }
     }
@@ -60,8 +47,8 @@ async function updateImages() {
     handleError(err);
   }
 
-  console.log("All files processed.");
+  console.log("All titles processed.");
 }
 
 // Call the main function
-updateImages();
+updateTitles();
