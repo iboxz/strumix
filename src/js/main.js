@@ -410,7 +410,6 @@ function activateCustomCursors() {
     });
   });
 }
-activateCustomCursors();
 
 const scrollContainer2 = document.querySelector("nav .products > div:nth-child(1) ");
 
@@ -419,3 +418,98 @@ scrollContainer2.addEventListener("wheel", (event) => {
 
   scrollContainer2.scrollLeft += -event.deltaY;
 });
+
+// Create section footer
+const section = document.createElement("section");
+section.className = "footer";
+section.setAttribute("data-cursor", "pointerWhite");
+
+const div1 = document.createElement("div");
+
+const mainpageLink = document.createElement("a");
+mainpageLink.href = baseUrl;
+mainpageLink.setAttribute("data-cursor", "pointerLink");
+mainpageLink.innerHTML = "<span></span>صفحه‌ی اصلی";
+div1.appendChild(mainpageLink);
+
+const catalogLink = document.createElement("a");
+catalogLink.href = baseUrl + "/products.html";
+catalogLink.setAttribute("data-cursor", "pointerLink");
+catalogLink.innerHTML = "<span></span>کاتالوگ محصولات";
+div1.appendChild(catalogLink);
+
+const articlesLink = document.createElement("a");
+articlesLink.href = "#";
+articlesLink.setAttribute("data-cursor", "pointerLink");
+articlesLink.innerHTML = "<span></span>مقالات";
+div1.appendChild(articlesLink);
+
+const contactLink = document.createElement("a");
+contactLink.href = baseUrl + "/contact.html";
+contactLink.setAttribute("data-cursor", "pointerLink");
+contactLink.innerHTML = "<span></span>ارتباط با ما";
+div1.appendChild(contactLink);
+
+const div2 = document.createElement("div");
+const contactDiv = document.createElement("div");
+const contactHeader = document.createElement("h6");
+contactHeader.textContent = "ارتباط با ما";
+contactDiv.appendChild(contactHeader);
+
+const contactInfo1 = document.createElement("div");
+contactInfo1.innerHTML = "<p>تلفن ثابت</p><p>021-44403448<br />021-44000408</p>";
+contactDiv.appendChild(contactInfo1);
+
+const contactInfo2 = document.createElement("div");
+contactInfo2.innerHTML = "<p>تماس ضروری</p><p>0912-2991782<br />0912-2087393</p>";
+contactDiv.appendChild(contactInfo2);
+
+const contactInfo3 = document.createElement("div");
+contactInfo3.innerHTML = "<p>کد پستی</p><p>1469916541</p>";
+contactDiv.appendChild(contactInfo3);
+
+const contactInfo4 = document.createElement("div");
+contactInfo4.innerHTML = "<p>ایمیل</p><p>info@strumix.com</p>";
+contactDiv.appendChild(contactInfo4);
+
+div2.appendChild(contactDiv);
+
+const socialMediaDiv = document.createElement("div");
+const socialMediaHeader = document.createElement("h6");
+socialMediaHeader.textContent = "صفحات مجازی";
+socialMediaDiv.appendChild(socialMediaHeader);
+
+const instagramLink = document.createElement("a");
+instagramLink.setAttribute("data-cursor", "pointerNavbar");
+instagramLink.setAttribute("target", "_blank");
+instagramLink.href = "https://www.instagram.com/strumix.co/";
+instagramLink.textContent = "اینستاگرام";
+socialMediaDiv.appendChild(instagramLink);
+
+const technicalSupportLink = document.createElement("a");
+technicalSupportLink.setAttribute("data-cursor", "pointerNavbar");
+technicalSupportLink.setAttribute("target", "_blank");
+technicalSupportLink.href = "https://api.whatsapp.com/send?phone=989122087393";
+technicalSupportLink.textContent = "پشتیبانی فنی";
+socialMediaDiv.appendChild(technicalSupportLink);
+
+const salesSupportLink = document.createElement("a");
+salesSupportLink.setAttribute("data-cursor", "pointerNavbar");
+salesSupportLink.setAttribute("target", "_blank");
+salesSupportLink.href = "https://api.whatsapp.com/send?phone=989928210625";
+salesSupportLink.textContent = "پشتیبانی فروش";
+socialMediaDiv.appendChild(salesSupportLink);
+
+div2.appendChild(socialMediaDiv);
+
+const copyrightParagraph = document.createElement("p");
+copyrightParagraph.innerHTML =
+  'Copyright © 2024 strumix / All rights reserved / Developed by <a target="_blank" data-cursor="pointerNavbar" href="https://firstibox.glitch.me/">FirstIBOX</a> / <a target="_blank" data-cursor="pointerNavbar" href="">Privacy Policy</a>';
+
+section.appendChild(div1);
+section.appendChild(div2);
+section.appendChild(copyrightParagraph);
+
+document.getElementById("smooth-content").appendChild(section);
+
+activateCustomCursors();

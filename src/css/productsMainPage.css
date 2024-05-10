@@ -231,6 +231,7 @@ html {
   justify-content: center;
   flex-wrap: wrap;
   margin: 0 10vmin;
+  margin-bottom: 5vmin;
   font-size: clamp(0.7rem, 1vw, 100rem);
 }
 .productList > div {
@@ -270,6 +271,7 @@ html {
 @media only screen and (max-width: 992px) {
   .productList {
     margin: 0 3vmin;
+    margin-bottom: 5vmin;
   }
   .productList > div {
     width: 47%;

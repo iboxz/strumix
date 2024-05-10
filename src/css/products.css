@@ -318,6 +318,7 @@ html {
 .otherProduct {
   background-color: #fdfaf3;
   font-size: clamp(0.6rem, 0.9vw, 100rem);
+  padding-bottom: 5vmin;
 }
 .otherProduct img {
   width: 45vmin;

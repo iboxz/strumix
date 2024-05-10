@@ -576,3 +576,112 @@ nav > .active > span:last-child {
 :root {
   color-scheme: light only;
 }
+
+.footer {
+  display: flex;
+  flex-wrap: wrap;
+
+  background: black;
+  color: white;
+  font-family: Montserrat, Rokh;
+  padding: 10vmin 10vmin 1vmin 10vmin;
+  white-space: nowrap;
+  font-size: clamp(0.7rem, 1vw, 20rem);
+}
+.footer > div:nth-child(1) {
+  width: 55%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.footer > div:nth-child(1) a {
+  margin: 1vmin;
+  font-size: clamp(1rem, 1.8vw, 100rem);
+  text-decoration: none;
+}
+
+.footer > div:nth-child(1) a span {
+  display: inline-block;
+  width: 4vmin;
+  height: 0.1vmin;
+  margin-right: 1vmin;
+  vertical-align: middle;
+  margin-left: 3vmin;
+  background: #ffffff;
+  transition: 0.5s ease;
+}
+.footer > div:nth-child(1) a:hover span {
+  width: 10vmin;
+}
+.footer > div:nth-child(2) {
+  display: flex;
+  justify-content: space-between;
+  width: 45%;
+}
+
+.footer > div:nth-child(2) div {
+  font-weight: 200;
+  width: 45%;
+}
+.footer > div:nth-child(2) div div {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+  margin: 3vmin 0;
+}
+.footer > div:nth-child(2) div:nth-child(2) a {
+  display: block;
+  text-align: end;
+}
+.footer > div:nth-child(2) div:nth-child(2) a:hover {
+  background: #ffffff11;
+}
+.footer > div:nth-child(2) > div h6 {
+  font-size: clamp(1rem, 1.5vw, 100rem);
+}
+
+.footer > p {
+  width: 100%;
+  text-align: center;
+  font-size: clamp(0.4rem, 0.8vw, 100rem);
+  padding-top: 8vmin;
+}
+.footer a {
+  color: white;
+}
+
+@media only screen and (max-width: 992px) {
+  .footer {
+    padding: 5vmin 5vmin 1vmin 5vmin;
+  }
+  .footer > div:nth-child(1) {
+    width: 45%;
+  }
+  .footer > div:nth-child(2) {
+    width: 55%;
+  }
+}
+
+@media only screen and (max-width: 576px) {
+  .footer {
+    padding: 0 5vmin 1vmin 5vmin;
+  }
+  .footer > div:nth-child(1) {
+    width: 100%;
+    padding: 15vmin;
+    margin-right: 40vw;
+    transform: translateX(50%);
+  }
+  .footer > div:nth-child(2) {
+    justify-content: center;
+  }
+  .footer > div:nth-child(2) > div:nth-child(1) {
+    width: 60%;
+  }
+  .footer > div:nth-child(2) > div:nth-child(2) {
+    display: none;
+  }
+  .footer > div:nth-child(2) {
+    width: 100%;
+  }
+}
