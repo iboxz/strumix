@@ -23,9 +23,9 @@ async function updateHTMLFiles() {
           // Read HTML file asynchronously
           let htmlContent = await fs.readFile(filePath, "utf-8");
 
-          // Remove Glitch script tag from HTML content
+          // Remove GSAP script tag from HTML content
           htmlContent = htmlContent.replace(
-            /<script src="https:\/\/cdn\.glitch\.global\/[0-9a-f-]+\/CSSRulePlugin\.min\.js"><\/script>/g,
+            /<script src="https:\/\/cdnjs\.cloudflare\.com\/ajax\/libs\/gsap\/3\.12\.5\/CSSRulePlugin\.min\.js"><\/script>/g,
             ""
           );
 

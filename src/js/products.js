@@ -143,7 +143,7 @@ function getRandomItems(array, count) {
 fetch("./products.json")
   .then((response) => response.json())
   .then((data) => {
-    const currentUrl = window.location.href;
+    const currentUrl = window.location.href + ".html";
 
     const selectedCategories = [];
     for (const category of data.categories) {
