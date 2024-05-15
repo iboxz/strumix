@@ -23,10 +23,10 @@ async function updateHTMLFiles() {
           // Read HTML file asynchronously
           let htmlContent = await fs.readFile(filePath, "utf-8");
 
-          // Add or modify attribute in section tag
+          // Remove Glitch script tag from HTML content
           htmlContent = htmlContent.replace(
-            /<section class="splashScreen"(.*?)>/g,
-            '<section class="splashScreen" data-cursor="pointerWaveBorder">'
+            /<script src="https:\/\/cdn\.glitch\.global\/[0-9a-f-]+\/CSSRulePlugin\.min\.js"><\/script>/g,
+            ""
           );
 
           // Write changes to the file asynchronously

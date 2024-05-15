@@ -140,7 +140,7 @@ function getRandomItems(array, count) {
   return array.sort(() => 0.5 - Math.random()).slice(0, count);
 }
 
-fetch("products.json")
+fetch("./products.json")
   .then((response) => response.json())
   .then((data) => {
     const currentUrl = window.location.href;
@@ -172,8 +172,6 @@ fetch("products.json")
 
 // --------------------------------------------------
 window.addEventListener("load", async () => {
-  await new Promise((resolve) => setTimeout(resolve, 2000));
-
   const COMPONENT_SELECTOR = ".otherProductWrapper";
   const CONTROLS_SELECTOR = ".otherProductControls";
   const CONTENT_SELECTOR = ".otherProductContent";

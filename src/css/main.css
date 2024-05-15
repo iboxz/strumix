@@ -586,7 +586,7 @@ nav > .active > span:last-child {
   font-family: Montserrat, Rokh;
   padding: 10vmin 10vmin 1vmin 10vmin;
   white-space: nowrap;
-  font-size: clamp(0.7rem, 1vw, 20rem);
+  font-size: clamp(0.7rem, 0.9vw, 20rem);
 }
 .footer > div:nth-child(1) {
   width: 55%;
@@ -596,7 +596,7 @@ nav > .active > span:last-child {
 }
 .footer > div:nth-child(1) a {
   margin: 1vmin;
-  font-size: clamp(1rem, 1.8vw, 100rem);
+  font-size: clamp(1rem, 1.4vw, 100rem);
   text-decoration: none;
 }
 
@@ -637,13 +637,13 @@ nav > .active > span:last-child {
   background: #ffffff11;
 }
 .footer > div:nth-child(2) > div h6 {
-  font-size: clamp(1rem, 1.5vw, 100rem);
+  font-size: clamp(1rem, 1.2vw, 100rem);
 }
 
 .footer > p {
   width: 100%;
   text-align: center;
-  font-size: clamp(0.4rem, 0.8vw, 100rem);
+  font-size: clamp(0.4rem, 0.6vw, 100rem);
   padding-top: 8vmin;
 }
 .footer a {
@@ -676,7 +676,7 @@ nav > .active > span:last-child {
     justify-content: center;
   }
   .footer > div:nth-child(2) > div:nth-child(1) {
-    width: 60%;
+    width: 80%;
   }
   .footer > div:nth-child(2) > div:nth-child(2) {
     display: none;
