@@ -29,6 +29,8 @@ const articlesParagraph = createEl("p", {}, "مقالات");
 const divContact = createEl("div");
 const contactParagraph = createEl("p", {}, "ارتباط با ما");
 const divHamburger = createEl("div", { class: "hamburger" });
+const technicalParagraph = createEl("p", {}, "مدارک فنی");
+const divTechnical = createEl("div");
 const hamburgerSpan1 = createEl("span");
 const hamburgerSpan2 = createEl("span");
 const sectionProducts = createEl("section", { class: "products" });
@@ -45,11 +47,20 @@ for (const category of categories) {
 }
 
 productsParagraph.appendChild(productsSpan);
-navigation.append(divLogo, divProducts, divArticles, divContact, divHamburger, sectionProducts);
+navigation.append(
+  divLogo,
+  divProducts,
+  divArticles,
+  divTechnical,
+  divContact,
+  divHamburger,
+  sectionProducts
+);
 divLogo.append(logoImg);
 divProducts.append(productsParagraph);
 divArticles.append(articlesParagraph);
 divContact.append(contactParagraph);
+divTechnical.append(technicalParagraph);
 divHamburger.append(hamburgerSpan1, hamburgerSpan2);
 sectionProducts.append(sectionProductsDiv1, sectionProductsDiv2);
 document.body.appendChild(navigation);
@@ -77,6 +88,16 @@ var menuTimeline = gsap
     0.5
   )
   .to("nav > div:nth-child(4) > p", { text: "", duration: 0.5, ease: "none" }, 0.5)
+  .to("nav > div:nth-child(5) > p", { text: "", duration: 0.5, ease: "none" }, 0.5)
+  .to(
+    "nav > div:nth-child(5)",
+    {
+      background: "hsla(39, 100%, 70%, 0)",
+      duration: 0.5,
+      ease: "none",
+    },
+    0.5
+  )
   .to("nav > div:nth-child(3)", { border: "0.1vmin black solid", duration: 0.5, ease: "none" }, 0.5)
   .to(
     "nav > div:nth-child(4)",
@@ -131,7 +152,7 @@ document.querySelector("nav > div:nth-child(3)").addEventListener("click", funct
     window.open(baseUrl + "/#", "_self");
   }
 });
-document.querySelector("nav > div:nth-child(4)").addEventListener("click", function () {
+document.querySelector("nav > div:nth-child(5)").addEventListener("click", function () {
   window.open(baseUrl + "/contact.html", "_self");
 });
 document.querySelector("nav > div:nth-child(1)").addEventListener("click", function () {
@@ -143,6 +164,7 @@ document.body.addEventListener("click", function (event) {
   if (!menuEnabled && !event.target.closest("nav")) {
     menuEnabled = true;
     toggleMenu();
+    toggleActiveClass();
     document.body.style.overflow = "visible";
   }
 });
@@ -203,6 +225,7 @@ function addSectionProducts(products) {
 
   var links = [
     { text: "مقالات", href: "#" },
+    { text: "مدارک فنی", href: "#" },
     { text: "ارتباط با ما", href: baseUrl + "/contact.html" },
   ];
 
@@ -211,6 +234,11 @@ function addSectionProducts(products) {
     newLink.textContent = links[i].text;
     newLink.setAttribute("href", links[i].href);
 
+    if (links[i].text === "مدارک فنی") {
+      newLink.onclick = function () {
+        generateSection();
+      };
+    }
     var newDiv = document.createElement("div");
     newDiv.appendChild(newLink);
 
@@ -444,6 +472,15 @@ articlesLink.setAttribute("data-cursor", "pointerLink");
 articlesLink.innerHTML = "<span></span>مقالات";
 div1.appendChild(articlesLink);
 
+const technicalLink = document.createElement("a");
+technicalLink.setAttribute("data-cursor", "pointerLink");
+technicalLink.innerHTML = "<span></span>مدارک فنی";
+div1.appendChild(technicalLink);
+technicalLink.onclick = function () {
+  generateSection();
+};
+
+
 const contactLink = document.createElement("a");
 contactLink.href = baseUrl + "/contact.html";
 contactLink.setAttribute("data-cursor", "pointerLink");
@@ -513,3 +550,122 @@ section.appendChild(copyrightParagraph);
 document.getElementById("smooth-content").appendChild(section);
 
 activateCustomCursors();
+
+/* ------------------------------------------------- */
+
+const items = {
+  کاتالوگ: [
+    {
+      text: "کاتالوگ جامع محصولات استرامیکس",
+      url: "https://strumix.com/wp-content/uploads/2020/11/Strumix-cataloge-2018-for-internet-marketing.pdf",
+    },
+    {
+      text: "بروشور استرامیکس",
+      url: "https://strumix.com/wp-content/uploads/2020/11/Brochure-Strumix-2020.pdf",
+    },
+  ],
+  استانداردها: [
+    {
+      text: "استاندارد فوق روان کننده و روان کننده بتن و استاندارد زودگیر کننده بتن (ضدیخ بتن مسلح فاقد یون کلر)",
+      url: "https://strumix.com/wp-content/uploads/2022/09/Standard-Strumix.pdf",
+    },
+    {
+      text: "گواهی نامه استاندارد ISO 9001",
+      url: "https://strumix.com/wp-content/uploads/2023/10/ISO-9001.jpg",
+    },
+    {
+      text: "گواهی نامه استاندارد ISO 14001",
+      url: "https://strumix.com/wp-content/uploads/2023/10/ISO-14001.jpg",
+    },
+    {
+      text: "گواهی نامه استاندارد ISO 29001",
+      url: "https://strumix.com/wp-content/uploads/2023/10/ISO-29001.jpg",
+    },
+    {
+      text: "گواهی نامه استاندارد ISO 45001",
+      url: "https://strumix.com/wp-content/uploads/2023/10/ISO-45001.jpg",
+    },
+  ],
+  "گواهی نامه فنی مرکز تحقیقات راه، مسکن و شهرسازی": [
+    {
+      text: "گواهی نامه فنی مرکز تحقیقات راه، مسکن و شهرسازی برای محصول “Strusin فوق روان کننده (ابر روان کننده) بتن بر پایه پلی کربوکسیلات اتر”",
+      url: "https://strumix.com/wp-content/uploads/2023/09/%DA%AF%D9%88%D8%A7%D9%87%DB%8C-%D9%86%D8%A7%D9%85%D9%87-%D9%81%D9%86%DB%8C-%D9%85%D8%B1%DA%A9%D8%B2-%D8%AA%D8%AD%D9%82%DB%8C%D9%82%D8%A7%D8%AA-%D9%85%D8%B3%DA%A9%D9%86-Strusin.jpg",
+    },
+  ],
+  "تائیدیه محصولات": [
+    {
+      text: "تاییدیه محصول “Struseal C512 افزودنی آب بند کننده کریستالی داخلی بتن با عملکرد خود ترمیمی رشد یابنده” در مرکز تحقیقات راه، مسکن و شهرسازی",
+      url: "https://strumix.com/wp-content/uploads/2020/11/%D8%AA%D8%A7%DB%8C%DB%8C%D8%AF%DB%8C%D9%87-%D9%81%D9%86%DB%8C-%D9%85%D8%AD%D8%B5%D9%88%D9%84-Struseal-C512-%D8%AF%D8%B1-%D9%85%D8%B1%DA%A9%D8%B2-%D8%AA%D8%AD%D9%82%DB%8C%D9%82%D8%A7%D8%AA-%D8%B1%D8%A7%D9%87%D8%8C-%D9%85%D8%B3%DA%A9%D9%86-%D9%88-%D8%B4%D9%87%D8%B1%D8%B3%D8%A7%D8%B2%DB%8C.pdf",
+    },
+    {
+      text: "تاییدیه محصول “Supramix Alfa افزودنی کاهنده نفوذپذیری چند منظوره ویژه سوپرامیکس آلفا بتن” در مرکز تحقیقات راه، مسکن و شهرسازی",
+      url: "https://strumix.com/wp-content/uploads/2020/11/%D8%AA%D8%A7%DB%8C%DB%8C%D8%AF%DB%8C%D9%87-%D9%81%D9%86%DB%8C-%D9%85%D8%AD%D8%B5%D9%88%D9%84-Supramix-Alfa-%D8%AF%D8%B1-%D9%85%D8%B1%DA%A9%D8%B2-%D8%AA%D8%AD%D9%82%DB%8C%D9%82%D8%A7%D8%AA-%D8%B1%D8%A7%D9%87%D8%8C-%D9%85%D8%B3%DA%A9%D9%86-%D9%88-%D8%B4%D9%87%D8%B1%D8%B3%D8%A7%D8%B2%DB%8C.pdf",
+    },
+    {
+      text: "تاییدیه محصول “Supramix Beta افزودنی کاهنده نفوذپذیری چند منظوره ویژه سوپرامیکس بتا بتن” در مرکز تحقیقات راه، مسکن و شهرسازی",
+      url: "https://strumix.com/wp-content/uploads/2020/11/%DA%AF%D8%B2%D8%A7%D8%B1%D8%B4-%D9%81%D9%86%DB%8C-%D8%B4%D8%B1%DA%A9%D8%AA-%D8%A8%D8%B3%D9%BE%D8%A7%D8%B1-%D8%A8%D8%AA%D9%86-%D8%A7%DB%8C%D8%B1%D8%A7%D9%86%DB%8C%D8%A7%D9%86-%D9%87%D9%88%D8%B4%D9%85%D9%86%D8%AF-%DA%AF%D8%B2%D8%A7%D8%B1%D8%B4-2.pdf",
+    },
+    {
+      text: "تاییدیه محصول “Struset Nitro  ضد یخ بتن مسلح فاقد یون کلر (زودگیر کننده بتن)” در انستیتو مصالح ساختمانی دانشگاه تهران",
+      url: "https://strumix.com/wp-content/uploads/2021/02/%D8%AA%D8%A7%DB%8C%DB%8C%D8%AF%DB%8C%D9%87-%D8%B9%D9%85%D9%84%DA%A9%D8%B1%D8%AF-%D9%81%D9%86%DB%8C-%D8%A7%D8%B2-%D8%AF%D8%A7%D9%86%D8%B4%DA%AF%D8%A7%D9%87-%D8%AA%D9%87%D8%B1%D8%A7%D9%86-%D8%A8%D8%B1%D8%A7%DB%8C-%D9%85%D8%AD%D8%B5%D9%88%D9%84-%D8%B6%D8%AF-%DB%8C%D8%AE-%D8%A8%D8%AA%D9%86-%D9%85%D8%B3%D9%84%D8%AD-Struset-Nitro.pdf",
+    },
+    {
+      text: "تاییدیه محصول “Strucure SW50  کیورینگ (عمل آورنده) بتن پایه آب)” در انستیتو مصالح ساختمانی دانشگاه تهران",
+      url: "https://strumix.com/wp-content/uploads/2023/09/Strucure-SW50-%D8%A7%D9%86%D8%B3%D8%AA%DB%8C%D8%AA%D9%88-%D9%85%D8%B5%D8%A7%D9%84%D8%AD-%D8%B3%D8%A7%D8%AE%D8%AA%D9%85%D8%A7%D9%86%DB%8C-%D8%AF%D8%A7%D9%86%D8%B4%DA%AF%D8%A7%D9%87-%D8%AA%D9%87%D8%B1%D8%A7%D9%86.pdf",
+    },
+  ],
+  "رزومه استرامیکس": [
+    {
+      text: "برخی از پروژه های ملی و شخصی انجام شده با همکاری استرامیکس",
+      url: "https://strumix.com/wp-content/uploads/2020/11/Resume-Strumix.pdf",
+    },
+    {
+      text: "برخی از پروژه های آب بندی حجمی بتن با استفاده از محصولات استرامیکس",
+      url: "https://strumix.com/wp-content/uploads/2021/02/resume-Strumix-internal-waterproofing.pdf",
+    },
+  ],
+};
+
+technicalParagraph.onclick = function () {
+  generateSection();
+};
+function generateSection() {
+  var section = document.querySelector("body");
+  var content = `<div class="downloadDataSheet"><div>`;
+  Object.keys(items).forEach((key) => {
+    content += `<h3 onclick="replaceText(this)">${key}</h3>`;
+  });
+  content += `</div></div>`;
+  section.insertAdjacentHTML("beforeend", content);
+
+  const removeMainContainer = document.querySelector(".downloadDataSheet");
+  removeMainContainer.addEventListener("click", function (event) {
+    if (event.target === removeMainContainer) {
+      this.remove();
+    }
+  });
+}
+
+function replaceText(element) {
+  const mainContainer = document.querySelector(".downloadDataSheet > div:nth-child(1)");
+  mainContainer.innerHTML = "";
+
+  items[element.innerText]?.forEach((item) => {
+    const aTag = document.createElement("a");
+    aTag.innerText = item.text;
+    aTag.href = item.url;
+    mainContainer.appendChild(aTag);
+  });
+
+  const h3Tag = document.createElement("h3");
+  const ImgTag = document.createElement("img");
+  ImgTag.src = new URL("/assets/VectorFlesh4.svg", baseUrl);
+  h3Tag.appendChild(ImgTag);
+  h3Tag.appendChild(document.createTextNode(element.innerText));
+  h3Tag.onclick = function () {
+    const removeMainContainer = document.querySelector(".downloadDataSheet");
+    removeMainContainer.remove();
+    generateSection();
+  };
+  mainContainer.appendChild(h3Tag);
+}

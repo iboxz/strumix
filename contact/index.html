@@ -16,7 +16,7 @@
     <meta name="author" content="استراميکس-STRUMIX" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="robots" content="index, follow" />
-    <link rel="icon" type="image/svg" href="assets/VectorLogo-favicon.svg" />
+    <link rel="icon" type="image/svg" href="../assets/VectorLogo-favicon.svg" />
 
     <meta property="og:title" content="استراميکس (STRUMIX) - ارتباط با ما" />
     <meta
@@ -50,12 +50,12 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
-    <script src="src/js/ScrollSmoother.min.js"></script>
-    <script src="src/js/SplitText.min.js"></script>
+    <script src="../src/js/ScrollSmoother.min.js"></script>
+    <script src="../src/js/SplitText.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/TextPlugin.min.js"></script>
-    <script async="" src="src/js/main.js"></script>
+    <script async="" src="../src/js/main.js"></script>
 
-    <link rel="stylesheet" href="src/css/main.css" />
+    <link rel="stylesheet" href="../src/css/main.css" />
     <style>
       /* scroll bar */
       ::-webkit-scrollbar {
@@ -91,10 +91,11 @@
 
         position: fixed;
         right: 0;
-        top: 20vh;
+        top: 10vh;
         transform: translate(35%) rotate(90deg);
 
         padding: 1vmin 3vmin;
+        z-index: 10;
       }
       .hero div {
         display: flex;
@@ -162,13 +163,11 @@
           line-height: 0.5;
           position: relative;
           text-indent: none;
-          z-index: 2;
         }
         .hero p:nth-child(2) {
           font-size: clamp(2.5rem, 4vw, 100rem);
           text-align: start;
           position: relative;
-          z-index: 2;
         }
       }
       /*----------------main Section-------------------*/
@@ -203,7 +202,6 @@
         left: 0;
         inset: 0 0 0 0;
         background: #efd467;
-        z-index: -1;
         transition: transform 0.3s ease;
       }
       .mainSection > div {
@@ -243,7 +241,6 @@
         margin-right: -15%;
         padding: 0 10%;
         font-size: clamp(1.1rem, 2vw, 100rem);
-        z-index: 2;
       }
       .mainSection .cardsContainer div:nth-child(1) h2,
       .mainSection .cardsContainer div:nth-child(3) h2 {
@@ -260,7 +257,6 @@
         width: 20vw;
 
         border-top: 0.1vmin solid #a6a6a6;
-        z-index: -1;
       }
 
       .mainSection .cards h4 {
@@ -289,8 +285,9 @@
         white-space: nowrap;
       }
       @media only screen and (max-width: 992px) {
+
         .mainSection {
-          padding: 10vmin 5vmin 0 5vmin;
+          padding: 25vmin 5vmin 0 5vmin;
         }
         .mainSection .cardsContainer {
           grid-template-columns: 1fr;
@@ -440,7 +437,7 @@
       }
       /*-----------------icon------------------*/
       .iconFlesh {
-        content: url(assets/VectorFlesh2.svg);
+        content: url(../assets/VectorFlesh2.svg);
         vertical-align: middle;
         height: 100%;
         width: 2vmin;
@@ -448,7 +445,7 @@
         margin-left: 1vmin;
       }
       .iconFleshS {
-        content: url(assets/VectorFlesh2.svg);
+        content: url(../assets/VectorFlesh2.svg);
         vertical-align: middle;
         height: 100%;
         width: 1.5vmin;
@@ -456,7 +453,7 @@
         margin: 0 1vmin;
       }
       .iconCopy {
-        content: url(assets/VectorCopy.svg);
+        content: url(../assets/VectorCopy.svg);
         vertical-align: middle;
         height: 100%;
         width: 2vmin;
@@ -464,7 +461,7 @@
         margin: 0 1vmin;
       }
       .iconInstagram {
-        content: url(assets/VectorInstagram.svg);
+        content: url(../assets/VectorInstagram.svg);
         vertical-align: middle;
         height: 100%;
         width: 2vmin;
@@ -472,7 +469,7 @@
         margin: 0 1vmin;
       }
       .iconWhatsapp {
-        content: url(assets/VectorWhatsapp.svg);
+        content: url(../assets/VectorWhatsapp.svg);
         vertical-align: middle;
         height: 100%;
         width: 2vmin;
@@ -616,7 +613,7 @@
           <hr />
           <div class="buttonContainer">
             <div>
-              <a href="contact/job.html">
+              <a href="job.html">
                 <div class="buttonCards">
                   <h4><span class="iconFlesh"></span>فرم درخواست همکاری</h4>
                   <h4><span class="iconFlesh"></span>فرم درخواست همکاری</h4>
@@ -624,7 +621,7 @@
               </a>
             </div>
             <div>
-              <a href="contact/branch.html">
+              <a href="branch.html">
                 <div class="buttonCards">
                   <h4><span class="iconFlesh"></span>فرم درخواست نمایندگی</h4>
                   <h4><span class="iconFlesh"></span>فرم درخواست نمایندگی</h4>
