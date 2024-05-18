@@ -1,3 +1,4 @@
+const baseUrl = window.location.origin;
 const createEl = (tag, attrs = {}, textContent = "") => {
   const el = document.createElement(tag);
   Object.entries(attrs).forEach(([key, value]) => el.setAttribute(key, value));
@@ -5,7 +6,7 @@ const createEl = (tag, attrs = {}, textContent = "") => {
   return el;
 };
 
-const baseUrl = window.location.origin;
+console.log(baseUrl);
 const categories = [
   { name: "همه‌ی محصولات", id: "" },
   { name: "افزودنی بتن", id: "concreteAdditive" },
@@ -40,7 +41,7 @@ const sectionProductsDiv2 = createEl("div");
 for (const category of categories) {
   const catagoryList = createEl("p", { "data-cursor": "pointerFocus" }, category.name);
   const linkContainer = createEl("a", {
-    href: `${baseUrl}/products.html?productID=${category.id}`,
+    href: `${baseUrl}/products/?productID=${category.id}`,
   });
   linkContainer.appendChild(catagoryList);
   sectionProductsDiv1.appendChild(linkContainer);
@@ -234,14 +235,14 @@ function addSectionProducts(products) {
     newLink.textContent = links[i].text;
     newLink.setAttribute("href", links[i].href);
 
-    if (links[i].text === "مدارک فنی") {
-      newLink.onclick = function () {
-        generateSection();
-      };
-    }
     var newDiv = document.createElement("div");
     newDiv.appendChild(newLink);
 
+    if (links[i].text === "مدارک فنی") {
+      newDiv.onclick = function () {
+        generateSection();
+      };
+    }
     otherProductContent.appendChild(newLink);
   }
   activateCustomCursors();
@@ -461,7 +462,7 @@ mainpageLink.innerHTML = "<span></span>صفحه‌ی اصلی";
 div1.appendChild(mainpageLink);
 
 const catalogLink = document.createElement("a");
-catalogLink.href = baseUrl + "/products.html";
+catalogLink.href = baseUrl + "/products";
 catalogLink.setAttribute("data-cursor", "pointerLink");
 catalogLink.innerHTML = "<span></span>کاتالوگ محصولات";
 div1.appendChild(catalogLink);
@@ -479,7 +480,6 @@ div1.appendChild(technicalLink);
 technicalLink.onclick = function () {
   generateSection();
 };
-
 
 const contactLink = document.createElement("a");
 contactLink.href = baseUrl + "/contact.html";
@@ -557,76 +557,72 @@ const items = {
   کاتالوگ: [
     {
       text: "کاتالوگ جامع محصولات استرامیکس",
-      url: "https://strumix.com/wp-content/uploads/2020/11/Strumix-cataloge-2018-for-internet-marketing.pdf",
+      url: "https://strumix.com/assets/technicalDocuments/Strumix-cataloge-2018-for-internet-marketing.pdf",
     },
     {
       text: "بروشور استرامیکس",
-      url: "https://strumix.com/wp-content/uploads/2020/11/Brochure-Strumix-2020.pdf",
+      url: "https://strumix.com/assets/technicalDocuments/Brochure-Strumix-2020.pdf",
     },
   ],
   استانداردها: [
     {
       text: "استاندارد فوق روان کننده و روان کننده بتن و استاندارد زودگیر کننده بتن (ضدیخ بتن مسلح فاقد یون کلر)",
-      url: "https://strumix.com/wp-content/uploads/2022/09/Standard-Strumix.pdf",
+      url: "https://strumix.com/assets/technicalDocuments/Standard-Strumix.pdf",
     },
     {
       text: "گواهی نامه استاندارد ISO 9001",
-      url: "https://strumix.com/wp-content/uploads/2023/10/ISO-9001.jpg",
+      url: "https://strumix.com/assets/technicalDocuments/ISO-9001.jpg",
     },
     {
       text: "گواهی نامه استاندارد ISO 14001",
-      url: "https://strumix.com/wp-content/uploads/2023/10/ISO-14001.jpg",
+      url: "https://strumix.com/assets/technicalDocuments/ISO-14001.jpg",
     },
     {
       text: "گواهی نامه استاندارد ISO 29001",
-      url: "https://strumix.com/wp-content/uploads/2023/10/ISO-29001.jpg",
+      url: "https://strumix.com/assets/technicalDocuments/ISO-29001.jpg",
     },
     {
       text: "گواهی نامه استاندارد ISO 45001",
-      url: "https://strumix.com/wp-content/uploads/2023/10/ISO-45001.jpg",
+      url: "https://strumix.com/assets/technicalDocuments/ISO-45001.jpg",
     },
   ],
   "گواهی نامه فنی مرکز تحقیقات راه، مسکن و شهرسازی": [
     {
       text: "گواهی نامه فنی مرکز تحقیقات راه، مسکن و شهرسازی برای محصول “Strusin فوق روان کننده (ابر روان کننده) بتن بر پایه پلی کربوکسیلات اتر”",
-      url: "https://strumix.com/wp-content/uploads/2023/09/%DA%AF%D9%88%D8%A7%D9%87%DB%8C-%D9%86%D8%A7%D9%85%D9%87-%D9%81%D9%86%DB%8C-%D9%85%D8%B1%DA%A9%D8%B2-%D8%AA%D8%AD%D9%82%DB%8C%D9%82%D8%A7%D8%AA-%D9%85%D8%B3%DA%A9%D9%86-Strusin.jpg",
+      url: "https://strumix.com/assets/technicalDocuments/گواهی-نامه-فنی-مرکز-تحقیقات-مسکن-Strusin.jpg",
     },
   ],
   "تائیدیه محصولات": [
     {
       text: "تاییدیه محصول “Struseal C512 افزودنی آب بند کننده کریستالی داخلی بتن با عملکرد خود ترمیمی رشد یابنده” در مرکز تحقیقات راه، مسکن و شهرسازی",
-      url: "https://strumix.com/wp-content/uploads/2020/11/%D8%AA%D8%A7%DB%8C%DB%8C%D8%AF%DB%8C%D9%87-%D9%81%D9%86%DB%8C-%D9%85%D8%AD%D8%B5%D9%88%D9%84-Struseal-C512-%D8%AF%D8%B1-%D9%85%D8%B1%DA%A9%D8%B2-%D8%AA%D8%AD%D9%82%DB%8C%D9%82%D8%A7%D8%AA-%D8%B1%D8%A7%D9%87%D8%8C-%D9%85%D8%B3%DA%A9%D9%86-%D9%88-%D8%B4%D9%87%D8%B1%D8%B3%D8%A7%D8%B2%DB%8C.pdf",
-    },
-    {
-      text: "تاییدیه محصول “Supramix Alfa افزودنی کاهنده نفوذپذیری چند منظوره ویژه سوپرامیکس آلفا بتن” در مرکز تحقیقات راه، مسکن و شهرسازی",
-      url: "https://strumix.com/wp-content/uploads/2020/11/%D8%AA%D8%A7%DB%8C%DB%8C%D8%AF%DB%8C%D9%87-%D9%81%D9%86%DB%8C-%D9%85%D8%AD%D8%B5%D9%88%D9%84-Supramix-Alfa-%D8%AF%D8%B1-%D9%85%D8%B1%DA%A9%D8%B2-%D8%AA%D8%AD%D9%82%DB%8C%D9%82%D8%A7%D8%AA-%D8%B1%D8%A7%D9%87%D8%8C-%D9%85%D8%B3%DA%A9%D9%86-%D9%88-%D8%B4%D9%87%D8%B1%D8%B3%D8%A7%D8%B2%DB%8C.pdf",
+      url: "https://strumix.com/assets/technicalDocuments/تاییدیه-فنی-محصول-Struseal-C512-در-مرکز-تحقیقات-راه،-مسکن-و-شهرسازی.pdf",
     },
     {
       text: "تاییدیه محصول “Supramix Beta افزودنی کاهنده نفوذپذیری چند منظوره ویژه سوپرامیکس بتا بتن” در مرکز تحقیقات راه، مسکن و شهرسازی",
-      url: "https://strumix.com/wp-content/uploads/2020/11/%DA%AF%D8%B2%D8%A7%D8%B1%D8%B4-%D9%81%D9%86%DB%8C-%D8%B4%D8%B1%DA%A9%D8%AA-%D8%A8%D8%B3%D9%BE%D8%A7%D8%B1-%D8%A8%D8%AA%D9%86-%D8%A7%DB%8C%D8%B1%D8%A7%D9%86%DB%8C%D8%A7%D9%86-%D9%87%D9%88%D8%B4%D9%85%D9%86%D8%AF-%DA%AF%D8%B2%D8%A7%D8%B1%D8%B4-2.pdf",
+      url: "https://strumix.com/assets/technicalDocuments/گزارش-فنی-شرکت-بسپار-بتن-ایرانیان-هوشمند-گزارش-2.pdf",
     },
     {
       text: "تاییدیه محصول “Struset Nitro  ضد یخ بتن مسلح فاقد یون کلر (زودگیر کننده بتن)” در انستیتو مصالح ساختمانی دانشگاه تهران",
-      url: "https://strumix.com/wp-content/uploads/2021/02/%D8%AA%D8%A7%DB%8C%DB%8C%D8%AF%DB%8C%D9%87-%D8%B9%D9%85%D9%84%DA%A9%D8%B1%D8%AF-%D9%81%D9%86%DB%8C-%D8%A7%D8%B2-%D8%AF%D8%A7%D9%86%D8%B4%DA%AF%D8%A7%D9%87-%D8%AA%D9%87%D8%B1%D8%A7%D9%86-%D8%A8%D8%B1%D8%A7%DB%8C-%D9%85%D8%AD%D8%B5%D9%88%D9%84-%D8%B6%D8%AF-%DB%8C%D8%AE-%D8%A8%D8%AA%D9%86-%D9%85%D8%B3%D9%84%D8%AD-Struset-Nitro.pdf",
+      url: "https://strumix.com/assets/technicalDocuments/تاییدیه-عملکرد-فنی-از-دانشگاه-تهران-برای-محصول-ضد-یخ-بتن-مسلح-Struset-Nitro.pdf",
     },
     {
       text: "تاییدیه محصول “Strucure SW50  کیورینگ (عمل آورنده) بتن پایه آب)” در انستیتو مصالح ساختمانی دانشگاه تهران",
-      url: "https://strumix.com/wp-content/uploads/2023/09/Strucure-SW50-%D8%A7%D9%86%D8%B3%D8%AA%DB%8C%D8%AA%D9%88-%D9%85%D8%B5%D8%A7%D9%84%D8%AD-%D8%B3%D8%A7%D8%AE%D8%AA%D9%85%D8%A7%D9%86%DB%8C-%D8%AF%D8%A7%D9%86%D8%B4%DA%AF%D8%A7%D9%87-%D8%AA%D9%87%D8%B1%D8%A7%D9%86.pdf",
+      url: "https://strumix.com/assets/technicalDocuments/Strucure-SW50-انستیتو-مصالح-ساختمانی-دانشگاه-تهران.pdf",
     },
   ],
   "رزومه استرامیکس": [
     {
       text: "برخی از پروژه های ملی و شخصی انجام شده با همکاری استرامیکس",
-      url: "https://strumix.com/wp-content/uploads/2020/11/Resume-Strumix.pdf",
+      url: "https://strumix.com/assets/technicalDocuments/Resume-Strumix.pdf",
     },
     {
       text: "برخی از پروژه های آب بندی حجمی بتن با استفاده از محصولات استرامیکس",
-      url: "https://strumix.com/wp-content/uploads/2021/02/resume-Strumix-internal-waterproofing.pdf",
+      url: "https://strumix.com/assets/technicalDocuments/resume-Strumix-internal-waterproofing.pdf",
     },
   ],
 };
 
-technicalParagraph.onclick = function () {
+divTechnical.onclick = function () {
   generateSection();
 };
 function generateSection() {
@@ -654,6 +650,7 @@ function replaceText(element) {
     const aTag = document.createElement("a");
     aTag.innerText = item.text;
     aTag.href = item.url;
+    aTag.target = "_blank";
     mainContainer.appendChild(aTag);
   });
 

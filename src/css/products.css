@@ -248,6 +248,9 @@ html {
     column-gap: 2vmax;
     grid-column-gap: 10vmin;
   }
+  .hero {
+    padding: 15vmax 2vmax 3vmax 2vmax;
+  }
 }
 @media only screen and (max-width: 992px) {
   .hero,

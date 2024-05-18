@@ -512,6 +512,7 @@ nav > .active > span:last-child {
     display: flex;
     left: 3vmin;
     right: auto;
+    padding: 2vmin;
   }
   nav > div:last-of-type {
     display: block;
