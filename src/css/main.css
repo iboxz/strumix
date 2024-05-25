@@ -72,6 +72,11 @@
 
 @font-face {
   font-family: "Rokh";
+  src: url("../../assets/fonts/Rokh-Black.woff2") format("woff2");
+  font-weight: 800;
+}
+@font-face {
+  font-family: "Rokh";
   src: url("../../assets/fonts/Rokh-Bold.woff2") format("woff2");
   font-weight: 400;
 }

@@ -1,0 +1,30 @@
+body {
+  background: #f2ecdc;
+}
+.hero {
+  height: 50vh;
+  font-family: rokh;
+  font-weight: 800;
+  font-size: clamp(1.4rem, 3.5vw, 100rem);
+  padding: 8vmin 8vmin 0 8vmin;
+  border-bottom: 1px rgb(0, 0, 0) solid;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  overflow: hidden;
+}
+.hero h1 {
+  position: relative;
+}
+.hero img {
+  position: absolute;
+  width: 10vmin;
+  min-width: 80px;
+  top: 3vmin;
+}
+.section2 {
+  height: 400vh;
+  position: relative;
+}

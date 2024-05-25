@@ -6,7 +6,6 @@ const createEl = (tag, attrs = {}, textContent = "") => {
   return el;
 };
 
-console.log(baseUrl);
 const categories = [
   { name: "همه‌ی محصولات", id: "" },
   { name: "افزودنی بتن", id: "concreteAdditive" },
@@ -239,7 +238,7 @@ function addSectionProducts(products) {
     newDiv.appendChild(newLink);
 
     if (links[i].text === "مدارک فنی") {
-      newDiv.onclick = function () {
+      newLink.onclick = function () {
         generateSection();
       };
     }
@@ -589,25 +588,37 @@ const items = {
   "گواهی نامه فنی مرکز تحقیقات راه، مسکن و شهرسازی": [
     {
       text: "گواهی نامه فنی مرکز تحقیقات راه، مسکن و شهرسازی برای محصول “Strusin فوق روان کننده (ابر روان کننده) بتن بر پایه پلی کربوکسیلات اتر”",
-      url: "https://strumix.com/assets/technicalDocuments/گواهی-نامه-فنی-مرکز-تحقیقات-مسکن-Strusin.jpg",
+      url: "https://strumix.com/assets/technicalDocuments/Technical-Certificate-Housing-Research-Center-Strusin.jpg",
     },
   ],
   "تائیدیه محصولات": [
     {
       text: "تاییدیه محصول “Struseal C512 افزودنی آب بند کننده کریستالی داخلی بتن با عملکرد خود ترمیمی رشد یابنده” در مرکز تحقیقات راه، مسکن و شهرسازی",
-      url: "https://strumix.com/assets/technicalDocuments/تاییدیه-فنی-محصول-Struseal-C512-در-مرکز-تحقیقات-راه،-مسکن-و-شهرسازی.pdf",
+      url: "https://strumix.com/assets/technicalDocuments/Technical-Certification-for-Struseal-C512-from-Road-Housing-and-Urban-Development-Research-Center.pdf",
     },
     {
       text: "تاییدیه محصول “Supramix Beta افزودنی کاهنده نفوذپذیری چند منظوره ویژه سوپرامیکس بتا بتن” در مرکز تحقیقات راه، مسکن و شهرسازی",
-      url: "https://strumix.com/assets/technicalDocuments/گزارش-فنی-شرکت-بسپار-بتن-ایرانیان-هوشمند-گزارش-2.pdf",
+      url: "https://strumix.com/assets/technicalDocuments/Technical-Certification-for-Supramix-Alfa-from-Road-Housing-and-Urban-Development-Research-Center.pdf",
     },
     {
       text: "تاییدیه محصول “Struset Nitro  ضد یخ بتن مسلح فاقد یون کلر (زودگیر کننده بتن)” در انستیتو مصالح ساختمانی دانشگاه تهران",
-      url: "https://strumix.com/assets/technicalDocuments/تاییدیه-عملکرد-فنی-از-دانشگاه-تهران-برای-محصول-ضد-یخ-بتن-مسلح-Struset-Nitro.pdf",
+      url: "https://strumix.com/assets/technicalDocuments/Technical-Performance-Certification-from-University-of-Tehran-for-Struset-Nitro-Anti-Freeze-Reinforced-Concrete-Product.pdf",
     },
     {
       text: "تاییدیه محصول “Strucure SW50  کیورینگ (عمل آورنده) بتن پایه آب)” در انستیتو مصالح ساختمانی دانشگاه تهران",
-      url: "https://strumix.com/assets/technicalDocuments/Strucure-SW50-انستیتو-مصالح-ساختمانی-دانشگاه-تهران.pdf",
+      url: "https://strumix.com/assets/technicalDocuments/Structure-SW50-Institute-Building-Materials-University-of-Tehran.pdf",
+    },
+    {
+      text: "تاییدیه فنی ابر روان کننده کربوکسیلاتی اصلاح شده با لیگنوسولفونات",
+      url: "https://strumix.com/assets/technicalDocuments/Technical_Certification_Modified_Carboxylate_Superplasticizer_with_Lignosulfonate.pdf",
+    },
+    {
+      text: "تاییدیه فنی افزودنی مکمل بتن Strumin Shielder - مرکز تحقیقات راه",
+      url: "https://strumix.com/assets/technicalDocuments/Technical_Certification_Concrete_Additive_Strumin_Shielder_from_Road_Research_Center.pdf",
+    },
+    {
+      text: "تاییدیه فنی ژل میکروسیلیس Strumin Dura - مرکز تحقیقات راه، مسکن",
+      url: "https://strumix.com/assets/technicalDocuments/Technical_Certification_Microsilica_Gel_Strumin_Dura_from_Road_Housing_and_Research_Center.pdf",
     },
   ],
   "رزومه استرامیکس": [

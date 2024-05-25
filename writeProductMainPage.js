@@ -18,33 +18,11 @@ async function updateHTMLFiles() {
         try {
           let htmlContent = await fs.readFile(filePath, "utf-8");
 
-          // Remove old link and script tags
+          // Replace the old script tag with the new one
           htmlContent = htmlContent.replace(
-            /<link rel="stylesheet" href="\.\.\/src\/css\/main\.css" \/>/g,
-            ''
+            /<script async="" src="\.\.\/src\/js\/main\.js\?v=1\.0\.1"><\/script>/,
+            '<script async="" src="../src/js/main.js?v=1.0.4"></script>'
           );
-          htmlContent = htmlContent.replace(
-            /<link rel="stylesheet" href="\.\.\/src\/css\/products\.css" \/>/g,
-            ''
-          );
-          htmlContent = htmlContent.replace(
-            /<script async="" src="\.\.\/src\/js\/main\.js"><\/script>/g,
-            ''
-          );
-
-          // Add new link and script tags
-          const newTags = `
-<link rel="stylesheet" href="../src/css/main.css?v=1.0.1" />
-<link rel="stylesheet" href="../src/css/products.css?v=1.0.1" />
-<script async="" src="../src/js/main.js?v=1.0.1"></script>
-`;
-
-          // Add new tags before closing </head> tag or at the end of the file if </head> not found
-          if (htmlContent.includes('</head>')) {
-            htmlContent = htmlContent.replace('</head>', `${newTags}</head>`);
-          } else {
-            htmlContent += newTags;
-          }
 
           await fs.writeFile(filePath, htmlContent, "utf-8");
           console.log(`File ${file} successfully updated.`);
