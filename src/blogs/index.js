@@ -18,15 +18,19 @@ gsap.to(".hero h1", {
 });
 const section2 = document.querySelector(".section2");
 
-const section2Height = section2.offsetHeight;
-
 gsap.to(".section2", {
   scrollTrigger: {
-    trigger: ".section2 header",
+    trigger: ".section2",
     start: "top top",
-    end: `+=${section2Height}`, 
-    pin: true,
+    end: "bottom top",
+    pin: ".section2 header",
     pinSpacing: false,
+    onEnter: () => {
+      document.querySelector(".section2 header").style.borderBottomWidth = "0.1vmin";
+    },
+    onLeaveBack: () => {
+      document.querySelector(".section2 header").style.borderBottomWidth = "0";
+    },
     markers: true,
   },
 });

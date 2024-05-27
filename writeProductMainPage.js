@@ -20,8 +20,8 @@ async function updateHTMLFiles() {
 
           // Replace the old script tag with the new one
           htmlContent = htmlContent.replace(
-            /<script async="" src="\.\.\/src\/js\/main\.js\?v=1\.0\.1"><\/script>/,
-            '<script async="" src="../src/js/main.js?v=1.0.4"></script>'
+            /<script async="" src="\.\.\/src\/js\/main\.js\?v=1\.0\.4"><\/script>/,
+            '<script async="" src="../src/js/main.js?v=1.0.5"></script>'
           );
 
           await fs.writeFile(filePath, htmlContent, "utf-8");

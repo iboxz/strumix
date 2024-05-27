@@ -299,44 +299,38 @@ window.addEventListener("load", (event) => {
 });
 
 /*----------------------------------- */
+let cursor;
+let cursorBorder;
+window.addEventListener("load", () => {
+  cursor = document.createElement("div");
+  cursorBorder = document.createElement("div");
 
-const cursor = document.createElement("div");
-const cursorBorder = document.createElement("div");
+  cursor.classList.add("cursor");
+  cursorBorder.classList.add("cursorBorder");
 
-cursor.classList.add("cursor");
-cursorBorder.classList.add("cursorBorder");
+  document.body.appendChild(cursor);
+  document.body.appendChild(cursorBorder);
 
-document.body.appendChild(cursor);
-document.body.appendChild(cursorBorder);
+  const cursorPos = { x: 0, y: 0 };
+  const cursorBorderPos = { x: 0, y: 0 };
 
-if (window.innerWidth < 768) {
-  cursorBorder.style.display = "none";
-  cursor.style.display = "none";
-} else {
-  cursorBorder.style.display = "inline";
-  cursor.style.display = "inline";
-}
+  document.addEventListener("mousemove", (e) => {
+    cursorPos.x = e.clientX;
+    cursorPos.y = e.clientY;
+    cursor.style.transform = `translate(${e.clientX}px, ${e.clientY}px)`;
+  });
 
-const cursorPos = { x: 0, y: 0 };
-const cursorBorderPos = { x: 0, y: 0 };
+  const easting = 8;
 
-document.addEventListener("mousemove", (e) => {
-  cursorPos.x = e.clientX;
-  cursorPos.y = e.clientY;
-  cursor.style.transform = `translate(${e.clientX}px, ${e.clientY}px)`;
-});
+  function loop() {
+    cursorBorderPos.x += (cursorPos.x - cursorBorderPos.x) / easting;
+    cursorBorderPos.y += (cursorPos.y - cursorBorderPos.y) / easting;
+    cursorBorder.style.transform = `translate(${cursorBorderPos.x}px, ${cursorBorderPos.y}px) rotate(45deg)`;
+    requestAnimationFrame(loop);
+  }
 
-const easting = 8;
-
-function loop() {
-  cursorBorderPos.x += (cursorPos.x - cursorBorderPos.x) / easting;
-  cursorBorderPos.y += (cursorPos.y - cursorBorderPos.y) / easting;
-  cursorBorder.style.transform = `translate(${cursorBorderPos.x}px, ${cursorBorderPos.y}px) rotate(45deg)`;
   requestAnimationFrame(loop);
-}
-
-requestAnimationFrame(loop);
-
+});
 document.addEventListener("click", function () {
   cursorBorder.style.borderRadius = "0";
   cursorBorder.style.setProperty("--size", "2vmin");
@@ -347,13 +341,12 @@ document.addEventListener("click", function () {
     });
   }, 150);
 });
-
-if ("ontouchstart" in window || navigator.maxTouchPoints) {
+if ("ontouchstart" in window) {
   cursorBorder.style.display = "none";
   cursor.style.display = "none";
 }
 function activateCustomCursors() {
-  if ("ontouchstart" in window || navigator.maxTouchPoints) return;
+  if ("ontouchstart" in window) return;
   document.querySelectorAll("[data-cursor]").forEach((item) => {
     item.addEventListener("mouseover", (e) => {
       switch (item.dataset.cursor) {
@@ -540,7 +533,7 @@ div2.appendChild(socialMediaDiv);
 
 const copyrightParagraph = document.createElement("p");
 copyrightParagraph.innerHTML =
-  'Copyright © 2024 strumix / All rights reserved / Developed by <a target="_blank" data-cursor="pointerNavbar" href="https://firstibox.glitch.me/">FirstIBOX</a> / <a target="_blank" data-cursor="pointerNavbar" href="">Privacy Policy</a>';
+  'Copyright © 2024 strumix / All rights reserved / Developed by <a target="_blank" data-cursor="pointerNavbar" href="https://firstibox.glitch.me/">FirstIBOX</a> / <a target="_blank" data-cursor="pointerNavbar" href="https://strumix.com/privacyPolicy">Privacy Policy</a>';
 
 section.appendChild(div1);
 section.appendChild(div2);
@@ -552,90 +545,18 @@ activateCustomCursors();
 
 /* ------------------------------------------------- */
 
-const items = {
-  کاتالوگ: [
-    {
-      text: "کاتالوگ جامع محصولات استرامیکس",
-      url: "https://strumix.com/assets/technicalDocuments/Strumix-cataloge-2018-for-internet-marketing.pdf",
-    },
-    {
-      text: "بروشور استرامیکس",
-      url: "https://strumix.com/assets/technicalDocuments/Brochure-Strumix-2020.pdf",
-    },
-  ],
-  استانداردها: [
-    {
-      text: "استاندارد فوق روان کننده و روان کننده بتن و استاندارد زودگیر کننده بتن (ضدیخ بتن مسلح فاقد یون کلر)",
-      url: "https://strumix.com/assets/technicalDocuments/Standard-Strumix.pdf",
-    },
-    {
-      text: "گواهی نامه استاندارد ISO 9001",
-      url: "https://strumix.com/assets/technicalDocuments/ISO-9001.jpg",
-    },
-    {
-      text: "گواهی نامه استاندارد ISO 14001",
-      url: "https://strumix.com/assets/technicalDocuments/ISO-14001.jpg",
-    },
-    {
-      text: "گواهی نامه استاندارد ISO 29001",
-      url: "https://strumix.com/assets/technicalDocuments/ISO-29001.jpg",
-    },
-    {
-      text: "گواهی نامه استاندارد ISO 45001",
-      url: "https://strumix.com/assets/technicalDocuments/ISO-45001.jpg",
-    },
-  ],
-  "گواهی نامه فنی مرکز تحقیقات راه، مسکن و شهرسازی": [
-    {
-      text: "گواهی نامه فنی مرکز تحقیقات راه، مسکن و شهرسازی برای محصول “Strusin فوق روان کننده (ابر روان کننده) بتن بر پایه پلی کربوکسیلات اتر”",
-      url: "https://strumix.com/assets/technicalDocuments/Technical-Certificate-Housing-Research-Center-Strusin.jpg",
-    },
-  ],
-  "تائیدیه محصولات": [
-    {
-      text: "تاییدیه محصول “Struseal C512 افزودنی آب بند کننده کریستالی داخلی بتن با عملکرد خود ترمیمی رشد یابنده” در مرکز تحقیقات راه، مسکن و شهرسازی",
-      url: "https://strumix.com/assets/technicalDocuments/Technical-Certification-for-Struseal-C512-from-Road-Housing-and-Urban-Development-Research-Center.pdf",
-    },
-    {
-      text: "تاییدیه محصول “Supramix Beta افزودنی کاهنده نفوذپذیری چند منظوره ویژه سوپرامیکس بتا بتن” در مرکز تحقیقات راه، مسکن و شهرسازی",
-      url: "https://strumix.com/assets/technicalDocuments/Technical-Certification-for-Supramix-Alfa-from-Road-Housing-and-Urban-Development-Research-Center.pdf",
-    },
-    {
-      text: "تاییدیه محصول “Struset Nitro  ضد یخ بتن مسلح فاقد یون کلر (زودگیر کننده بتن)” در انستیتو مصالح ساختمانی دانشگاه تهران",
-      url: "https://strumix.com/assets/technicalDocuments/Technical-Performance-Certification-from-University-of-Tehran-for-Struset-Nitro-Anti-Freeze-Reinforced-Concrete-Product.pdf",
-    },
-    {
-      text: "تاییدیه محصول “Strucure SW50  کیورینگ (عمل آورنده) بتن پایه آب)” در انستیتو مصالح ساختمانی دانشگاه تهران",
-      url: "https://strumix.com/assets/technicalDocuments/Structure-SW50-Institute-Building-Materials-University-of-Tehran.pdf",
-    },
-    {
-      text: "تاییدیه فنی ابر روان کننده کربوکسیلاتی اصلاح شده با لیگنوسولفونات",
-      url: "https://strumix.com/assets/technicalDocuments/Technical_Certification_Modified_Carboxylate_Superplasticizer_with_Lignosulfonate.pdf",
-    },
-    {
-      text: "تاییدیه فنی افزودنی مکمل بتن Strumin Shielder - مرکز تحقیقات راه",
-      url: "https://strumix.com/assets/technicalDocuments/Technical_Certification_Concrete_Additive_Strumin_Shielder_from_Road_Research_Center.pdf",
-    },
-    {
-      text: "تاییدیه فنی ژل میکروسیلیس Strumin Dura - مرکز تحقیقات راه، مسکن",
-      url: "https://strumix.com/assets/technicalDocuments/Technical_Certification_Microsilica_Gel_Strumin_Dura_from_Road_Housing_and_Research_Center.pdf",
-    },
-  ],
-  "رزومه استرامیکس": [
-    {
-      text: "برخی از پروژه های ملی و شخصی انجام شده با همکاری استرامیکس",
-      url: "https://strumix.com/assets/technicalDocuments/Resume-Strumix.pdf",
-    },
-    {
-      text: "برخی از پروژه های آب بندی حجمی بتن با استفاده از محصولات استرامیکس",
-      url: "https://strumix.com/assets/technicalDocuments/resume-Strumix-internal-waterproofing.pdf",
-    },
-  ],
-};
-
 divTechnical.onclick = function () {
   generateSection();
 };
+let items = {}; // To store the fetched data
+
+fetch(new URL("/src/data/technicalDoc.json", baseUrl))
+  .then((response) => response.json())
+  .then((data) => {
+    items = data; // Store the fetched data in the items variable
+  })
+  .catch((error) => console.error("Error fetching data:", error));
+
 function generateSection() {
   var section = document.querySelector("body");
   var content = `<div class="downloadDataSheet"><div>`;

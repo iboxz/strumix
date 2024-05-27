@@ -53,7 +53,7 @@
     <script src="../src/js/ScrollSmoother.min.js"></script>
     <script src="../src/js/SplitText.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/TextPlugin.min.js"></script>
-    <script async="" src="../src/js/main.js?v=1.0.4"></script>
+    <script async="" src="../src/js/main.js?v=1.0.5"></script>
 
     <link rel="stylesheet" href="../src/css/main.css?v=1.0.1" />
     <style>
@@ -73,12 +73,13 @@
       h2 {
         font-family: Rokh;
         white-space: nowrap;
+        font-weight: 400;
       }
       h3,
       h4,
       h5,
       h6 {
-        font-weight: 600;
+        font-weight: 400;
       }
 
       /*----------------hero section-------------------*/
@@ -179,12 +180,14 @@
         font-size: clamp(2.1rem, 3vw, 100rem);
         position: relative;
         width: min-content;
+        z-index: 99;
       }
       .mainSection > h1::before {
         transform: scaleX(0);
         transform-origin: bottom right;
         height: 100%;
         clip-path: polygon(2vmin 0, 100% 0, calc(100% - 2vmin) 100%, 0% 100%);
+        z-index: -1;
       }
 
       .mainSection > h1:hover::before {

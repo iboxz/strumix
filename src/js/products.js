@@ -1,12 +1,7 @@
 gsap.registerPlugin(ScrollTrigger, ScrollSmoother, SplitText);
 
-ScrollSmoother.create({
-  wrapper: "#smooth-wrapper",
-  contect: "#smooth-content",
-  smooth: 1,
-  effects: true,
-  smoothTouch: false,
-});
+
+
 window.addEventListener("load", (event) => {
   gsap.from(
     new SplitText(".hero div h1", {

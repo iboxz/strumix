@@ -143,6 +143,7 @@ html {
 }
 /*-------------------*/
 .cursor {
+  
   --sizeMainCursor: 0.8vmin;
   position: fixed;
   top: calc(var(--sizeMainCursor) / -2);
@@ -314,6 +315,7 @@ nav {
   display: flex;
   font-family: "Montserrat", "Rokh";
   font-weight: 300;
+
   justify-content: center;
   padding: 3vmin 0;
 
@@ -373,6 +375,7 @@ nav .products {
   display: flex;
   flex-direction: column;
   padding-bottom: 5vmin;
+  font-weight: 400;
 }
 
 nav .products > div:nth-child(1) {
@@ -398,6 +401,8 @@ nav .products > div:nth-child(1) p {
   padding: 2vmin 3vw;
   margin: 1vmin;
   border-radius: 1vmin;
+  font-weight: 400;
+
   box-shadow: 0.5vmin 0.5vmin 0px -0.1vmin rgba(0, 0, 0, 0.54);
 }
 nav .products > div:nth-child(1) p::after {
@@ -655,6 +660,9 @@ nav > .active > span:last-child {
 .footer > div:nth-child(2) div:nth-child(2) a:hover {
   background: #ffffff11;
 }
+.footer h6 {
+  font-weight: 400;
+}
 .footer > div:nth-child(2) > div h6 {
   font-size: clamp(1rem, 1.2vw, 100rem);
 }
@@ -742,6 +750,7 @@ nav > .active > span:last-child {
   padding: 4vmin 10vmin;
   cursor: pointer;
   transition: ease 0.5s;
+  font-weight: 400;
 }
 .downloadDataSheet h3:hover {
   font-size: clamp(1rem, 1.3vw, 100rem);

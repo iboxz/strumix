@@ -59,7 +59,7 @@
     <link rel="stylesheet" href="../src/css/productsMainPage.css" />
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/CSSRulePlugin.min.js"></script>
 
-    <script async="" src="../src/js/main.js?v=1.0.4"></script>
+    <script async="" src="../src/js/main.js?v=1.0.5"></script>
   </head>
 
   <body>
@@ -1433,10 +1433,10 @@
       let smoother;
       gsap.registerPlugin(ScrollTrigger, ScrollSmoother, SplitText);
       window.addEventListener("load", (event) => {
-        smoother = ScrollSmoother.create({
+        Smoother = ScrollSmoother.create({
           wrapper: "#smooth-wrapper",
-          contect: "#smooth-content",
-          smooth: 1,
+          content: "#smooth-content",
+          smooth: 0.4,
           effects: true,
           smoothTouch: false,
         });
