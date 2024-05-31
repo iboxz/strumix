@@ -143,7 +143,6 @@ html {
 }
 /*-------------------*/
 .cursor {
-  
   --sizeMainCursor: 0.8vmin;
   position: fixed;
   top: calc(var(--sizeMainCursor) / -2);
@@ -728,6 +727,7 @@ nav > .active > span:last-child {
   font-family: "Rokh";
   font-size: clamp(0.9rem, 1.1vw, 100rem);
   color: white;
+  pointer-events: fill;
 }
 
 .downloadDataSheet > div {
@@ -738,11 +738,13 @@ nav > .active > span:last-child {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-
   display: flex;
   flex-direction: column;
   justify-content: space-around;
   width: 60vw;
+
+  max-height: 70%;
+  overflow-y: scroll;
 }
 
 .downloadDataSheet h3 {

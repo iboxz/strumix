@@ -1,6 +1,12 @@
 gsap.registerPlugin(ScrollTrigger, ScrollSmoother, SplitText);
 
-
+const smoother = ScrollSmoother.create({
+  wrapper: "#smooth-wrapper",
+  content: "#smooth-content",
+  smooth: 0.4,
+  effects: true,
+  smoothTouch: false,
+});
 
 window.addEventListener("load", (event) => {
   gsap.from(
