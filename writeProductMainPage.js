@@ -19,9 +19,10 @@ async function updateHTMLFiles() {
           let htmlContent = await fs.readFile(filePath, "utf-8");
 
           // Replace the old script tag with the new one
+          // Replace the old link tag with the new one
           htmlContent = htmlContent.replace(
-            /<link rel="stylesheet" href="\.\.\/src\/css\/main\.css\?v=1\.0\.1" \/>/,
-            '<link rel="stylesheet" href="../src/css/main.css?v=1.0.2" />'
+            /<link rel="icon" sizes="any" type="image\/svg\+xml" href="assets\/VectorLogo-favicon\.svg" \/>/,
+            '<link rel="icon" href="../assets/VectorLogo-favicon.svg" type="image/svg+xml" sizes="any" />'
           );
 
           await fs.writeFile(filePath, htmlContent, "utf-8");
