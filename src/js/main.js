@@ -112,7 +112,7 @@ function activateCustomCursors() {
       cursorBorder.style.mixBlendMode = "unset";
 
       cursorBorder.style.setProperty("--size", "5vmin");
-      cursor.style.setProperty("--sizeMainCursor", "0.8vmin");
+      cursor.style.setProperty("--sizeMainCursor", "0");
 
       cursor.style.animation = "unset";
       cursorBorder.style.animation = "unset";

@@ -1,6 +1,9 @@
 body {
   background: #f2ecdc;
 }
+#smooth-content {
+  position: relative;
+}
 .hero {
   height: 50vh;
   font-family: rokh;
@@ -29,6 +32,8 @@ body {
   display: flex;
   flex-direction: column;
   align-items: center;
+
+  overflow: hidden;
 }
 .section2 header {
   width: 100%;
@@ -48,6 +53,25 @@ body {
   padding: 0 1vmin;
 }
 
+.section2 header a:nth-of-type(1) {
+  position: relative;
+  color: white;
+}
+.section2 header a:nth-of-type(1)::before {
+  content: "";
+  position: absolute;
+  top: -10%;
+  right: 0;
+  left: 0;
+  bottom: -10%;
+  transform: rotate(-3deg);
+  background: #f12828;
+  z-index: -1;
+  transition: 0.2s ease;
+}
+.section2 header a:nth-of-type(1):hover::before {
+  transform: rotate(3deg);
+}
 .section2 header a:nth-of-type(2) {
   margin-right: auto;
 }
@@ -74,8 +98,8 @@ body {
   margin: 5vmin 0;
 }
 .blogTags {
-  font-size: 1rem;
-  padding: 35px 25vw 15px 25vw;
+  font-size: 0.9rem;
+  padding: 35px 5vw 25px 5vw;
   font-family: rokh;
   font-weight: 100;
 }
@@ -89,7 +113,261 @@ body {
   border-radius: 4px;
 }
 .section3 {
-  height: 400vh;
   position: relative;
-  background: #000;
+  background: #f2f2f2;
+  padding: 3vmin 8vmin;
+}
+.cardsContainer {
+  border: 0.1vmin black solid;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+
+  font-family: rokh;
+  font-weight: 300;
+  font-size: clamp(0.8rem, 0.8vw, 100rem);
+}
+.cardsContainer > div {
+  width: max-content;
+  padding: 3vmin;
+  border-right: 0.1vmin black solid;
+}
+.cardsContainer > div:first-child {
+  border-right: none;
+}
+.cardsContainer > div a {
+  display: flex;
+  flex-direction: column;
+
+  text-decoration: none;
+  color: #3e362e;
+}
+.cardsContainer > div h6 {
+  font-size: clamp(0.8rem, 0.8vw, 100rem);
+  font-weight: 500;
+  padding: 1vmin 0;
+}
+
+.cardsContainer > div img {
+  object-fit: cover;
+  width: 100%;
+  height: 40vmin;
+  margin: 4vmin 0;
+}
+
+.cardsContainer > div a > div {
+  display: flex;
+  justify-content: space-between;
+}
+
+.cardsContainer > div a > div p:first-child {
+  background: #d9d9d9;
+  border-radius: 10vmin;
+  padding: 0.5vmin 1vmin;
+}
+
+.section4 {
+  position: relative;
+  background: #1a1a1a;
+  color: white;
+  font-size: clamp(1rem, 1vw, 100rem);
+  font-family: rokh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  z-index: 1;
+}
+.section4 > p:nth-child(1) {
+  font-weight: 200;
+  margin-top: 3vmin;
+}
+.section4 > p:nth-child(2) {
+  font-weight: 300;
+}
+.section4 > input {
+  width: 80%;
+  border: none;
+  background-color: transparent;
+  font-family: "Montserrat", "rokh";
+  font-size: clamp(3rem, 6vw, 100rem);
+  font-weight: 600;
+  text-align: center;
+  padding-block: 0;
+  padding-inline: 0;
+  outline: none;
+  color: #c6383d;
+  direction: ltr;
+  line-height: 2.4;
+}
+.section4 ::placeholder {
+  font-size: clamp(5rem, 9vw, 100rem);
+  color: #ff3138;
+}
+.section4 ::-webkit-input-placeholder {
+  color: #ff3138;
+  opacity: 1;
+}
+.section4 ::-moz-placeholder {
+  color: #ff3138;
+  opacity: 1;
+}
+.section4 :-ms-input-placeholder {
+  color: #ff3138;
+  opacity: 1;
+}
+.section4 :-moz-placeholder {
+  color: #ff3138;
+  opacity: 1;
+}
+
+.section4 > p:nth-child(4) {
+  font-weight: 200;
+  transition: transform 0.2s;
+}
+
+.section4 > .animate {
+  animation: validateEmailEffect 0.3s;
+}
+
+@keyframes validateEmailEffect {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.05);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+.section4 > p:nth-child(5) {
+  margin-bottom: 5vmin;
+}
+.section4 > p:nth-child(6) {
+  background: #ffab2e;
+  color: black;
+  font-size: clamp(0.9rem, 0.9vw, 100rem);
+  font-weight: 300;
+  padding: 0.5vmin 2vmin 0.5vmin 3vmin;
+  border-radius: 1vmin;
+  position: absolute;
+  top: 55%;
+  right: 55%;
+  transform: rotate(5deg);
+  transition: transform 0.2s, border-radius 2s, top 1s, right 1s;
+  cursor: pointer;
+}
+.section4 > p:nth-child(6):hover {
+  transform: rotate(0deg);
+  border-radius: 0vmin;
+}
+.section4 .iconFlesh {
+  content: url(../../assets/VectorFlesh2.svg);
+  vertical-align: middle;
+  height: 100%;
+  width: 1vmin;
+  min-width: 13px;
+  margin-left: 3vmin;
+}
+.section4 > div {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  font-size: clamp(0.8rem, 0.8vw, 100rem);
+  justify-content: space-between;
+}
+
+.section4 > div a {
+  text-decoration: none;
+  color: #fff;
+  font-weight: 300;
+  width: 100%;
+  text-align: center;
+  padding: 1vmin 0;
+}
+.section4 > div a:hover {
+  background: hsla(0, 0%, 100%, 0.1);
+}
+
+.section5 {
+  height: 40vmin;
+  background: linear-gradient(90deg, rgba(255, 171, 46, 1) 0%, rgba(255, 154, 3, 1) 100%);
+
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: end;
+
+  z-index: -99;
+}
+.section5 .infiniteScrollText {
+  display: flex;
+  align-items: center;
+  direction: ltr;
+  width: 110vw;
+
+  font-family: "Damn";
+  text-transform: uppercase;
+  font-weight: 200;
+  background-color: #f2ecdc78;
+  color: black;
+  font-size: clamp(5rem, 6vw, 100rem);
+  padding: 2vmin 0;
+  transform: rotate(5deg) translateX(5vw);
+}
+.section5 .infiniteScrollText:last-child {
+  font-family: "rokh";
+  background-color: #363029de;
+  color: white;
+  font-size: clamp(2rem, 3vw, 100rem);
+  padding: 2vmin 0;
+  transform: rotate(-5deg) translate(5vw, -10vmin);
+}
+.section5 .infiniteScrollText div {
+  position: relative;
+  white-space: nowrap;
+  will-change: transform;
+}
+
+.section5 .infiniteScrollText div span {
+  display: inline-block;
+}
+
+@media only screen and (max-width: 768px) {
+  .section5 {
+    height: 20vh;
+  }
+}
+.section5 > div:last-child {
+  display: flex;
+  width: 100%;
+  justify-content: space-around;
+}
+.section5 > div:last-child a {
+  text-align: center;
+  text-decoration: none;
+  color: black;
+  font-family: rokh;
+  font-weight: 300;
+  border-top: 0.1vmin black solid;
+  border-right: 0.1vmin black solid;
+  width: 100%;
+  padding: 1vmin;
+
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.section5 > div:last-child a:hover {
+  background: hsla(0, 0%, 100%, 0.1);
+}
+.section5 > div:last-child .iconFlesh {
+  content: url(../../assets/VectorFlesh2.svg);
+  vertical-align: middle;
+  height: 100%;
+  width: 1vmin;
+  min-width: 13px;
 }
