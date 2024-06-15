@@ -24,6 +24,76 @@ if (!navigator.userAgent.match(/iPhone/i)) {
 }
 
 //---------------------------------------------------------------------------
+const searchProduct = async (productName) => {
+  smoother.scrollTo(bottomSectionContainer, true, "bottom top");
+  const data = await fetchDataForSearch();
+  if (data) {
+    const foundProducts = findProductsByName(data, productName);
+    displaySearchResults(foundProducts);
+  }
+};
+const productList = document.querySelector(".productList");
+const bottomSectionContainer = document.getElementById("bottomSection");
+
+const fetchDataForSearch = async () => {
+  try {
+    const data = await (await fetch("../products/products.json")).json();
+    return data;
+  } catch (error) {
+    console.error("Error fetching data:", error);
+  }
+};
+
+const findProductsByName = (data, productName) => {
+  const foundProducts = [];
+  for (const category of data.categories) {
+    for (const product of category.products) {
+      const productNameFa = product.name.fa.toLowerCase();
+      const productNameEn = product.name.en.toLowerCase();
+      if (
+        productNameFa.includes(productName.toLowerCase()) ||
+        productNameEn.includes(productName.toLowerCase())
+      ) {
+        foundProducts.push(product);
+      }
+    }
+  }
+  return foundProducts;
+};
+
+const displaySearchResults = (products) => {
+  productList.innerHTML = "";
+  if (products.length > 0) {
+    for (const product of products) {
+      const div = document.createElement("div");
+      div.setAttribute("data-cursor", "pointerLinkNavbar");
+      const link = document.createElement("a");
+      link.href = `${product.url}`;
+      const img = document.createElement("img");
+      img.src = `../assets/productImg/${product.image}`;
+      img.alt = `${product.name.en} image, تصویر ${product.name.fa}`;
+
+      img.setAttribute("loading", "lazy");
+      link.appendChild(img);
+      [product.name.en, product.name.fa].forEach((name) => {
+        const p = document.createElement("p");
+        p.className = "englishText";
+        p.textContent = name;
+        link.appendChild(p);
+      });
+      div.appendChild(link);
+      productList.appendChild(div);
+
+      activateCustomCursors();
+    }
+  } else {
+    productList.textContent = "محصولی یافت نشد";
+  }
+  const counter = document.querySelector(".counter");
+  counter.textContent = `${products.length} محصول`;
+};
+//-----------------------------------search system--------------------------------\\
+
 window.addEventListener("load", (event) => {
   const scrollContainer = document.getElementById("scrollContainer");
 
@@ -32,76 +102,6 @@ window.addEventListener("load", (event) => {
 
     scrollContainer.scrollLeft += -event.deltaY;
   });
-  const productList = document.querySelector(".productList");
-  const bottomSectionContainer = document.getElementById("bottomSection");
-
-  const fetchDataForSearch = async () => {
-    try {
-      const data = await (await fetch("../products/products.json")).json();
-      return data;
-    } catch (error) {
-      console.error("Error fetching data:", error);
-    }
-  };
-
-  const searchProduct = async (productName) => {
-    smoother.scrollTo(bottomSectionContainer, true, "bottom top");
-    const data = await fetchDataForSearch();
-    if (data) {
-      const foundProducts = findProductsByName(data, productName);
-      displaySearchResults(foundProducts);
-    }
-  };
-
-  const findProductsByName = (data, productName) => {
-    const foundProducts = [];
-    for (const category of data.categories) {
-      for (const product of category.products) {
-        const productNameFa = product.name.fa.toLowerCase();
-        const productNameEn = product.name.en.toLowerCase();
-        if (
-          productNameFa.includes(productName.toLowerCase()) ||
-          productNameEn.includes(productName.toLowerCase())
-        ) {
-          foundProducts.push(product);
-        }
-      }
-    }
-    return foundProducts;
-  };
-
-  const displaySearchResults = (products) => {
-    productList.innerHTML = "";
-    if (products.length > 0) {
-      for (const product of products) {
-        const div = document.createElement("div");
-        div.setAttribute("data-cursor", "pointerLinkNavbar");
-        const link = document.createElement("a");
-        link.href = `${product.url}`;
-        const img = document.createElement("img");
-        img.src = `../assets/productImg/${product.image}`;
-        img.alt = `${product.name.en} image, تصویر ${product.name.fa}`;
-
-        img.setAttribute("loading", "lazy");
-        link.appendChild(img);
-        [product.name.en, product.name.fa].forEach((name) => {
-          const p = document.createElement("p");
-          p.className = "englishText";
-          p.textContent = name;
-          link.appendChild(p);
-        });
-        div.appendChild(link);
-        productList.appendChild(div);
-
-        activateCustomCursors();
-      }
-    } else {
-      productList.textContent = "محصولی یافت نشد";
-    }
-    const counter = document.querySelector(".counter");
-    counter.textContent = `${products.length} محصول`;
-  };
-  //-----------------------------------search system--------------------------------\\
   function fetchDataAndRender(subCategory) {
     return async () => {
       try {

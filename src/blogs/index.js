@@ -1,13 +1,14 @@
 gsap.registerPlugin(ScrollTrigger, ScrollSmoother, SplitText, TextPlugin);
 
-Smoother = ScrollSmoother.create({
-  wrapper: "#smooth-wrapper",
-  content: "#smooth-content",
-  smooth: 0.8,
-  effects: true,
-  smoothTouch: false,
-});
-
+if (!("ontouchstart" in window)) {
+  Smoother = ScrollSmoother.create({
+    wrapper: "#smooth-wrapper",
+    content: "#smooth-content",
+    smooth: 0.8,
+    effects: true,
+    smoothTouch: false,
+  });
+}
 window.addEventListener("load", (event) => {
   gsap.to(".hero h1", {
     scrollTrigger: {
@@ -68,22 +69,16 @@ window.addEventListener("load", (event) => {
 
   /*----------------------------------- */
 
-  const cursor = document.createElement("div");
-  const cursorBorder = document.createElement("div");
+  let cursor;
+  let cursorBorder;
+  cursor = document.createElement("div");
+  cursorBorder = document.createElement("div");
 
   cursor.classList.add("cursor");
   cursorBorder.classList.add("cursorBorder");
 
   document.body.appendChild(cursor);
   document.body.appendChild(cursorBorder);
-
-  if (window.innerWidth < 768) {
-    cursorBorder.style.display = "none";
-    cursor.style.display = "none";
-  } else {
-    cursorBorder.style.display = "inline";
-    cursor.style.display = "inline";
-  }
 
   const cursorPos = { x: 0, y: 0 };
   const cursorBorderPos = { x: 0, y: 0 };
@@ -104,7 +99,6 @@ window.addEventListener("load", (event) => {
   }
 
   requestAnimationFrame(loop);
-
   document.addEventListener("click", function () {
     cursorBorder.style.borderRadius = "0";
     cursorBorder.style.setProperty("--size", "2vmin");
@@ -115,13 +109,12 @@ window.addEventListener("load", (event) => {
       });
     }, 150);
   });
-
-  if ("ontouchstart" in window || navigator.maxTouchPoints) {
+  if ("ontouchstart" in window) {
     cursorBorder.style.display = "none";
     cursor.style.display = "none";
   }
   function activateCustomCursors() {
-    if ("ontouchstart" in window || navigator.maxTouchPoints) return;
+    if ("ontouchstart" in window) return;
     document.querySelectorAll("[data-cursor]").forEach((item) => {
       item.addEventListener("mouseover", (e) => {
         switch (item.dataset.cursor) {
@@ -156,7 +149,8 @@ window.addEventListener("load", (event) => {
           case "pointerLinkNavbar":
             cursor.style.display = "none";
             cursorBorder.style.setProperty("--size", "15vmin");
-            cursorBorder.style.backgroundColor = "#f8dba0";
+            cursorBorder.style.backgroundColor = "#ffffff30";
+            cursorBorder.style.backdropFilter = "blur(0.8vmin)";
             cursorBorder.style.backgroundImage = "url(../../assets/VectorFlesh4.svg)";
             cursorBorder.style.backgroundSize = "3vmin 3vmin";
 
@@ -174,7 +168,7 @@ window.addEventListener("load", (event) => {
             cursor.style.mixBlendMode = "difference";
 
             break;
-          case "pointerNavbar":
+          case "pointerClickable":
             cursorBorder.style.borderRadius = "0";
             cursorBorder.style.setProperty("--size", "3vmin");
             break;
@@ -186,10 +180,11 @@ window.addEventListener("load", (event) => {
         cursorBorder.style.backgroundColor = "unset";
         cursor.style.background = "unset";
 
+        cursorBorder.style.backdropFilter = "none";
         cursorBorder.style.mixBlendMode = "unset";
 
         cursorBorder.style.setProperty("--size", "5vmin");
-        cursor.style.setProperty("--sizeMainCursor", "0.8vmin");
+        cursor.style.setProperty("--sizeMainCursor", "0");
 
         cursor.style.animation = "unset";
         cursorBorder.style.animation = "unset";
@@ -207,7 +202,7 @@ window.addEventListener("load", (event) => {
       });
     });
   }
-
+  activateCustomCursors();
   /*--------------*/
 
   let loops = gsap.utils.toArray(".section5 .infiniteScrollText div").map((line, i) => {
@@ -336,10 +331,10 @@ window.addEventListener("load", (event) => {
     });
   }
 
-  runAfterResize();
+  setTimeout(runAfterResize, 100);
 
   window.addEventListener("resize", function () {
-    runAfterResize();
+    setTimeout(runAfterResize, 100);
   });
 
   gsap.to(".section5", {
@@ -349,19 +344,188 @@ window.addEventListener("load", (event) => {
       end: "bottom bottom",
       scrub: true,
       pin: true,
-      markers: true,
+      // markers: true,
       pinSpacing: false,
     },
   });
-  /* function runAnimation() {
-  gsap.killTweensOf(".section5");
 
-  
-}
+  /* */
 
-runAnimation();
-window.addEventListener("resize", runAnimation);
- */
+  var mWrap = document.querySelectorAll(".mouseSticky");
+
+  function parallaxIt(e, wrap, movement = 0.8) {
+    var scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+    var boundingRect = wrap.getBoundingClientRect();
+    var halfDiff = Math.abs(boundingRect.width - boundingRect.height) / 2;
+    var relX = e.pageX - boundingRect.left - halfDiff;
+    var relY = e.pageY - boundingRect.top;
+
+    gsap.to(wrap, {
+      x: (relX - boundingRect.width / 6) * movement,
+      y: (relY - boundingRect.height / 2 - scrollTop) * movement,
+      ease: "power1",
+      duration: 0.6,
+    });
+  }
+
+  mWrap.forEach(function (wrap) {
+    wrap.addEventListener("mousemove", function (e) {
+      parallaxIt(e, wrap);
+    });
+
+    wrap.addEventListener("mouseleave", function (e) {
+      gsap.to(wrap, {
+        scale: 1,
+        x: 0,
+        y: 0,
+        ease: "power3",
+        duration: 0.6,
+      });
+    });
+  });
+  /* */
+  const changeThemeButton = document.querySelector(".changeTheme");
+  const savedTheme = localStorage.getItem("theme") || "light";
+  setTheme(savedTheme);
+
+  changeThemeButton.addEventListener("click", () => {
+    const currentTheme = localStorage.getItem("theme");
+    const newTheme = currentTheme === "light" ? "dark" : "light";
+    setTheme(newTheme);
+  });
+
+  function setTheme(themeName) {
+    const root = document.documentElement;
+    const changeThemeButton = document.querySelector(".changeTheme img");
+
+    if (themeName === "light") {
+      root.style.setProperty("--background-color", "#f2ecdc");
+      root.style.setProperty("--black", "black");
+      root.style.setProperty("--black-70percent", "#1d1d1d");
+      root.style.setProperty("--black-hover", "#00000020");
+      root.style.setProperty("--white", "white");
+      root.style.setProperty("--white-90percent", "#f2f2f2");
+      root.style.setProperty("--white-70percent", "#d9d9d9");
+      root.style.setProperty("--white-10percent", "#ffffff1a");
+      root.style.setProperty("--section5-background-first", "#ffab2e");
+      root.style.setProperty("--section5-background-second", "#ff9a03");
+      root.style.setProperty("--section5-card-first", "#ffcb6d");
+      root.style.setProperty("--section5-card-second", "#363029de");
+      root.style.setProperty("--invert-icon-color", "none");
+      root.style.setProperty("--invert-icon-color2", "none");
+      root.style.setProperty(
+        "--invert-icon-color3",
+        "invert(99%) sepia(0%) saturate(0%) hue-rotate(141deg) brightness(109%) contrast(101%)"
+      );
+      changeThemeButton.src = "../assets/VectorNight.svg";
+    } else if (themeName === "dark") {
+      root.style.setProperty("--background-color", "#0f0f0f");
+      root.style.setProperty("--black", "#e7e7e7");
+      root.style.setProperty("--black-70percent", "#dbdbdb");
+      root.style.setProperty("--black-hover", "#ffffff20");
+      root.style.setProperty("--white", "black");
+      root.style.setProperty("--white-90percent", "#2e2e2e");
+      root.style.setProperty("--white-70percent", "#141414");
+      root.style.setProperty("--white-10percent", "#ffffff1a");
+      root.style.setProperty("--section5-background-first", "#161512");
+      root.style.setProperty("--section5-background-second", "#241f14");
+      root.style.setProperty("--section5-card-first", "#696969");
+      root.style.setProperty("--section5-card-second", "#ff1f1fde");
+      root.style.setProperty("--invert-icon-color", "invert(48%) brightness(1000%)");
+      root.style.setProperty(
+        "--invert-icon-color2",
+        "invert(99%) sepia(0%) saturate(0%) hue-rotate(338deg) brightness(113%) contrast(100%)"
+      );
+      root.style.setProperty("--invert-icon-color3", "none");
+
+      changeThemeButton.src = "../assets/VectorDay.svg";
+    }
+
+    localStorage.setItem("theme", themeName);
+  }
+  document.querySelector(".copyButton").addEventListener("click", () => {
+    const shareText = document.querySelector(".copyButton p");
+    const originalText = shareText.textContent;
+    const url = window.location.href;
+
+    if (navigator.clipboard) {
+      navigator.clipboard
+        .writeText(url)
+        .then(() => {
+          shareText.textContent = "کپی شد.";
+          setTimeout(() => (shareText.textContent = originalText), 3000);
+        })
+        .catch((err) => console.error("Failed to copy: ", err));
+    } else {
+      const textarea = document.createElement("textarea");
+      textarea.value = url;
+      document.body.appendChild(textarea);
+      textarea.select();
+      try {
+        document.execCommand("copy");
+        shareText.textContent = "کپی شد.";
+        setTimeout(() => (shareText.textContent = originalText), 3000);
+      } catch (err) {
+        console.error("Failed to copy: ", err);
+      }
+      document.body.removeChild(textarea);
+    }
+  });
+
+  function isMobileDevice() {
+    return (
+      typeof window.orientation !== "undefined" || navigator.userAgent.indexOf("IEMobile") !== -1
+    );
+  }
+  function addClickListener(selector) {
+    document.querySelector(selector).addEventListener("click", function (event) {
+      event.preventDefault();
+      const copyText = document.querySelector(`${selector} p`);
+      const originalText = copyText.textContent;
+
+      const phoneNumber = this.getAttribute("href");
+      if (isMobileDevice()) {
+        window.location.href = phoneNumber;
+      } else {
+        const numberToCopy = phoneNumber.replace("tel:", "");
+        navigator.clipboard.writeText(numberToCopy).then(function () {
+          copyText.textContent = "کپی شد.";
+          setTimeout(() => {
+            copyText.textContent = originalText;
+          }, 3000);
+        });
+      }
+    });
+  }
+
+  addClickListener(".settings > div:last-child a:nth-child(3)");
+  addClickListener(".settings > div:last-child a:nth-child(4)");
+  addClickListener(".settings > div:last-child a:nth-child(5)");
+
+  var hoverContainer = document.querySelector(".settings > div:nth-child(3)");
+  var hoverElement = document.querySelector(".settings > div:nth-child(4)");
+  var hideTimeout;
+
+  const showElement = () => {
+    clearTimeout(hideTimeout);
+    hoverElement.style.marginLeft = "0";
+  };
+
+  const hideElement = () => {
+    hideTimeout = setTimeout(() => {
+      hoverElement.style.marginLeft = "-100%";
+    }, 1500);
+  };
+
+  hoverContainer.addEventListener("mouseover", showElement);
+  hoverElement.addEventListener("mouseover", showElement);
+  hoverContainer.addEventListener("mouseout", hideElement);
+  hoverElement.addEventListener("mouseout", hideElement);
+  document.addEventListener("click", (event) => {
+    if (!hoverContainer.contains(event.target) && !hoverElement.contains(event.target)) {
+      hoverElement.style.marginLeft = "-100%";
+    }
+  });
 });
 
 function validateEmailInput(emailInputMain) {
