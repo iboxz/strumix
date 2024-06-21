@@ -151,6 +151,7 @@ body {
 .section2 header a:nth-of-type(5),
 .section2 header a:nth-of-type(6) {
   font-weight: 300;
+  color: var(--black);
 }
 
 .mainBlogContainer {
@@ -160,6 +161,7 @@ body {
   text-justify: auto;
   font-size: 1rem;
   width: 1000px;
+  line-height: 1.8;
 }
 .mainBlogContainer img {
   width: 100%;
@@ -373,7 +375,6 @@ body {
   display: flex;
   flex-direction: column;
   justify-content: end;
-
   z-index: -99;
 }
 .section5 .infiniteScrollText {
@@ -492,6 +493,7 @@ body {
 }
 
 .settings > div:last-child {
+  background: #1d1d1d;
   position: absolute;
   left: 30px;
   bottom: 90px;

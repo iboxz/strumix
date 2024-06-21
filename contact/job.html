@@ -4,11 +4,6 @@
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-4PJ8JE8SW8"></script>
     <script src="../src/js/googleAnalytics.js"></script>
 
-    <script defer src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
-    <script defer src="https://www.gstatic.com/firebasejs/8.10.1/firebase-firestore.js"></script>
-    <script defer src="https://www.gstatic.com/firebasejs/8.10.1/firebase-storage.js"></script>
-    <script defer src="../src/js/googleFirebase.js"></script>
-
     <script src="https://www.google.com/recaptcha/api.js" async defer></script>
 
     <meta charset="UTF-8" />
@@ -377,7 +372,7 @@
                 placeholder=" "
                 maxlength="250"
                 tabindex="4"
-                onkeydown="pushInputByEnter(event, 5)"
+                onkeydown="pushInputByEnter(event, 6)"
                 onblur="validateInput('address')"
               />
 
@@ -395,7 +390,6 @@
               name="comment"
               maxlength="2000"
               tabindex="5"
-              onkeydown="pushInputByEnter(event, 6)"
               form="usrform"
             ></textarea>
             <span class="fileInputSpan" style="margin-top: -1vmin">حداکثر 2000 کرکتر*</span>
@@ -534,62 +528,61 @@
             paragraphs[i].innerText = "در حال ارسال...";
           }
 
-          const db = firebase.firestore();
-          jobRef = db.collection("job");
+          function submitForm() {
+            const now = new Date();
+            const timestamp = now.getTime();
 
-          const { serverTimestamp } = firebase.firestore.FieldValue;
+            const nameInput = document.getElementById("name").value;
+            const emailInput = document.getElementById("email").value;
+            const phoneInput = document.getElementById("phone").value;
+            const addressInput = document.getElementById("address").value;
+            const customMessageInput = document.getElementById("message").value;
 
-          const nameInput = document.getElementById("name").value;
-          const emailInput = document.getElementById("email").value;
-          const phoneInput = document.getElementById("phone").value;
-          const addressInput = document.getElementById("address").value;
-          const customMessageInput = document.getElementById("message").value;
+            const fileInput = document.getElementById("file");
+            const file = fileInput.files[0];
 
-          const fileInput = document.getElementById("file");
-          const file = fileInput.files[0];
-          var storageRef = firebase.storage().ref();
-          var jobRefFile = storageRef.child("job/" + nameInput);
-          var uploadTask = jobRefFile.put(file);
-          uploadTask.on(
-            "state_changed",
-            function (snapshot) {
-              var progress = (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
+            var formData = new FormData();
+            formData.append("name", nameInput);
+            formData.append("email", emailInput);
+            formData.append("phone", phoneInput);
+            formData.append("address", addressInput);
+            formData.append("message", customMessageInput);
+            formData.append("id", timestamp);
 
-              for (var i = 0; i < paragraphs.length; i++) {
-                paragraphs[i].innerText = `${progress.toFixed(2)}% در حال ارسال...`;
+            for (var i = 0; i < paragraphs.length; i++) {
+              paragraphs[i].innerText = "در حال ارسال...";
+            }
+
+            var xhr = new XMLHttpRequest();
+            xhr.open("POST", "../src/php/processJob.php", true);
+
+            xhr.upload.onprogress = function (event) {
+              if (event.lengthComputable) {
+                var percentComplete = (event.loaded / event.total) * 100;
+                for (var i = 0; i < paragraphs.length; i++) {
+                  paragraphs[i].innerText = `${Math.round(percentComplete)}% در حال ارسال...`;
+                }
               }
-            },
-            function (error) {
-              for (var i = 0; i < paragraphs.length; i++) {
-                paragraphs[i].innerText = `مشکلی در ارسال فایل ایجاد شده`;
-              }
-            },
-            function () {
-              jobRef
-                .add({
-                  name: nameInput,
-                  email: emailInput,
-                  phone: phoneInput,
-                  address: addressInput,
-                  message: customMessageInput,
-                  createdAt: serverTimestamp(),
-                })
-                .then((docRef) => {
+            };
+            xhr.onreadystatechange = function () {
+              if (xhr.readyState === XMLHttpRequest.DONE) {
+                if (xhr.status === 200) {
                   button.style.background = "#4dc44b";
                   for (var i = 0; i < paragraphs.length; i++) {
                     paragraphs[i].innerText = "ارسال شد، منتظر برسی باشید";
                   }
-                  console.log("Data has been successfully added to the database.");
-                })
-                .catch((error) => {
+                } else {
                   button.style.background = "#db2323";
                   for (var i = 0; i < paragraphs.length; i++) {
                     paragraphs[i].innerText = "به دیتابیس ارسال نشد، دوباره تلاش کنید";
                   }
-                  console.error("Error adding document: ", error);
-                });
-            }
-          );
+                  console.error("Error adding document: ", xhr.status);
+                }
+              }
+            };
+            xhr.send(formData);
+          }
+          submitForm();
         } else {
           button.style.background = "#db2323";
           for (var i = 0; i < paragraphs.length; i++) {
