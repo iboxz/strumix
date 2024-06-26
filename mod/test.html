@@ -1,0 +1,562 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Blog Editor</title>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/TextPlugin.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/CSSRulePlugin.min.js"></script>
+    <script src="../src/js/ScrollSmoother.min.js"></script>
+    <script src="../src/js/SplitText.min.js"></script>
+
+    <link rel="stylesheet" href="../src/blogs/index.css?v=1.0.1" />
+    <link rel="stylesheet" href="../src/css/main.css" />
+
+    <link
+      href="https://cdn.quilljs.com/1.3.6/quill.snow.css"
+      rel="stylesheet"
+    />
+    <link
+      href="
+    https://cdn.jsdelivr.net/npm/quill-image-uploader@1.3.0/dist/quill.imageUploader.min.css
+    "
+      rel="stylesheet"
+    />
+
+    <script src="https://unpkg.com/jalali-moment/dist/jalali-moment.browser.js"></script>
+    <script src="https://cdn.quilljs.com/1.3.6/quill.js"></script>
+    <script src="
+    https://cdn.jsdelivr.net/npm/quill-image-uploader@1.3.0/dist/quill.imageUploader.min.js
+    "></script>
+
+    <style>
+      body {
+        overflow-x: hidden;
+      }
+      .heroHolder {
+        overflow-x: hidden;
+      }
+      .heroHolder > h1 {
+        font-family: rokh;
+        text-align: center;
+        margin: 80px 0 50px 0;
+        position: relative;
+        color: white;
+      }
+      .heroHolder > h1::before {
+        content: "";
+        position: absolute;
+        top: -25%;
+        right: -25%;
+        left: -25%;
+        bottom: -25%;
+        transform: rotate(-2deg);
+        background: #db4949;
+        z-index: -1;
+        transition: 0.2s ease;
+      }
+      #editor {
+        height: 70vh;
+        direction: ltr;
+      }
+      .editorContainer {
+        direction: ltr;
+        padding: 5%;
+      }
+      .ql-editor {
+        direction: rtl;
+        text-align: right;
+      }
+      input {
+        background: transparent;
+        padding: 8px;
+        margin: 8px;
+        width: 50vmin;
+        border: 1px solid rgb(171, 171, 171);
+        direction: rtl;
+      }
+      select {
+        background: rgb(8, 143, 158);
+        border-radius: 4px;
+        padding: 8px 16px;
+        margin: 10px 0;
+        width: 50vmin;
+        border: transparent;
+        color: white;
+        font-family: rokh;
+        direction: rtl;
+      }
+      label {
+        font-family: rokh;
+      }
+      .tag-container {
+        display: flex;
+        flex-wrap: wrap;
+        margin: 8px;
+        border: 1px solid rgb(171, 171, 171);
+      }
+
+      .tag {
+        background-color: #0000000f;
+        padding: 5px 10px;
+        border-radius: 5px;
+        display: flex;
+        align-items: center;
+        margin: 5px;
+      }
+
+      .tag span {
+        margin-right: 5px;
+      }
+
+      .tag .close-icon {
+        cursor: pointer;
+      }
+      button {
+        background: rgb(8, 143, 158);
+        color: white;
+        border: transparent;
+        border-radius: 4px;
+        padding: 8px 16px;
+        margin: 10px 0;
+        font-family: rokh;
+        transition: all 0.2s ease;
+      }
+      button:hover {
+        background: rgb(5, 85, 94);
+      }
+      button:active {
+        scale: 0.9;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="heroHolder">
+      <h1>پنل مقالات</h1>
+    </div>
+
+    <section class="editorContainer">
+      <input type="text" id="title" name="title" />
+      <label for="title">عنوان</label>
+      <br />
+      <input type="text" id="pageUrl" name="pageUrl" />
+      <label for="pageUrl">آدرس صفحه</label>
+      <br />
+      <input type="text" id="datePicker" name="date" />
+      <label for="datePicker">تاریخ</label>
+      <br />
+      <input type="text" id="description" name="Description" />
+      <label for="Description">شرح خلاصه</label>
+      <br />
+      <input type="file" id="imageInput" name="imageInput" />
+      <label for="imageInput">تصویر کاور</label>
+      <img
+        id="previewImage"
+        src="#"
+        style="max-width: 300px; max-height: 300px"
+      />
+
+      <br />
+      <input
+        type="text"
+        id="tag-input"
+        placeholder="Enter tags and press Enter"
+      />
+      <label for="tag-input">تگ</label>
+      <div class="tag-container" id="tag-container"></div>
+
+      <div id="editor"></div>
+      <div id="output"></div>
+
+      <div id="toolbar">
+        <select id="blogSelect"></select>
+        <label for="blogSelect">ویرایش مقالات</label>
+        <br />
+        <button id="preview">پیش نمایش</button>
+        <button id="submitForm">ثبت</button>
+        <button id="deletePage">حذف</button>
+      </div>
+    </section>
+    <section class="hero">
+      <h1 id="mainTitle"></h1>
+    </section>
+    <section class="section2">
+      <header class="magnetic-wrap">
+        <a class="mouseSticky" data-cursor="pointerClickable">لیست مقالات</a>
+        <a class="mouseSticky" data-cursor="pointerClickable">صفحه‌ی اصلی</a>
+        <a class="mouseSticky" data-cursor="pointerClickable"
+          >کاتالوگ محصولات</a
+        >
+        <a class="mouseSticky" data-cursor="pointerClickable">ارتباط با ما</a>
+        <a class="mouseSticky" data-cursor="pointerClickable">استرامیکس</a>
+        <span>&nbsp;&nbsp;/&nbsp;&nbsp;</span>
+        <a
+          id="dateSelector"
+          class="mouseSticky"
+          data-cursor="pointerClickable"
+        ></a>
+      </header>
+      <div class="mainBlogContainer"></div>
+      <div class="blogTags"></div>
+    </section>
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        const blogSelect = document.getElementById("blogSelect");
+        const blogDateInput = document.getElementById("datePicker");
+        const blogTitleInput = document.getElementById("title");
+        const blogDescriptionInput = document.getElementById("description");
+        const blogImageInput = document.getElementById("previewImage");
+        const blogTagsInput = document.getElementById("blogTags");
+        const pageUrlInput = document.getElementById("pageUrl");
+
+        function loadJSON(callback) {
+          const xhr = new XMLHttpRequest();
+          xhr.overrideMimeType("application/json");
+          xhr.open("GET", "blogs.json", true);
+          xhr.onreadystatechange = function () {
+            if (xhr.readyState === 4 && xhr.status === 200) {
+              callback(xhr.responseText);
+            }
+          };
+          xhr.send(null);
+        }
+
+        function populateBlogTitles(data) {
+          const jsonData = JSON.parse(data);
+          const blogs = jsonData.blogs;
+
+          blogs.forEach((blog, index) => {
+            const option = document.createElement("option");
+            option.textContent = blog.title;
+            option.value = index;
+            blogSelect.appendChild(option);
+          });
+        }
+
+        // تابع برای نمایش اطلاعات مقاله انتخاب شده
+        function displayBlogInfo(index) {
+          const jsonData = JSON.parse(localStorage.getItem("blogs"));
+          const blog = jsonData.blogs[index];
+
+          blogDateInput.value = blog.date;
+          blogTitleInput.value = blog.title;
+          blogDescriptionInput.value = blog.description;
+          blogImageInput.src = "uploads/" + blog.image;
+          pageUrlInput.src = blog.url;
+
+          const tagContainer = document.getElementById("tag-container");
+          tagContainer.innerHTML = "";
+          blog.tags.forEach((tag) => {
+            const tagElement = document.createElement("div");
+            tagElement.className = "tag";
+            tagElement.innerHTML = `
+              <span>${tag}</span>
+              <span class="close-icon">&#10005;</span>
+          `;
+            const closeIcon = tagElement.querySelector(".close-icon");
+            closeIcon.addEventListener("click", function () {
+              tagContainer.removeChild(tagElement);
+            });
+            tagContainer.appendChild(tagElement);
+          });
+        }
+
+        // بارگیری و پر کردن اطلاعات از فایل JSON هنگام بارگیری صفحه
+        loadJSON(function (response) {
+          localStorage.setItem("blogs", response);
+          populateBlogTitles(response);
+        });
+
+        // اضافه کردن event listener برای تغییر انتخاب مقاله
+        blogSelect.addEventListener("change", function () {
+          const selectedIndex = blogSelect.value;
+          displayBlogInfo(selectedIndex);
+        });
+      });
+
+      Quill.register("modules/imageUploader", ImageUploader);
+      var quill = new Quill("#editor", {
+        theme: "snow",
+        modules: {
+          toolbar: [
+            [{ header: [1, 2, false] }],
+            ["link", "bold", "italic", "underline"],
+            ["image"],
+            [{ list: "ordered" }, { list: "bullet" }],
+          ],
+          imageUploader: {
+            upload: (file) => {
+              return new Promise((resolve, reject) => {
+                const formData = new FormData();
+                formData.append("image", file);
+
+                fetch("./uploadBlogsImages.php", {
+                  method: "POST",
+                  body: formData,
+                })
+                  .then((response) => response.json())
+                  .then((result) => {
+                    if (result.imageUrl) {
+                      resolve(result.imageUrl);
+                    } else {
+                      reject(result.error || "Upload failed");
+                    }
+                  })
+                  .catch((error) => {
+                    reject("Upload failed");
+                    console.error("Error:", error);
+                  });
+              });
+            },
+          },
+        },
+      });
+
+      /**/
+
+      document.getElementById("preview").addEventListener("click", function () {
+        var html = quill.root.innerHTML;
+        document.querySelector(".mainBlogContainer").innerHTML = html;
+        const datePickerValue = document.getElementById("datePicker").value;
+        document.getElementById("dateSelector").innerHTML = datePickerValue;
+        const titleValue = document.getElementById("title").value;
+        document.getElementById("mainTitle").innerHTML = titleValue;
+
+        let blogTagsDiv = document.querySelector(".blogTags");
+        blogTagsDiv.innerHTML = "";
+        tags.forEach((tag) => {
+          let tagElement = document.createElement("a");
+          tagElement.setAttribute("data-cursor", "pointerClickable");
+          tagElement.textContent = "#" + tag;
+
+          let spanElement = document.createElement("span");
+          spanElement.innerHTML = "&nbsp;&nbsp;/&nbsp;&nbsp;";
+
+          blogTagsDiv.appendChild(tagElement);
+
+          blogTagsDiv.appendChild(spanElement);
+        });
+      });
+
+      /**/
+
+      function getTodayJalaliDate() {
+        const months = [
+          "فروردین",
+          "اردیبهشت",
+          "خرداد",
+          "تیر",
+          "مرداد",
+          "شهریور",
+          "مهر",
+          "آبان",
+          "آذر",
+          "دی",
+          "بهمن",
+          "اسفند",
+        ];
+
+        function convertToPersianWords(number) {
+          const persianNumbers = [
+            "۰",
+            "۱",
+            "۲",
+            "۳",
+            "۴",
+            "۵",
+            "۶",
+            "۷",
+            "۸",
+            "۹",
+          ];
+          const persianWords = [
+            "۰",
+            "۱",
+            "۲",
+            "۳",
+            "۴",
+            "۵",
+            "۶",
+            "۷",
+            "۸",
+            "۹",
+          ];
+
+          return number.toString().replace(/\d/g, (d) => persianWords[d]);
+        }
+
+        const jDate = moment().locale("fa").format("jYYYY/jMM/jDD");
+        const [jYear, jMonth, jDay] = jDate.split("/");
+
+        const persianDay = convertToPersianWords(parseInt(jDay));
+        const persianMonth = months[parseInt(jMonth) - 1];
+        const persianYear = convertToPersianWords(jYear);
+
+        return `${persianDay}${persianMonth}${persianYear}`;
+      }
+
+      /**/
+
+      document.getElementById("dateSelector").innerHTML = getTodayJalaliDate();
+      document.getElementById("datePicker").value = getTodayJalaliDate();
+
+      let tags = [];
+      document.addEventListener("DOMContentLoaded", function () {
+        const tagInput = document.getElementById("tag-input");
+        const tagContainer = document.getElementById("tag-container");
+
+        function createTagElement(tagName) {
+          const tag = document.createElement("div");
+          tag.className = "tag";
+          tag.innerHTML = `
+              <span>${tagName}</span>
+              <span class="close-icon">&#10005;</span>
+          `;
+          const closeIcon = tag.querySelector(".close-icon");
+          closeIcon.addEventListener("click", function () {
+            tags = tags.filter((tagValue) => tagValue !== tagName);
+            tagContainer.removeChild(tag);
+          });
+          return tag;
+        }
+
+        tagInput.addEventListener("keydown", function (event) {
+          if (event.key === "Enter" && tagInput.value.trim() !== "") {
+            const tagName = tagInput.value.trim();
+            if (!tags.includes(tagName)) {
+              tags.push(tagName);
+              const tagElement = createTagElement(tagName);
+              tagContainer.appendChild(tagElement);
+              tagInput.value = "";
+            }
+          }
+        });
+      });
+
+      /**/
+      document
+        .getElementById("submitForm")
+        .addEventListener("click", function () {
+          const datePickerValue = document.getElementById("datePicker").value;
+          const titleValue = document.getElementById("title").value;
+          const descriptionValue = document.getElementById("description").value;
+          const pageUrlInput = document.getElementById("pageUrl").value;
+          const imageInput = document.getElementById("imageInput").files[0];
+
+          const content = quill.getContents();
+          sendImagesToServer(content);
+
+          const formData = new FormData();
+          formData.append("image", imageInput);
+          formData.append("title", titleValue);
+
+          // Upload cover image
+          fetch("uploadBlogsCover.php", {
+            method: "POST",
+            body: formData,
+          })
+            .then((response) => {
+              if (response.ok) {
+                console.log("Image uploaded successfully!");
+              } else {
+                console.log("Image upload failed.");
+              }
+            })
+            .catch((error) => console.error("Error:", error));
+
+          const regex = /[^\p{L}\p{N}\-_]/gu;
+          const CoverImage = titleValue.replace(regex, "_") + ".jpg";
+
+          const data = {
+            date: datePickerValue,
+            title: titleValue,
+            description: descriptionValue,
+            image: CoverImage,
+            url: pageUrlInput,
+            tags: tags,
+          };
+
+          fetch("uploadBlogJson.php", {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json",
+            },
+            body: JSON.stringify(data),
+          })
+            .then((response) => response.json())
+            .then((result) => {
+              if (result.success) {
+                console.log("Blog saved successfully!");
+              } else {
+                console.log("Failed to save blog.");
+              }
+            })
+            .catch((error) => console.error("Error:", error));
+
+          // Function to send images in the content to the server
+          function sendImagesToServer(content) {
+            const imageOps = content.ops.filter(
+              (op) => op.insert && op.insert.image
+            );
+
+            imageOps.forEach((op) => {
+              const imageData = op.insert.image;
+              saveImageToServer(imageData);
+            });
+          }
+
+          // Function to save individual image to the server
+          function saveImageToServer(imageData) {
+            const xhr = new XMLHttpRequest();
+            const url = "uploadBlogsImages.php";
+
+            xhr.open("POST", url, true);
+            xhr.setRequestHeader(
+              "Content-Type",
+              "application/x-www-form-urlencoded; charset=UTF-8"
+            );
+
+            const data =
+              "imageData=" +
+              encodeURIComponent(imageData) +
+              "&title=" +
+              encodeURIComponent(titleValue);
+
+            xhr.onreadystatechange = function () {
+              if (xhr.readyState === 4 && xhr.status === 200) {
+                console.log(xhr.responseText);
+              }
+            };
+
+            xhr.send(data);
+          }
+        });
+      /**/
+
+      document.addEventListener("DOMContentLoaded", function () {
+        const imageInput = document.getElementById("imageInput");
+        const previewImage = document.getElementById("previewImage");
+
+        imageInput.addEventListener("change", function () {
+          const file = this.files[0];
+
+          if (file) {
+            const reader = new FileReader();
+
+            reader.onload = function (e) {
+              previewImage.src = e.target.result;
+            };
+
+            reader.readAsDataURL(file);
+          } else {
+            previewImage.src = "#";
+          }
+        });
+      });
+    </script>
+  </body>
+</html>

@@ -91,14 +91,21 @@
           if (this.readyState == 4 && this.status == 200) {
             var response = this.responseText.trim();
             if (response === "true") {
-              document.getElementById("error").innerHTML = "Database connected successfully!";
+              document.getElementById("error").innerHTML =
+                "Database connected successfully!";
+
+              sessionStorage.setItem("username", usernameInput);
+              sessionStorage.setItem("password", passwordInput);
+
+              window.location.href = 'selection.html';
             } else {
-              document.getElementById("error").innerHTML = "Failed to connect to database.";
+              document.getElementById("error").innerHTML =
+                "Wrong password / Failed to connect to database";
             }
           }
         };
         xhttp.open("POST", "./login.php", true);
-        xhttp.send(formData); // Sending FormData directly
+        xhttp.send(formData); 
       }
     </script>
   </body>

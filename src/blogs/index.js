@@ -29,43 +29,47 @@ window.addEventListener("load", (event) => {
       pin: ".section2 header",
       pinSpacing: false,
       onEnter: () => {
-        document.querySelector(".section2 header").style.borderBottomWidth = "0.1vmin";
+        document.querySelector(".section2 header").style.borderBottomWidth =
+          "0.1vmin";
       },
       onLeaveBack: () => {
-        document.querySelector(".section2 header").style.borderBottomWidth = "0";
+        document.querySelector(".section2 header").style.borderBottomWidth =
+          "0";
       },
     },
   });
-  // const baseUrl = window.location.origin;
-  // window.addEventListener("load", (event) => {
-  //   const path = document.querySelector(".splashScreen svg path");
-  //   var pathData =
-  //     "M3 252.473C7 236.473 36.2346 186.5 41 179C44.3333 142 80.9 58.4725 198.5 16.4725C222.333 6.30583 282.5 -7.9275 332.5 16.4725C319.167 31.3059 293 71 283.5 83.9727C274 96.9453 245 132.473 183 132.473C150.667 129.982 72.6582 138.3 39.4582 181.5C39.4582 181.5 91.5 54.5 265.5 33";
+  const path = document.querySelector(".splashScreen svg path");
+  var pathData =
+    "M3 252.473C7 236.473 36.2346 186.5 41 179C44.3333 142 80.9 58.4725 198.5 16.4725C222.333 6.30583 282.5 -7.9275 332.5 16.4725C319.167 31.3059 293 71 283.5 83.9727C274 96.9453 245 132.473 183 132.473C150.667 129.982 72.6582 138.3 39.4582 181.5C39.4582 181.5 91.5 54.5 265.5 33";
 
-  //   path.setAttribute("d", pathData);
-  //   var length = path.getTotalLength();
-  //   gsap.set(path, { strokeDasharray: length, strokeDashoffset: length });
+  path.setAttribute("d", pathData);
+  var length = path.getTotalLength();
+  gsap.set(path, { strokeDasharray: length, strokeDashoffset: length });
 
-  //   gsap.to(path, { strokeDashoffset: 0, duration: 3, ease: "ease-in-out" });
+  gsap.to(path, { strokeDashoffset: 0, duration: 3, ease: "ease-in-out" });
 
-  //   var splashScreenTimeline = gsap
-  //     .timeline({ paused: true, reversed: true })
-  //     .from(
-  //       new SplitText(".splashScreen p:nth-child(1)", {
-  //         type: "chars",
-  //         tagName: "span",
-  //         tag: "span",
-  //       }).chars,
-  //       {
-  //         opacity: 0.2,
-  //         ease: "power3.out",
-  //         stagger: 0.3,
-  //       }
-  //     )
-  //     .to(".splashScreen", { y: "-100%", delay: 1, duration: 1, ease: "power3.out" });
+  var splashScreenTimeline = gsap
+    .timeline({ paused: true, reversed: true })
+    .from(
+      new SplitText(".splashScreen p:nth-child(1)", {
+        type: "chars",
+        tagName: "span",
+        tag: "span",
+      }).chars,
+      {
+        opacity: 0.2,
+        ease: "power3.out",
+        stagger: 0.3,
+      }
+    )
+    .to(".splashScreen", {
+      y: "-100%",
+      delay: 1,
+      duration: 1,
+      ease: "power3.out",
+    });
 
-  //   splashScreenTimeline.play();
-  // });
+  splashScreenTimeline.play();
 
   /*----------------------------------- */
 
@@ -142,7 +146,8 @@ window.addEventListener("load", (event) => {
             cursor.style.display = "none";
             cursorBorder.style.setProperty("--size", "15vmin");
             cursorBorder.style.backgroundColor = "#f2ecdc ";
-            cursorBorder.style.backgroundImage = "url(../../assets/VectorFlesh4.svg)";
+            cursorBorder.style.backgroundImage =
+              "url(../../assets/VectorFlesh4.svg)";
             cursorBorder.style.backgroundSize = "3vmin 3vmin";
 
             break;
@@ -151,7 +156,8 @@ window.addEventListener("load", (event) => {
             cursorBorder.style.setProperty("--size", "15vmin");
             cursorBorder.style.backgroundColor = "#ffffff30";
             cursorBorder.style.backdropFilter = "blur(0.8vmin)";
-            cursorBorder.style.backgroundImage = "url(../../assets/VectorFlesh4.svg)";
+            cursorBorder.style.backgroundImage =
+              "url(../../assets/VectorFlesh4.svg)";
             cursorBorder.style.backgroundSize = "3vmin 3vmin";
 
             break;
@@ -205,15 +211,21 @@ window.addEventListener("load", (event) => {
   activateCustomCursors();
   /*--------------*/
 
-  let loops = gsap.utils.toArray(".section5 .infiniteScrollText div").map((line, i) => {
-      const links = line.querySelectorAll(".section5  .infiniteScrollText div span");
-      return horizontalLoop(links, {
-        repeat: -1,
-        speed: 1 + i * 0.5,
-        reversed: false,
-        paddingRight: parseFloat(gsap.getProperty(links[0], "marginRight", "px")),
-      });
-    }),
+  let loops = gsap.utils
+      .toArray(".section5 .infiniteScrollText div")
+      .map((line, i) => {
+        const links = line.querySelectorAll(
+          ".section5  .infiniteScrollText div span"
+        );
+        return horizontalLoop(links, {
+          repeat: -1,
+          speed: 1 + i * 0.5,
+          reversed: false,
+          paddingRight: parseFloat(
+            gsap.getProperty(links[0], "marginRight", "px")
+          ),
+        });
+      }),
     currentScroll = 0,
     scrollDirection = 1;
 
@@ -235,7 +247,8 @@ window.addEventListener("load", (event) => {
         repeat: config.repeat,
         paused: config.paused,
         defaults: { ease: "none" },
-        onReverseComplete: () => tl.totalTime(tl.rawTime() + tl.duration() * 100),
+        onReverseComplete: () =>
+          tl.totalTime(tl.rawTime() + tl.duration() * 100),
       }),
       length = items.length,
       startX = items[0].offsetLeft,
@@ -244,7 +257,8 @@ window.addEventListener("load", (event) => {
       xPercents = [],
       curIndex = 0,
       pixelsPerSecond = (config.speed || 1) * 100,
-      snap = config.snap === false ? (v) => v : gsap.utils.snap(config.snap || 1),
+      snap =
+        config.snap === false ? (v) => v : gsap.utils.snap(config.snap || 1),
       totalWidth,
       curX,
       distanceToStart,
@@ -256,7 +270,8 @@ window.addEventListener("load", (event) => {
       xPercent: (i, el) => {
         let w = (widths[i] = parseFloat(gsap.getProperty(el, "width", "px")));
         xPercents[i] = snap(
-          (parseFloat(gsap.getProperty(el, "x", "px")) / w) * 100 + gsap.getProperty(el, "xPercent")
+          (parseFloat(gsap.getProperty(el, "x", "px")) / w) * 100 +
+            gsap.getProperty(el, "xPercent")
         );
         return xPercents[i];
       },
@@ -267,14 +282,16 @@ window.addEventListener("load", (event) => {
       items[length - 1].offsetLeft +
       (xPercents[length - 1] / 100) * widths[length - 1] -
       startX +
-      items[length - 1].offsetWidth * gsap.getProperty(items[length - 1], "scaleX") +
+      items[length - 1].offsetWidth *
+        gsap.getProperty(items[length - 1], "scaleX") +
       (parseFloat(config.paddingRight) || 0);
 
     for (i = 0; i < length; i++) {
       item = items[i];
       curX = (xPercents[i] / 100) * widths[i];
       distanceToStart = item.offsetLeft + curX - startX;
-      distanceToLoop = distanceToStart + widths[i] * gsap.getProperty(item, "scaleX");
+      distanceToLoop =
+        distanceToStart + widths[i] * gsap.getProperty(item, "scaleX");
       tl.to(
         item,
         {
@@ -285,10 +302,15 @@ window.addEventListener("load", (event) => {
       )
         .fromTo(
           item,
-          { xPercent: snap(((curX - distanceToLoop + totalWidth) / widths[i]) * 100) },
+          {
+            xPercent: snap(
+              ((curX - distanceToLoop + totalWidth) / widths[i]) * 100
+            ),
+          },
           {
             xPercent: xPercents[i],
-            duration: (curX - distanceToLoop + totalWidth - curX) / pixelsPerSecond,
+            duration:
+              (curX - distanceToLoop + totalWidth - curX) / pixelsPerSecond,
             immediateRender: false,
           },
           distanceToLoop / pixelsPerSecond
@@ -299,7 +321,8 @@ window.addEventListener("load", (event) => {
 
     function toIndex(index, vars) {
       vars = vars || {};
-      Math.abs(index - curIndex) > length / 2 && (index += index > curIndex ? -length : length);
+      Math.abs(index - curIndex) > length / 2 &&
+        (index += index > curIndex ? -length : length);
       let newIndex = gsap.utils.wrap(0, length, index),
         time = times[newIndex];
       if (time > tl.time() !== index > curIndex) {
@@ -348,7 +371,7 @@ window.addEventListener("load", (event) => {
       },
     });
   }
-  /* */c
+  /* */
 
   var mWrap = document.querySelectorAll(".mouseSticky");
 
@@ -430,7 +453,10 @@ window.addEventListener("load", (event) => {
       root.style.setProperty("--section5-background-second", "#241f14");
       root.style.setProperty("--section5-card-first", "#696969");
       root.style.setProperty("--section5-card-second", "#ff1f1fde");
-      root.style.setProperty("--invert-icon-color", "invert(48%) brightness(1000%)");
+      root.style.setProperty(
+        "--invert-icon-color",
+        "invert(48%) brightness(1000%)"
+      );
       root.style.setProperty(
         "--invert-icon-color2",
         "invert(99%) sepia(0%) saturate(0%) hue-rotate(338deg) brightness(113%) contrast(100%)"
@@ -487,24 +513,26 @@ window.addEventListener("load", (event) => {
     return check;
   }
   function addClickListener(selector) {
-    document.querySelector(selector).addEventListener("click", function (event) {
-      event.preventDefault();
-      const copyText = document.querySelector(`${selector} p`);
-      const originalText = copyText.textContent;
+    document
+      .querySelector(selector)
+      .addEventListener("click", function (event) {
+        event.preventDefault();
+        const copyText = document.querySelector(`${selector} p`);
+        const originalText = copyText.textContent;
 
-      const phoneNumber = this.getAttribute("href");
-      if (isMobileDevice()) {
-        window.location.href = phoneNumber;
-      } else {
-        const numberToCopy = phoneNumber.replace("tel:", "");
-        navigator.clipboard.writeText(numberToCopy).then(function () {
-          copyText.textContent = "کپی شد.";
-          setTimeout(() => {
-            copyText.textContent = originalText;
-          }, 3000);
-        });
-      }
-    });
+        const phoneNumber = this.getAttribute("href");
+        if (isMobileDevice()) {
+          window.location.href = phoneNumber;
+        } else {
+          const numberToCopy = phoneNumber.replace("tel:", "");
+          navigator.clipboard.writeText(numberToCopy).then(function () {
+            copyText.textContent = "کپی شد.";
+            setTimeout(() => {
+              copyText.textContent = originalText;
+            }, 3000);
+          });
+        }
+      });
   }
 
   addClickListener(".settings > div:last-child a:nth-child(3)");
@@ -531,16 +559,19 @@ window.addEventListener("load", (event) => {
   hoverContainer.addEventListener("mouseout", hideElement);
   hoverElement.addEventListener("mouseout", hideElement);
   document.addEventListener("click", (event) => {
-    if (!hoverContainer.contains(event.target) && !hoverElement.contains(event.target)) {
+    if (
+      !hoverContainer.contains(event.target) &&
+      !hoverElement.contains(event.target)
+    ) {
       hoverElement.style.marginLeft = "-100%";
     }
   });
 });
 
+const registerButton = document.querySelector(".section4 > p:nth-child(6)");
 function validateEmailInput(emailInputMain) {
   const emailInput = emailInputMain.value;
   const feedbackElement = document.querySelector("#emailFeedback");
-  const registerButton = document.querySelector(".section4 > p:nth-child(6)");
 
   const emailRegex =
     /(?:[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*|"(?:[\x01-\x08\x0b\x0c\x0e-\x1f\x21\x23-\x5b\x5d-\x7f]|\\[\x01-\x09\x0b\x0c\x0e-\x7f])*")@(?:(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?|\[(?:(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.){3}(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?|[a-z0-9-]*[a-z0-9]:(?:[\x01-\x08\x0b\x0c\x0e-\x1f\x21-\x5a\x53-\x7f]|\\[\x01-\x09\x0b\x0c\x0e-\x7f])+)\])/;
@@ -556,5 +587,42 @@ function validateEmailInput(emailInputMain) {
     feedbackElement.classList.remove("animate");
     void feedbackElement.offsetWidth;
     feedbackElement.classList.add("animate");
+  }
+}
+let processOnlyOnce = false;
+function processEmailInput() {
+  if (processOnlyOnce === true) return;
+  const emailInputMain = document.querySelector("#email");
+  const emailInput = emailInputMain.value;
+  const emailRegex =
+    /(?:[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*|"(?:[\x01-\x08\x0b\x0c\x0e-\x1f\x21\x23-\x5b\x5d-\x7f]|\\[\x01-\x09\x0b\x0c\x0e-\x7f])*")@(?:(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?|\[(?:(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.){3}(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?|[a-z0-9-]*[a-z0-9]:(?:[\x01-\x08\x0b\x0c\x0e-\x1f\x21-\x5a\x53-\x7f]|\\[\x01-\x09\x0b\x0c\x0e-\x7f])+)\])/;
+
+  registerButton.style.right = "65%";
+  registerButton.style.top = "50%";
+  if (emailRegex.test(emailInput)) {
+    var formData = new FormData();
+    formData.append("email", emailInput);
+
+    var xhr = new XMLHttpRequest();
+    xhr.open("POST", "../src/php/processEmail.php", true);
+
+    xhr.onreadystatechange = function () {
+      if (xhr.readyState === XMLHttpRequest.DONE) {
+        if (xhr.status === 200) {
+          registerButton.style.backgroundColor = "#5dba82";
+          registerButton.textContent = "ثبت شد!";
+          processOnlyOnce = true;
+        } else {
+          registerButton.style.backgroundColor = "#c44141";
+          registerButton.textContent = "ثبت نشد، دوباره تلاش کنید!";
+
+          console.error("Error adding document: ", xhr.status);
+        }
+      }
+    };
+    xhr.send(formData);
+  } else {
+    registerButton.style.backgroundColor = "#c44141";
+    registerButton.textContent = "ایمیل را اصلاح کنید!";
   }
 }

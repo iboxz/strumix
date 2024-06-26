@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="fa">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ایجاد صفحه جدید</title>
+  </head>
+  <body>
+    <form id="createPageForm">
+      <label for="page_name">نام صفحه:</label>
+      <input type="text" id="page_name" name="page_name" required /><br /><br />
+
+      <label for="page_title">عنوان صفحه:</label>
+      <input
+        type="text"
+        id="page_title"
+        name="page_title"
+        required
+      /><br /><br />
+
+      <button type="submit">ایجاد صفحه</button>
+    </form>
+
+    <div id="result"></div>
+    <script>
+      const username = sessionStorage.getItem("username");
+      const password = sessionStorage.getItem("password");
+      console.log(username, password)
+      document
+        .getElementById("createPageForm")
+        .addEventListener("submit", function (event) {
+          event.preventDefault();
+
+          var formData = new FormData(this);
+          formData.append("username", username);
+          formData.append("password", password);
+
+          var xhr = new XMLHttpRequest();
+          xhr.open("POST", "./newBlog.php", true);
+
+          xhr.onreadystatechange = function () {
+            if (this.readyState == 4 && this.status == 200) {
+              document.getElementById("result").innerHTML = xhr.responseText;
+            } else {
+              document.getElementById("result").innerHTML =
+                "خطایی رخ داده است.";
+            }
+          };
+
+          xhr.send(formData);
+        });
+    </script>
+  </body>
+</html>
