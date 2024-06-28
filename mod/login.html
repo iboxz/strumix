@@ -97,15 +97,14 @@
               sessionStorage.setItem("username", usernameInput);
               sessionStorage.setItem("password", passwordInput);
 
-              window.location.href = 'selection.html';
+              window.location.href = "selection.html";
             } else {
-              document.getElementById("error").innerHTML =
-                "Wrong password / Failed to connect to database";
+              document.getElementById("error").innerHTML = response;
             }
           }
         };
         xhttp.open("POST", "./login.php", true);
-        xhttp.send(formData); 
+        xhttp.send(formData);
       }
     </script>
   </body>
