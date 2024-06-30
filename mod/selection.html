@@ -16,51 +16,142 @@
     />
     <style>
       body {
-        background-color: #f4f4f4;
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+        background: #f2ecdc;
+        margin: 0;
+        padding: 0;
         display: flex;
         justify-content: center;
         align-items: center;
         height: 100vh;
-        margin: 0;
+      }
+      body,
+      html {
+        overflow-x: hidden;
       }
       .container {
-        text-align: center;
-        background-color: #f4f4f4;
-        border-radius: 5px;
-        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.379);
-        padding: 30px;
+        height: fit-content;
+        width: 420px;
+        background-color: rgba(255, 255, 255, 0.13);
+        position: absolute;
+        transform: translate(-50%, -50%);
+        top: 50%;
+        left: 50%;
+        border-radius: 10px;
+        backdrop-filter: blur(10px);
+        border: 2px solid rgba(255, 255, 255, 0.1);
+        box-shadow: 0 0 40px rgba(8, 7, 16, 0.6);
+        padding: 50px 35px;
       }
-      .container h1 {
+
+      #user {
+        font-size: 20px;
         color: #333;
-        margin-bottom: 20px;
       }
+
       .buttons {
         display: flex;
-        justify-content: center;
-        flex-direction: c;
-        gap: 20px;
+        flex-direction: column;
+        gap: 15px;
       }
-      .buttons button {
-        background-color: #007bff;
-        color: #fff;
+
+      button {
+        background: #605841;
         border: none;
-        padding: 15px 30px;
-        border-radius: 5px;
+        color: white;
+        text-align: center;
+        text-decoration: none;
         font-size: 16px;
+        transition: background-color 0.3s, transform 0.2s;
         cursor: pointer;
-        transition: background-color 0.3s;
-        font-family: "Rokh";
+        border-radius: 50px;
+        position: relative;
+        overflow: hidden;
+        font-family: rokh;
       }
-      .buttons button:hover {
-        background-color: #0056b3;
+
+      button:hover {
+        background: #413c2b;
+        transform: translateY(-2px);
       }
-      a {
+
+      button::before {
+        content: "";
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        width: 300%;
+        height: 300%;
+        background-color: rgba(255, 255, 255, 0.15);
+        transition: all 0.3s;
+        transform: translate(-50%, -50%) scale(0);
+        border-radius: 50%;
+        pointer-events: none;
+      }
+
+      button:hover::before {
+        transform: translate(-50%, -50%) scale(1);
+      }
+
+      button a {
         color: white;
         text-decoration: none;
+        display: block;
+        width: 100%;
+        height: 100%;
+        padding: 15px 0;
+      }
+
+      button a:hover {
+        text-decoration: none;
+      }
+
+      @media (max-width: 500px) {
+        .container {
+          padding: 20px;
+          max-width: 90%;
+        }
+
+        button {
+          padding: 12px 0;
+          font-size: 14px;
+        }
+
+        #user {
+          font-size: 18px;
+        }
+      }
+      .background {
+        width: 430px;
+        height: 520px;
+        position: absolute;
+        transform: translate(-50%, -50%);
+        left: 50%;
+        top: 50%;
+      }
+      .background .shape {
+        height: 250px;
+        width: 250px;
+        position: absolute;
+        border-radius: 50%;
+      }
+      .shape:first-child {
+        background: linear-gradient(to right, #ff512f, #f09819);
+        right: -60px;
+        top: -80px;
+      }
+      .shape:last-child {
+        background: linear-gradient(#ff9090, #f62323);
+        left: -60px;
+        bottom: -60px;
       }
     </style>
   </head>
   <body>
+    <div class="background">
+      <div class="shape"></div>
+      <div class="shape"></div>
+    </div>
     <div class="container">
       <div class="buttons">
         <p id="user"></p>
@@ -70,8 +161,13 @@
         <button>
           <a href="./request.html">پنل درخواست‌ها</a>
         </button>
+        <button>
+          <a href="./imgGallery.html">گالری تصاویر</a>
+        </button>
+        <button>
+          <a href="./modSettings.html">تنظیمات پنل</a>
+        </button>
       </div>
     </div>
   </body>
 </html>
-

@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="robots" content="noindex, nofollow" />
+    <meta name="googlebot" content="noindex,indexifembedded" />
+    <title>Admin Login</title>
+
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;600&display=swap"
+      rel="stylesheet"
+    />
+    <!--Stylesheet-->
+    <style media="screen">
+      *,
+      *:before,
+      *:after {
+        padding: 0;
+        margin: 0;
+        box-sizing: border-box;
+      }
+      body {
+        background-color: #202928;
+        direction: rtl;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 99vh;
+        overflow-x: hidden;
+      }
+
+      @media (max-width: 700px) {
+        body {
+          flex-direction: column;
+        }
+      }
+      .background {
+        width: 430px;
+        height: 520px;
+        position: absolute;
+        transform: translate(-50%, -50%);
+        left: 50%;
+        top: 50%;
+      }
+      .background .shape {
+        height: 200px;
+        width: 200px;
+        position: absolute;
+        border-radius: 50%;
+      }
+      .shape:first-child {
+        background: linear-gradient(#2e6163, #065063);
+        left: -80px;
+        top: -80px;
+      }
+      .shape:last-child {
+        background: linear-gradient(to right, #b94a34, #79511a);
+        right: -30px;
+        bottom: -80px;
+      }
+      .form {
+        height: fit-content;
+        width: 420px;
+        background-color: rgba(255, 255, 255, 0.13);
+        border-radius: 10px;
+        backdrop-filter: blur(10px);
+        border: 2px solid rgba(255, 255, 255, 0.1);
+        box-shadow: 0 0 40px rgba(8, 7, 16, 0.6);
+        padding: 50px 35px;
+        margin: 10px;
+      }
+      .form * {
+        font-family: rokh, "Poppins", sans-serif;
+        color: #ffffff;
+        letter-spacing: 0.5px;
+        outline: none;
+        border: none;
+      }
+      .form h3 {
+        font-size: 32px;
+        font-weight: 500;
+        line-height: 42px;
+        text-align: center;
+        text-transform: uppercase;
+      }
+
+      label {
+        direction: ltr;
+        display: block;
+        margin-top: 30px;
+        font-size: 16px;
+        font-weight: 500;
+      }
+      input {
+        direction: ltr;
+        display: block;
+        height: 50px;
+        width: 100%;
+        background-color: rgba(255, 255, 255, 0.07);
+        border-radius: 3px;
+        padding: 0 10px;
+        margin-top: 8px;
+        font-size: 14px;
+        font-weight: 300;
+      }
+      ::placeholder {
+        color: #e5e5e5;
+      }
+      button {
+        color: #000000 !important;
+        margin-top: 50px;
+        width: 100%;
+        background-color: #ffffff;
+        padding: 15px 0;
+        font-size: 18px;
+        font-weight: 600;
+        border-radius: 5px;
+        cursor: pointer;
+      }
+      select {
+        direction: ltr;
+        display: block;
+        margin-top: 50px;
+        height: 50px;
+        width: 100%;
+        background-color: rgba(255, 255, 255, 0.07);
+        border-radius: 3px;
+        padding: 0 10px;
+        font-size: 14px;
+        font-weight: 300;
+      }
+      #categorySelector > option {
+        color: #000000;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="background">
+      <div class="shape"></div>
+      <div class="shape"></div>
+    </div>
+    <div class="form">
+      <h3>اضافه سازی ادمین:</h3>
+      <label for="username">Username</label>
+      <input type="text" placeholder="Email" id="username" />
+
+      <label for="password">Password</label>
+      <input type="text" placeholder="Password" id="password" />
+
+      <button onclick="checkDatabaseConnection()">اضافه سازی</button>
+      <div id="error"></div>
+    </div>
+    <div class="form">
+      <h3>حذف ادمین:</h3>
+      <select id="categorySelector"></select>
+      <button onclick="checkDatabaseConnection()">حذف</button>
+      <div id="error"></div>
+    </div>
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        fetch("fetchModData.php")
+          .then((response) => response.json())
+          .then((data) => {
+            const selector = document.getElementById("categorySelector");
+            data.forEach((item) => {
+              const option = document.createElement("option");
+              option.value = item.email;
+              option.textContent = item.email;
+              selector.appendChild(option);
+            });
+          })
+          .catch((error) => console.error("Error fetching data:", error));
+      });
+    </script>
+  </body>
+</html>

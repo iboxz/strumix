@@ -3,6 +3,8 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="robots" content="noindex, nofollow" />
+    <meta name="googlebot" content="noindex,indexifembedded" />
     <title>Blog Editor</title>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
@@ -136,6 +138,31 @@
       button:active {
         scale: 0.9;
       }
+      #logContainer {
+        border: 1px solid rgb(171, 171, 171);
+        padding: 5px;
+      }
+
+      .popup {
+        display: none;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.5);
+        justify-content: center;
+        align-items: center;
+        z-index: 999;
+        font-family: rokh;
+      }
+
+      .popup-content {
+        background: white;
+        padding: 30px;
+        border-radius: 5px;
+        text-align: center;
+      }
     </style>
   </head>
   <body>
@@ -181,15 +208,35 @@
       <select id="categorySelector"></select>
 
       <div id="editor"></div>
-      <div id="output"></div>
 
       <div id="toolbar">
         <select id="blogSelect"></select>
         <label for="blogSelect">ویرایش مقالات</label>
         <br />
         <button id="preview">پیش نمایش</button>
-        <button id="submitForm">ثبت</button>
-        <button id="deletePage">حذف</button>
+        <button
+          class="popUpFuc"
+          id="submitForm"
+          data-function="submitFormFunction"
+        >
+          ثبت
+        </button>
+        <button
+          class="popUpFuc"
+          id="deletePage"
+          data-function="deleteBlogFunction"
+        >
+          حذف
+        </button>
+      </div>
+      <div id="logContainer"></div>
+
+      <div id="popup" class="popup">
+        <div class="popup-content">
+          <p>آیا اطمینان دارید که می‌خواهید ادامه دهید؟</p>
+          <button id="yesButton">بله</button>
+          <button id="noButton">خیر</button>
+        </div>
       </div>
     </section>
     <section class="hero">
@@ -214,7 +261,83 @@
       <div class="mainBlogContainer"></div>
       <div class="blogTags"></div>
     </section>
+    <section class="section3">
+      <div class="cardsContainer">
+        <div style="width: 33vw"></div>
+        <div style="width: 33vw"></div>
+        <div style="width: 33vw"></div>
+        <div class="card">
+          <a href="" data-cursor="pointerLinkNavbar">
+            <div>
+              <p class="category"></p>
+              <p class="time"></p>
+            </div>
+            <img class="img" src="" />
+            <h6 class="title"></h6>
+            <p class="description"></p>
+          </a>
+        </div>
+      </div>
+    </section>
     <script>
+      let currentFunction = null;
+
+      let buttons = document.querySelectorAll(".popUpFuc");
+
+      buttons.forEach(function (button) {
+        button.addEventListener("click", function () {
+          document.getElementById("popup").style.display = "flex";
+          currentFunction = window[button.getAttribute("data-function")];
+        });
+      });
+
+      document
+        .getElementById("yesButton")
+        .addEventListener("click", function () {
+          if (currentFunction) {
+            currentFunction();
+          }
+          document.getElementById("popup").style.display = "none";
+        });
+
+      document
+        .getElementById("noButton")
+        .addEventListener("click", function () {
+          alert("شما انتخاب کردید که ادامه ندهید.");
+          document.getElementById("popup").style.display = "none";
+        });
+      window.addEventListener("click", function (event) {
+        let popup = document.getElementById("popup");
+        if (event.target == popup) {
+          popup.style.display = "none";
+        }
+      });
+      /* log box ----------------------*/
+      const logContainer = document.getElementById("logContainer");
+
+      function addLog(message, type) {
+        const logElement = document.createElement("div");
+        logElement.textContent = `[${type.toUpperCase()}] ${message}`;
+        logContainer.appendChild(logElement);
+        logContainer.scrollTop = logContainer.scrollHeight;
+      }
+
+      function formatArgs(args) {
+        return args
+          .map((arg) =>
+            typeof arg === "object" ? JSON.stringify(arg, null, 2) : arg
+          )
+          .join(" ");
+      }
+
+      ["log", "error", "warn", "info"].forEach((type) => {
+        const original = console[type];
+        console[type] = function (...args) {
+          addLog(formatArgs(args), type);
+          original.apply(console, args);
+        };
+      });
+
       const username = sessionStorage.getItem("username");
       const password = sessionStorage.getItem("password");
 
@@ -237,7 +360,7 @@
         function loadJSON(callback) {
           const xhr = new XMLHttpRequest();
           xhr.overrideMimeType("application/json");
-          xhr.open("GET", "../src/blogs/blogs.json", true);
+          xhr.open("GET", "../serverAssets/blogs.json", true);
           xhr.onreadystatechange = function () {
             if (xhr.readyState === 4 && xhr.status === 200) {
               callback(xhr.responseText);
@@ -277,8 +400,7 @@
           blogDescriptionInput.value = blog.description;
           pageUrlInput.value = blog.url;
           categoryInput.value = blog.category;
-          blogImageInput.src =
-            "../serverUploadAssets/blogsCoverImg/" + blog.image;
+          blogImageInput.src = "../serverAssets/blogsCoverImg/" + blog.image;
 
           const tagContainer = document.getElementById("tag-container");
           tagContainer.innerHTML = "";
@@ -371,13 +493,24 @@
       /*preview ------------------------------------*/
 
       document.getElementById("preview").addEventListener("click", function () {
+        const datePickerValue = document.getElementById("datePicker").value;
+        const titleValue = document.getElementById("title").value;
+        const descriptionValue = document.getElementById("description").value;
+        const categoryValue = document.getElementById("category").value;
+        const imageInput = document.getElementById("imageInput").files[0];
+
         var html = quill.root.innerHTML;
         document.querySelector(".mainBlogContainer").innerHTML = html;
-        const datePickerValue = document.getElementById("datePicker").value;
-        document.getElementById("dateSelector").innerHTML = datePickerValue;
-        const titleValue = document.getElementById("title").value;
-        document.getElementById("mainTitle").innerHTML = titleValue;
 
+        document.getElementById("mainTitle").innerHTML = titleValue;
+        document.getElementById("dateSelector").innerHTML = datePickerValue;
+
+        document.querySelector(".card .time").innerHTML = datePickerValue;
+        document.querySelector(".card .category").innerHTML = categoryValue;
+        document.querySelector(".card .title").innerHTML = titleValue;
+        document.querySelector(".card .description").innerHTML =
+          descriptionValue;
+        document.querySelector(".card .img").src = imageInput;
         let blogTagsDiv = document.querySelector(".blogTags");
         blogTagsDiv.innerHTML = "";
         tags.forEach((tag) => {
@@ -499,97 +632,120 @@
       });
 
       /* ساخت صفحه جدید------------------------*/
-      document
-        .getElementById("submitForm")
-        .addEventListener("click", function () {
-          const datePickerValue = document.getElementById("datePicker").value;
-          const datePickerEnValue =
-            document.getElementById("datePickerEn").value;
-          const titleValue = document.getElementById("title").value;
-          const descriptionValue = document.getElementById("description").value;
-          const pageUrlInput = document.getElementById("pageUrl").value;
-          const categoryInput = document.getElementById("category").value;
-          const imageInput = document.getElementById("imageInput").files[0];
 
-          const formDataCoverImg = new FormData();
-          formDataCoverImg.append("image", imageInput);
-          formDataCoverImg.append("title", titleValue);
-          formDataCoverImg.append("username", username);
-          formDataCoverImg.append("password", password);
+      function submitFormFunction() {
+        const datePickerValue = document.getElementById("datePicker").value;
+        const datePickerEnValue = document.getElementById("datePickerEn").value;
+        const titleValue = document.getElementById("title").value;
+        const descriptionValue = document.getElementById("description").value;
+        const pageUrlInput = document.getElementById("pageUrl").value;
+        const categoryInput = document.getElementById("category").value;
+        const imageInput = document.getElementById("imageInput").files[0];
 
-          fetch("uploadBlogsCover.php", {
-            method: "POST",
-            body: formDataCoverImg,
+        if (pageUrlInput === "index") {
+          console.error("You can't use index for url, that's main page");
+          return;
+        }
+
+        const formDataCoverImg = new FormData();
+        formDataCoverImg.append("image", imageInput);
+        formDataCoverImg.append("title", titleValue);
+        formDataCoverImg.append("username", username);
+        formDataCoverImg.append("password", password);
+
+        fetch("uploadBlogsCover.php", {
+          method: "POST",
+          body: formDataCoverImg,
+        })
+          .then((response) => response.text())
+          .then((text) => {
+            if (text.includes("Image uploaded successfully!")) {
+              console.log("Image uploaded successfully!");
+            } else {
+              console.log("Upload response:", text);
+            }
           })
-            .then((response) => response.text())
-            .then((text) => {
-              if (text.includes("Image uploaded successfully!")) {
-                console.log("Image uploaded successfully!");
-              } else {
-                console.log("Upload response:", text);
-              }
-            })
-            .catch((error) => console.error("Error:", error));
+          .catch((error) => console.error("Error:", error));
 
-          const regex = /[^\p{L}\p{N}\-_]/gu;
-          const CoverImage = titleValue.replace(regex, "_") + ".jpg";
+        const regex = /[^\p{L}\p{N}\-_]/gu;
+        const CoverImage = titleValue.replace(regex, "_") + ".jpg";
 
-          const data = {
-            url: pageUrlInput,
-            category: categoryInput,
-            title: titleValue,
-            date: datePickerValue,
-            dateEn: datePickerEnValue,
-            description: descriptionValue,
-            image: CoverImage,
-            tags: tags,
-            username: username,
-            password: password,
-          };
-          fetch("uploadBlogJson.php", {
-            method: "POST",
-            headers: {
-              "Content-Type": "application/json",
-            },
-            body: JSON.stringify(data),
+        const data = {
+          url: pageUrlInput,
+          category: categoryInput,
+          title: titleValue,
+          date: datePickerValue,
+          dateEn: datePickerEnValue,
+          description: descriptionValue,
+          image: CoverImage,
+          tags: tags,
+          username: username,
+          password: password,
+        };
+        fetch("uploadBlogJson.php", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(data),
+        })
+          .then((response) => response.json())
+          .then((result) => {
+            if (result.success) {
+              console.log("JSON data saved successfully!");
+            } else {
+              console.log("Failed to save blog.");
+            }
           })
-            .then((response) => response.json())
-            .then((result) => {
-              if (result.success) {
-                console.log("JSON data saved successfully!");
-              } else {
-                console.log("Failed to save blog.");
-              }
-            })
-            .catch((error) => console.error("Error:", error));
+          .catch((error) => console.error("Error:", error));
 
-          var content = quill.root.innerHTML;
-          const formData = new FormData();
-          formData.append("url", pageUrlInput);
-          formData.append("title", titleValue);
-          formData.append("description", descriptionValue);
-          formData.append("date", datePickerValue);
-          formData.append("dateEn", datePickerEnValue);
-          formData.append("content", content);
-          formData.append("tags", tags);
+        var content = quill.root.innerHTML;
+        const formData = new FormData();
+        formData.append("url", pageUrlInput);
+        formData.append("title", titleValue);
+        formData.append("description", descriptionValue);
+        formData.append("date", datePickerValue);
+        formData.append("dateEn", datePickerEnValue);
+        formData.append("content", content);
+        formData.append("tags", tags);
 
-          formData.append("username", username);
-          formData.append("password", password);
+        formData.append("username", username);
+        formData.append("password", password);
 
-          fetch("createNewBlogsPage.php", {
-            method: "POST",
-            body: formData,
+        fetch("uploadNewBlogs.php", {
+          method: "POST",
+          body: formData,
+        })
+          .then((response) => response.text())
+          .then((text) => {
+            console.log(text);
+            if (text.includes("صفحه جدید با موفقیت ایجاد شد:")) {
+              const logElement = document.createElement("div");
+              logElement.innerHTML = text;
+              logContainer.appendChild(logElement);
+            }
           })
-            .then((response) => response.text())
-            .then((text) => {
-              if (text.success) {
-                console.log("page created successfully!");
-              } else {
-                console.log("Upload response:", text);
-              }
-            })
-            .catch((error) => console.error("Error:", error));
-        });
+          .catch((error) => console.error("Error:", error));
+      }
+      /* Delete blog ---------------------*/
+
+      function deleteBlogFunction() {
+        const pageUrlInput = document.getElementById("pageUrl").value;
+
+        const formData = new FormData();
+        formData.append("url", pageUrlInput);
+
+        fetch("deleteBlogs.php", {
+          method: "POST",
+          body: formData,
+        })
+          .then((response) => response.text())
+          .then((text) => {
+            console.log(text);
+          })
+          .catch((error) => console.error("Error:", error));
+      }
+
       /*imageInput display-------------------*/
 
       document.addEventListener("DOMContentLoaded", function () {

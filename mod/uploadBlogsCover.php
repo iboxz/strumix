@@ -26,7 +26,7 @@ if ($resultAuthorisation->num_rows > 0) {
             $image = $_FILES['image'];
             $title = preg_replace('/[^\p{L}\p{N}\-_]/u', '_', $title);
 
-            $uploadDirectory = '../serverUploadAssets/blogsCoverImg/';
+            $uploadDirectory = '../serverAssets/blogsCoverImg/';
 
             $fileExtension = pathinfo($image['name'], PATHINFO_EXTENSION);
             if (!in_array(strtolower($fileExtension), ['jpg', 'jpeg', 'png'])) {

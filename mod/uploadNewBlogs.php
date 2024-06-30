@@ -20,7 +20,14 @@ $sqlAuthorisation = "SELECT * FROM modEntry WHERE email = '$userUsername' AND pa
 $resultAuthorisation = $connAuthorisation->query($sqlAuthorisation);
 
 if ($resultAuthorisation->num_rows > 0) {
-
+  function sanitizeUrl($url)
+  {
+    // پاکسازی URL از کاراکترهای نامعتبر
+    $url = trim($url);
+    $url = preg_replace('/[^A-Za-z0-9\-ا-ی]/u', '-', $url);
+    $url = preg_replace('/-+/', '-', $url);
+    return $url;
+  }
   $url = htmlspecialchars($_POST['url']);
   $title = htmlspecialchars($_POST['title']);
   $description = htmlspecialchars($_POST['description']);
@@ -29,6 +36,11 @@ if ($resultAuthorisation->num_rows > 0) {
   $content = $_POST['content'];
   $tags = htmlspecialchars($_POST['tags']);
 
+  if (preg_match('/index/', $url)) {
+    die("URL not accepted");
+  }
+
+  $url = sanitizeUrl($url);
 
   $cover = preg_replace('/[^\p{L}\p{N}\-_]/u', '_', $title);
 
@@ -75,7 +87,7 @@ if ($resultAuthorisation->num_rows > 0) {
     <meta name='robots' content='index, follow' />
     <meta property='og:title' content='" . $title . "' />
     <meta property='og:description' content='" . $description . "' />
-    <meta property='og:image' content='https://strumix.com/serverUploadAssets/blogsCoverImg/" . $cover . ".jpg' />
+    <meta property='og:image' content='https://strumix.com/serverAssets/blogsCoverImg/" . $cover . ".jpg' />
     <meta property='og:url' content='https://strumix.com/blogs/" . $url . "' />
     <meta name='twitter:title' content='" . $title . "' />
     <meta name='twitter:description' content='" . $description . "' />

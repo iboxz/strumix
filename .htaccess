@@ -2,21 +2,21 @@ DirectoryIndex index.html
 
 RewriteEngine on
 
-RewriteCond %{THE_REQUEST} /([^.]+)\.html [NC]
-RewriteRule ^ /%1 [NC,L,R]
+# Redirect .html URLs to clean URLs with proper encoding support
+RewriteCond %{THE_REQUEST} \s/([^\s]+)\.html [NC]
+RewriteRule ^ /%1 [NE,R=301,L]
 
+# Internally map clean URLs to .html files if they exist
 RewriteCond %{REQUEST_FILENAME}.html -f
 RewriteRule ^ %{REQUEST_URI}.html [NC,L]
 
- RewriteEngine On 
-RewriteCond %{HTTPS} off 
+# Force HTTPS
+RewriteCond %{HTTPS} off
 RewriteRule ^(.*)$ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
 
-
-RewriteEngine On
+# Redirect from strumix.ir to strumix.com
 RewriteCond %{HTTP_HOST} ^(www\.)?strumix\.ir$ [NC]
 RewriteRule ^(.*)$ http://www.strumix.com/$1 [L,R=301]
 
-
-RewriteEngine On
+# Custom 404 error page
 ErrorDocument 404 /404error.html

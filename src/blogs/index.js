@@ -366,11 +366,49 @@ window.addEventListener("load", (event) => {
         end: "bottom bottom",
         scrub: true,
         pin: true,
-        markers: true,
+        // markers: true,
         pinSpacing: false,
       },
     });
   }
+  /* */
+
+  const cardsContainer = document.querySelector(".cardsContainer");
+
+  fetch("../serverAssets/blogs.json")
+    .then((response) => response.json())
+    .then((data) => {
+      const blogs = data.blogs;
+
+      function shuffle(array) {
+        for (let i = array.length - 1; i > 0; i--) {
+          const j = Math.floor(Math.random() * (i + 1));
+          [array[i], array[j]] = [array[j], array[i]];
+        }
+        return array;
+      }
+
+      const shuffledBlogs = shuffle(blogs);
+      const selectedBlogs = shuffledBlogs.slice(0, 3);
+
+      selectedBlogs.forEach((blog) => {
+        const div = document.createElement("div");
+        div.innerHTML = `
+                  <a href="${blog.url}" data-cursor="pointerLinkNavbar">
+                      <div>
+                          <p>${blog.category}</p>
+                          <p>${blog.date}</p>
+                      </div>
+                      <img src="../serverAssets/blogsCoverImg/${blog.image}" alt="" />
+                      <h6>${blog.title}</h6>
+                      <p>${blog.description}</p>
+                  </a>
+              `;
+        cardsContainer.appendChild(div);
+      });
+      activateCustomCursors();
+    })
+    .catch((error) => console.error("Error fetching data:", error));
   /* */
 
   var mWrap = document.querySelectorAll(".mouseSticky");
@@ -626,3 +664,4 @@ function processEmailInput() {
     registerButton.textContent = "ایمیل را اصلاح کنید!";
   }
 }
+/* */

@@ -21,7 +21,7 @@ $resultAuthorisation = $connAuthorisation->query($sqlAuthorisation);
 
 if ($resultAuthorisation->num_rows > 0) {
     if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_FILES['image'])) {
-        $targetDir = "../serverUploadAssets/blogsCoverImg/";
+        $targetDir = "../serverAssets/blogsCoverImg/";
         if (!file_exists($targetDir)) {
             mkdir($targetDir, 0755, true);
         }
