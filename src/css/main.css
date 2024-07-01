@@ -5,15 +5,15 @@
 }
 @font-face {
   font-family: YekanBakhFaNum;
-  src: url("../../assets/fonts/YekanBakhFaNum-Fat.woff2") format("woff2");
-  font-weight: 900;
-}
-@font-face {
-  font-family: YekanBakhFaNum;
   src: url("../../assets/fonts/YekanBakhFaNum-Bold.woff2") format("woff2");
   font-weight: 600;
 }
 
+@font-face {
+  font-family: YekanBakhFaNum;
+  src: url("../../assets/fonts/YekanBakhFaNum-Fat.woff2") format("woff2");
+  font-weight: 900;
+}
 /* cyrillic-ext */
 @font-face {
   font-family: "Montserrat";

@@ -22,7 +22,6 @@ $resultAuthorisation = $connAuthorisation->query($sqlAuthorisation);
 if ($resultAuthorisation->num_rows > 0) {
   function sanitizeUrl($url)
   {
-    // پاکسازی URL از کاراکترهای نامعتبر
     $url = trim($url);
     $url = preg_replace('/[^A-Za-z0-9\-ا-ی]/u', '-', $url);
     $url = preg_replace('/-+/', '-', $url);

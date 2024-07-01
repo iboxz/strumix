@@ -13,8 +13,8 @@
   --section5-card-second: #363029de;
   --invert-icon-color: none;
   --invert-icon-color2: none;
-  --invert-icon-color3: invert(99%) sepia(0%) saturate(0%) hue-rotate(141deg) brightness(109%)
-    contrast(101%);
+  --invert-icon-color3: invert(99%) sepia(0%) saturate(0%) hue-rotate(141deg)
+    brightness(109%) contrast(101%);
 }
 /* :root {
   --background-color: #0f0f0f;
@@ -169,6 +169,9 @@ body {
   object-fit: cover;
   margin: 5vmin 0;
 }
+.mainBlogContainer strong {
+  font-weight:600;
+}
 .blogTags {
   font-size: 0.9rem;
   padding: 35px 5vw 25px 5vw;
@@ -204,8 +207,9 @@ body {
   font-size: clamp(0.8rem, 0.8vw, 100rem);
 }
 .cardsContainer > div {
-  width: max-content;
+  width: 33.33333%;
   padding: 3vmin;
+  height: 100%;
   border-right: 0.1vmin var(--black) solid;
 }
 .cardsContainer > div:first-child {
@@ -538,7 +542,8 @@ body {
   height: 65px;
   transform: rotateY(180deg);
   transition: 0.2s ease;
-  filter: invert(99%) sepia(0%) saturate(0%) hue-rotate(141deg) brightness(109%) contrast(101%);
+  filter: invert(99%) sepia(0%) saturate(0%) hue-rotate(141deg) brightness(109%)
+    contrast(101%);
 }
 
 .settings > div:last-child a:nth-child(1):hover::before,

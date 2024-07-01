@@ -46,7 +46,7 @@ window.addEventListener("load", (event) => {
   var length = path.getTotalLength();
   gsap.set(path, { strokeDasharray: length, strokeDashoffset: length });
 
-  gsap.to(path, { strokeDashoffset: 0, duration: 3, ease: "ease-in-out" });
+  gsap.to(path, { strokeDashoffset: 0, duration: 2, ease: "ease-in-out" });
 
   var splashScreenTimeline = gsap
     .timeline({ paused: true, reversed: true })
@@ -64,9 +64,9 @@ window.addEventListener("load", (event) => {
     )
     .to(".splashScreen", {
       y: "-100%",
-      delay: 1,
+      delay: 0.5,
       duration: 1,
-      ease: "power3.out",
+      ease: "power3.in",
     });
 
   splashScreenTimeline.play();
@@ -348,28 +348,31 @@ window.addEventListener("load", (event) => {
   }
   /*---------------------- */
   if (!isMobileDevice()) {
+    setTimeout(mainSection5, 500);
     function runAfterResize() {
       var tl = gsap.timeline();
       tl.to(".section5", {
         yPercent: -100,
       });
     }
-
-    setTimeout(runAfterResize, 100);
+    setTimeout(runAfterResize, 1500);
     window.addEventListener("resize", function () {
       setTimeout(runAfterResize, 100);
     });
-    gsap.to(".section5", {
-      scrollTrigger: {
-        trigger: ".section5",
-        start: "top bottom",
-        end: "bottom bottom",
-        scrub: true,
-        pin: true,
-        // markers: true,
-        pinSpacing: false,
-      },
-    });
+
+    function mainSection5() {
+      gsap.to(".section5", {
+        scrollTrigger: {
+          trigger: ".section5",
+          start: "top bottom",
+          end: "bottom bottom",
+          scrub: true,
+          pin: true,
+          // markers: true,
+          pinSpacing: false,
+        },
+      });
+    }
   }
   /* */
 

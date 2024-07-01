@@ -22,22 +22,12 @@ $resultAuthorisation = $connAuthorisation->query($sqlAuthorisation);
 if ($resultAuthorisation->num_rows > 0) {
     if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         if (isset($_POST['url'])) {
+
             $url = $_POST['url'];
 
             $filePath = '../blogs/' . $url . '.html';
 
             $jsonFilePath = '../serverAssets/blogs.json';
-
-            if (file_exists($filePath)) {
-                if (unlink($filePath)) {
-                    echo "فایل HTML با موفقیت حذف شد.";
-                } else {
-                    echo "خطا در حذف فایل HTML.";
-                    exit;
-                }
-            } else {
-                echo "فایل HTML وجود ندارد.";
-            }
 
             if (file_exists($jsonFilePath)) {
                 $jsonContent = file_get_contents($jsonFilePath);
@@ -62,6 +52,18 @@ if ($resultAuthorisation->num_rows > 0) {
                 }
             } else {
                 echo "فایل JSON وجود ندارد.";
+            }
+
+
+            if (file_exists($filePath)) {
+                if (unlink($filePath)) {
+                    echo "فایل HTML با موفقیت حذف شد.";
+                } else {
+                    echo "خطا در حذف فایل HTML.";
+                    exit;
+                }
+            } else {
+                echo "فایل HTML وجود ندارد.";
             }
         } else {
             echo "پارامتر 'url' ارسال نشده است.";

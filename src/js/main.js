@@ -471,7 +471,7 @@ window.addEventListener("load", (event) => {
       y: "-100%",
       delay: 0.2,
       duration: 0.9,
-      ease: "power3.out",
+      ease: "power3.in",
     });
 
   splashScreenTimeline.play();

@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
-
+Disallow: /mod/
 Sitemap: https://www.strumix.com/sitemap.xml
