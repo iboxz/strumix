@@ -153,18 +153,28 @@
       <label for="password">Password</label>
       <input type="text" placeholder="Password" id="password" />
 
-      <button onclick="checkDatabaseConnection()">اضافه سازی</button>
+      <button onclick="addNewAdminFunction()">اضافه سازی</button>
       <div id="error"></div>
     </div>
     <div class="form">
       <h3>حذف ادمین:</h3>
       <select id="categorySelector"></select>
-      <button onclick="checkDatabaseConnection()">حذف</button>
-      <div id="error"></div>
+      <button onclick="removeAdminFunction()">حذف</button>
+      <div id="error2"></div>
     </div>
     <script>
+      const username = sessionStorage.getItem("username");
+      const password = sessionStorage.getItem("password");
+
       document.addEventListener("DOMContentLoaded", function () {
-        fetch("fetchModData.php")
+        const formData = new FormData();
+        formData.append("username", username);
+        formData.append("password", password);
+
+        fetch("modDataFetch.php", {
+          method: "POST",
+          body: formData,
+        })
           .then((response) => response.json())
           .then((data) => {
             const selector = document.getElementById("categorySelector");
@@ -177,6 +187,45 @@
           })
           .catch((error) => console.error("Error fetching data:", error));
       });
+
+      function addNewAdminFunction() {
+        const formData = new FormData();
+        const usernameInput = document.getElementById("username").value;
+        const passwordInput = document.getElementById("password").value;
+        formData.append("username", username);
+        formData.append("password", password);
+        formData.append("usernameInput", usernameInput);
+        formData.append("passwordInput", passwordInput);
+
+        fetch("modDataAdd.php", {
+          method: "POST",
+          body: formData,
+        })
+          .then((response) => response.text())
+          .then((text) => {
+            console.log(text);
+            document.getElementById("error").innerHTML = text;
+          })
+          .catch((error) => console.error("Error:", error));
+      }
+      function removeAdminFunction() {
+        const formData = new FormData();
+        const usernameInput = document.getElementById("categorySelector").value;
+        formData.append("username", username);
+        formData.append("password", password);
+        formData.append("usernameInput", usernameInput);
+
+        fetch("modDataRemove.php", {
+          method: "POST",
+          body: formData,
+        })
+          .then((response) => response.text())
+          .then((text) => {
+            console.log(text);
+            document.getElementById("error2").innerHTML = text;
+          })
+          .catch((error) => console.error("Error:", error));
+      }
     </script>
   </body>
 </html>

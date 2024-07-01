@@ -890,3 +890,7 @@ main {
     margin: 3vw 0;
   }
 }
+
+.settingsCSS{
+  display: none;
+}

@@ -116,10 +116,11 @@ if ($resultAuthorisation->num_rows > 0) {
     <script src='https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/CSSRulePlugin.min.js'></script>
     <script src='../src/js/ScrollSmoother.min.js'></script>
     <script src='../src/js/SplitText.min.js'></script>
-    <script async='' src='../src/blogs/index.js'></script>
+    
+    <script async='' src='../src/blogs/index.js?v=1.0.7'></script>
 
-    <link rel='stylesheet' href='../src/css/main.css?v=1.0.1' />
-    <link rel='stylesheet' href='../src/blogs/index.css?v=1.0.1' />
+    <link rel='stylesheet' href='../src/css/main.css?v=1.0.7' />
+    <link rel='stylesheet' href='../src/blogs/index.css?v=1.0.7' />
   </head>
   <body>
     <section class='splashScreen' data-cursor='pointerWaveBorder'>

@@ -10,7 +10,9 @@ function wrapEnglishText(element) {
         newNode.className = "englishText";
         matches.forEach(function (match) {
           var index = node.nodeValue.indexOf(match);
-          newNode.appendChild(document.createTextNode(node.nodeValue.substring(0, index)));
+          newNode.appendChild(
+            document.createTextNode(node.nodeValue.substring(0, index))
+          );
           newNode.appendChild(document.createTextNode(match));
           node.nodeValue = node.nodeValue.substring(index + match.length);
         });

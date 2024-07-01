@@ -14,7 +14,7 @@ if (!navigator.userAgent.match(/iPhone/i)) {
       tag: "span",
     }).chars,
     {
-      delay: 3.5,
+      delay: 2.5,
       opacity: 0.2,
       duration: 0.5,
       ease: "power3.out",
@@ -136,10 +136,12 @@ window.addEventListener("load", (event) => {
 
           productCount += renderProducts(category.products);
 
-          document.getElementById(category.name).addEventListener("click", () => {
-            fetchAndLogProducts(category.name);
-            smoother.scrollTo(bottomSectionContainer, true, "bottom top");
-          });
+          document
+            .getElementById(category.name)
+            .addEventListener("click", () => {
+              fetchAndLogProducts(category.name);
+              smoother.scrollTo(bottomSectionContainer, true, "bottom top");
+            });
         });
 
         const counter = document.querySelector(".counter");
@@ -186,7 +188,9 @@ window.addEventListener("load", (event) => {
   document
     .getElementById("constructionChemicals")
     .addEventListener("click", fetchDataAndRender("constructionChemicals"));
-  document.getElementById("waterstop").addEventListener("click", fetchDataAndRender("waterstop"));
+  document
+    .getElementById("waterstop")
+    .addEventListener("click", fetchDataAndRender("waterstop"));
 
   const fetchData = async () => {
     try {

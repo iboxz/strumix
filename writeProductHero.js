@@ -32,16 +32,16 @@ async function updateMetaTags() {
           const $ = cheerio.load(htmlContent);
 
           // Add meta tag for description
-          $("head").append(
-            ``
-          );
+          $("head").append(``);
 
           // Write changes to the file asynchronously
           await fs.writeFile(filePath, $.html(), "utf-8");
 
           console.log(`Meta tags of ${product.url} successfully updated.`);
         } catch (err) {
-          console.error(`Error updating meta tags of ${product.url}: ${err.message}`);
+          console.error(
+            `Error updating meta tags of ${product.url}: ${err.message}`
+          );
         }
       }
     }

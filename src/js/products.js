@@ -16,7 +16,7 @@ window.addEventListener("load", (event) => {
       tag: "span",
     }).words,
     {
-      delay: 3.5,
+      delay: 2.2,
       opacity: 0.2,
       duration: 0.5,
       ease: "power3.out",
@@ -25,7 +25,7 @@ window.addEventListener("load", (event) => {
   );
 
   gsap.from(".hero img", {
-    delay: 3.5,
+    delay: 2.2,
     x: "30vw",
     duration: 1,
     ease: "back.out(1.7)",
@@ -148,7 +148,9 @@ fetch("./products.json")
 
     const selectedCategories = [];
     for (const category of data.categories) {
-      const products = category.products.filter((product) => currentUrl.includes(product.url));
+      const products = category.products.filter((product) =>
+        currentUrl.includes(product.url)
+      );
       if (products.length) {
         selectedCategories.push(category);
       }
@@ -184,7 +186,8 @@ window.addEventListener("load", async () => {
     const content = component.querySelector(CONTENT_SELECTOR);
     let x = 0;
     let mx = 0;
-    const maxScrollWidth = content.scrollWidth - content.clientWidth / 2 - content.clientWidth / 2;
+    const maxScrollWidth =
+      content.scrollWidth - content.clientWidth / 2 - content.clientWidth / 2;
     const nextButton = component.querySelector(".arrow-next");
     const prevButton = component.querySelector(".arrow-prev");
 
