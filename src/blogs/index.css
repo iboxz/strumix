@@ -34,6 +34,7 @@
     contrast(100%);
   --invert-icon-color3: invert(99%) sepia(0%) saturate(0%) hue-rotate(141deg) brightness(109%) contrast(101%);
 } */
+
 body {
   background: var(--background-color);
 }
@@ -167,11 +168,21 @@ body {
   width: 100%;
   height: auto;
   object-fit: cover;
-  margin: 5vmin 0;
+}
+.mainBlogContainer .ql-align-center {
+  text-align: center;
+  margin: 0 auto;
+  display: block;
+}
+.mainBlogContainer .ql-align- {
+  text-align: left;
+  margin-right: auto;
+  display: block;
 }
 .mainBlogContainer strong {
-  font-weight:600;
+  font-weight: 600;
 }
+
 .blogTags {
   font-size: 0.9rem;
   padding: 35px 5vw 25px 5vw;

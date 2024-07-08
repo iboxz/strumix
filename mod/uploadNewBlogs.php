@@ -32,6 +32,7 @@ if ($resultAuthorisation->num_rows > 0) {
   $description = htmlspecialchars($_POST['description']);
   $date = htmlspecialchars($_POST['date']);
   $dateEn = htmlspecialchars($_POST['dateEn']);
+  $imgWidth = htmlspecialchars($_POST['imgWidth']);
   $content = $_POST['content'];
   $tags = htmlspecialchars($_POST['tags']);
 
@@ -59,18 +60,6 @@ if ($resultAuthorisation->num_rows > 0) {
 
   $new_file = '../blogs/' . $url . '.html';
 
-  $html_content = "<!DOCTYPE html>
-    <html lang='fa'>
-    <head>
-        <meta charset='UTF-8'>
-        <meta name='viewport' content='width=device-width, initial-scale=1.0'>
-        <title>" . $title . "</title>
-    </head>
-    <body>
-        <h1>" . $title . "</h1>
-        <p>این یک صفحه جدید است که به صورت پویا ایجاد شده است.</p>
-    </body>
-    </html>";
   $html_content = "<!DOCTYPE html>
 <html lang='en'>
   <head>
@@ -116,10 +105,16 @@ if ($resultAuthorisation->num_rows > 0) {
     <script src='../src/js/ScrollSmoother.min.js'></script>
     <script src='../src/js/SplitText.min.js'></script>
     
-    <script async='' src='../src/blogs/index.js?v=1.0.7'></script>
+    <script async='' src='../src/blogs/cacheUpdator.js'></script>
+    <script async='' src='../src/blogs/index.js'></script>
 
-    <link rel='stylesheet' href='../src/css/main.css?v=1.0.7' />
-    <link rel='stylesheet' href='../src/blogs/index.css?v=1.0.7' />
+    <link rel='stylesheet' href='../src/css/main.css' />
+    <link rel='stylesheet' href='../src/blogs/index.css' />
+    <style>
+      .mainBlogContainer img {
+        width: " . $imgWidth . "%;
+      }
+    </style>
   </head>
   <body>
     <section class='splashScreen' data-cursor='pointerWaveBorder'>

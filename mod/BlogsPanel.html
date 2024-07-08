@@ -73,6 +73,7 @@
         direction: rtl;
         text-align: right;
       }
+      textarea,
       input {
         background: transparent;
         padding: 8px;
@@ -80,6 +81,10 @@
         width: 50vmin;
         border: 1px solid rgb(171, 171, 171);
         direction: rtl;
+        font-family: Arial, YekanBakhFaNum, Helvetica, sans-serif;
+      }
+      textarea {
+        resize: vertical;
       }
 
       #category {
@@ -163,6 +168,10 @@
         border-radius: 5px;
         text-align: center;
       }
+
+      .mainBlogContainer img {
+        width: var(--custom-width, 100%);
+      }
     </style>
   </head>
   <body>
@@ -183,7 +192,8 @@
       <input type="text" id="datePickerEn" name="datePickerEn" />
       <label for="datePickerEn">تاریخ میلادی</label>
       <br />
-      <input type="text" id="description" name="Description" />
+
+      <textarea id="description" name="Description" rows="5"></textarea>
       <label for="Description">شرح خلاصه</label>
       <br />
       <input type="file" id="imageInput" name="imageInput" />
@@ -206,6 +216,18 @@
       <br />
       <input type="text" id="category" name="category" />
       <select id="categorySelector"></select>
+
+      <br />
+
+      <input
+        id="imgWidth"
+        name="imgWidth"
+        type="number"
+        min="1"
+        max="100"
+        required
+      />
+      <label for="imgWidth">عرض تصویر</label>
 
       <div id="editor"></div>
 
@@ -283,7 +305,7 @@
       const username = sessionStorage.getItem("username");
       const password = sessionStorage.getItem("password");
 
-      document.addEventListener("DOMContentLoaded", function () {
+      /*  document.addEventListener("DOMContentLoaded", function () {
         const formData = new FormData();
         formData.append("username", username);
         formData.append("password", password);
@@ -297,13 +319,12 @@
             if (text != "true") {
               document.body.innerHTML = "";
 
-              // اضافه کردن دیتای جدید
               document.body.innerHTML =
                 '<a style="display: block; width: 100%; text-align: center; font-size: larger;" href="index.html">لاگین کنید</a>';
             }
           })
           .catch((error) => console.error("Error:", error));
-      });
+      }); */
 
       let currentFunction = null;
 
@@ -328,7 +349,6 @@
       document
         .getElementById("noButton")
         .addEventListener("click", function () {
-          alert("شما انتخاب کردید که ادامه ندهید.");
           document.getElementById("popup").style.display = "none";
         });
       window.addEventListener("click", function (event) {
@@ -477,10 +497,12 @@
         theme: "snow",
         modules: {
           toolbar: [
-            [{ header: [1, 2, false] }],
+            [{ header: [1, 2, 3] }],
             ["link", "bold", "italic", "underline"],
             ["image"],
             [{ list: "ordered" }, { list: "bullet" }],
+            [{ color: [] }, { background: [] }],
+            [{ align: [] }],
           ],
           imageUploader: {
             upload: (file) => {
@@ -519,13 +541,18 @@
         const titleValue = document.getElementById("title").value;
         const descriptionValue = document.getElementById("description").value;
         const categoryValue = document.getElementById("category").value;
-        const imageInput = document.getElementById("imageInput").files[0];
-        const reader = new FileReader();
-        reader.readAsDataURL(imageInput); // خواندن فایل به صورت URL داده
-        reader.onload = function (e) {
-          const imgSrc = e.target.result;
-          document.querySelector(".card .img").src = imgSrc;
-        };
+
+        const previewImage = document.getElementById("previewImage").src;
+        document.querySelector(".card .img").src = previewImage;
+
+        const imgWidthInput =
+          document.getElementById("imgWidth").value || "100";
+
+        const imagesContainer = document.querySelector(".mainBlogContainer");
+        imagesContainer.style.setProperty(
+          "--custom-width",
+          imgWidthInput + "%"
+        );
 
         var html = quill.root.innerHTML;
         document.querySelector(".mainBlogContainer").innerHTML = html;
@@ -556,6 +583,19 @@
 
       /*  تاریخ--------------*/
 
+      function convertToPersianWords(number) {
+        const persianWords = ["۰", "۱", "۲", "۳", "۴", "۵", "۶", "۷", "۸", "۹"];
+        return number.toString().replace(/\d/g, (d) => persianWords[d]);
+      }
+
+      const input = document.getElementById("datePicker");
+
+      input.addEventListener("input", function () {
+        let currentValue = this.value;
+        let persianValue = convertToPersianWords(currentValue);
+        this.value = persianValue;
+      });
+
       function getTodayJalaliDate() {
         const months = [
           "فروردین",
@@ -571,35 +611,6 @@
           "بهمن",
           "اسفند",
         ];
-
-        function convertToPersianWords(number) {
-          const persianNumbers = [
-            "۰",
-            "۱",
-            "۲",
-            "۳",
-            "۴",
-            "۵",
-            "۶",
-            "۷",
-            "۸",
-            "۹",
-          ];
-          const persianWords = [
-            "۰",
-            "۱",
-            "۲",
-            "۳",
-            "۴",
-            "۵",
-            "۶",
-            "۷",
-            "۸",
-            "۹",
-          ];
-
-          return number.toString().replace(/\d/g, (d) => persianWords[d]);
-        }
 
         const jDate = moment().locale("fa").format("jYYYY/jMM/jDD");
         const [jYear, jMonth, jDay] = jDate.split("/");
@@ -659,14 +670,19 @@
       });
 
       /* ساخت صفحه جدید------------------------*/
-
-      function submitFormFunction() {
+      async function submitFormFunction() {
         function sanitizeUrl(url) {
           url = url.trim();
           url = url.replace(/[^A-Za-z0-9\-ا-ی]/g, "-");
           url = url.replace(/-+/g, "-");
           return url;
         }
+
+        function showError(message) {
+          console.error(message);
+          alert("اطلاعات به درستی ثبت نشد لطفا دوباره تلاش کنید");
+        }
+
         const datePickerValue = document.getElementById("datePicker").value;
         const datePickerEnValue = document.getElementById("datePickerEn").value;
         const titleValue = document.getElementById("title").value;
@@ -674,32 +690,44 @@
         const pageUrlInput = document.getElementById("pageUrl").value;
         const sanitizedUrl = sanitizeUrl(pageUrlInput);
         const categoryInput = document.getElementById("category").value;
-        const imageInput = document.getElementById("imageInput").files[0];
+        const imgWidthInput = document.getElementById("imgWidth").value;
+        const previewImageSrc = document.getElementById("previewImage").src;
+
+        const response = await fetch(previewImageSrc);
+        const blob = await response.blob();
+
+        const CoverImgFile = new File([blob], "image.jpg", { type: blob.type });
 
         if (sanitizedUrl === "index") {
-          console.error("You can't use index for url, that's main page");
+          showError("You can't use index for url, that's main page");
           return;
         }
 
         const formDataCoverImg = new FormData();
-        formDataCoverImg.append("image", imageInput);
+        formDataCoverImg.append("image", CoverImgFile);
         formDataCoverImg.append("title", titleValue);
         formDataCoverImg.append("username", username);
         formDataCoverImg.append("password", password);
 
-        fetch("uploadBlogsCover.php", {
-          method: "POST",
-          body: formDataCoverImg,
-        })
-          .then((response) => response.text())
-          .then((text) => {
-            if (text.includes("Image uploaded successfully!")) {
-              console.log("Image uploaded successfully!");
-            } else {
-              console.log("Upload response:", text);
-            }
-          })
-          .catch((error) => console.error("Error:", error));
+        let coverImageUploaded = false;
+        let jsonUploaded = false;
+
+        try {
+          const coverImgResponse = await fetch("uploadBlogsCover.php", {
+            method: "POST",
+            body: formDataCoverImg,
+          });
+          const coverImgText = await coverImgResponse.text();
+          if (coverImgText.includes("Image uploaded successfully!")) {
+            console.log("Image uploaded successfully!");
+            coverImageUploaded = true;
+          } else {
+            throw new Error(`Upload response: ${coverImgText}`);
+          }
+        } catch (error) {
+          showError(error.message);
+          return;
+        }
 
         const regex = /[^\p{L}\p{N}\-_]/gu;
         const CoverImage = titleValue.replace(regex, "_") + ".jpg";
@@ -713,54 +741,65 @@
           description: descriptionValue,
           image: CoverImage,
           tags: tags,
+          imgWidth: imgWidthInput,
           username: username,
           password: password,
         };
-        fetch("uploadBlogJson.php", {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify(data),
-        })
-          .then((response) => response.json())
-          .then((result) => {
-            if (result.success) {
-              console.log("JSON data saved successfully!");
-            } else {
-              console.log("Failed to save blog.");
-            }
-          })
-          .catch((error) => console.error("Error:", error));
 
-        var content = quill.root.innerHTML;
-        const formData = new FormData();
-        formData.append("url", sanitizedUrl);
-        formData.append("title", titleValue);
-        formData.append("description", descriptionValue);
-        formData.append("date", datePickerValue);
-        formData.append("dateEn", datePickerEnValue);
-        formData.append("content", content);
-        formData.append("tags", tags);
+        try {
+          const jsonResponse = await fetch("uploadBlogJson.php", {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json",
+            },
+            body: JSON.stringify(data),
+          });
+          const jsonResult = await jsonResponse.json();
+          if (jsonResult.success) {
+            console.log("JSON data saved successfully!");
+            jsonUploaded = true;
+          } else {
+            throw new Error("Failed to save blog.");
+          }
+        } catch (error) {
+          showError(error.message);
+          return;
+        }
 
-        formData.append("username", username);
-        formData.append("password", password);
+        if (coverImageUploaded && jsonUploaded) {
+          var content = quill.root.innerHTML;
+          const formData = new FormData();
+          formData.append("url", sanitizedUrl);
+          formData.append("title", titleValue);
+          formData.append("description", descriptionValue);
+          formData.append("date", datePickerValue);
+          formData.append("dateEn", datePickerEnValue);
+          formData.append("content", content);
+          formData.append("tags", tags);
+          formData.append("imgWidth", imgWidthInput);
+          formData.append("username", username);
+          formData.append("password", password);
 
-        fetch("uploadNewBlogs.php", {
-          method: "POST",
-          body: formData,
-        })
-          .then((response) => response.text())
-          .then((text) => {
-            console.log(text);
-            if (text.includes("صفحه جدید با موفقیت ایجاد شد:")) {
+          try {
+            const newBlogsResponse = await fetch("uploadNewBlogs.php", {
+              method: "POST",
+              body: formData,
+            });
+            const newBlogsText = await newBlogsResponse.text();
+            if (newBlogsText.includes("صفحه جدید با موفقیت ایجاد شد:")) {
               const logElement = document.createElement("div");
-              logElement.innerHTML = text;
+              logElement.innerHTML = newBlogsText;
               logContainer.appendChild(logElement);
+              console.log("Page created successfully!");
+            } else {
+              throw new Error(newBlogsText);
             }
-          })
-          .catch((error) => console.error("Error:", error));
+          } catch (error) {
+            showError(error.message);
+          }
+        }
       }
+
       /* Delete blog ---------------------*/
 
       function deleteBlogFunction() {
@@ -804,6 +843,20 @@
           }
         });
       });
+
+      /*limit width input-------------------*/
+      document
+        .getElementById("imgWidth")
+        .addEventListener("input", function () {
+          const input = this;
+          const value = parseInt(input.value);
+
+          if (value < 1) {
+            input.value = 1;
+          } else if (value > 100) {
+            input.value = 100;
+          }
+        });
     </script>
   </body>
 </html>
