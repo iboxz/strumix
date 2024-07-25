@@ -187,10 +187,13 @@
       <label for="title">عنوان</label>
       <br />
       <input type="text" id="datePicker" name="date" />
-      <label for="datePicker">تاریخ</label>
+      <label for="datePicker">تاریخ شمسی</label>
+      <br />
+      <input type="text" id="datePickerEnTranslate" name="date" disabled />
+      <label for="datePickerEnTranslate">تاریخ میلادی</label>
       <br />
       <input type="text" id="datePickerEn" name="datePickerEn" />
-      <label for="datePickerEn">تاریخ میلادی</label>
+      <label for="datePickerEn">تاریخ میلادی سئو</label>
       <br />
 
       <textarea id="description" name="Description" rows="5"></textarea>
@@ -305,7 +308,7 @@
       const username = sessionStorage.getItem("username");
       const password = sessionStorage.getItem("password");
 
-      /*  document.addEventListener("DOMContentLoaded", function () {
+      document.addEventListener("DOMContentLoaded", function () {
         const formData = new FormData();
         formData.append("username", username);
         formData.append("password", password);
@@ -324,7 +327,7 @@
             }
           })
           .catch((error) => console.error("Error:", error));
-      }); */
+      });
 
       let currentFunction = null;
 
@@ -389,6 +392,9 @@
       document.addEventListener("DOMContentLoaded", function () {
         const blogSelect = document.getElementById("blogSelect");
         const blogDateInput = document.getElementById("datePicker");
+        const datePickerEnTranslateInput = document.getElementById(
+          "datePickerEnTranslate"
+        );
         const blogTitleInput = document.getElementById("title");
         const blogDescriptionInput = document.getElementById("description");
         const blogImageInput = document.getElementById("previewImage");
@@ -438,6 +444,7 @@
           const blog = jsonData.blogs[index];
 
           blogDateInput.value = blog.date;
+          datePickerEnTranslateInput.value = blog.dateConvert;
           blogTitleInput.value = blog.title;
           blogDescriptionInput.value = blog.description;
           pageUrlInput.value = blog.url;
@@ -624,6 +631,7 @@
 
       document.getElementById("dateSelector").innerHTML = getTodayJalaliDate();
       document.getElementById("datePicker").value = getTodayJalaliDate();
+      convertDate();
 
       function getTodayDate() {
         const today = new Date();
@@ -684,6 +692,9 @@
         }
 
         const datePickerValue = document.getElementById("datePicker").value;
+        const datePickerEnTranslateValue = document.getElementById(
+          "datePickerEnTranslate"
+        ).value;
         const datePickerEnValue = document.getElementById("datePickerEn").value;
         const titleValue = document.getElementById("title").value;
         const descriptionValue = document.getElementById("description").value;
@@ -737,6 +748,7 @@
           category: categoryInput,
           title: titleValue,
           date: datePickerValue,
+          dateConvert: datePickerEnTranslateValue,
           dateEn: datePickerEnValue,
           description: descriptionValue,
           image: CoverImage,
@@ -773,6 +785,7 @@
           formData.append("title", titleValue);
           formData.append("description", descriptionValue);
           formData.append("date", datePickerValue);
+          formData.append("dateConvert", datePickerEnTranslateValue);
           formData.append("dateEn", datePickerEnValue);
           formData.append("content", content);
           formData.append("tags", tags);
@@ -856,6 +869,78 @@
           } else if (value > 100) {
             input.value = 100;
           }
+        });
+
+      /*------------------------------------*/
+
+      function convertPersianNumbersToEnglish(text) {
+        const persianToEnglishMap = {
+          "۰": "0",
+          "۱": "1",
+          "۲": "2",
+          "۳": "3",
+          "۴": "4",
+          "۵": "5",
+          "۶": "6",
+          "۷": "7",
+          "۸": "8",
+          "۹": "9",
+        };
+        return text.replace(/[۰-۹]/g, (match) => persianToEnglishMap[match]);
+      }
+
+      function parsePersianDate(input) {
+        const monthMapping = {
+          فروردین: 1,
+          اردیبهشت: 2,
+          خرداد: 3,
+          تیر: 4,
+          مرداد: 5,
+          شهریور: 6,
+          مهر: 7,
+          آبان: 8,
+          آذر: 9,
+          دی: 10,
+          بهمن: 11,
+          اسفند: 12,
+        };
+
+        const regex =
+          /(\d{1,2})(فروردین|اردیبهشت|خرداد|تیر|مرداد|شهریور|مهر|آبان|آذر|دی|بهمن|اسفند)(\d{4})/;
+        const match = input.match(regex);
+
+        if (!match) return null;
+
+        const day = match[1].padStart(2, "0");
+        const month = monthMapping[match[2]];
+        const year = match[3];
+
+        return `${year}/${month}/${day}`;
+      }
+
+      function convertDate() {
+        const input = document.getElementById("datePicker").value;
+
+        const inputWithEnglishNumbers = convertPersianNumbersToEnglish(input);
+
+        const persianDate = parsePersianDate(inputWithEnglishNumbers);
+
+        if (!persianDate) {
+          document.getElementById("datePickerEnTranslate").value =
+            "تاریخ شمسی به درستی وارد نشده";
+          return;
+        }
+
+        const gregorianDate = moment(persianDate, "jYYYY/jMM/jDD").format(
+          "YYYY-MM-DD"
+        );
+
+        document.getElementById("datePickerEnTranslate").value = gregorianDate;
+      }
+      document
+        .getElementById("datePicker")
+        .addEventListener("input", function () {
+          convertDate();
         });
     </script>
   </body>

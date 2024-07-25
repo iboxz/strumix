@@ -2,6 +2,7 @@ var randomVersion = Math.floor(Math.random() * 100000);
 
 var filesToUpdate = [
   "../src/blogs/index.css",
+  "../src/blogs/home.css",
   "../src/css/main.css",
   "../src/blogs/index.js",
 ];

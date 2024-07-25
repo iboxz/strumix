@@ -159,7 +159,6 @@ html {
 
   transition: top 0.15s ease-out, left 0.15s ease-out, width 0.15s ease-out,
     height 0.15s ease-out, background-color 0.15s ease-out;
-
   z-index: 998;
 }
 
@@ -222,7 +221,6 @@ html {
 
   font-family: Arial, Helvetica, sans-serif;
   text-transform: uppercase;
-  color: #000;
 
   display: flex;
   justify-content: center;
@@ -278,7 +276,7 @@ html {
 }
 .splashScreen svg path {
   stroke: #df1218;
-  stroke-width: 1vmin;
+  stroke-width: 5;
   stroke-dasharray: 1000;
   stroke-dashoffset: 1000;
   stroke-linecap: round;

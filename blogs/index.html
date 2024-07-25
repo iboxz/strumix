@@ -50,10 +50,12 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/CSSRulePlugin.min.js"></script>
     <script src="../src/js/ScrollSmoother.min.js"></script>
     <script src="../src/js/SplitText.min.js"></script>
-    <script async="" src="../src/blogs/index.js"></script>
+    <script src="../src/js/jalaali.js"></script>
 
-    <link rel="stylesheet" href="../src/css/main.css?v=1.0.1" />
-    <link rel="stylesheet" href="../src/blogs/index.css?v=1.0.1" />
+    <script async="" src="../src/blogs/cacheUpdator.js"></script>
+    <script async="" src="../src/blogs/home.js"></script>
+    <link rel="stylesheet" href="../src/css/main.css" />
+    <link rel="stylesheet" href="../src/blogs/home.css" />
   </head>
   <body>
     <section class="splashScreen" data-cursor="pointerWaveBorder">
@@ -69,77 +71,66 @@
       <div class="changeTheme">
         <img src="../assets/VectorNight.svg" alt="Vector dark mode" />
       </div>
-      <div class="copyButton">
-        <p>کپی لینک صفحه!</p>
-        <img src="../assets/VectorShare.svg" alt="Vector copy" />
-      </div>
-      <div>
-        <img src="../assets/VectorPhone.svg" alt="Vector phone" />
-      </div>
-      <div>
-        <a
-          target="_blank"
-          href="https://api.whatsapp.com/send?phone=989122087393"
-          ><p>پشتیبانی فنی</p></a
-        >
-        <a
-          target="_blank"
-          href="https://api.whatsapp.com/send?phone=989928210625"
-          ><p>پشتیبانی فروش</p></a
-        >
-        <a href="tel:02144403448">
-          <p>تلفن تماس</p>
-          <p>021-44403448</p>
-        </a>
-        <a href="tel:021-44000408">
-          <p>تلفن تماس 2</p>
-          <p>021-44000408</p>
-        </a>
-        <a href="mailto:info@strumix.com">
-          <p>ایمیل</p>
-          <p>info@strumix.com</p>
-        </a>
-      </div>
     </section>
     <main id="smooth-wrapper">
       <div id="smooth-content">
         <section class="hero">
-          <img src="../assets/VectorLogo.svg" alt="" />
-          <h1></h1>
+          <img src="../assets/img/Strumix-structure-view5.jpg" alt="" />
+          <h1><span>مقالات</span><span>استرامیکس</span></h1>
         </section>
         <section class="section2">
           <header class="magnetic-wrap">
-            <a class="mouseSticky" href="" data-cursor="pointerClickable"
-              >لیست مقالات</a
-            >
-            <a class="mouseSticky" href="../" data-cursor="pointerClickable"
-              >صفحه‌ی اصلی</a
-            >
+            <a class="mouseSticky" href="" data-cursor="pointerClickable">
+              لیست مقالات
+            </a>
+            <div class="search">
+              <input
+                id="name"
+                class="TextInput"
+                title="productSearch"
+                type="text"
+                placeholder=" "
+                maxlength="70"
+                tabindex="1"
+                oninput="searchProduct(this.value)"
+                onclick="document.getElementById('allProducts').click()"
+              />
+              <p>
+                <img src="../assets/VectorSearch.svg" alt="Search Vector" />
+                جستجو
+              </p>
+            </div>
+            <a class="mouseSticky" href="../" data-cursor="pointerClickable">
+              صفحه‌ی اصلی
+            </a>
             <a
               class="mouseSticky"
               href="../products/index.html"
               data-cursor="pointerClickable"
-              >کاتالوگ محصولات</a
             >
+              کاتالوگ محصولات
+            </a>
             <a
               class="mouseSticky"
               href="../contact/index.html"
               data-cursor="pointerClickable"
-              >ارتباط با ما</a
             >
-            <a class="mouseSticky" href="../" data-cursor="pointerClickable"
-              >استرامیکس</a
-            >
-            <span>&nbsp;&nbsp;/&nbsp;&nbsp;</span>
-            <a class="mouseSticky" data-cursor="pointerClickable"
-              >۲۹ اردیبهشت ۱۴۰۳</a
-            >
+              ارتباط با ما
+            </a>
           </header>
-          <div class="mainBlogContainer"></div>
-          <div class="blogTags"></div>
-        </section>
-        <section class="section3">
-          <div class="cardsContainer"></div>
+          <div class="mainBlogContainer">
+            <div class="blogSelector">
+              <div class="more">
+                <div id="showMore">
+                  <p>نمایش مقالات بیشتر</p>
+                  <img src="../assets/VectorFlesh6.svg" alt="" />
+                </div>
+              </div>
+            </div>
+            <div class="categorySelector">
+              <p>دسته بندی</p>
+            </div>
+          </div>
         </section>
         <section class="section4" data-cursor="pointerWhite">
           <p>بهترین مطالب هر ما</p>
@@ -201,11 +192,6 @@
             <a data-cursor="pointerClickable" href="" target="_blank">
               <span class="iconFlesh"></span>
               <p>نمایش یکی از مقالات به صورت اتفاقی</p>
-              <span></span>
-            </a>
-            <a data-cursor="pointerClickable" href="./index.html">
-              <span class="iconFlesh"></span>
-              <p>لیست مقالات</p>
               <span></span>
             </a>
             <a
