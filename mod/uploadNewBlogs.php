@@ -67,7 +67,7 @@ if ($resultAuthorisation->num_rows > 0) {
     <meta name='viewport' content='width=device-width, initial-scale=1.0' />
     <meta http-equiv='X-UA-Compatible' content='IE=edge' />
     <meta name='robots' content='index, follow' />
-    <link rel='icon' type='image/svg' href='assets/VectorLogo-favicon.svg' />
+    <link rel='icon' type='image/svg' href='../assets/VectorLogo-favicon.svg' />
 
     <title>" . $title . "</title>
     <meta name='description' content='" . $description . "' />
@@ -261,7 +261,7 @@ if ($resultAuthorisation->num_rows > 0) {
           <div>
             <a data-cursor='pointerClickable' href='' target='_blank'>
               <span class='iconFlesh'></span>
-              <p>نمایش یکی از مقالات به صورت اتفاقی</p>
+              <p>نمایش یکی از مقالات به صورت تصادفی</p>
               <span></span>
             </a>
             <a data-cursor='pointerClickable' href='./index.html'>

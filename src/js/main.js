@@ -316,13 +316,13 @@ window.addEventListener("load", (event) => {
         menuEnabled = true;
         document.body.style.overflow = "visible";
       } else {
-        window.open(baseUrl + "/#", "_self");
+        window.open(baseUrl + "/blogs", "_self");
       }
     });
   document
     .querySelector("nav > div:nth-child(5)")
     .addEventListener("click", function () {
-      window.open(baseUrl + "/contact.html", "_self");
+      window.open(baseUrl + "/contact", "_self");
     });
   document
     .querySelector("nav > div:nth-child(1)")
@@ -399,9 +399,9 @@ window.addEventListener("load", (event) => {
     });
 
     var links = [
-      { text: "مقالات", href: "#" },
+      { text: "مقالات", href: "./blogs" },
       { text: "مدارک فنی", href: "#" },
-      { text: "ارتباط با ما", href: baseUrl + "/contact.html" },
+      { text: "ارتباط با ما", href: baseUrl + "/contact" },
     ];
 
     for (var i = 0; i < links.length; i++) {
@@ -506,7 +506,7 @@ window.addEventListener("load", (event) => {
   div1.appendChild(catalogLink);
 
   const articlesLink = document.createElement("a");
-  articlesLink.href = "#";
+  articlesLink.href = "/blogs";
   articlesLink.setAttribute("data-cursor", "pointerLink");
   articlesLink.innerHTML = "<span></span>مقالات";
   div1.appendChild(articlesLink);
@@ -520,7 +520,7 @@ window.addEventListener("load", (event) => {
   };
 
   const contactLink = document.createElement("a");
-  contactLink.href = baseUrl + "/contact.html";
+  contactLink.href = baseUrl + "/contact";
   contactLink.setAttribute("data-cursor", "pointerLink");
   contactLink.innerHTML = "<span></span>ارتباط با ما";
   div1.appendChild(contactLink);

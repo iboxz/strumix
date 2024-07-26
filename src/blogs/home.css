@@ -11,6 +11,7 @@
   --section5-background-second: #ff9a03;
   --section5-card-first: #ffcb6d;
   --section5-card-second: #363029de;
+  --categorySelector-card: #e8dfc7;
   --invert-icon-color: none;
   --invert-icon-color2: none;
   --invert-icon-color3: invert(99%) sepia(0%) saturate(0%) hue-rotate(141deg)
@@ -29,6 +30,7 @@
   --section5-background-second: #241f14;
   --section5-card-first: #696969;
   --section5-card-second: #ff1f1fde;
+  --categorySelector-card: #1d1d1d;
   --invert-icon-color: invert(48%) brightness(1000%);
   --invert-icon-color2: invert(99%) sepia(0%) saturate(0%) hue-rotate(338deg) brightness(113%)
     contrast(100%);
@@ -39,10 +41,17 @@ body {
   background: var(--background-color);
 }
 * {
-  transition: color 0.2s ease, background-color 0.2s ease;
+  transition: background-color 0.4s ease;
 }
 #smooth-content {
   position: relative;
+  pointer-events: none;
+}
+#smooth-content section{
+  pointer-events: all;
+}
+.highlight {
+  background-color: rgb(148, 148, 86);
 }
 .hero {
   height: 50vh;
@@ -57,6 +66,7 @@ body {
   flex-direction: column;
   justify-content: end;
   align-items: right;
+  pointer-events: none;
 }
 .hero img {
   position: absolute;
@@ -131,10 +141,6 @@ body {
 .section2 header a:nth-child(1):after {
   height: 0;
 }
-.section2 header a:nth-child(5):after,
-.section2 header a:nth-child(7):after {
-  height: 0.2vmin;
-}
 .section2 header a:hover::after {
   right: 15%;
   left: 15%;
@@ -171,12 +177,18 @@ body {
   color: var(--black);
 }
 .section2 .search {
-  background: #f0e7ce;
+  background: var(--categorySelector-card);
+  color: var(--black);
   padding: 0.7vmin 3vmin 0.7vmin 15vmin;
   font-size: clamp(0.8rem, 0.9vw, 100rem);
   position: relative;
   z-index: -1;
   margin-right: 2vmin;
+}
+
+.section2 .search:hover {
+  background: #dfd7c2;
+  color: black;
 }
 .section2 .search * {
   user-select: none;
@@ -193,11 +205,6 @@ body {
   pointer-events: none;
   display: flex;
   align-items: center;
-}
-
-.section2 .search p {
-  z-index: 1;
-  pointer-events: none;
 }
 
 .section2 .search .TextInput {
@@ -229,10 +236,12 @@ body {
   font-weight: 300;
   color: var(--black);
   display: flex;
+  width: 100%;
 }
 .mainBlogContainer .blogSelector a {
   text-decoration: none;
-  color: black;
+
+  color: var(--black);
 }
 
 .mainBlogContainer .blogSelector {
@@ -259,11 +268,31 @@ body {
   flex-direction: column;
   margin-right: 4vmin;
 }
-.mainBlogContainer .blogSelector .card > div > h3 {
+.mainBlogContainer .blogSelector .card > div a {
   font-size: clamp(1.5rem, 2.5vw, 100rem);
   font-weight: 400;
+
+  background-image: linear-gradient(
+    to top,
+    transparent 11px,
+    #202020 11px,
+    #202020 12px,
+    transparent 12px
+  );
+  background-repeat: no-repeat;
+  background-size: 0 100%;
+  -webkit-transition: color 0.3s ease, background-color 0.3s ease,
+    background-size 0.7s;
+  transition: color 0.3s ease, background-color 0.3s ease, background-size 0.7s;
+  background-position: right;
+  -webkit-transition-timing-function: cubic-bezier(0.5, 1, 0.89, 1);
+  transition-timing-function: cubic-bezier(0.5, 1, 0.89, 1);
 }
-.mainBlogContainer .blogSelector .card > div > div {
+
+.mainBlogContainer .blogSelector .card > div a:hover {
+  background-size: 100% 100%;
+}
+.mainBlogContainer .blogSelector .card > div > div:first-child {
   font-size: clamp(0.9rem, 1.6vw, 100rem);
   display: flex;
   justify-content: end;
@@ -281,9 +310,13 @@ body {
 }
 .mainBlogContainer .blogSelector .more > div {
   display: flex;
-  border: 0.1vmin black solid;
+  border: 0.1vmin var(--black) solid;
   border-radius: 10vmin;
   padding: 0.5vmin 2vmin;
+}
+.mainBlogContainer .blogSelector .more > div:hover {
+  background: #00000020;
+  cursor: pointer;
 }
 .mainBlogContainer .blogSelector .more > div img {
   width: 1.5vmin;
@@ -292,11 +325,18 @@ body {
   object-fit: contain;
   object-position: center center;
 }
+.mainBlogContainer .blogSelector .noArticles {
+  display: block;
+  font-size: clamp(1.5rem, 2.5vw, 100rem);
+  font-weight: 400;
+  text-align: center;
+  margin: 10vmin 0;
+}
 
 .mainBlogContainer .categorySelector {
   height: 100vh;
   width: 30%;
-  border-right: 0.1vmin black solid;
+  border-right: 0.1vmin var(--black) solid;
 
   display: flex;
   flex-direction: column;
@@ -314,9 +354,14 @@ body {
   width: 100%;
   padding: 1vmin 0;
   padding: 1vmin 4vmin;
+  cursor: pointer;
+}
+
+.mainBlogContainer .categorySelector div:hover {
+  background-color: #00000020;
 }
 .mainBlogContainer .categorySelector div > p:last-child {
-  background: #e8dfc7;
+  background: var(--categorySelector-card);
   text-align: center;
 
   border-radius: 10vmin;
@@ -453,6 +498,10 @@ body {
   background: hsla(0, 0%, 100%, 0.1);
 }
 
+.section5SpaceHolder {
+  height: 40vmin;
+  pointer-events: none !important;
+}
 .section5 {
   height: 40vmin;
   background: linear-gradient(
@@ -466,8 +515,10 @@ body {
   flex-direction: column;
   justify-content: end;
 
-  z-index: -99;
+  z-index: -1;
   position: relative;
+  position: fixed;
+  bottom: 0;
 }
 .section5 .infiniteScrollText {
   display: flex;
@@ -565,8 +616,6 @@ body {
 }
 
 @media only screen and (max-width: 1100px) {
-  .mainBlogContainer {
-  }
   .section3 {
     padding: 3vmin 3vmin;
   }
@@ -608,13 +657,23 @@ body {
   .mainBlogContainer .blogSelector .card > div > p {
     display: none;
   }
-  .mainBlogContainer .blogSelector .card > div > div {
+
+  .mainBlogContainer .blogSelector .card > div > div:first-child {
     justify-content: space-between;
+
     margin-bottom: 15vmin;
   }
 
-  .mainBlogContainer .blogSelector .card > div > div span {
+  .mainBlogContainer .blogSelector .card > div > div:first-child span {
     display: none;
+  }
+  .mainBlogContainer
+    .blogSelector
+    .card
+    > div
+    > div:first-child
+    span.highlight {
+    display: inline;
   }
   .mainBlogContainer .categorySelector {
     width: 100%;
@@ -654,6 +713,9 @@ body {
 
   .section2 .search .TextInput {
     padding: 0 3vmin;
+  }
+  .section5SpaceHolder {
+    height: 39vh;
   }
   .section5 {
     height: 40vh;
