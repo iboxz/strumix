@@ -1,4 +1,6 @@
 async function initializeChart() {
+  const chartContainer = document.querySelector(".chartContainer");
+  if (!chartContainer) return
   var ctx = document.getElementById("Chart").getContext("2d");
   if (window.myChart) window.myChart.destroy();
   var lineChartData = {

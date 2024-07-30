@@ -125,141 +125,6 @@ window.addEventListener("load", (event) => {
 
   /*----------------------------------- */
 
-  let cursor;
-  let cursorBorder;
-  cursor = document.createElement("div");
-  cursorBorder = document.createElement("div");
-
-  cursor.classList.add("cursor");
-  cursorBorder.classList.add("cursorBorder");
-
-  document.body.appendChild(cursor);
-  document.body.appendChild(cursorBorder);
-
-  const cursorPos = { x: 0, y: 0 };
-  const cursorBorderPos = { x: 0, y: 0 };
-
-  document.addEventListener("mousemove", (e) => {
-    cursorPos.x = e.clientX;
-    cursorPos.y = e.clientY;
-    cursor.style.transform = `translate(${e.clientX}px, ${e.clientY}px)`;
-  });
-
-  const easting = 8;
-
-  function loop() {
-    cursorBorderPos.x += (cursorPos.x - cursorBorderPos.x) / easting;
-    cursorBorderPos.y += (cursorPos.y - cursorBorderPos.y) / easting;
-    cursorBorder.style.transform = `translate(${cursorBorderPos.x}px, ${cursorBorderPos.y}px) rotate(45deg)`;
-    requestAnimationFrame(loop);
-  }
-
-  requestAnimationFrame(loop);
-  document.addEventListener("click", function () {
-    cursorBorder.style.borderRadius = "0";
-    cursorBorder.style.setProperty("--size", "2vmin");
-    setTimeout(function () {
-      requestAnimationFrame(function () {
-        cursorBorder.style.borderRadius = "50%";
-        cursorBorder.style.setProperty("--size", "5vmin");
-      });
-    }, 150);
-  });
-  if ("ontouchstart" in window) {
-    cursorBorder.style.display = "none";
-    cursor.style.display = "none";
-  }
-  function activateCustomCursors() {
-    if ("ontouchstart" in window) return;
-    document.querySelectorAll("[data-cursor]").forEach((item) => {
-      item.addEventListener("mouseover", (e) => {
-        switch (item.dataset.cursor) {
-          case "pointerWhite":
-            cursorBorder.style.boxShadow = "0 0 0 0.1vmin white";
-            cursor.style.backgroundColor = "white";
-            break;
-          case "pointerDisable":
-            cursorBorder.style.display = "none";
-            cursor.style.display = "none";
-            break;
-          case "pointerBlendMode":
-            cursorBorder.style.backgroundColor = "white";
-            cursorBorder.style.mixBlendMode = "difference";
-            cursorBorder.style.setProperty("--size", "15vmin");
-            break;
-          case "pointerFocus":
-            cursor.style.backgroundColor = "black";
-            cursorBorder.style.borderRadius = "0";
-            cursorBorder.style.setProperty("--size", "4vmin");
-            cursorBorder.style.backgroundColor = "white";
-            cursorBorder.style.mixBlendMode = "difference";
-            break;
-          case "pointerLink":
-            cursor.style.display = "none";
-            cursorBorder.style.setProperty("--size", "15vmin");
-            cursorBorder.style.backgroundColor = "#f2ecdc ";
-            cursorBorder.style.backgroundImage =
-              "url(../../assets/VectorFlesh4.svg)";
-            cursorBorder.style.backgroundSize = "3vmin 3vmin";
-
-            break;
-          case "pointerLinkNavbar":
-            cursor.style.display = "none";
-            cursorBorder.style.setProperty("--size", "15vmin");
-            cursorBorder.style.backgroundColor = "#ffffff30";
-            cursorBorder.style.backdropFilter = "blur(0.8vmin)";
-            cursorBorder.style.backgroundImage =
-              "url(../../assets/VectorFlesh4.svg)";
-            cursorBorder.style.backgroundSize = "3vmin 3vmin";
-
-            break;
-          case "pointerWaveBorder":
-            cursorBorder.style.display = "none";
-
-            cursor.style.setProperty("--sizeMainCursor", "30vmin");
-            cursor.style.background =
-              "linear-gradient(120deg, #ffffff, #000000, #ffffff, #000000, #ffffff)";
-            cursor.style.backgroundSize = " 1600% 1600%";
-
-            cursor.style.animation =
-              "blobRadius 5s ease infinite, blobBackground 15s ease infinite";
-            cursor.style.mixBlendMode = "difference";
-
-            break;
-          case "pointerClickable":
-            cursorBorder.style.borderRadius = "0";
-            cursorBorder.style.setProperty("--size", "3vmin");
-            break;
-        }
-      });
-
-      item.addEventListener("mouseout", (e) => {
-        cursorBorder.style.backgroundImage = "unset";
-        cursorBorder.style.backgroundColor = "unset";
-        cursor.style.background = "unset";
-
-        cursorBorder.style.backdropFilter = "none";
-        cursorBorder.style.mixBlendMode = "unset";
-
-        cursorBorder.style.setProperty("--size", "5vmin");
-        cursor.style.setProperty("--sizeMainCursor", "0");
-
-        cursor.style.animation = "unset";
-        cursorBorder.style.animation = "unset";
-
-        cursor.style.display = "inline";
-        cursorBorder.style.display = "inline";
-        cursorBorder.style.borderRadius = "50%";
-
-        cursorBorder.style.boxShadow = "0 0 0 0.1vmin black";
-        cursor.style.backgroundColor = "black";
-        cursor.style.mixBlendMode = "unset";
-
-        cursor.style.width = "var(--sizeMainCursor)";
-        cursor.style.borderRadius = "50%";
-      });
-    });
-  }
   activateCustomCursors();
   /*--------------*/
 
@@ -497,7 +362,144 @@ window.addEventListener("load", (event) => {
     localStorage.setItem("theme", themeName);
   }
 });
+/* */
 
+let cursor;
+let cursorBorder;
+cursor = document.createElement("div");
+cursorBorder = document.createElement("div");
+
+cursor.classList.add("cursor");
+cursorBorder.classList.add("cursorBorder");
+
+document.body.appendChild(cursor);
+document.body.appendChild(cursorBorder);
+
+const cursorPos = { x: 0, y: 0 };
+const cursorBorderPos = { x: 0, y: 0 };
+
+document.addEventListener("mousemove", (e) => {
+  cursorPos.x = e.clientX;
+  cursorPos.y = e.clientY;
+  cursor.style.transform = `translate(${e.clientX}px, ${e.clientY}px)`;
+});
+
+const easting = 8;
+
+function loop() {
+  cursorBorderPos.x += (cursorPos.x - cursorBorderPos.x) / easting;
+  cursorBorderPos.y += (cursorPos.y - cursorBorderPos.y) / easting;
+  cursorBorder.style.transform = `translate(${cursorBorderPos.x}px, ${cursorBorderPos.y}px) rotate(45deg)`;
+  requestAnimationFrame(loop);
+}
+
+requestAnimationFrame(loop);
+document.addEventListener("click", function () {
+  cursorBorder.style.borderRadius = "0";
+  cursorBorder.style.setProperty("--size", "2vmin");
+  setTimeout(function () {
+    requestAnimationFrame(function () {
+      cursorBorder.style.borderRadius = "50%";
+      cursorBorder.style.setProperty("--size", "5vmin");
+    });
+  }, 150);
+});
+
+if ("ontouchstart" in window) {
+  cursorBorder.style.display = "none";
+  cursor.style.display = "none";
+}
+function activateCustomCursors() {
+  if ("ontouchstart" in window) return;
+  document.querySelectorAll("[data-cursor]").forEach((item) => {
+    item.addEventListener("mouseover", (e) => {
+      switch (item.dataset.cursor) {
+        case "pointerWhite":
+          cursorBorder.style.boxShadow = "0 0 0 0.1vmin white";
+          cursor.style.backgroundColor = "white";
+          break;
+        case "pointerDisable":
+          cursorBorder.style.display = "none";
+          cursor.style.display = "none";
+          break;
+        case "pointerBlendMode":
+          cursorBorder.style.backgroundColor = "white";
+          cursorBorder.style.mixBlendMode = "difference";
+          cursorBorder.style.setProperty("--size", "15vmin");
+          break;
+        case "pointerFocus":
+          cursor.style.backgroundColor = "black";
+          cursorBorder.style.borderRadius = "0";
+          cursorBorder.style.setProperty("--size", "4vmin");
+          cursorBorder.style.backgroundColor = "white";
+          cursorBorder.style.mixBlendMode = "difference";
+          break;
+        case "pointerLink":
+          cursor.style.display = "none";
+          cursorBorder.style.setProperty("--size", "15vmin");
+          cursorBorder.style.backgroundColor = "#f2ecdc ";
+          cursorBorder.style.backgroundImage =
+            "url(../../assets/VectorFlesh4.svg)";
+          cursorBorder.style.backgroundSize = "3vmin 3vmin";
+
+          break;
+        case "pointerLinkNavbar":
+          cursor.style.display = "none";
+          cursorBorder.style.setProperty("--size", "15vmin");
+          cursorBorder.style.backgroundColor = "#ffffff30";
+          cursorBorder.style.backdropFilter = "blur(0.8vmin)";
+          cursorBorder.style.backgroundImage =
+            "url(../../assets/VectorFlesh4.svg)";
+          cursorBorder.style.backgroundSize = "3vmin 3vmin";
+
+          break;
+        case "pointerWaveBorder":
+          cursorBorder.style.display = "none";
+
+          cursor.style.setProperty("--sizeMainCursor", "30vmin");
+          cursor.style.background =
+            "linear-gradient(120deg, #ffffff, #000000, #ffffff, #000000, #ffffff)";
+          cursor.style.backgroundSize = " 1600% 1600%";
+
+          cursor.style.animation =
+            "blobRadius 5s ease infinite, blobBackground 15s ease infinite";
+          cursor.style.mixBlendMode = "difference";
+
+          break;
+        case "pointerClickable":
+          cursorBorder.style.borderRadius = "0";
+          cursorBorder.style.setProperty("--size", "3vmin");
+          break;
+      }
+    });
+
+    item.addEventListener("mouseout", (e) => {
+      cursorBorder.style.backgroundImage = "unset";
+      cursorBorder.style.backgroundColor = "unset";
+      cursor.style.background = "unset";
+
+      cursorBorder.style.backdropFilter = "none";
+      cursorBorder.style.mixBlendMode = "unset";
+
+      cursorBorder.style.setProperty("--size", "5vmin");
+      cursor.style.setProperty("--sizeMainCursor", "0");
+
+      cursor.style.animation = "unset";
+      cursorBorder.style.animation = "unset";
+
+      cursor.style.display = "inline";
+      cursorBorder.style.display = "inline";
+      cursorBorder.style.borderRadius = "50%";
+
+      cursorBorder.style.boxShadow = "0 0 0 0.1vmin black";
+      cursor.style.backgroundColor = "black";
+      cursor.style.mixBlendMode = "unset";
+
+      cursor.style.width = "var(--sizeMainCursor)";
+      cursor.style.borderRadius = "50%";
+    });
+  });
+}
 /* */
 const blogSelector = document.querySelector(".blogSelector");
 const categorySelector = document.querySelector(".categorySelector");
@@ -551,6 +553,7 @@ function displayArticles(articles, append = false, query = "") {
   );
   blogsToShow.forEach((blog) => {
     const div = document.createElement("div");
+    div.setAttribute("data-cursor", "pointerLinkNavbar");
     div.innerHTML = `
           <div class="card">
             <div>
@@ -576,6 +579,8 @@ function displayArticles(articles, append = false, query = "") {
   } else {
     showMoreButton.style.display = "flex";
   }
+
+  activateCustomCursors();
   resetAnimations();
 }
 
@@ -622,6 +627,7 @@ fetch("../serverAssets/blogs.json")
     );
 
     const allArticlesDiv = document.createElement("div");
+    allArticlesDiv.setAttribute("data-cursor", "pointerClickable");
     allArticlesDiv.innerHTML = `
           <p id="allProducts">همه‌ی مقالات</p>
           <p>${totalArticles}</p>
@@ -631,6 +637,7 @@ fetch("../serverAssets/blogs.json")
 
     sortedCategories.forEach(([category, count]) => {
       const div = document.createElement("div");
+      div.setAttribute("data-cursor", "pointerClickable");
       div.innerHTML = `
             <p>${category}</p>
             <p>${count}</p>

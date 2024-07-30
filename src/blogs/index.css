@@ -43,6 +43,10 @@ body {
 }
 #smooth-content {
   position: relative;
+  pointer-events: none;
+}
+#smooth-content section{
+  pointer-events: all;
 }
 .hero {
   height: 50vh;
@@ -74,6 +78,7 @@ body {
 }
 
 .section2 {
+  background: var(--background-color);
   position: relative;
   display: flex;
   flex-direction: column;
@@ -381,6 +386,10 @@ body {
   background: hsla(0, 0%, 100%, 0.1);
 }
 
+.section5SpaceHolder {
+  height: 40vmin;
+  pointer-events: none !important;
+}
 .section5 {
   height: 40vmin;
   background: linear-gradient(
@@ -393,7 +402,11 @@ body {
   display: flex;
   flex-direction: column;
   justify-content: end;
-  z-index: -99;
+  
+  z-index: -1;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
 }
 .section5 .infiniteScrollText {
   display: flex;
@@ -643,6 +656,9 @@ body {
   }
 }
 @media only screen and (max-width: 768px) {
+  .section5SpaceHolder {
+    height: 39vh;
+  }
   .section5 {
     height: 40vh;
   }

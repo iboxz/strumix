@@ -196,6 +196,7 @@ html {
 .section4 .chartContainer {
   position: absolute;
   width: 100%;
+  top: auto;
   height: 45vh;
 }
 
