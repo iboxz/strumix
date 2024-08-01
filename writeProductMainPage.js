@@ -18,11 +18,23 @@ async function updateHTMLFiles() {
         try {
           let htmlContent = await fs.readFile(filePath, "utf-8");
 
-          // Replace the old script tag with the new one
-          htmlContent = htmlContent.replace(
-            /<script defer="" src="\.\.\/src\/js\/products\.js"><\/script>/,
-            '<script defer="" src="../src/js/products.js?v=1.0.7"></script>'
-          );
+          // بررسی وجود اولین اسکریپت
+          if (!htmlContent.includes('<script src="../src/js/chart.js"></script>')) {
+            // اضافه کردن اولین اسکریپت به هد
+            htmlContent = htmlContent.replace(
+              /<\/head>/i,
+              '<script src="../src/js/chart.js"></script>\n</head>'
+            );
+          }
+
+          // بررسی وجود دومین اسکریپت
+          if (!htmlContent.includes('<script defer="" src="../src/js/lineChart.js"></script>')) {
+            // اضافه کردن دومین اسکریپت به هد
+            htmlContent = htmlContent.replace(
+              /<\/head>/i,
+              '<script defer="" src="../src/js/lineChart.js"></script>\n</head>'
+            );
+          }
 
           await fs.writeFile(filePath, htmlContent, "utf-8");
           console.log(`File ${file} successfully updated.`);
