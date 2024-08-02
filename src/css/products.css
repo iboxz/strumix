@@ -116,9 +116,33 @@ html {
 
 .section2 > div {
   padding: 5vmin 0 5vmin 0;
+  display: flex;
+  flex-direction: column;
 }
 .section2 ul {
   margin: 2vmin 5vmin 0 0;
+}
+.section2 > div a {
+  width: min-content;
+  margin-top: auto;
+  text-decoration: none;
+  text-wrap: nowrap;
+
+  padding: 0.5vmin 1vmin;
+  border-radius: 0.5vmin;
+
+  font-size: clamp(0.8rem, 0.9vw, 100rem);
+  background: #ff9900;
+  color: white;
+}
+
+.section2 .iconDownload {
+  content: url(../../assets/VectorDownload.svg);
+  vertical-align: middle;
+  height: 100%;
+  width: 2vmin;
+  min-width: 15px;
+  margin: 0 1vmin;
 }
 /* end of section2 */
 /* start section3 */
@@ -258,6 +282,9 @@ html {
   .section2,
   .section3 {
     flex-direction: column;
+  }
+  .section2 > div a {
+    margin-top: 5vmin;
   }
   .section3 > div {
     width: 100%;

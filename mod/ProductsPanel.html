@@ -3,29 +3,10 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>حلال اپوکسی تازه از سطوح و ابزار اجرایی</title>
+    <meta name="robots" content="noindex, nofollow" />
+    <meta name="googlebot" content="noindex,indexifembedded" />
+    <title>Blog Editor</title>
 
-    <script
-      async=""
-      src="https://www.googletagmanager.com/gtag/js?id=G-4PJ8JE8SW8"
-    ></script>
-    <script src="../src/js/googleAnalytics.js"></script>
-
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
-    <script src="../src/js/ScrollSmoother.min.js"></script>
-    <script src="../src/js/SplitText.min.js"></script>
-
-    <script defer="" src="../src/js/addSpanForEnglish.js"></script>
-    <script defer="" src="../src/js/products.js?v=1.0.7"></script>
-    <script defer="" src="../src/js/horizontalScrollbar.js"></script>
-
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/TextPlugin.min.js"></script>
-
-    <meta name="author" content="استراميکس-STRUMIX" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="robots" content="index, follow" />
     <link
       rel="icon"
       href="../assets/VectorLogo-favicon.svg"
@@ -33,54 +14,16 @@
       sizes="any"
     />
 
-    <meta
-      name="description"
-      content="مـشخصات فیزیکـی و شیمیایی محصول حلال اپوکسی تازه از سطوح و ابزار اجرایی، STRUCLEAN EPO"
-    />
-    <meta
-      name="keywords"
-      content="استراميکس، STRUMIX، حلال اپوکسی تازه از سطوح و ابزار اجرایی, STRUCLEAN EPO"
-    />
-    <meta
-      property="og:title"
-      content="حلال اپوکسی تازه از سطوح و ابزار اجرایی"
-    />
-    <meta
-      property="og:description"
-      content="مـشخصات فیزیکـی و شیمیایی محصول حلال اپوکسی تازه از سطوح و ابزار اجرایی، STRUCLEAN EPO"
-    />
-    <meta
-      property="og:image"
-      content="https://cdn.glitch.global/62cf8202-93e0-4197-a517-cb7c64990d83/struton.jpg"
-    />
-    <meta property="og:url" content="strumix.com/products/struclean-epo.html" />
-    <meta property="og:type" content="website" />
-    <meta
-      name="twitter:card"
-      content="https://cdn.glitch.global/62cf8202-93e0-4197-a517-cb7c64990d83/struton.jpg"
-    />
-    <meta
-      name="twitter:image"
-      content="https://cdn.glitch.global/62cf8202-93e0-4197-a517-cb7c64990d83/struton.jpg"
-    />
-    <meta
-      name="twitter:title"
-      content="حلال اپوکسی تازه از سطوح و ابزار اجرایی"
-    />
-    <meta
-      name="twitter:description"
-      content="مـشخصات فیزیکـی و شیمیایی محصول حلال اپوکسی تازه از سطوح و ابزار اجرایی، STRUCLEAN EPO"
-    />
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/CSSRulePlugin.min.js"></script>
-
     <link rel="stylesheet" href="../src/css/main.css?v=1.0.7" />
     <link rel="stylesheet" href="../src/css/products.css?v=1.0.7" />
-    <script async="" src="../src/js/main.js?v=1.0.7"></script>
 
     <script src="../src/js/chart.js"></script>
     <script defer="" src="../src/js/lineChart.js"></script>
 
     <style>
+      main {
+        padding-bottom: 15vmin;
+      }
       .edit-btn,
       .save-btn {
         margin: 5px;
@@ -121,6 +64,10 @@
         position: fixed;
         bottom: 0;
         right: 0;
+        padding: 2vmin;
+        display: flex;
+        flex-wrap: wrap;
+        width: 100%;
       }
       .hidden {
         display: none;
@@ -148,245 +95,193 @@
         margin-top: 5px;
         box-sizing: border-box;
       }
+      .btn-17,
+      .btn-17 *,
+      .btn-17 :after,
+      .btn-17 :before,
+      .btn-17:after,
+      .btn-17:before {
+        border: 0 solid;
+        box-sizing: border-box;
+      }
 
-      #toggleButton {
-        background-color: #008cba;
-        color: white;
-        margin: 5px;
-        padding: 5px 10px;
+      .btn-17 {
+        -webkit-tap-highlight-color: transparent;
+        -webkit-appearance: button;
+        background-color: #000;
+        background-image: none;
+        color: #fff;
         cursor: pointer;
+        font-family: Montserrat;
+        font-weight: 900;
+        margin: 0;
+        -webkit-mask-image: -webkit-radial-gradient(#000, #fff);
+        padding: 0;
+        text-transform: uppercase;
+      }
+
+      .btn-17:disabled {
+        cursor: default;
+      }
+
+      .btn-17:-moz-focusring {
+        outline: auto;
+      }
+
+      .btn-17 svg {
+        display: block;
+        vertical-align: middle;
+      }
+
+      .btn-17 [hidden] {
+        display: none;
+      }
+
+      .btn-17 {
+        border-radius: 10px;
+        border-width: 2px;
+        padding: 0.4rem 2rem;
+        z-index: 0;
+      }
+
+      .btn-17,
+      .btn-17 .text-container {
+        overflow: hidden;
+        position: relative;
+      }
+
+      .btn-17 .text-container {
+        display: block;
+      }
+
+      .btn-17 .text {
+        display: block;
+        position: relative;
+      }
+
+      .btn-17:hover {
+        color: black;
+      }
+      .btn-17:hover .text {
+        -webkit-animation: move-up-alternate 0.3s forwards;
+        animation: move-up-alternate 0.3s forwards;
+      }
+
+      @-webkit-keyframes move-up-alternate {
+        0% {
+          transform: translateY(0);
+        }
+
+        50% {
+          transform: translateY(80%);
+        }
+
+        51% {
+          transfo-1rm: translateY(-80%);
+        }
+
+        to {
+          transform: translateY(0);
+        }
+      }
+
+      @keyframes move-up-alternate {
+        0% {
+          transform: translateY(0);
+        }
+
+        50% {
+          transform: translateY(80%);
+        }
+
+        51% {
+          transform: translateY(-80%);
+        }
+
+        to {
+          transform: translateY(0);
+        }
+      }
+
+      .btn-17:after,
+      .btn-17:before {
+        --skew: 0.2;
+        background: #fff;
+        content: "";
+        display: block;
+        height: 102%;
+        left: calc(-42% - 42% * var(--skew));
+        pointer-events: none;
+        position: absolute;
+        top: -104%;
+        transform: skew(calc(150deg * var(--skew)))
+          translateY(var(--progress, 0));
+        transition: transform 0.2s ease;
+        width: 100%;
+        z-index: -1;
+      }
+
+      .btn-17:after {
+        --progress: 0%;
+        left: calc(50% + 50% * var(--skew));
+        top: 102%;
+        z-index: -1;
+      }
+
+      .btn-17:hover:before {
+        --progress: 100%;
+      }
+
+      .btn-17:hover:after {
+        --progress: -102%;
+      }
+      input[type="file"]::file-selector-button {
+        border: white 1px solid;
+        color: white;
+        background: transparent;
+        border-radius: 5px;
+      }
+
+      input[type="file"]:hover::file-selector-button {
+        border: black 1px solid;
+        color: black;
+      }
+      select:hover {
+        color: white !important;
+      }
+      #message {
+        width: 100%;
+        border: 2px black solid;
+        border-radius: 5px;
+        padding: 6px;
+        background: white;
       }
     </style>
   </head>
   <body>
-    <main id="smooth-wrapper">
-      <div id="smooth-content">
-        <section class="hero" data-cursor="pointerWaveBorder">
-          <div>
-            <h2>STRUSIN PLS22</h2>
-            <h1>
-              ابر روان کننده و کاهنده شدید آب بر پایه پلی کربوکسیلات اتر اصلاح
-              شده با لیگنو سولفونات
-            </h1>
-          </div>
-          <img
-            src="../assets/productImg/strusin-brownLiquid.jpg"
-            alt="The STRUSIN PLS22 product img - ابر روان کننده و کاهنده شدید آب بر پایه پلی کربوکسیلات اتر اصلاح شده با لیگنو سولفونات تصویر "
-          />
-        </section>
-        <section class="section2">
-          <div>
-            <p>
-              استرازین PLS22 یک ابر روان کننده بتن نسل چهارم و بر پایه پلی
-              کربوکسیلات اتر که با ترکیبی از لیگنوسولفونات اصلاح شده و دارای حفظ
-              اسلامپ مطلوب از واحد تحقیق و توسعه تولید رزین پلی کربوکسیلات شرکت
-              Strumix می باشد. این ابر روان کننده کربوکسیلاتی جهت اصلاح بتن های
-              با اسلامپ پایین در محل پروژه و جهت رسیدن به اسلامپ های بالا بدون
-              ایجاد جداشدگی و آب انداختگی می باشد. رسیدن به مقاومت و دوام بالا و
-              نفوذپذیری پایین در بتن در میزان مصرف های متوسط این محصول از دیگر
-              مزایای آن می باشد. همچنین این افزودنی بتن جهت استفاده در کنار
-              انواع سیمان ها و پوزولان ها عملکرد مناسبی دارد.
-            </p>
-          </div>
-          <div class="flexGrow">
-            <h3>کاربری</h3>
-            <p>
-              استرازین PLS22 با قدرت کاهش آب بالا و همچنین ایجاد روانی بالا با
-              حفظ اسلامپ بسیار خوب و حفظ قوام بتن برای موارد ذیل می تواند کاربرد
-              داشته باشد:
-            </p>
-            <ul>
-              <li>
-                انواع بتن ریزی مقاطع مختلف مانند شمع، پی، ستون، دیوار، سقف، بتن
-                های پیش تنیده و …
-              </li>
-              <li>حمل بتن در فاصله های طولانی</li>
-              <li>بتن ریزی در آب و هوای گرم و بتن های حجیم</li>
-              <li>انواع سازه های با نفوذپذیری پایین و بتن های آب بند</li>
-              <li>استفاده در کنار انواع پوزولان ها و سیمان های آمیخته</li>
-            </ul>
-          </div>
-        </section>
-        <section class="section3">
-          <img src="../assets/VectorProduct.svg" alt="" />
-          <div>
-            <h3>عملکرد و مزایا</h3>
-            <p>
-              این ابر روان کننده کربوکسیلاتی بتن دارای خاصیت روان کنندگی بالا در
-              عین قوام و حفظ روانی خوب می باشد. این خاصیت به دلیل برهمکنش موازی
-              و مضاعف پلی کربوکسیلات و لیگنو سولفونات می باشد. ریز ساختارهای پلی
-              کربوکسیلاتی بر روی ذرات سیمان جذب شده و در نتیجه در میزان پایین
-              نسبت آب به سیمان روانی بسیار بالای در بتن حاصل می شود. به صورت
-              موازی با این عملکرد زنجیرهای بلند لیگنوسولفونات نیز بر روی ذرات
-              سیمان جذب می شوند. شیوه عملکرد این روان کننده از طریق دفع
-              الکترواستاتیک ذرات سیمان می باشد. این دفع الکترواستاتیک به شیوه ای
-              است که ذرات سیمان فاصله زیادی از هم نگرفته و برخوردهای بسیاری نیز
-              بین این ذرات پدید می آید. این برخورد های بالا و فاصله کم ذرات از
-              یکدیگر سبب ایجاد قوام مناسب در بتن می شود. همچنین به دلیل طول بلند
-              زنجیر لیگنوسولفونات و خاصیت کاهندگی آب شدید ذرات پلی کربوکسیلات،
-              حفظ روانی در ترکیب این دو بسیار مناسب و بالا می باشد. برخی از
-              مزایای استفاده از این افزودنی بتن عبارتند از:
-            </p>
-            <br />
-            <ul>
-              <li>افزایش روانی بدون افزایش آب در نسبت های آب به سیمان متوسط</li>
-              <li>کاهش شدید آب بتن</li>
-              <li>افزایش مقاومت های اولیه و نهایی بتن</li>
-              <li>کاهش احتمال جداشدگی و آب انداختگی و بهبود پمپ پذیری بتن</li>
-              <li>
-                کاهش نرخ واکنش هیدراتاسیون و در نتیجه کاهش حرارت زایی اولیه بتن
-              </li>
-              <li>حفظ طولانی مدت اسلامپ بتن</li>
-              <li>افزایش دانسیته و بهبود سطح نهایی بتن</li>
-              <li>
-                کاهش نفوذ آب در بتن و همچنین افزایش مقاومت در برابر سیکل ذوب و
-                یخ
-              </li>
-              <li>فاقد یون کلر و عدم تاثیر بر خوردگی آرماتور</li>
-              <li>کاهش ترک های سطحی و جمع شدگی</li>
-              <li>عملکرد مناسب زمانی که میزان رس در مصالح سنگی بالاست</li>
-            </ul>
-            <h3>استاندارد ها</h3>
-            <p>
-              استرازین PLS22 با الزامات استاندارد های ASTM C494 و EN 934-2 و
-              ISIRI 2930-2 مطابقت کامل دارد.
-            </p>
-          </div>
-          <div class="leftSide">
-            <h3>اطلاعات محصول</h3>
-            <div>
-              <div>
-                <h4>پایه شیمیایی</h4>
-                <p>پلی کربوکسیلات اتر و لیگنو سولفونات</p>
-                <h4>شکل ظاهری</h4>
-                <p>مایع قهوه ای رنگ</p>
-                <h4>دانسیته (گرم بر سانتی متر مکعب)</h4>
-                <p>0/02 ± 1/20</p>
-                <h4>pH</h4>
-                <p>6 الی 8</p>
-              </div>
-              <div>
-                <h4>میزان یون کلر</h4>
-                <p>فاقد یون کلر</p>
-                <h4>زمان ماندگاری</h4>
-                <p>حداقل 12 ماه</p>
-                <h4>شرایط نگهداری</h4>
-                <p>
-                  در بسته بندی اولیه باز نشده به دور از نور مستقیم آفتاب،
-                  یخبندان، رطوبت و در دمای 5 تا 35 درجه سانتیگراد نگهداری گردد
-                </p>
-                <h4>بسته بندی</h4>
-                <p>گالن 20 ، بشکه 240 و مخزن 1100 کیلوگرمی</p>
-              </div>
-            </div>
-          </div>
-        </section>
-        <section class="section4">
-          <div>
-            <h3>اطلاعات نحوه مصرف</h3>
-            <ul>
-              <li>
-                میزان مصرف: میزان مصرف محصول وابسته به شرایط طرح اختلاط بتن بین
-                0/15 الی 0/9 درصد وزن مواد سیمانی می باشد. میزان مصرف دقیق هر
-                طرح بهتر است با آزمایش در آزمایشگاه یا محل پروژه تعیین گردد. جهت
-                اطلاعات بیشتر، مصرف محصول خارج از محدوده مصرف و یا مصرف محصول
-                درکنار سایر مواد افزودنی با بخش فنی و تحقیق و توسعه Strumix تماس
-                بگیرید.
-              </li>
-              <li>
-                روش مصرف در بچینگ یا مخلوط کن: بهتر است که افزودنی بتن با بخش
-                ثانویه آب اختلاط به بتن اضافه گردد.
-              </li>
-              <li>
-                روش مصرف مستقیم در تراک بتن آماده: میزان افزودنی بتن مورد نیاز
-                به تراک اضافه شده و به مدت 3 تا 5 دقیقه کاملا با دور تند مخلوط
-                گردد و سپس بتن تخلیه شود.
-              </li>
-            </ul>
-          </div>
-          <div>
-            <h3>نتایج تست موردی</h3>
-            <p>
-              طرح اختلاط حاوی ۵۵ درصد ماسه (0-6) با ۴۵ درصد شن (۴-۲۵/۷۵) و با
-              عیار سیمانی ۳۷۵ کیلوگرم در متر مکعب و نسبت آب به سیمان برابر 0/45
-              بود که نتایج ذیل حاصل شد
-            </p>
-            <br />
-
-            <table class="table">
-              <thead>
-                <tr>
-                  <td>مقاومت 3، 7، 28 روزه (MPa)</td>
-                  <td>درصد هوا</td>
-                  <td>اسلامپ اولیه</td>
-                  <td>میزان مصرف افزودنی (% وزن سیمان)</td>
-                </tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <td>23, 23/5, 16/3</td>
-                  <td>2/9</td>
-                  <td>6</td>
-                  <td>0</td>
-                </tr>
-                <tr>
-                  <td>33/1, 23/8, 16/4</td>
-                  <td>2/1</td>
-                  <td>22</td>
-                  <td>0/5</td>
-                </tr>
-                <tr>
-                  <td>33/4, 24/2, 16/2</td>
-                  <td>2/3</td>
-                  <td>17</td>
-                  <td>0/3</td>
-                </tr>
-              </tbody>
-            </table>
-            <br />
-            <div class="chartContainer">
-              <canvas id="Chart"
-                >المنت کانوا نمایش داده نشد، صفحه را رفرش کنید یا مرورگر را
-                بروزرسانی کنی</canvas
-              >
-            </div>
-          </div>
-          <div></div>
-          <div>
-            <h3>محیط زیست، سلامت و ایمنی</h3>
-            <p>
-              بهتر است ابر روان کننده بتن استرازین PLS22 در محیط زیست ریخته نشود
-              و هرگونه شستشوی ظروف پس از مصرف و … به فاضلاب قابل تصفیه انتقال
-              پیدا کند. این محصول برای سلامت و ایمنی افراد خطرناک نمی باشد ولی
-              در تماس با پوست و چشم می تواند ایجاد حساسیت کند. برای مصرف بهتر
-              است که از عینک، ماسک و دستکش مناسب استفاده گردد. برای اطلاعات
-              بیشتر به برگه مشخصات ایمنی محصول رجوع گردد.
-            </p>
-          </div>
-          <div>
-            <h3>مرجع اطلاعات</h3>
-            <p>
-              تمام اطلاعات این مشخصات فنی براساس آزمایشات آزمایشگاهی و تجربیات
-              پروژه ای شرکت Strumix می باشد. داده های واقعی اندازه گیری ممکن است
-              به علت شرایطی فراتر از کنترل ما متفاوت باشد. توصیه می شود که همیشه
-              از ما آخرین برگه مشخصات فنی محصولات را بخواهید. همچنین زیر ساخت
-              های استفاده و روش درست استفاده در کارگاه بر عهده مشتریان می باشد و
-              بخش فنی Strumix می تواند اطلاعات لازم را در اختیار مشتری قرار دهد
-              و یا با حضور در محل پروژه خدمات فنی لازم را ارائه دهد.
-            </p>
-          </div>
-        </section>
-      </div>
-    </main>
+    <main id="smooth-wrapper"></main>
 
     <div class="editPanelBtn">
-      <button class="edit-btn" onclick="editAllSections()">
-        Edit All Sections
+      <button class="btn-17" onclick="saveAllSections()">
+        <span class="text-container">
+          <span class="text">Save</span>
+        </span>
       </button>
-      <button class="save-btn" onclick="saveAllSections()">
-        Save All Sections
+      <button class="btn-17" id="toggleButton">
+        <span class="text-container">
+          <span class="text">Edit Chart Data</span>
+        </span>
       </button>
-      <button id="toggleButton">Edit Chart Data</button>
+      <input
+        type="file"
+        title="file"
+        id="file"
+        name="uploadFile"
+        accept=".pdf,.doc,.docx,.jpg,.jpeg,.png"
+        class="btn-17"
+      />
+      <select class="btn-17" id="productSelect"></select>
+      <div id="message"></div>
 
       <div id="editPanel" class="hidden">
         <label for="labels">Labels (comma separated):</label>
@@ -410,23 +305,80 @@
         <button id="saveButton">Save</button>
       </div>
     </div>
-    <script>
-      var labels = ["0", "15", "30", "45", "60", "75", "90"];
-      var labelYellow = "w/c=0.45 & Dosage(r=0.3)% weight of cement";
-      var labelRed = "w(c=0.45) & Dosage=0.50% weight of cement";
-      var dataYellow = [17, 16, 14, 10, 7, 5, 3];
-      var dataRed = [23, 22, 18, 15, 12, 7, 5];
-      var titleText = "Slump Retention (Strusin PLS22)";
-    </script>
 
     <script>
+      const username = sessionStorage.getItem("username");
+      const password = sessionStorage.getItem("password");
+
+      var pageUrl = "";
+
+      async function saveAllSections() {
+        var selectors = "h1, h2, h3, h4, p, ul, td";
+        var editables = document.querySelectorAll(selectors);
+        editables.forEach(function (element) {
+          element.removeAttribute("contentEditable");
+          element.classList.remove("editable");
+          if (element.classList.length === 0) {
+            element.removeAttribute("class");
+          }
+          var buttonContainersSelectors = [
+            ".button-container-add",
+            ".button-container-main",
+            ".button-container",
+            ".add-btn",
+          ];
+
+          buttonContainersSelectors.forEach(function (selector) {
+            var existingButtonContainers = document.querySelectorAll(selector);
+            existingButtonContainers.forEach(function (buttonContainer) {
+              buttonContainer.remove();
+            });
+          });
+        });
+
+        const fileInput = document.getElementById("file");
+        const file = fileInput.files[0];
+
+        if (!file || file.type !== "application/pdf") {
+          displayMessage("Please select a valid PDF file.", "error");
+          return;
+        }
+
+        const formProductPdf = new FormData();
+        formProductPdf.append("file", file);
+        formProductPdf.append("title", pageUrl);
+        formProductPdf.append("username", username);
+        formProductPdf.append("password", password);
+        try {
+          const productPdfResponse = await fetch("uploadProductPdf.php", {
+            method: "POST",
+            body: formProductPdf,
+          });
+          const productPdfText = await productPdfResponse.text();
+          if (productPdfText.includes("PDF uploaded successfully!")) {
+            displayMessage("PDF uploaded successfully!");
+          } else {
+            displayMessage(`${productPdfText}`);
+            throw new Error(`Upload response: ${productPdfText}`);
+          }
+        } catch (error) {
+          displayMessage(error);
+          return;
+        }
+      }
+      function displayMessage(message, type) {
+        const messageDiv = document.getElementById("message");
+        messageDiv.textContent = message;
+        messageDiv.className = type;
+      }
+      /*---*/
       function populateInputs() {
-        document.getElementById("labels").value = labels.join(", ");
-        document.getElementById("labelYellow").value = labelYellow;
-        document.getElementById("labelRed").value = labelRed;
-        document.getElementById("dataYellow").value = dataYellow.join(", ");
-        document.getElementById("dataRed").value = dataRed.join(", ");
-        document.getElementById("titleText").value = titleText;
+        document.getElementById("labels").value = window.labels;
+        document.getElementById("labelYellow").value = window.labelYellow;
+        document.getElementById("labelRed").value = window.labelRed;
+        document.getElementById("dataYellow").value = window.dataYellow;
+        document.getElementById("dataRed").value = window.dataRed;
+        document.getElementById("titleText").value = window.titleText;
       }
 
       // Function to toggle edit panel visibility
@@ -444,7 +396,7 @@
       document
         .getElementById("saveButton")
         .addEventListener("click", function () {
-          labels = document
+          window.labels = document
             .getElementById("labels")
             .value.split(",")
             .map((item) => item.trim());
@@ -461,8 +413,8 @@
           titleText = document.getElementById("titleText").value;
 
           // Optional: Hide panel after saving
-          document.getElementById("editPanel").classList.add("hidden");
           initializeChart();
+          document.getElementById("editPanel").classList.add("hidden");
         });
       // Here you can handle the updated values, such as updating a chart or saving to local storage
 
@@ -473,21 +425,8 @@
           element.contentEditable = true;
           element.classList.add("editable");
         });
-        document.querySelector(".edit-btn").style.display = "none";
-        document.querySelector(".save-btn").style.display = "inline-block";
       }
       editAllSections();
-      function saveAllSections() {
-        var selectors = "h2, h3, h4, p, ul, li";
-        var editables = document.querySelectorAll(selectors);
-        editables.forEach(function (element) {
-          element.contentEditable = false;
-          element.classList.remove("editable");
-        });
-        document.querySelector(".edit-btn").style.display = "inline-block";
-        document.querySelector(".save-btn").style.display = "none";
-        // Add your save logic here (e.g., send data to server)
-      }
 
       function addIconsToDivs() {
         var innerDivs = document.querySelectorAll(".leftSide > div > div");
@@ -656,6 +595,7 @@
               </canvas>
             `;
               h3.parentNode.appendChild(chartContainer);
+
               initializeChart();
             };
             buttonContainer.appendChild(createChartButton);
@@ -956,6 +896,107 @@
         });
       }
       addRemoveAllButtonToEmptyDivs();
+      /*-----------------*/
+      function loadJSON(callback) {
+        const xhr = new XMLHttpRequest();
+        xhr.overrideMimeType("application/json");
+        xhr.open("GET", "../products/products.json", true);
+        xhr.onreadystatechange = function () {
+          if (xhr.readyState === 4 && xhr.status === 200) {
+            callback(xhr.responseText);
+          }
+        };
+        xhr.send(null);
+      }
+
+      function populateProductsTitles(data) {
+        const jsonData = JSON.parse(data);
+        const categories = jsonData.categories;
+        const productSelect = document.getElementById("productSelect");
+        let productCount = 0;
+        const uniqueProducts = new Set();
+
+        categories.forEach((category) => {
+          category.products.forEach((product) => {
+            const productKey = product.name.fa;
+            if (!uniqueProducts.has(productKey)) {
+              uniqueProducts.add(productKey);
+              productCount++;
+              const option = document.createElement("option");
+              option.textContent = productCount + ". " + product.name.fa;
+              option.value = product.url;
+              productSelect.appendChild(option);
+            }
+          });
+        });
+      }
+
+      function fetchProductPage(productUrl) {
+        fetch(`../products/${productUrl}.html`)
+          .then((response) => response.text())
+          .then((html) => {
+            const parser = new DOMParser();
+            const doc = parser.parseFromString(html, "text/html");
+            const mainProductsContainer = doc.querySelector("main");
+
+            if (mainProductsContainer) {
+              const mainProductsContainerHTML = mainProductsContainer.innerHTML;
+              const smoothWrapper = document.getElementById("smooth-wrapper");
+              smoothWrapper.innerHTML = mainProductsContainerHTML;
+
+              let labels = [];
+              let labelYellow = "";
+              let labelRed = "";
+              let dataYellow = [];
+              let dataRed = [];
+              let titleText = "";
+
+              const scriptTags = doc.querySelectorAll("script");
+              scriptTags.forEach((scriptTag) => {
+                const scriptContent = scriptTag.innerHTML;
+
+                eval(scriptContent);
+
+                window.labels = labels;
+                window.labelYellow = labelYellow;
+                window.labelRed = labelRed;
+                window.dataYellow = dataYellow;
+                window.dataRed = dataRed;
+                window.titleText = titleText;
+              });
+
+              // حذف سکشن با کلاس .otherProduct
+              const otherProductSection = smoothWrapper.querySelector(
+                "section.otherProduct"
+              );
+              if (otherProductSection) {
+                otherProductSection.remove();
+              }
+              editAllSections();
+              addParagraphAndListToH3();
+              addIconsToDivs();
+              addRemoveAllButtonToEmptyDivs();
+              initializeChart();
+            } else {
+              console.error("Main container not found in the product page.");
+            }
+          })
+          .catch((error) => {
+            console.error("Error fetching the content:", error);
+          });
+      }
+
+      document
+        .getElementById("productSelect")
+        .addEventListener("change", function () {
+          const selectedUrl = this.value;
+          if (selectedUrl) {
+            fetchProductPage(selectedUrl);
+            pageUrl = selectedUrl;
+          }
+        });
+
+      loadJSON(populateProductsTitles);
     </script>
   </body>
 </html>

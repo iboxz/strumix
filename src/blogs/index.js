@@ -348,15 +348,17 @@ window.addEventListener("load", (event) => {
   }
   /*---------------------- */
   const cardsContainer = document.querySelector(".cardsContainer");
-  const showRandomButton = document.querySelector(".section5 > div:last-child a:first-child");
-  
+  const showRandomButton = document.querySelector(
+    ".section5 > div:last-child a:first-child"
+  );
+
   let blogs = [];
-  
+
   fetch("../serverAssets/blogs.json")
     .then((response) => response.json())
     .then((data) => {
       blogs = data.blogs;
-  
+
       function shuffle(array) {
         for (let i = array.length - 1; i > 0; i--) {
           const j = Math.floor(Math.random() * (i + 1));
@@ -364,10 +366,10 @@ window.addEventListener("load", (event) => {
         }
         return array;
       }
-  
+
       const shuffledBlogs = shuffle(blogs);
       const selectedBlogs = shuffledBlogs.slice(0, 3);
-  
+
       selectedBlogs.forEach((blog) => {
         const div = document.createElement("div");
         div.innerHTML = `
@@ -383,20 +385,20 @@ window.addEventListener("load", (event) => {
               `;
         cardsContainer.appendChild(div);
       });
-  
+
       activateCustomCursors();
     })
     .catch((error) => console.error("Error fetching data:", error));
-  
+
   showRandomButton.addEventListener("click", showRandomArticle);
-  
+
   function showRandomArticle() {
     if (blogs.length === 0) return;
     const randomIndex = Math.floor(Math.random() * blogs.length);
     const randomBlog = blogs[randomIndex];
     window.location.href = randomBlog.url;
   }
-  
+
   /* */
 
   var mWrap = document.querySelectorAll(".mouseSticky");
