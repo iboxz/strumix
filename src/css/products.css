@@ -119,6 +119,7 @@ html {
   display: flex;
   flex-direction: column;
 }
+
 .section2 ul {
   margin: 2vmin 5vmin 0 0;
 }

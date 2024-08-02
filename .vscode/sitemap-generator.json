@@ -1,0 +1,25 @@
+{
+  "sitemap.xml": {
+    "Protocol": "https",
+    "DomainName": "strumix.com",
+    "Root": "./",
+    "IncludeExt": [".html"],
+    "Exclude": [
+      "assets/**",
+      "mod/**",
+      "node_modules/**",
+      "serverAssets/**",
+      "src/**",
+      "404error.html",
+      "privacyPolicy.html"
+    ],
+    "TagsToInclude": ["priority", "lastmod"],
+    "DefaultChangeFrequency": "monthly",
+    "TabCharacters": "\t",
+    "bIncludeWWW": true,
+    "bRemoveFileExtentions": false,
+    "bUseTrailingSlash": false,
+    "bAutomaticallyUpdateSitemap": true,
+    "bMinimized": false
+  }
+}

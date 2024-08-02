@@ -68,7 +68,7 @@ if ($resultAuthorisation->num_rows > 0) {
   <meta name='viewport' content='width=device-width, initial-scale=1.0' />
   <meta http-equiv='X-UA-Compatible' content='IE=edge' />
   <meta name='robots' content='index, follow' />
-  <link rel='icon' href='https://strumix.com/assetsVectorLogo-favicon.ico' type='image/x-icon'/>
+  <link rel='icon' href='https://strumix.com/assets/VectorLogo-favicon.ico' type='image/x-icon'/>
   <link rel='icon' type='image/svg' href='https://strumix.com/assets/VectorLogo-favicon.svg' />
   <title>" . $title . "</title>
   <meta name='description' content='" . $description . "' />
@@ -164,7 +164,7 @@ if ($resultAuthorisation->num_rows > 0) {
       </section>
       <section class='section2'>
         <header class='magnetic-wrap'>
-          <a class='mouseSticky' href='' data-cursor='pointerClickable'>لیست مقالات</a>
+          <a class='mouseSticky' href='./' data-cursor='pointerClickable'>لیست مقالات</a>
           <a class='mouseSticky' href='../' data-cursor='pointerClickable'>صفحه‌ی اصلی</a>
           <a class='mouseSticky' href='../products/index.html' data-cursor='pointerClickable'>کاتالوگ محصولات</a>
           <a class='mouseSticky' href='../contact/index.html' data-cursor='pointerClickable'>ارتباط با ما</a>

@@ -103,7 +103,7 @@ if (window.innerWidth > 992) {
 // --------------------------------------------------
 function addSection(products) {
   const otherProductContent = document.querySelector(".otherProductContent");
-
+  if (!otherProductContent) return;
   products.forEach((product) => {
     const otherProductItem = document.createElement("div");
     otherProductItem.setAttribute("data-cursor", "pointerLink");

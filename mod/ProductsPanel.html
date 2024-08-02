@@ -277,7 +277,7 @@
         title="file"
         id="file"
         name="uploadFile"
-        accept=".pdf,.doc,.docx,.jpg,.jpeg,.png"
+        accept=".pdf"
         class="btn-17"
       />
       <select class="btn-17" id="productSelect"></select>
@@ -310,6 +310,27 @@
       const username = sessionStorage.getItem("username");
       const password = sessionStorage.getItem("password");
 
+      document.addEventListener("DOMContentLoaded", function () {
+        const formData = new FormData();
+        formData.append("username", username);
+        formData.append("password", password);
+
+        fetch("login.php", {
+          method: "POST",
+          body: formData,
+        })
+          .then((response) => response.text())
+          .then((text) => {
+            if (text != "true") {
+              document.body.innerHTML = "";
+
+              document.body.innerHTML =
+                '<a style="display: block; width: 100%; text-align: center; font-size: larger;" href="index.html">لاگین کنید</a>';
+            }
+          })
+          .catch((error) => console.error("Error:", error));
+      });
+
       var pageUrl = "";
 
       async function saveAllSections() {
@@ -341,7 +362,6 @@
 
         if (!file || file.type !== "application/pdf") {
           displayMessage("Please select a valid PDF file.", "error");
-          return;
         }
 
         const formProductPdf = new FormData();
@@ -363,13 +383,44 @@
           }
         } catch (error) {
           displayMessage(error);
-          return;
+        }
+
+        /*-----*/
+
+        const body = document.querySelector("main").innerHTML;
+        const formData = new FormData();
+        formData.append("url", pageUrl);
+        formData.append("body", body);
+
+        formData.append("labels", window.labels);
+        formData.append("labelYellow", window.labelYellow);
+        formData.append("labelRed", window.labelRed);
+        formData.append("dataYellow", window.dataYellow);
+        formData.append("dataRed", window.dataRed);
+        formData.append("titleText", window.titleText);
+
+        formData.append("username", username);
+        formData.append("password", password);
+
+        try {
+          const newBlogsResponse = await fetch("uploadNewProduct.php", {
+            method: "POST",
+            body: formData,
+          });
+          const newBlogsText = await newBlogsResponse.text();
+          if (newBlogsText.includes("صفحه با موفقیت به‌روزرسانی شد")) {
+            displayMessage(newBlogsText);
+          } else {
+            displayMessage(newBlogsText);
+            throw new Error(newBlogsText);
+          }
+        } catch (error) {
+          displayMessage(error.message);
         }
       }
-      function displayMessage(message, type) {
+      function displayMessage(message) {
         const messageDiv = document.getElementById("message");
-        messageDiv.textContent = message;
-        messageDiv.className = type;
+        messageDiv.innerHTML += message + "<br>";
       }
       /*---*/
       function populateInputs() {

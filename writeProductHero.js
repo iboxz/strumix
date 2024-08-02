@@ -4,7 +4,7 @@ const cheerio = require("cheerio");
 
 function handleError(err) {
   console.error(err);
-  process.exit(1); 
+  process.exit(1);
 }
 
 async function updateMetaTags() {
@@ -21,18 +21,33 @@ async function updateMetaTags() {
         const filePath = path.join(productPath, product.url);
 
         try {
-          const htmlContent = await fs.readFile(filePath, "utf-8");
+          const htmlContent = await fs.readFile(filePath + ".html", "utf-8");
 
           const $ = cheerio.load(htmlContent);
 
-          $("head").append(``);
+          // Define the HTML snippet to add
+          const snippet = `
+            <a href="../assets/productCatalogue/${product.url}.pdf" data-cursor="pointerNavbar" target="_blank">
+              دانلود کاتالوگ محصول <span class="iconDownload"></span>
+            </a>
+          `;
 
-          await fs.writeFile(filePath, $.html(), "utf-8");
+          // Find the target element and append the snippet
+          const targetElement = $(".section2 > div:nth-child(1)");
+          if (targetElement.length) {
+            targetElement.append(snippet);
+          } else {
+            console.warn(
+              `Element .section2 > div:nth-child(1) not found in ${product.url}`
+            );
+          }
 
-          console.log(`Meta tags of ${product.url} successfully updated.`);
+          await fs.writeFile(filePath + ".html", $.html(), "utf-8");
+
+          console.log(`Content of ${product.url} successfully updated.`);
         } catch (err) {
           console.error(
-            `Error updating meta tags of ${product.url}: ${err.message}`
+            `Error updating content of ${product.url}: ${err.message}`
           );
         }
       }
@@ -41,7 +56,7 @@ async function updateMetaTags() {
     handleError(err);
   }
 
-  console.log("All meta tags processed.");
+  console.log("All content processed.");
 }
 
 // Call the main function

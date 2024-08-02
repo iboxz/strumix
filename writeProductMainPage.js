@@ -18,6 +18,10 @@ async function updateHTMLFiles() {
         try {
           let htmlContent = await fs.readFile(filePath, "utf-8");
 
+          htmlContent = htmlContent.replace(
+            /<link\s+rel="icon"\s+href="https:\/\/strumix.com\/assetsVectorLogo-favicon.ico"\s+type="image\/x-icon"\s*\/?>/i,
+            '<link rel="icon" href="https://strumix.com/assets/VectorLogo-favicon.ico" type="image/x-icon" />'
+          );
 
           await fs.writeFile(filePath, htmlContent, "utf-8");
           console.log(`File ${file} successfully updated.`);
