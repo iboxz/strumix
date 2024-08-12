@@ -552,8 +552,9 @@ function displayArticles(articles, append = false, query = "") {
     currentIndex + articlesPerPage
   );
   blogsToShow.forEach((blog) => {
-    const div = document.createElement("div");
+    const div = document.createElement("a");
     div.setAttribute("data-cursor", "pointerLinkNavbar");
+    div.setAttribute("href", blog.url);
     div.innerHTML = `
           <div class="card">
             <div>

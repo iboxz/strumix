@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>استرامیکس - صفحه‌ی اصلی</title>
+    <title>صفحه‌ی اصلی - استرامیکس</title>
 
     <meta
       name="description"
@@ -58,6 +58,10 @@
       async=""
       src="https://www.googletagmanager.com/gtag/js?id=G-4PJ8JE8SW8"
     ></script>
+    <script
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=AW-16666621095"
+    ></script>
 
     <script>
       window.dataLayer = window.dataLayer || [];
@@ -67,6 +71,17 @@
       gtag("js", new Date());
 
       gtag("config", "G-4PJ8JE8SW8");
+
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
+
+      gtag("event", "conversion", {
+        send_to: "AW-16666621095/j3iCCJ2IkskZEKfpoYs-",
+      });
+      gtag("config", "AW-16666621095");
     </script>
 
     <script type="application/ld+json">

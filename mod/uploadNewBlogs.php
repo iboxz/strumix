@@ -88,7 +88,7 @@ if ($resultAuthorisation->num_rows > 0) {
         'headline': '" . $title . "',
         'image': ['https://strumix.com/serverUploadAssets/blogsCoverImg/" . $cover . ".jpg'],
         'datePublished': '" . $dateEn . "',
-        'keywords': '" . $tags . "',
+        'keywords': '" . $tags . "'
       }
     </script>
   <script async='' src='https://www.googletagmanager.com/gtag/js?id=G-4PJ8JE8SW8'></script>
@@ -109,7 +109,7 @@ if ($resultAuthorisation->num_rows > 0) {
   <link rel='stylesheet' href='../src/blogs/index.css' />
   <style>
     .mainBlogContainer img {
-      width: " . $imgWidth . " %;
+      width: " . $imgWidth . "%;
     }
   </style>
 </head>

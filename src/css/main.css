@@ -93,12 +93,19 @@
   font-weight: 800;
 }
 /* damn font */
-
 @font-face {
   font-family: "Damn";
   src: url("../../assets/fonts/Damn.woff") format("woff");
   font-weight: 400;
 }
+@font-face {
+  font-family: "Doran";
+  src: url("../../assets/fonts/Doran-VF.ttf") format("truetype-variations");
+  font-weight: 100 900;
+  font-style: normal;
+  font-display: swap;
+}
+
 html {
   margin: 0;
   padding: 0;
@@ -163,7 +170,7 @@ html {
 }
 
 .cursorBorder {
-  --size: 5vmin;
+  --size: 0vmin;
   position: fixed;
   top: calc(var(--size) / -2);
   left: calc(var(--size) / -2);
@@ -175,9 +182,8 @@ html {
 
   background-position: center center;
   background-repeat: no-repeat;
-
-  transition: top 0.15s ease-out, left 0.15s ease-out, width 0.15s ease-out,
-    height 0.15s ease-out, background-color 0.15s ease-out, all 0.1s ease-out;
+  transition: top 0.15s ease-out, left 0.15s ease-out, width 1.5s ease-out,
+    height 1.5s ease-out, background-color 0.15s ease-out, all 0.1s ease-out;
   z-index: 997;
 }
 

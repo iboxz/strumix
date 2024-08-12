@@ -172,6 +172,15 @@
       .mainBlogContainer img {
         width: var(--custom-width, 100%);
       }
+
+      .ql-snow .ql-picker-options .ql-picker-item {
+        font-family: attr(data-value);
+      }
+
+      .ql-snow .ql-picker.ql-font .ql-picker-label::before,
+      .ql-snow .ql-picker.ql-font .ql-picker-item::before {
+        content: attr(data-value) !important;
+      }
     </style>
   </head>
   <body>
@@ -218,7 +227,9 @@
       <label for="category">دسته بندی</label>
       <br />
       <input type="text" id="category" name="category" />
-      <select id="categorySelector"></select>
+      <select id="categorySelector">
+        <option value="" selected disabled>انتخاب کنید</option>
+      </select>
 
       <br />
 
@@ -235,7 +246,9 @@
       <div id="editor"></div>
 
       <div id="toolbar">
-        <select id="blogSelect"></select>
+        <select id="blogSelect">
+          <option value="" selected disabled>انتخاب کنید</option>
+        </select>
         <label for="blogSelect">ویرایش مقالات</label>
         <br />
         <button id="preview">پیش نمایش</button>
@@ -308,7 +321,7 @@
       const username = sessionStorage.getItem("username");
       const password = sessionStorage.getItem("password");
 
-      document.addEventListener("DOMContentLoaded", function () {
+      /*    document.addEventListener("DOMContentLoaded", function () {
         const formData = new FormData();
         formData.append("username", username);
         formData.append("password", password);
@@ -327,7 +340,7 @@
             }
           })
           .catch((error) => console.error("Error:", error));
-      });
+      }); */
 
       let currentFunction = null;
 
@@ -500,11 +513,26 @@
 
       /*Quill ------------------------------------*/
       Quill.register("modules/imageUploader", ImageUploader);
+
+      const FontAttributor = Quill.import("attributors/class/font");
+      FontAttributor.whitelist = ["YekanBakh", "Rokh", "Doran"];
+      Quill.register(FontAttributor, true);
+
+      const SizeAttributor = Quill.import("attributors/class/size");
+      SizeAttributor.whitelist = ["small", false];
+      Quill.register(SizeAttributor, true);
+
       var quill = new Quill("#editor", {
         theme: "snow",
         modules: {
           toolbar: [
-            [{ header: [1, 2, 3] }],
+            [
+              {
+                font: ["YekanBakh", "Rokh", "Doran"],
+              },
+              { size: ["small", false] },
+            ],
+            [{ header: [1, 2, 3, false] }],
             ["link", "bold", "italic", "underline"],
             ["image"],
             [{ list: "ordered" }, { list: "bullet" }],

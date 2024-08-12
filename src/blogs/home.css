@@ -289,7 +289,7 @@ body {
   transition-timing-function: cubic-bezier(0.5, 1, 0.89, 1);
 }
 
-.mainBlogContainer .blogSelector .card > div a:hover {
+.mainBlogContainer .blogSelector .card:hover  > div a{
   background-size: 100% 100%;
 }
 .mainBlogContainer .blogSelector .card > div > div:first-child {
@@ -647,6 +647,7 @@ body {
   .mainBlogContainer .blogSelector .card img {
     width: 100%;
     margin: 0;
+    height: fit-content;
   }
 
   .mainBlogContainer .blogSelector .card > div {

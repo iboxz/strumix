@@ -45,7 +45,7 @@ body {
   position: relative;
   pointer-events: none;
 }
-#smooth-content section{
+#smooth-content section {
   pointer-events: all;
 }
 .hero {
@@ -179,13 +179,72 @@ body {
   margin: 0 auto;
   display: block;
 }
-.mainBlogContainer .ql-align- {
+.mainBlogContainer .ql-align-right {
   text-align: left;
+  margin-left: auto;
   margin-right: auto;
   display: block;
 }
-.mainBlogContainer strong {
+p:has(> .ql-size-small) {
+  font-size: 0.7rem;
+  line-height: 1.2;
+}
+.mainBlogContainer h3 {
+  font-size: 1.17em;
+}
+.mainBlogContainer h2 {
+  font-size: 1.3em;
+}
+.mainBlogContainer h1 {
+  font-size: 1.6em;
+}
+
+.ql-font-YekanBakh {
+  font-family: "YekanBakhFaNum";
+}
+h1 .ql-font-YekanBakh {
+  font-weight: 900;
+}
+h2 .ql-font-YekanBakh {
+  font-family: "YekanBakhFaNum";
+  font-weight: 900;
+}
+h3 .ql-font-YekanBakh {
+  font-family: "YekanBakhFaNum";
   font-weight: 600;
+}
+strong.ql-font-YekanBakh {
+  font-weight: 600;
+}
+
+.ql-font-Rokh {
+  font-family: "Rokh";
+  font-weight: 300;
+}
+h1 .ql-font-Rokh {
+  font-weight: 800;
+}
+h2 .ql-font-Rokh {
+  font-weight: 400;
+}
+h3 .ql-font-Rokh {
+  font-weight: 400;
+}
+strong.ql-font-Rokh {
+  font-weight: 400;
+}
+
+.ql-font-Doran {
+  font-family: "Doran";
+}
+h1 .ql-font-Doran {
+  font-weight: 900;
+}
+h2 .ql-font-Doran {
+  font-weight: 800;
+}
+h3 .ql-font-Doran {
+  font-weight: 700;
 }
 
 .blogTags {
@@ -196,6 +255,10 @@ body {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
+
+  opacity: 0;
+  user-select: none;
+  pointer-events: none;
 }
 .blogTags a {
   text-decoration: none;
@@ -402,7 +465,7 @@ body {
   display: flex;
   flex-direction: column;
   justify-content: end;
-  
+
   z-index: -1;
   position: fixed;
   bottom: 0;

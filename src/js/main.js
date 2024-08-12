@@ -31,14 +31,16 @@ function loop() {
 
 requestAnimationFrame(loop);
 document.addEventListener("click", function () {
+  cursorBorder.style.boxShadow = "0 0 0 0.1vmin black";
   cursorBorder.style.borderRadius = "0";
   cursorBorder.style.setProperty("--size", "2vmin");
   setTimeout(function () {
     requestAnimationFrame(function () {
+      cursorBorder.style.boxShadow = "unset";
       cursorBorder.style.borderRadius = "50%";
-      cursorBorder.style.setProperty("--size", "5vmin");
+      cursorBorder.style.setProperty("--size", "0vmin");
     });
-  }, 150);
+  }, 200);
 });
 if ("ontouchstart" in window) {
   cursorBorder.style.display = "none";
@@ -50,7 +52,6 @@ function activateCustomCursors() {
     item.addEventListener("mouseover", (e) => {
       switch (item.dataset.cursor) {
         case "pointerWhite":
-          cursorBorder.style.boxShadow = "0 0 0 0.1vmin white";
           cursor.style.backgroundColor = "white";
           break;
         case "pointerDisable":
@@ -61,6 +62,8 @@ function activateCustomCursors() {
           cursorBorder.style.backgroundColor = "white";
           cursorBorder.style.mixBlendMode = "difference";
           cursorBorder.style.setProperty("--size", "15vmin");
+          cursorBorder.style.boxShadow = "0 0 0 0.1vmin black";
+
           break;
         case "pointerFocus":
           cursor.style.backgroundColor = "black";
@@ -68,6 +71,8 @@ function activateCustomCursors() {
           cursorBorder.style.setProperty("--size", "4vmin");
           cursorBorder.style.backgroundColor = "white";
           cursorBorder.style.mixBlendMode = "difference";
+          cursorBorder.style.boxShadow = "0 0 0 0.1vmin black";
+
           break;
         case "pointerLink":
           cursor.style.display = "none";
@@ -76,15 +81,19 @@ function activateCustomCursors() {
           cursorBorder.style.backgroundImage =
             "url(../../assets/VectorFlesh4.svg)";
           cursorBorder.style.backgroundSize = "3vmin 3vmin";
+          cursorBorder.style.boxShadow = "0 0 0 0.1vmin black";
 
           break;
         case "pointerLinkNavbar":
           cursor.style.display = "none";
           cursorBorder.style.setProperty("--size", "15vmin");
-          cursorBorder.style.backgroundColor = "#f8dba0";
+          cursorBorder.style.backgroundColor = "#ffffff90";
+          cursorBorder.style.backdropFilter = "blur(0.5vmin)";
           cursorBorder.style.backgroundImage =
             "url(../../assets/VectorFlesh4.svg)";
           cursorBorder.style.backgroundSize = "3vmin 3vmin";
+          cursorBorder.style.boxShadow = "0 0 0 0.1vmin black";
+          cursorBorder.style.filter ="invert(99%) sepia(0%) saturate(0%) hue-rotate(141deg) brightness(109%) contrast(101%)";
 
           break;
         case "pointerWaveBorder":
@@ -98,6 +107,7 @@ function activateCustomCursors() {
           cursor.style.animation =
             "blobRadius 5s ease infinite, blobBackground 15s ease infinite";
           cursor.style.mixBlendMode = "difference";
+          cursorBorder.style.boxShadow = "0 0 0 0.1vmin black";
 
           break;
         case "pointerNavbar":
@@ -114,7 +124,7 @@ function activateCustomCursors() {
 
       cursorBorder.style.mixBlendMode = "unset";
 
-      cursorBorder.style.setProperty("--size", "5vmin");
+      cursorBorder.style.setProperty("--size", "0vmin");
       cursor.style.setProperty("--sizeMainCursor", "0");
 
       cursor.style.animation = "unset";
@@ -124,9 +134,13 @@ function activateCustomCursors() {
       cursorBorder.style.display = "inline";
       cursorBorder.style.borderRadius = "50%";
 
-      cursorBorder.style.boxShadow = "0 0 0 0.1vmin black";
+      cursorBorder.style.boxShadow = "unset";
       cursor.style.backgroundColor = "black";
       cursor.style.mixBlendMode = "unset";
+
+      cursorBorder.style.filter = "unset";
+      cursorBorder.style.backdropFilter = "unset";
+      cursorBorder.style.backgroundColor = "transparent";
 
       cursor.style.width = "var(--sizeMainCursor)";
       cursor.style.borderRadius = "50%";
@@ -399,7 +413,7 @@ window.addEventListener("load", (event) => {
     });
 
     var links = [
-      { text: "مقالات", href: "./blogs" },
+      { text: "مقالات", href: baseUrl + "/blogs" },
       { text: "مدارک فنی", href: "#" },
       { text: "ارتباط با ما", href: baseUrl + "/contact" },
     ];
@@ -495,24 +509,24 @@ window.addEventListener("load", (event) => {
 
   const mainpageLink = document.createElement("a");
   mainpageLink.href = baseUrl;
-  mainpageLink.setAttribute("data-cursor", "pointerLink");
+  mainpageLink.setAttribute("data-cursor", "pointerLinkNavbar");
   mainpageLink.innerHTML = "<span></span>صفحه‌ی اصلی";
   div1.appendChild(mainpageLink);
 
   const catalogLink = document.createElement("a");
   catalogLink.href = baseUrl + "/products";
-  catalogLink.setAttribute("data-cursor", "pointerLink");
-  catalogLink.innerHTML = "<span></span>کاتالوگ محصولات";
+  catalogLink.setAttribute("data-cursor", "pointerLinkNavbar");
+  catalogLink.innerHTML = "<span></span> محصولات";
   div1.appendChild(catalogLink);
 
   const articlesLink = document.createElement("a");
-  articlesLink.href = "/blogs";
-  articlesLink.setAttribute("data-cursor", "pointerLink");
+  articlesLink.href = baseUrl + "/blogs";
+  articlesLink.setAttribute("data-cursor", "pointerLinkNavbar");
   articlesLink.innerHTML = "<span></span>مقالات";
   div1.appendChild(articlesLink);
 
   const technicalLink = document.createElement("a");
-  technicalLink.setAttribute("data-cursor", "pointerLink");
+  technicalLink.setAttribute("data-cursor", "pointerLinkNavbar");
   technicalLink.innerHTML = "<span></span>مدارک فنی";
   div1.appendChild(technicalLink);
   technicalLink.onclick = function () {
@@ -521,7 +535,7 @@ window.addEventListener("load", (event) => {
 
   const contactLink = document.createElement("a");
   contactLink.href = baseUrl + "/contact";
-  contactLink.setAttribute("data-cursor", "pointerLink");
+  contactLink.setAttribute("data-cursor", "pointerLinkNavbar");
   contactLink.innerHTML = "<span></span>ارتباط با ما";
   div1.appendChild(contactLink);
 
