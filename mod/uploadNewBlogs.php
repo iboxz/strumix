@@ -68,11 +68,16 @@ if ($resultAuthorisation->num_rows > 0) {
   <meta name='viewport' content='width=device-width, initial-scale=1.0' />
   <meta http-equiv='X-UA-Compatible' content='IE=edge' />
   <meta name='robots' content='index, follow' />
-  <link rel='icon' href='https://strumix.com/assets/VectorLogo-favicon.ico' type='image/x-icon'/>
-  <link rel='icon' type='image/svg' href='https://strumix.com/assets/VectorLogo-favicon.svg' />
+  <link rel='apple-touch-icon' sizes='180x180' href='../assets/faviconPackage/apple-touch-icon.png'>
+  <link rel='icon' type='image/png' sizes='32x32' href='../assets/faviconPackage/favicon-32x32.png'>
+  <link rel='icon' type='image/png' sizes='16x16' href='../assets/faviconPackage/favicon-16x16.png'>
+  <link rel='manifest' href='../assets/faviconPackage/site.webmanifest'>
+  <link rel='mask-icon' href='../assets/faviconPackage/safari-pinned-tab.svg' color='#5bbad5'>
+  <meta name='msapplication-TileColor' content='#da532c'>
+  <meta name='theme-color' content='#ffffff'> 
   <title>" . $title . "</title>
   <meta name='description' content='" . $description . "' />
-  <meta name='keywords' content=" . $tags . " />
+  <meta name='keywords' content='" . $tags . "' />
   <meta name='robots' content='index, follow' />
   <meta property='og:title' content='" . $title . "' />
   <meta property='og:description' content='" . $description . "' />
