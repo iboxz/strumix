@@ -23,12 +23,12 @@ async function initializeTriggers() {
   if (window.innerWidth >= 769) {
     await new Promise((resolve) => setTimeout(resolve, 400));
     let sections = gsap.utils.toArray(
-      ".section2, .section3, .section4, .noPinSection"
+      ".section2, .section3, .section4, .sectionBlogs, .noPinSection"
     );
 
     sections.forEach((section, i) => {
       let trigger = null;
-      if (i < 3) {
+      if (i < 4) {
         trigger = ScrollTrigger.create({
           trigger: section,
           start: "top top",
@@ -42,7 +42,7 @@ async function initializeTriggers() {
             }
           },
         });
-      } else if (i === 3) {
+      } else if (i === 4) {
         trigger = ScrollTrigger.create({
           trigger: section,
           start: "top top",
@@ -63,7 +63,7 @@ async function initializeTriggers() {
   }
 }
 initializeTriggers();
-// hero---------------------------
+
 document.addEventListener("mousemove", function (e) {
   var { innerWidth: pageWidth, innerHeight: pageHeight } = window;
 
@@ -97,7 +97,6 @@ gsap.to(".hero .scrollFlesh", {
   opacity: 0,
   duration: 0.5,
 });
-// section2---------------------------
 
 if (window.innerWidth > 768) {
   section2Triggers = [];
@@ -141,7 +140,6 @@ if (window.innerWidth > 768) {
   });
 }
 
-// section3---------------------------
 gsap.from(".section3 div:nth-child(1) img", {
   scrollTrigger: {
     trigger: ".section3",
@@ -182,7 +180,6 @@ if (!navigator.userAgent.match(/iPhone/i)) {
     }
   );
 }
-//section4--------------------
 if (!navigator.userAgent.match(/iPhone/i)) {
   gsap.from(
     new SplitText(".section4 h3", {
@@ -196,7 +193,6 @@ if (!navigator.userAgent.match(/iPhone/i)) {
         start: "40% bottom",
         end: "40% top",
         toggleActions: "play none none reset",
-        // markers: true,
       },
       delay: 0.5,
       opacity: 0.3,
@@ -288,12 +284,41 @@ boxes.forEach((box) => {
 
   box.addEventListener("click", function () {
     const productID = this.id;
-    const url = `products.html?productID=${productID}`;
+    const url = `products/?productID=${productID}`;
     window.location.href = url;
   });
 });
 
-//---------------------------------------------------
+if (!navigator.userAgent.match(/iPhone/i)) {
+  gsap.from(
+    new SplitText(".sectionBlogs h3", {
+      type: "chars",
+      tagName: "span",
+      tag: "span",
+    }).chars,
+    {
+      scrollTrigger: {
+        trigger: ".sectionBlogs h3",
+        start: "40% bottom",
+        end: "40% top",
+        toggleActions: "play none none reset",
+      },
+      delay: 0.5,
+      opacity: 0.3,
+      ease: "power3.out",
+      stagger: 0.15,
+    }
+  );
+}
+gsap.to(".sectionBlogs h3 > #line", {
+  scrollTrigger: {
+    trigger: ".sectionBlogs h3",
+    start: "40% bottom",
+    end: "40% top",
+    scrub: 4,
+  },
+  width: "15vmin",
+});
 
 gsap.to(".section5 > div", {
   scrollTrigger: {
@@ -301,7 +326,6 @@ gsap.to(".section5 > div", {
     start: "top center",
     end: "bottom center",
     scrub: 2,
-    // markers: true,
   },
   y: "100%",
 });
@@ -439,8 +463,6 @@ function horizontalLoop(items, config) {
   return tl;
 }
 
-//---------------------------------
-
 gsap.to(".section6 > div #line", {
   scrollTrigger: {
     trigger: ".section6 > div:first-child",
@@ -456,7 +478,53 @@ gsap.from(CSSRulePlugin.getRule(".section7::before"), {
     start: "top center",
     end: "top top",
     scrub: 4,
-    // markers: true,
   },
   backgroundSize: "200% auto",
 });
+
+fetch("./serverAssets/blogs.json")
+  .then((response) => response.json())
+  .then((data) => {
+    const blogs = data.blogs;
+
+    blogs.sort((a, b) => new Date(b.dateConvert) - new Date(a.dateConvert));
+
+    const latestBlogs = blogs.slice(0, 4);
+
+    let articlesHtml = "";
+    latestBlogs.forEach((blog, index) => {
+      articlesHtml += `
+        <a class="cards" href="./blogs/${
+          blog.url
+        }" data-cursor="pointerLinkNavbar">
+          <div>
+            <h4>
+              <span>${blog.title}</span>
+            </h4>
+            ${
+              index === 0
+                ? `<img src="./serverAssets/blogsCoverImg/${blog.image}" alt="${blog.title} تصویر مقاله" />`
+                : ""
+            }
+            <p>
+              ${blog.description}
+            </p>
+          </div>
+        </a>
+      `;
+    });
+
+    articlesHtml += `
+      <a class="cards" href="./blogs/" data-cursor="pointerLinkNavbar">
+        <div>
+          <p>لیست تمام مقالات</p>
+          <img src="assets/VectorFlesh7.svg" alt="flesh Icon" />
+        </div>
+      </a>
+    `;
+
+    document.querySelector(".body").innerHTML = articlesHtml;
+    activateCustomCursors();
+
+  })
+  .catch((error) => console.error("Error fetching data:", error));

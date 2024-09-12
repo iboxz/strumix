@@ -6,6 +6,9 @@ main {
   font-family: "YekanBakhFaNum", "vazir", "nazanin", "Dubai", Arial, sans-serif;
   direction: rtl;
 }
+h3 {
+  font-weight: 700;
+}
 .hero {
   height: 95vh;
   display: flex;
@@ -431,8 +434,15 @@ main {
   color: #3e362e;
 }
 .section4 > div:last-child div a:hover {
-  background: #3e362e;
+  background: #ff0000;
   color: white;
+}
+
+.section4 > div:last-child div * {
+  transition: all 0.2s;
+}
+.section4 > div:last-child div a:hover div {
+  background: #ff0000;
 }
 .section4 > div:last-child p {
   padding: 0 1vmin;
@@ -440,7 +450,7 @@ main {
   font-size: clamp(0.9rem, 1vw, 100rem);
 }
 .section4 > div:last-child > div div {
-  background: #3e362e;
+  background: #c73334;
   display: flex;
   flex-direction: column;
   padding: 1vmin;
@@ -510,6 +520,298 @@ main {
     padding: 2vmin;
   }
 }
+/*----------*/
+.sectionBlogs {
+  overflow: hidden;
+  font-family: "Damn", "Rokh";
+  color: #fff;
+
+  background: #363029;
+  height: 100vh;
+  border-radius: 5vmin 5vmin 0 0;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.sectionBlogs > div {
+  width: 90vw;
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
+  padding: 5vmin 4vmin;
+
+  position: relative;
+  overflow: hidden;
+}
+
+.sectionBlogs > div:first-child {
+  padding: 3vmin 0;
+  border-bottom: 0.1vmin #cdcdcd solid;
+}
+.sectionBlogs h3 {
+  font-size: clamp(1rem, 1.6vw, 100rem);
+}
+.sectionBlogs h3 > #line {
+  display: inline-block;
+  width: 0vmin;
+  height: 0.1vmin;
+  vertical-align: middle;
+  margin-left: 3vmin;
+  background: #d8d8d8;
+}
+
+.sectionBlogs > .body {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  grid-template-rows: repeat(2, auto);
+  height: 100%;
+}
+
+.sectionBlogs > .body .cards {
+  color: white;
+  text-decoration: none;
+}
+.sectionBlogs > .body > .cards:nth-child(1) {
+  grid-column: span 2 / span 2;
+  grid-row: span 2 / span 2;
+}
+.sectionBlogs > .body > .cards:nth-child(1) img {
+  object-fit: cover;
+  width: 100%;
+  height: 50vmin;
+}
+
+.sectionBlogs > .body > .cards:nth-child(2) {
+  grid-column: span 2 / span 2;
+  grid-column-start: 3;
+}
+
+.sectionBlogs > .body > .cards:nth-child(3) {
+  grid-column: span 2 / span 2;
+  grid-column-start: 5;
+}
+
+.sectionBlogs > .body > .cards:nth-child(4) {
+  grid-column: span 3 / span 3;
+  grid-column-start: 3;
+  grid-row-start: 2;
+}
+
+.sectionBlogs > .body > .cards:nth-child(5) {
+  grid-column-start: 6;
+  grid-row-start: 2;
+}
+.sectionBlogs > .body .cards {
+  background: #29251f;
+  border: 0.1vmin white solid;
+  border-radius: 2vmin;
+  margin: 1vmin;
+  padding: 3vmin;
+  flex-direction: column;
+  position: relative;
+  transition: all 0.2s;
+}
+
+.sectionBlogs > .body .cards div {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+.sectionBlogs > .body .cards:hover {
+  background: #24201b;
+}
+
+.sectionBlogs > .body > .cards:nth-child(-n + 4):after {
+  content: "مطالعه مقاله";
+  position: absolute;
+  right: 0;
+  left: 0;
+  height: 6vmin;
+  padding: 0.9vmin;
+  background: #fdd27e;
+  color: #000000;
+  font-size: clamp(1rem, 1vw, 100rem);
+  border: 0.1vmin white solid;
+  text-align: center;
+  z-index: -1;
+  transition: all 0.2s;
+}
+
+.sectionBlogs > .body > .cards:nth-child(-n + 3):after {
+  bottom: calc(100% - 10vmin);
+  border-top-right-radius: 2vmin;
+  border-top-left-radius: 2vmin;
+}
+
+.sectionBlogs > .body > .cards:nth-child(4):after {
+  top: calc(100% - 10vmin);
+  border-bottom-right-radius: 2vmin;
+  border-bottom-left-radius: 2vmin;
+  display: flex;
+  justify-content: center;
+  align-items: end;
+}
+
+.sectionBlogs > .body > .cards:nth-child(4):hover:after {
+  top: calc(100% - 4vmin);
+}
+
+.sectionBlogs > .body > .cards:nth-child(-n + 3):hover:after {
+  bottom: calc(100% - 4vmin);
+}
+
+.sectionBlogs > .body .cards > div *:last-child {
+  margin-top: auto;
+}
+
+.sectionBlogs > .body h4 {
+  font-size: clamp(0.9rem, 1.2vw, 100rem);
+  font-weight: 500;
+  padding-bottom: 2vmin;
+}
+.sectionBlogs > .body p {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 5;
+  overflow: hidden;
+  font-family: YekanBakhFaNum;
+  font-weight: 100;
+  line-height: 1.4;
+  font-size: clamp(0.8rem, 0.8vw, 100rem);
+  padding-top: 2vmin;
+  text-align: justify;
+  text-justify: auto;
+}
+
+.sectionBlogs > .body h4 > span {
+  text-decoration: none;
+  color: white;
+
+  background-image: linear-gradient(
+    to top,
+    transparent 0,
+    #fdd27e 0,
+    #fdd27e 5vmin,
+    transparent 5vmin
+  );
+  background-repeat: no-repeat;
+  background-size: 0 100%;
+  -webkit-transition: color 0.3s ease, background-color 0.3s ease,
+    background-size 0.7s;
+  transition: color 0.3s ease, background-color 0.3s ease, background-size 0.7s;
+  background-position: right;
+  -webkit-transition-timing-function: cubic-bezier(0.5, 1, 0.89, 1);
+  transition-timing-function: cubic-bezier(0.5, 1, 0.89, 1);
+}
+
+.sectionBlogs > .body .cards:hover span {
+  background-size: 100% 100%;
+  color: black;
+}
+
+.sectionBlogs > .body .cards:last-child {
+  background: #c73334;
+  border: none;
+  transition: all 0.4s ease;
+  position: relative;
+  z-index: 10;
+}
+
+.sectionBlogs > .body .cards:last-child:hover {
+  background: #e72b2b;
+}
+.sectionBlogs > .body .cards:last-child div {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  text-decoration: none;
+  transform: scale(1);
+  transition: all 0.4s ease;
+}
+.sectionBlogs > .body .cards:last-child:hover div {
+  transform: scale(1.1);
+}
+
+.sectionBlogs > .body .cards:last-child p {
+  font-size: clamp(2rem, 2.3vw, 100rem);
+  font-family: rokh;
+  font-weight: 900;
+  text-align: center;
+}
+.sectionBlogs > .body .cards:last-child img {
+  filter: brightness(100);
+  width: 40%;
+  margin: 0;
+}
+
+@media only screen and (max-width: 768px) {
+  .sectionBlogs > div:first-child {
+    border-bottom: none;
+    padding: 5vmin 0;
+  }
+  .sectionBlogs {
+    border-radius: 0;
+    height: fit-content;
+  }
+  .sectionBlogs > .body {
+    display: flex;
+    width: 100%;
+    padding: 0;
+  }
+  .sectionBlogs > .body .cards {
+    border-radius: 0;
+    border: none;
+    border-top: 0.1vmin white solid;
+    margin: 0;
+    width: 100%;
+    padding: 5vmin;
+  }
+  .sectionBlogs > .body h4 {
+    padding: 0;
+  }
+  .sectionBlogs > .body .cards:nth-child(-n + 4) p {
+    display: none;
+  }
+  .sectionBlogs > .body img {
+    padding-top: 2vmin;
+  }
+  .sectionBlogs > .body .cards:last-child {
+    background: transparent;
+  }
+  .sectionBlogs > .body .cards:last-child:hover {
+    background: #c73334;
+  }
+  .sectionBlogs > .body .cards:last-child div {
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    background: #c73334;
+    border-radius: 2vmin;
+    padding: 3vmin;
+  }
+  .sectionBlogs > .body .cards:last-child p {
+    font-size: clamp(0.8rem, 1vw, 100rem);
+    padding: 0;
+  }
+  .sectionBlogs > .body .cards:last-child img {
+    width: auto;
+    height: 3vmin;
+    padding: 0 2vmin;
+    order: -1;
+  }
+
+  .sectionBlogs > .body > .cards:nth-child(1) img {
+    height: 100%;
+  }
+}
+
+/*--------------*/
 .noPinSection {
   background: #000000;
   color: wheat;
@@ -544,7 +846,7 @@ main {
 }
 .section5 .infiniteScrollText:last-child {
   font-family: "rokh";
-  background-color: #363029de;
+  background-color: #ff0000de;
   color: white;
   font-size: clamp(2rem, 3vw, 100rem);
   padding: 2vmin 0;
@@ -669,15 +971,9 @@ main {
 .section7::before {
   content: "";
   position: absolute;
-  top: calc(0% + 7vmin);
-  bottom: calc(0% + 7vmin);
-  right: calc(0% + 7vmin);
-  left: calc(0% + 7vmin);
-
-  background-image: url(../../assets/img/Strumix-structure-view4.jpg);
-  background-repeat: no-repeat;
-  background-position: center center;
-  background-size: 100% auto;
+  inset: 7vmin;
+  background: url(../../assets/img/Strumix-structure-view4.jpg) center/100% auto
+    no-repeat;
   filter: brightness(0.5);
   z-index: 1;
 }
@@ -752,7 +1048,7 @@ main {
   align-items: center;
   justify-content: left;
 
-  border: 0.1vmin solid #3e362e;
+  border: 0.1vmin solid #3e2e2e;
   border-radius: 0.5vmin;
 
   text-decoration: none;
@@ -760,18 +1056,29 @@ main {
   white-space: nowrap;
 }
 .section7 .button a:hover {
-  background: #3e362e;
+  background: #ff0000;
   color: white;
 }
 .section7 p {
   padding: 0 1vmin;
 }
+.section7 .button * {
+  transition: all 0.2s;
+}
 .section7 .button div {
-  background: #3e362e;
+  background: #c73334;
   display: flex;
   flex-direction: column;
   padding: 1vmin;
   position: relative;
+  overflow: hidden;
+
+  border-top-left-radius: 0.5vmin;
+  border-bottom-left-radius: 0.5vmin;
+}
+.section7 .button:hover div {
+  background: #ff0000;
+  color: white;
 }
 .section7 .button div img:last-child {
   position: absolute;
@@ -891,6 +1198,6 @@ main {
   }
 }
 
-.settingsCSS{
+.settingsCSS {
   display: none;
 }

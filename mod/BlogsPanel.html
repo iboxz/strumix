@@ -321,7 +321,7 @@
       const username = sessionStorage.getItem("username");
       const password = sessionStorage.getItem("password");
 
-      /*    document.addEventListener("DOMContentLoaded", function () {
+      document.addEventListener("DOMContentLoaded", function () {
         const formData = new FormData();
         formData.append("username", username);
         formData.append("password", password);
@@ -340,7 +340,7 @@
             }
           })
           .catch((error) => console.error("Error:", error));
-      }); */
+      });
 
       let currentFunction = null;
 
@@ -408,6 +408,7 @@
         const datePickerEnTranslateInput = document.getElementById(
           "datePickerEnTranslate"
         );
+        const blogDateEnInput = document.getElementById("datePickerEn");
         const blogTitleInput = document.getElementById("title");
         const blogDescriptionInput = document.getElementById("description");
         const blogImageInput = document.getElementById("previewImage");
@@ -458,6 +459,7 @@
 
           blogDateInput.value = blog.date;
           datePickerEnTranslateInput.value = blog.dateConvert;
+          blogDateEnInput.value = blog.dateEn;
           blogTitleInput.value = blog.title;
           blogDescriptionInput.value = blog.description;
           pageUrlInput.value = blog.url;
@@ -744,7 +746,7 @@
 
         const formDataCoverImg = new FormData();
         formDataCoverImg.append("image", CoverImgFile);
-        formDataCoverImg.append("title", titleValue);
+        formDataCoverImg.append("title", sanitizedUrl);
         formDataCoverImg.append("username", username);
         formDataCoverImg.append("password", password);
 
@@ -768,8 +770,7 @@
           return;
         }
 
-        const regex = /[^\p{L}\p{N}\-_]/gu;
-        const CoverImage = titleValue.replace(regex, "_") + ".jpg";
+        const CoverImage = sanitizedUrl + ".jpg";
 
         const data = {
           url: sanitizedUrl,

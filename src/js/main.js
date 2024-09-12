@@ -93,7 +93,8 @@ function activateCustomCursors() {
             "url(../../assets/VectorFlesh4.svg)";
           cursorBorder.style.backgroundSize = "3vmin 3vmin";
           cursorBorder.style.boxShadow = "0 0 0 0.1vmin black";
-          cursorBorder.style.filter ="invert(99%) sepia(0%) saturate(0%) hue-rotate(141deg) brightness(109%) contrast(101%)";
+          cursorBorder.style.filter =
+            "invert(99%) sepia(0%) saturate(0%) hue-rotate(141deg) brightness(109%) contrast(101%)";
 
           break;
         case "pointerWaveBorder":
@@ -128,6 +129,7 @@ function activateCustomCursors() {
       cursor.style.setProperty("--sizeMainCursor", "0");
 
       cursor.style.animation = "unset";
+
       cursorBorder.style.animation = "unset";
 
       cursor.style.display = "inline";
@@ -169,8 +171,8 @@ window.addEventListener("load", (event) => {
   const navigation = createEl("nav");
   const divLogo = createEl("div");
   const logoImg = createEl("img", {
-    src: new URL("/assets/VectorLogo.svg", baseUrl),
-    alt: "Strumix mini logo",
+    src: new URL("/assets/VectorLogotype.svg", baseUrl),
+    alt: "Strumix Logotype",
   });
   const divProducts = createEl("div");
   const productsParagraph = createEl(
@@ -230,7 +232,7 @@ window.addEventListener("load", (event) => {
 
   var menuTimeline = gsap
     .timeline({ paused: true, reversed: true })
-    .from("nav .products", { y: "-100%", duration: 1, ease: "power2.inOut" })
+    .from("nav .products", { y: "-100%", duration: 0.5, ease: "sine.out" })
     .to(
       "nav > div:nth-child(3) > p",
       { text: "محصولات", scale: "1.3", duration: 0.5, ease: "none" },
@@ -591,6 +593,11 @@ window.addEventListener("load", (event) => {
   salesSupportLink.href = "https://api.whatsapp.com/send?phone=989928210625";
   salesSupportLink.textContent = "پشتیبانی فروش";
   socialMediaDiv.appendChild(salesSupportLink);
+
+  const logo = document.createElement("img");
+  logo.src = "../assets/faviconPackage/LogoWhite.svg";
+  logo.alt = "لوگوی سفید رنگ استرامیکس";
+  socialMediaDiv.appendChild(logo);
 
   div2.appendChild(socialMediaDiv);
 

@@ -15,10 +15,14 @@ h3,
 h4,
 h4,
 h6 {
-  font-weight: 400;
+  font-weight: 600 !important;
   font-family: "Rokh";
 }
-
+.section2 *,
+.section3 *,
+.section4 * {
+  font-weight: 200;
+}
 .englishText {
   font-family: "Montserrat", "YekanBakhFaNum";
 }

@@ -130,7 +130,7 @@ body {
 .section2 header a::after {
   content: "";
   position: absolute;
-  height: 0.5vmin;
+  height: 0.2vmin;
   top: 90%;
   right: 50%;
   left: 50%;

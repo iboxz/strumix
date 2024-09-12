@@ -1,19 +1,3 @@
-@font-face {
-  font-family: YekanBakhFaNum;
-  src: url("../../assets/fonts/YekanBakhFaNum-Regular.woff2") format("woff2");
-  font-weight: 400;
-}
-@font-face {
-  font-family: YekanBakhFaNum;
-  src: url("../../assets/fonts/YekanBakhFaNum-Bold.woff2") format("woff2");
-  font-weight: 600;
-}
-
-@font-face {
-  font-family: YekanBakhFaNum;
-  src: url("../../assets/fonts/YekanBakhFaNum-Fat.woff2") format("woff2");
-  font-weight: 900;
-}
 /* cyrillic-ext */
 @font-face {
   font-family: "Montserrat";
@@ -70,27 +54,20 @@
     U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+2074, U+20AC, U+2122, U+2191,
     U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
 }
+@font-face {
+  font-family: "YekanBakhFaNum";
+  src: url("../../assets/fonts/YekanBakh-VF.ttf") format("truetype-variations");
+  font-weight: 100 900;
+  font-style: normal;
+  font-display: swap;
+}
 /* Rokh bold */
-
 @font-face {
-  font-family: "Rokh";
-  src: url("../../assets/fonts/Rokh-Thin.woff2") format("woff2");
-  font-weight: 200;
-}
-@font-face {
-  font-family: "Rokh";
-  src: url("../../assets/fonts/Rokh-Regular.woff2") format("woff2");
-  font-weight: 300;
-}
-@font-face {
-  font-family: "Rokh";
-  src: url("../../assets/fonts/Rokh-Bold.woff2") format("woff2");
-  font-weight: 400;
-}
-@font-face {
-  font-family: "Rokh";
-  src: url("../../assets/fonts/Rokh-Black.woff2") format("woff2");
-  font-weight: 800;
+  font-family: "rokh";
+  src: url("../../assets/fonts/Rokh-VF.ttf") format("truetype-variations");
+  font-weight: 100 900;
+  font-style: normal;
+  font-display: swap;
 }
 /* damn font */
 @font-face {
@@ -237,8 +214,16 @@ html {
 
   z-index: 996;
   overflow: hidden;
+  animation: slideUp 0.1s 0.1s ease-in-out forwards;
 }
-
+@keyframes slideUp {
+  0% {
+    top: 0;
+  }
+  100% {
+    top: -100vh;
+  }
+}
 .splashScreen::before {
   content: "";
   position: absolute;
@@ -327,13 +312,27 @@ nav {
   z-index: 900;
 }
 nav > div {
-  background: hsla(39, 100%, 70%, 0.8);
+  background: #ffc966cc;
   backdrop-filter: blur(0.5vmin);
   padding: 1vmin 5vmin;
-  border-radius: 10vmin;
   z-index: 10;
   font-size: clamp(0.9rem, 1vw, 100rem);
   cursor: pointer;
+  clip-path: polygon(
+    2vmin 0,
+    calc(100% - 2vmin) 0,
+    100% 50%,
+    calc(100% - 2vmin) 100%,
+    2vmin 100%,
+    0% 50%
+  );
+  transition: all 0.2s;
+}
+nav > div:hover {
+  background: #ffc558;
+  scale: 1.1;
+  z-index: 99;
+  position: relative;
 }
 nav > div:first-child {
   position: absolute;
@@ -343,12 +342,13 @@ nav > div:first-child {
   margin: 0;
   padding: 2vmin;
   width: 16vmin;
-  height: 10vmin;
+  height: fit-content;
   display: flex;
   align-items: center;
   justify-content: center;
 
-  background: #ffab2e;
+  background: #ffc966cc;
+  border-radius: 0%;
 }
 nav > div:first-child img {
   object-fit: contain;
@@ -508,16 +508,16 @@ nav > .active > span:first-child {
 nav > .active > span:last-child {
   transform: rotate(-15deg);
 }
-@media screen and (max-width: 1100px) {
+@media screen and (max-width: 1300px) {
   nav > div:first-child {
     position: absolute;
     padding: 0;
-    right: 3vmin;
+    right: 2vmin;
     top: 3vmin;
     margin: 0;
-    padding: 1vmin;
-    width: 10vmin;
-    height: 5vmin;
+    padding: 1.5vmin;
+    width: 13vmin;
+    height: auto;
   }
 }
 @media only screen and (max-width: 768px) {
@@ -529,8 +529,8 @@ nav > .active > span:last-child {
     display: none;
   }
   nav > div:first-child {
-    width: 15vmin;
-    height: 10vmin;
+    width: 18vmin;
+    height: auto;
     display: flex;
     left: 3vmin;
     right: auto;
@@ -542,7 +542,7 @@ nav > .active > span:last-child {
   }
   nav .products {
     width: 100%;
-    height: 100dvh;
+    height: fit-content;
     flex-direction: column;
     font-weight: 600;
   }
@@ -587,23 +587,65 @@ nav > .active > span:last-child {
 
   nav .products div:nth-child(1) {
     margin-top: auto;
+
+    flex-wrap: wrap;
+    flex-direction: row;
+    justify-content: right;
   }
 
-  nav .products > div:nth-child(1) p {
-    padding: 2.5vmin 3vw;
-    margin: 1vmin 0;
+  nav .products > div:nth-child(1) a {
+    width: min-content;
+    flex: 1 0 auto;
+  }
+
+  nav .products > div:nth-child(1) a:not(:first-child) p {
+    position: relative;
+    background: transparent;
+    color: black;
+    padding: 1vmin 3vw;
+    margin: 1vmin;
+    border-radius: 50vmin;
+    border: 0.1vmin black solid;
+    text-align: center;
+
+    box-shadow: none;
+  }
+  
+  nav .products > div:nth-child(1) p::after {
+    display: none;
+  }
+  nav .products > div:nth-child(1) a:first-child {
+    display: block;
+    border: 0.1vmin black solid;
+    border-radius: 10vmin;
+    justify-content: center;
+    display: flex;
+    justify-content: center;
+    margin: 1vmin 1vmin;
+    width: 100%;
+  }
+  nav .products > div:nth-child(1) a:first-child p {
+    position: relative;
+    background: transparent;
+    color: black;
+    padding: 1vmin 3vw;
+    margin: 1vmin;
+    border-radius: 50vmin;
+    border: none;
+    text-align: center;
+    font-weight: 600;
+
+    box-shadow: none;
   }
 }
 @media only screen and (max-width: 470px) {
   nav > div:first-child {
-    width: 20vmin;
+    width: 30vmin;
+    background: transparent;
     left: 3vmin;
+    top: 5vmin;
     right: auto;
-    height: 10vmin;
-  }
-  nav .products > div:nth-child(1) p {
-    padding: 4vmin 3vw;
-    margin: 2vmin 0;
+    backdrop-filter: blur(0);
   }
 }
 
@@ -672,6 +714,17 @@ nav > .active > span:last-child {
 .footer > div:nth-child(2) div:nth-child(2) a:hover {
   background: #ffffff11;
 }
+
+.footer > div:nth-child(2) > div:nth-child(2) {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+.footer > div:nth-child(2) div:nth-child(2) img {
+  margin-top: auto;
+  margin-right: auto;
+  width: 10vmin;
+}
 .footer h6 {
   font-weight: 400;
 }
@@ -713,12 +766,17 @@ nav > .active > span:last-child {
   }
   .footer > div:nth-child(2) {
     justify-content: center;
+    flex-direction: column;
+    align-items: center;
   }
-  .footer > div:nth-child(2) > div:nth-child(1) {
+  .footer > div:nth-child(2) > div {
     width: 80%;
   }
-  .footer > div:nth-child(2) > div:nth-child(2) {
-    display: none;
+  .footer > div:nth-child(2) div:nth-child(2) img {
+    margin-top: 5vmin;
+    margin-left: auto;
+    margin-right: auto;
+    width: 20vw;
   }
   .footer > div:nth-child(2) {
     width: 100%;

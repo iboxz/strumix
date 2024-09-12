@@ -153,6 +153,11 @@ body {
 .section2 header a:nth-of-type(5) {
   margin-right: auto;
 }
+.section2 header a:nth-of-type(2),
+.section2 header a:nth-of-type(3),
+.section2 header a:nth-of-type(4) {
+  font-weight: 700;
+}
 .section2 header span,
 .section2 header a:nth-of-type(5),
 .section2 header a:nth-of-type(6) {

@@ -133,7 +133,7 @@ window.addEventListener("load", (event) => {
           case "pointerBlendMode":
             cursorBorder.style.backgroundColor = "white";
             cursorBorder.style.mixBlendMode = "difference";
-            cursorBorder.style.setProperty("--size", "15vmin");
+            cursorBorder.style.setProperty("--size", "10vmin");
             break;
           case "pointerFocus":
             cursor.style.backgroundColor = "black";
@@ -144,21 +144,23 @@ window.addEventListener("load", (event) => {
             break;
           case "pointerLink":
             cursor.style.display = "none";
-            cursorBorder.style.setProperty("--size", "15vmin");
+            cursorBorder.style.setProperty("--size", "10vmin");
             cursorBorder.style.backgroundColor = "#f2ecdc ";
             cursorBorder.style.backgroundImage =
               "url(../../assets/VectorFlesh4.svg)";
             cursorBorder.style.backgroundSize = "3vmin 3vmin";
+            cursorBorder.style.boxShadow = "0 0 0 0.1vmin black";
 
             break;
           case "pointerLinkNavbar":
             cursor.style.display = "none";
-            cursorBorder.style.setProperty("--size", "15vmin");
+            cursorBorder.style.setProperty("--size", "10vmin");
             cursorBorder.style.backgroundColor = "#ffffff30";
             cursorBorder.style.backdropFilter = "blur(0.8vmin)";
             cursorBorder.style.backgroundImage =
               "url(../../assets/VectorFlesh4.svg)";
             cursorBorder.style.backgroundSize = "3vmin 3vmin";
+            cursorBorder.style.boxShadow = "0 0 0 0.1vmin black";
 
             break;
           case "pointerWaveBorder":
@@ -176,6 +178,7 @@ window.addEventListener("load", (event) => {
             break;
           case "pointerClickable":
             cursorBorder.style.borderRadius = "0";
+            cursorBorder.style.boxShadow = "0 0 0 0.1vmin black";
             cursorBorder.style.setProperty("--size", "3vmin");
             break;
         }
@@ -186,10 +189,9 @@ window.addEventListener("load", (event) => {
         cursorBorder.style.backgroundColor = "unset";
         cursor.style.background = "unset";
 
-        cursorBorder.style.backdropFilter = "none";
         cursorBorder.style.mixBlendMode = "unset";
 
-        cursorBorder.style.setProperty("--size", "5vmin");
+        cursorBorder.style.setProperty("--size", "0vmin");
         cursor.style.setProperty("--sizeMainCursor", "0");
 
         cursor.style.animation = "unset";
@@ -199,9 +201,13 @@ window.addEventListener("load", (event) => {
         cursorBorder.style.display = "inline";
         cursorBorder.style.borderRadius = "50%";
 
-        cursorBorder.style.boxShadow = "0 0 0 0.1vmin black";
+        cursorBorder.style.boxShadow = "unset";
         cursor.style.backgroundColor = "black";
         cursor.style.mixBlendMode = "unset";
+
+        cursorBorder.style.filter = "unset";
+        cursorBorder.style.backdropFilter = "unset";
+        cursorBorder.style.backgroundColor = "transparent";
 
         cursor.style.width = "var(--sizeMainCursor)";
         cursor.style.borderRadius = "50%";
