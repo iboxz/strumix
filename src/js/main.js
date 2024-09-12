@@ -467,7 +467,7 @@ window.addEventListener("load", (event) => {
   var length = path.getTotalLength();
   gsap.set(path, { strokeDasharray: length, strokeDashoffset: length });
 
-  gsap.to(path, { strokeDashoffset: 0, duration: 2, ease: "ease-in-out" });
+  gsap.to(path, { strokeDashoffset: 0, duration: 1.5, ease: "ease-in-out" });
 
   var splashScreenTimeline = gsap
     .timeline({ paused: true, reversed: true })
@@ -480,14 +480,14 @@ window.addEventListener("load", (event) => {
       {
         opacity: 0.2,
         ease: "power3.out",
-        stagger: 0.25,
+        stagger: 0.2,
       }
     )
     .to(".splashScreen", {
       y: "-100%",
       delay: 0.2,
-      duration: 0.9,
-      ease: "power3.in",
+      duration: 0.6,
+      ease: "power2.in",
     });
 
   splashScreenTimeline.play();

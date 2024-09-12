@@ -194,11 +194,14 @@ window.addEventListener("load", (event) => {
 
   const fetchData = async () => {
     try {
-      const data = await (await fetch("../products/products.json")).json();
+      const data = await fetch("../products/products.json").then((response) =>
+        response.json()
+      );
       productList.innerHTML = "";
 
-      let buttons = document.querySelectorAll(".selection .buttonCards");
-      buttons.forEach((button) => button.classList.remove("active"));
+      document
+        .querySelectorAll(".selection .buttonCards")
+        .forEach((button) => button.classList.remove("active"));
       document.getElementById("allProducts").classList.add("active");
 
       bottomSectionContainer.className = "";
@@ -212,14 +215,16 @@ window.addEventListener("load", (event) => {
             uniqueNames.add(product.name.en);
 
             const div = document.createElement("div");
-
             div.setAttribute("data-cursor", "pointerLinkNavbar");
+
             const link = document.createElement("a");
-            link.href = `${product.url}`;
+            link.href = product.url;
+
             const img = document.createElement("img");
             img.src = `../assets/productImg/${product.image}`;
             img.alt = `${product.name.en} image, تصویر ${product.name.fa}`;
             img.setAttribute("loading", "lazy");
+
             link.appendChild(img);
 
             [product.name.en, product.name.fa].forEach((name) => {
@@ -237,13 +242,11 @@ window.addEventListener("load", (event) => {
 
       activateCustomCursors();
       const productCount = uniqueNames.size;
-      const counter = document.querySelector(".counter");
-      counter.textContent = `${productCount} محصول`;
+      document.querySelector(".counter").textContent = `${productCount} محصول`;
     } catch (error) {
       console.error("Error fetching data:", error);
     }
   };
-
   const fetchAndLogProducts = async (categoryName) => {
     try {
       let buttons = document.querySelectorAll(".selection .buttonCards");
@@ -287,15 +290,17 @@ window.addEventListener("load", (event) => {
   fetchData();
 
   function getUrlParameter(name) {
-    const url = new URL(window.location.href);
-    const searchParams = url.searchParams;
-    const value = searchParams.get(name);
-    return value;
+    const urlParams = new URLSearchParams(window.location.search);
+    return urlParams.get(name);
   }
-  const UrlGetProductID = getUrlParameter("productID");
-  if (UrlGetProductID != null) {
+
+  const productID = getUrlParameter("productID");
+  if (productID) {
     setTimeout(() => {
-      document.getElementById(UrlGetProductID).click();
+      const element = document.getElementById(productID);
+      if (element) {
+        element.click();
+      }
     }, 1000);
   }
 });

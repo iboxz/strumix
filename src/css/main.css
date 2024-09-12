@@ -214,7 +214,7 @@ html {
 
   z-index: 996;
   overflow: hidden;
-  animation: slideUp 0.1s 0.1s ease-in-out forwards;
+  /* animation: slideUp 0.1s 0.1s ease-in-out forwards; */
 }
 @keyframes slideUp {
   0% {
