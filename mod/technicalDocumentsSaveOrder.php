@@ -1,39 +1,41 @@
 <?php
-$userUsername = $_POST['username'];
-$userPassword = $_POST['password'];
+header('Content-Type: application/json; charset=UTF-8');
 
-$userUsername = htmlspecialchars($userUsername);
-$userPassword = htmlspecialchars($userPassword);
+$data = json_decode(file_get_contents('php://input'), true);
+$username = filter_var($data['username'], FILTER_SANITIZE_STRING);
+$password = filter_var($data['password'], FILTER_SANITIZE_STRING);
 
-$servernameAuthorisation = 'localhost';
-$usernameAuthorisation = "strumixii_mod";
-$passwordAuthorisation = "3.MWU!7!G^5v";
-$dbnameAuthorisation = 'strumixii_Mod_data';
+$servername = 'localhost';
+$usernameDB = "strumixii_mod";
+$passwordDB = "3.MWU!7!G^5v";
+$dbname = 'strumixii_Mod_data';
 
-$connAuthorisation = new mysqli($servernameAuthorisation, $usernameAuthorisation, $passwordAuthorisation, $dbnameAuthorisation);
-$connAuthorisation->set_charset("utf8mb4");
-if ($connAuthorisation->connect_error) {
-    die('Database connection failed: ' . $connAuthorisation->connect_error);
+$conn = new mysqli($servername, $usernameDB, $passwordDB, $dbname);
+
+if ($conn->connect_error) {
+    die(json_encode(array('success' => false, 'error' => 'Database connection failed')));
 }
 
-$sqlAuthorisation = "SELECT * FROM modEntry WHERE email = '$userUsername' AND password = '$userPassword'";
-$resultAuthorisation = $connAuthorisation->query($sqlAuthorisation);
+$sql = "SELECT * FROM modEntry WHERE email = ? AND password = ?";
+$stmt = $conn->prepare($sql);
+$stmt->bind_param("ss", $username, $password);
+$stmt->execute();
+$result = $stmt->get_result();
 
-if ($resultAuthorisation->num_rows > 0) {
+if ($result->num_rows > 0) {
+    // Create a new array for order data
+    $orderData = $data['order'];
+
     ini_set('display_errors', 1);
     ini_set('display_startup_errors', 1);
     error_reporting(E_ALL);
 
     try {
-        $data = file_get_contents("php://input");
-        $requestData = json_decode($data, true);
-        $order = $requestData['order'];
-
         $jsonData = file_get_contents('../serverAssets/technicalDoc.json');
         $articlesData = json_decode($jsonData, true);
 
         $updatedData = [];
-        foreach ($order as $category => $items) {
+        foreach ($orderData as $category => $items) {
             $updatedData[$category] = [];
             foreach ($items as $item) {
                 $originalCategory = $item['originalCategory'];
@@ -57,7 +59,8 @@ if ($resultAuthorisation->num_rows > 0) {
         echo json_encode(['status' => 'error', 'message' => $e->getMessage()]);
     }
 } else {
-    echo "خطا: اطلاعات ورود به سیستم صحیح نیست.";
+    echo json_encode(array('success' => false, 'error' => 'Invalid login credentials'), JSON_UNESCAPED_UNICODE);
 }
 
-$connAuthorisation->close();
+$stmt->close();
+$conn->close();

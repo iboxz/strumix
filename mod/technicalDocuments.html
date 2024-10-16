@@ -146,7 +146,11 @@
           })
           .catch((error) => console.error("Error:", error));
       });
-      
+
+      function reloadPage() {
+        location.reload();
+      }
+
       $(document).ready(function () {
         let data; // Define the data variable
 
@@ -231,7 +235,11 @@
             const response = await fetch("technicalDocumentsSaveOrder.php", {
               method: "POST",
               headers: { "Content-Type": "application/json" },
-              body: JSON.stringify({ order: newOrder }),
+              body: JSON.stringify({
+                order: newOrder,
+                username: username,
+                password: password,
+              }),
             });
             const result = await response.json();
             if (result.status === "success") {
@@ -244,14 +252,32 @@
           }
         });
       });
+      function sanitize(url) {
+        url = url.trim();
+        const lastDotIndex = url.lastIndexOf(".");
+        let extension = "";
+        if (lastDotIndex !== -1) {
+          extension = url.substring(lastDotIndex);
+          url = url.substring(0, lastDotIndex);
+        }
+        url = url.replace(/[^A-Za-z0-9\-ا-ی]/g, "-");
+        url = url.replace(/-+/g, "-");
 
+        return url + extension;
+      }
       $("#uploadForm").submit(function (event) {
         event.preventDefault();
 
-        const formData = new FormData();
-        formData.append("title", $("#fileTitle").val());
-        formData.append("file", $("#fileInput")[0].files[0]);
+        const fileInput = $("#fileInput")[0];
+        const fileName = fileInput.files[0].name;
+        const sanitizedFileName = sanitize(fileName);
 
+        const formData = new FormData();
+        formData.append("username", username);
+        formData.append("password", password);
+        formData.append("sanitizedFileName", sanitizedFileName);
+        formData.append("title", $("#fileTitle").val());
+        formData.append("file", fileInput.files[0]);
         $.ajax({
           url: "technicalDocumentsUploadFile.php",
           type: "POST",
