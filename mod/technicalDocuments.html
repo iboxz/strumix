@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="fa">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ادمین - مدارک فنی</title>
+    <link
+      rel="stylesheet"
+      href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css"
+    />
+    <style>
+      :root {
+        --primary-color: rgb(8, 143, 158);
+        --secondary-color: rgb(5, 85, 94);
+        --border-color: rgb(171, 171, 171);
+        --background-color: #db4949;
+        --font-family-main: rokh;
+        --font-family-alt: Arial, YekanBakhFaNum, Helvetica, sans-serif;
+      }
+
+      body {
+        margin: 0;
+        background: #f2ecdc;
+        font-family: var(--font-family-main);
+        direction: rtl;
+        padding: 20px;
+      }
+      .category {
+        margin-bottom: 20px;
+      }
+      .category h2 {
+        margin: 0;
+      }
+      .articles {
+        list-style-type: none;
+        padding: 0;
+        min-height: 50px;
+        border: 1px dashed #ccc;
+      }
+      .articles li {
+        margin: 5px;
+        padding: 10px;
+        padding-left: 240px;
+        border: 1px solid #ccc;
+        cursor: move;
+        position: relative;
+      }
+      .buttons {
+        position: absolute;
+        left: 0%;
+        top: 50%;
+        transform: translateY(-50%);
+      }
+      .buttons button {
+        margin-left: 5px;
+      }
+      body {
+        overflow-x: hidden;
+      }
+
+      textarea,
+      input {
+        background: transparent;
+        padding: 8px;
+        margin: 8px;
+        width: 50vmin;
+        border: 1px solid var(--border-color);
+        direction: rtl;
+        font-family: var(--font-family-alt);
+      }
+
+      textarea {
+        resize: vertical;
+      }
+
+      select {
+        background: var(--primary-color);
+        border-radius: 4px;
+        padding: 8px;
+        margin: 8px 0;
+        width: 50vmin;
+        border: transparent;
+        color: white;
+        font-family: var(--font-family-main);
+        direction: rtl;
+      }
+
+      label {
+        font-family: var(--font-family-main);
+      }
+
+      button {
+        background: var(--primary-color);
+        color: white;
+        border: transparent;
+        border-radius: 4px;
+        font-family: var(--font-family-main);
+        transition: all 0.2s ease;
+        padding: 6px 16px;
+      }
+
+      button:hover {
+        background: var(--secondary-color);
+      }
+
+      button:active {
+        transform: scale(0.9);
+      }
+    </style>
+  </head>
+  <body>
+
+    <h1>اپلود مدرک فنی جدید:</h1>
+    <form id="uploadForm" enctype="multipart/form-data">
+      <input type="text" id="fileTitle" placeholder="عنوان فایل" required />
+      <input type="file" id="fileInput" accept=".pdf,.jpg,.png" required />
+      <button type="submit">آپلود فایل</button>
+    </form>
+
+    <h1>لیست مدارک فنی:</h1>
+    <div id="categories"></div>
+    <button id="saveOrder">ذخیره ترتیب</button>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"></script>
+    <script>
+      $(document).ready(function () {
+        let data; // Define the data variable
+
+        // خواندن داده‌ها از فایل JSON
+        $.getJSON("../serverAssets/technicalDoc.json", function (fetchedData) {
+          data = fetchedData; // Initialize the data variable
+
+          for (const category in data) {
+            const articles = data[category];
+            const categoryDiv = $('<div class="category"></div>');
+            categoryDiv.append(`<h2>${category}</h2>`);
+            const articlesList = $('<ul class="articles"></ul>');
+            articles.forEach((article, index) => {
+              const listItem = $(`
+                      <li data-category="${category}" data-index="${index}">
+                          ${article.text}
+                          <div class="buttons">
+                              <button class="delete">حذف</button>
+                              <button class="edit">تغییر عنوان</button>
+                              <button class="view">نمایش</button>
+                          </div>
+                      </li>
+                  `);
+              articlesList.append(listItem);
+            });
+            categoryDiv.append(articlesList);
+            $("#categories").append(categoryDiv);
+            // فعال‌سازی قابلیت درگ و دراپ برای هر دسته و اتصال آن‌ها به یکدیگر
+            articlesList.sortable({ connectWith: ".articles" });
+          }
+
+          // رویداد حذف
+          $(".delete").click(function () {
+            $(this).closest("li").remove();
+          });
+
+          // رویداد تغییر عنوان
+          $(".edit").click(function () {
+            const newTitle = prompt("عنوان جدید را وارد کنید:");
+            if (newTitle) {
+              $(this).closest("li").contents().first()[0].textContent =
+                newTitle;
+            }
+          });
+
+          // رویداد نمایش
+          $(".view").click(function () {
+            const url =
+              data[$(this).closest("li").data("category")][
+                $(this).closest("li").data("index")
+              ].url;
+            window.open(url, "_blank");
+          });
+        });
+
+        // ذخیره ترتیب جدید
+        $("#saveOrder").click(async function () {
+          const newOrder = {};
+
+          $(".category").each(function () {
+            const category = $(this).find("h2").text();
+            newOrder[category] = [];
+            $(this)
+              .find(".articles li")
+              .each(function () {
+                const originalCategory = $(this).data("category");
+                const index = $(this).data("index");
+                const newTitle = $(this)
+                  .contents()
+                  .first()[0]
+                  .textContent.trim();
+
+                newOrder[category].push({
+                  originalCategory,
+                  index,
+                  text: newTitle,
+                });
+              });
+          });
+
+          try {
+            const response = await fetch("technicalDocumentsSaveOrder.php", {
+              method: "POST",
+              headers: { "Content-Type": "application/json" },
+              body: JSON.stringify({ order: newOrder }),
+            });
+            const result = await response.json();
+            if (result.status === "success") {
+              alert(result.message);
+            } else {
+              console.error("Error:", result.message);
+            }
+          } catch (error) {
+            console.error("Fetch Error:", error);
+          }
+        });
+      });
+
+      $("#uploadForm").submit(function (event) {
+        event.preventDefault();
+
+        const formData = new FormData();
+        formData.append("title", $("#fileTitle").val());
+        formData.append("file", $("#fileInput")[0].files[0]);
+
+        $.ajax({
+          url: "technicalDocumentsUploadFile.php",
+          type: "POST",
+          data: formData,
+          processData: false,
+          contentType: false,
+          success: function (response) {
+            const result = JSON.parse(response);
+            if (result.status === "success") {
+              alert(result.message);
+              // به‌روزرسانی رابط کاربری یا بارگذاری مجدد صفحه
+              location.reload();
+            } else {
+              console.error("Error:", result.message);
+            }
+          },
+          error: function (error) {
+            console.error("AJAX Error:", error);
+          },
+        });
+      });
+    </script>
+  </body>
+</html>

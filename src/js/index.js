@@ -147,8 +147,7 @@ gsap.from(".section3 div:nth-child(1) img", {
     end: "top top",
     scrub: 4,
   },
-  height: "200%",
-  width: "200%",
+  scale: "1.1"
 });
 gsap.to(".section3 .textSide hr", {
   scrollTrigger: {

@@ -249,6 +249,7 @@ h3 {
 }
 .section3 div:nth-child(1) img {
   object-fit: cover;
+  object-position: center center;
   height: 100%;
   width: 100%;
 }

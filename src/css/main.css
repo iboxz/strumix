@@ -545,13 +545,14 @@ nav > .active > span:last-child {
     height: fit-content;
     flex-direction: column;
     font-weight: 600;
+    padding: 1vmin 1vmin;
   }
 
   nav .products > div:nth-child(1) {
     flex-direction: column;
-
-    overflow-x: auto;
-    overflow-y: auto;
+    overflow-x: visible;
+    overflow-y: visible;
+    padding: 15vmin 0vmin 1vmin 0vmin;
   }
   nav .products > div:nth-child(2) > div:nth-of-type(1),
   nav .products > div:nth-child(2) > div:nth-of-type(2),
@@ -572,14 +573,17 @@ nav > .active > span:last-child {
   }
   nav .products div:nth-child(2) > a:nth-child(5),
   nav .products div:nth-child(2) > a:nth-child(6),
-  nav .products div:nth-child(2) > a:nth-child(7) {
+  nav .products div:nth-child(2) > a:nth-child(7),
+  nav .products > div:nth-child(1) a:first-child {
     display: block;
     border: 0.1vmin black solid;
-    border-radius: 10vmin;
+    border-radius: 0;
     justify-content: center;
     display: flex;
     justify-content: center;
     margin: 1vmin 1vmin;
+    background: #1d1d1d;
+    color: white;
   }
   nav .products div:nth-child(2) {
     margin-top: auto;
@@ -594,10 +598,12 @@ nav > .active > span:last-child {
   }
 
   nav .products > div:nth-child(1) a {
-    width: min-content;
     flex: 1 0 auto;
   }
 
+  nav .products > div:nth-child(1) a:first-child {
+    flex: 1 1 100%;
+  }
   nav .products > div:nth-child(1) a:not(:first-child) p {
     position: relative;
     background: transparent;
@@ -610,24 +616,14 @@ nav > .active > span:last-child {
 
     box-shadow: none;
   }
-  
+
   nav .products > div:nth-child(1) p::after {
     display: none;
   }
-  nav .products > div:nth-child(1) a:first-child {
-    display: block;
-    border: 0.1vmin black solid;
-    border-radius: 10vmin;
-    justify-content: center;
-    display: flex;
-    justify-content: center;
-    margin: 1vmin 1vmin;
-    width: 100%;
-  }
+
   nav .products > div:nth-child(1) a:first-child p {
     position: relative;
     background: transparent;
-    color: black;
     padding: 1vmin 3vw;
     margin: 1vmin;
     border-radius: 50vmin;

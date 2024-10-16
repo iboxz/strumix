@@ -757,12 +757,16 @@ window.addEventListener("load", (event) => {
   };
 });
 
-let items = {}; // To store the fetched data
+let items = {};
 
-fetch(new URL("/src/data/technicalDoc.json", baseUrl))
+const url = new URL("/serverAssets/technicalDoc.json", baseUrl);
+
+url.searchParams.set("t", new Date().getTime());
+
+fetch(url)
   .then((response) => response.json())
   .then((data) => {
-    items = data; // Store the fetched data in the items variable
+    items = data;
   })
   .catch((error) => console.error("Error fetching data:", error));
 
