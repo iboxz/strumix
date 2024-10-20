@@ -9,24 +9,33 @@ function handleError(err) {
 async function updateHTMLFiles(dir) {
   try {
     const files = await fs.readdir(dir);
-
     for (const file of files) {
       const filePath = path.join(dir, file);
       const stat = await fs.stat(filePath);
-
       if (stat.isDirectory()) {
         await updateHTMLFiles(filePath); // Recursively call for directories
       } else if (file.endsWith(".html")) {
-        try {
-          let htmlContent = await fs.readFile(filePath, "utf-8");
+        // Check if we're in the target directory (./en/products/)
+        if (filePath.includes("en\\products")) {
+          try {
+            let htmlContent = await fs.readFile(filePath, "utf-8");
 
-          // Update the version numbers
-          htmlContent = htmlContent.replace(/v=1\.0\.\d+/g, "v=1.0.11");
+            // Replace specific script tags for ScrollSmoother.min.js and SplitText.min.js
+            htmlContent = htmlContent.replace(
+              /src="(\.*\/)*(src\/js\/ScrollSmoother\.min\.js)"/g,
+              'src="../../$2"'
+            );
 
-          await fs.writeFile(filePath, htmlContent, "utf-8");
-          console.log(`File ${filePath} successfully updated.`);
-        } catch (err) {
-          console.error(`Error updating ${filePath}: ${err.message}`);
+            htmlContent = htmlContent.replace(
+              /src="(\.*\/)*(src\/js\/SplitText\.min\.js)"/g,
+              'src="../../$2"'
+            );
+
+            await fs.writeFile(filePath, htmlContent, "utf-8");
+            console.log(`File ${filePath} successfully updated.`);
+          } catch (err) {
+            console.error(`Error updating ${filePath}: ${err.message}`);
+          }
         }
       }
     }
@@ -35,7 +44,8 @@ async function updateHTMLFiles(dir) {
   }
 }
 
-const projectPath = "."; // Start from the current directory
+// Define the path to the en/products directory
+const projectPath = path.join(".", "en", "products");
 updateHTMLFiles(projectPath).then(() => {
-  console.log("All files processed.");
+  console.log("All files in en/products processed.");
 });

@@ -1,0 +1,912 @@
+main * {
+  transition: border-radius 0.5s;
+}
+main {
+  background: #f2ecdc;
+  font-family: "YekanBakhFaNum", "BagnardSans", "Dubai", Arial, sans-serif;
+}
+h3 {
+  font-weight: 700;
+}
+.hero {
+  height: 95vh;
+  display: flex;
+  justify-content: center;
+  background: #f2ecdc;
+
+  font-family: "Damn", "Rokh";
+  font-weight: 400;
+  text-transform: uppercase;
+
+  position: relative;
+}
+.hero .imageSide {
+  position: relative;
+  margin: 10vh 0 0 0;
+}
+.hero .imageSide img {
+  width: 50vmin;
+  height: 70vmin;
+  object-fit: cover;
+  border-radius: 100vmin 100vmin 0 0;
+  z-index: 1;
+  position: relative;
+}
+.hero .imageSide > div {
+  position: absolute;
+  display: inline;
+
+  width: 110vmin;
+  height: 4vmin;
+
+  top: 35%;
+  right: -30%;
+  transform: rotate(-35deg);
+
+  background: #ffffff;
+  mix-blend-mode: difference;
+
+  transition: all ease-out 0.5s;
+}
+.hero .titleSide {
+  margin: 20vh 0 0 5vmin;
+}
+.hero .titleSide > .top {
+  display: flex;
+  align-items: center;
+  font-size: clamp(1rem, 1.7vw, 15rem);
+}
+.hero .titleSide > .top hr {
+  width: 10vmin;
+  border: 0;
+  border-top: 0.3vmin solid #000000;
+  padding: 0;
+  margin: 5vmin 1vmin;
+  height: 0.1vmin;
+}
+.hero .titleSide > .midOne {
+  font-size: clamp(9rem, 28vw, 80rem);
+  font-weight: 400;
+  text-transform: uppercase;
+  line-height: 0.9;
+}
+.hero .titleSide > .midTwo {
+  display: flex;
+  align-items: end;
+  justify-content: left;
+  font-size: clamp(2rem, 4vw, 15rem);
+
+  height: 3vmin;
+}
+.hero .titleSide > .midTwo p:nth-child(2) {
+  font-size: clamp(3rem, 8vw, 20rem);
+  line-height: 0.7;
+  margin: 0 1vmin;
+}
+.hero .scrollFlesh {
+  position: absolute;
+  right: 5vmin;
+  height: 16vmin;
+  bottom: 0;
+  pointer-events: none;
+  animation: jiggle 1s alternate infinite;
+}
+
+@keyframes jiggle {
+  0% {
+    transform: translateY(0);
+  }
+  0% {
+    transform: translateY(-2vmin);
+  }
+}
+.hero .midThree {
+  display: flex;
+  justify-content: end;
+  font-family: Montserrat;
+}
+.hero .midThree a {
+  padding: 0.7vmin;
+  border: 0.1vmin black solid;
+  border-radius: 1vmin;
+  color: #000000;
+  text-decoration: none;
+  margin: 0 0.5vmin;
+}
+
+.hero .midThree a:hover {
+  transform: translate(0.2vmin, 0.2vmin);
+}
+.hero .iconInstagram {
+  content: url(../../assets/VectorInstagram.svg);
+  vertical-align: middle;
+  height: 100%;
+  width: 2vmin;
+  min-width: 15px;
+  margin: 0 1vmin;
+}
+.hero .iconPhonecall {
+  content: url(../../assets/VectorPhonecall.svg);
+  vertical-align: middle;
+  height: 100%;
+  width: 2vmin;
+  min-width: 15px;
+  margin: 0 1vmin;
+}
+@media only screen and (max-width: 1200px) {
+  .hero > .imageSide {
+    display: none;
+  }
+}
+@media only screen and (max-width: 600px) {
+  .hero {
+    flex-direction: column;
+    align-items: center;
+    height: min-content;
+    padding: 20vmin 0 5vmin 0;
+  }
+  .hero > div {
+    margin: 0 !important;
+    padding: 0 !important;
+  }
+  .hero > .imageSide {
+    display: block;
+    order: 1;
+  }
+  .hero .imageSide img {
+    width: 80vmin;
+    height: 45vh;
+  }
+  .hero .midThree {
+    justify-content: center;
+    font-size: clamp(0.7rem, 1vw, 20rem);
+    padding: 3vmin 0;
+  }
+  .hero .titleSide > .midTwo p:nth-child(2) {
+    line-height: 0.5;
+  }
+}
+.section2 {
+  display: flex;
+  justify-content: center;
+  background: #f2ecdc;
+  padding: 0 2vw;
+
+  position: relative;
+}
+
+.section2 img {
+  object-fit: cover;
+  object-position: center;
+  width: 70%;
+  height: 100vh;
+
+  border-radius: 5vmin 5vmin 0 0;
+}
+.section2 .cyclingCircles {
+  width: 50%;
+  height: 100%;
+
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 11;
+}
+.section2 .Circles {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  position: relative;
+  transform-style: preserve-3d;
+}
+
+.section2 .Circles > div {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+
+  border: 0.3vmin rgb(0, 0, 0) solid;
+  border-radius: 50%;
+}
+.section2 .Circles1 {
+  transform: rotateX(130deg);
+}
+.section2 .Circles2 {
+  transform: rotateX(50deg);
+}
+@media only screen and (max-width: 768px) {
+  .section2 {
+    padding: 0;
+  }
+  .section2 .cyclingCircles {
+    display: none;
+  }
+  .section2 .Circles {
+    display: none;
+  }
+
+  .section2 img {
+    margin: 10vmin 0 0 0;
+    height: 30vh;
+    width: 100%;
+  }
+}
+.section3 {
+  background: #0f0f0f;
+  height: 100vh;
+  border-radius: 5vmin 5vmin 0 0;
+  padding: 10vmin;
+
+  display: flex;
+}
+.section3 div:nth-child(1) {
+  border-radius: 200vh 200vh 0 0;
+  overflow: hidden;
+  width: 75vmin;
+}
+.section3 div:nth-child(1) img {
+  object-fit: cover;
+  object-position: center center;
+  height: 100%;
+  width: 100%;
+}
+.section3 .textSide {
+  width: fit-content;
+  color: white;
+  font-size: clamp(0.9rem, 1vw, 100rem);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin: 10vmin;
+}
+.section3 .textSide h2 {
+  font-family: "BagnardSans", "Damn";
+  width: 100%;
+
+  font-size: clamp(1rem, 2vw, 100rem);
+}
+.section3 .textSide p {
+  margin: 1.5vmin 0;
+  text-align: justify;
+  text-justify: auto;
+}
+.section3 .textSide p:nth-child(2)::first-line {
+  /* text-indent: 2em; */
+  border-right: 10px solid #fff;
+  padding-right: 10px;
+}
+.section3 .textSide p:nth-child(2) > span {
+  display: inline-block;
+  width: 4vmin;
+  height: 0.1vmin;
+  vertical-align: middle;
+  margin-right: 1vmin;
+  background-color: white;
+}
+.section3 .textSide hr {
+  width: 70%;
+  margin: 3vmin 0;
+}
+@media only screen and (max-width: 768px) {
+  .section3 div:nth-child(1) {
+    display: none;
+  }
+  .section3 {
+    border-radius: 0;
+    height: min-content;
+  }
+}
+@media only screen and (max-width: 992px) {
+  .section3 {
+    padding: 5vmin;
+  }
+  .section3 .textSide {
+    margin: 5vmin;
+  }
+}
+.section4 {
+  overflow: hidden;
+  font-family: "BagnardSans", "Damn";
+  color: #363029;
+
+  background: #f2ecdc;
+  height: 100vh;
+  border-radius: 5vmin 5vmin 0 0;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.section4 > div {
+  width: 90vw;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 0.1vmin #cdcdcd solid;
+  padding: 3.5vmin 2vmin;
+
+  position: relative;
+  overflow: hidden;
+}
+.section4 > div img {
+  width: 3vmin;
+  height: 3vmin;
+}
+.section4 > div:first-child {
+  padding: 2vmin 0;
+  border-bottom: 0.1vmin #363029 solid;
+}
+.section4 h3 {
+  font-size: clamp(1rem, 1.6vw, 100rem);
+}
+.section4 h3 > #line {
+  display: inline-block;
+  width: 0vmin;
+  height: 0.1vmin;
+  vertical-align: middle;
+  margin-right: 3vmin;
+  background: #363029;
+}
+.section4 p {
+  font-size: clamp(0.9rem, 1.2vw, 100rem);
+}
+
+.section4 > div:not(:last-child) > div {
+  display: flex;
+  flex-direction: column;
+}
+.section4 > div:not(:last-child) p:last-child {
+  position: absolute;
+  top: 105%;
+}
+.section4 > div:not(:last-child) img {
+  transition: ease 0.5s;
+}
+.section4 > div:not(:last-child) img:last-child {
+  position: absolute;
+  top: 105%;
+  transition: ease 0.5s;
+}
+.section4 > div:not(:last-child):hover img:first-child,
+.section4 > div:not(:last-child):hover p:first-child {
+  transform: translateY(-250%);
+  transition: ease 0.5s;
+}
+.section4 > div:not(:last-child):hover img:last-child,
+.section4 > div:not(:last-child):hover p:last-child {
+  top: 50%;
+  transform: translateY(-50%);
+  transition: ease 0.5s;
+}
+.section4 > div:not(:last-child):not(:first-child) {
+  cursor: pointer;
+}
+.section4 > div:not(:last-child):not(:first-child)::before {
+  content: "";
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  height: 0.1vmin;
+  width: 0%;
+  background: #363029;
+  transition: 1s ease;
+}
+
+.section4 > div:not(:first-child):not(:first-child):hover::before {
+  width: 100%;
+}
+.section4 > div:not(:last-child):not(:first-child)::after {
+  content: "";
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  height: 0%;
+  width: 100%;
+  background: rgba(221, 216, 203, 0.404);
+  transition: 0.6s ease;
+  z-index: -1;
+}
+
+.section4 > div:not(:first-child):not(:first-child):hover::after {
+  height: 100%;
+}
+/*---------------------------*/
+.section4 > div:last-child {
+  justify-content: center;
+  border: none;
+}
+.section4 > div:last-child > div {
+  border: 0.1vmin solid #3e362e;
+
+  border-radius: 0.5vmin;
+  overflow: hidden;
+}
+.section4 > div:last-child > div a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  text-decoration: none;
+  color: #3e362e;
+}
+.section4 > div:last-child div a:hover {
+  background: #ff0000;
+  color: white;
+}
+
+.section4 > div:last-child div * {
+  transition: all 0.2s;
+}
+.section4 > div:last-child div a:hover div {
+  background: #ff0000;
+}
+.section4 > div:last-child p {
+  padding: 0 1vmin;
+
+  font-size: clamp(0.9rem, 1vw, 100rem);
+}
+.section4 > div:last-child > div div {
+  background: #c73334;
+  display: flex;
+  flex-direction: column;
+  padding: 1vmin;
+  position: relative;
+}
+.section4 > div:last-child > div div img:last-child {
+  position: absolute;
+  top: 105%;
+}
+.section4 > div:last-child > div:hover div img:first-child {
+  transform: translateX(200%);
+  transition: ease 0.5s;
+}
+.section4 > div:last-child > div:hover div img:last-child {
+  top: 50%;
+  transform: translateY(-50%);
+  transition: ease 0.5s;
+}
+.section4 > div:last-child img {
+  filter: brightness(100);
+  width: 2vmin;
+  height: 2vmin;
+}
+
+/*---------------------------*/
+.section4 #productImg {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  border: none;
+  width: 70vmin;
+  height: 50vmin;
+  pointer-events: none;
+  z-index: 2;
+
+  opacity: 0;
+
+  transition: 0.3s ease-out;
+}
+.section4 #productImg img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+@media only screen and (max-width: 768px) {
+  .section4 > div {
+    padding: 4vh 2vmin;
+  }
+  .section4 > div:last-child > div div {
+    padding: 2vmin;
+  }
+  .section4 #productImg {
+    display: none;
+    z-index: -1;
+  }
+  .section4 > div:not(:last-child) img:last-child,
+  .section4 > div:not(:last-child) p:last-child {
+    display: none;
+  }
+  .section4 > div:not(:last-child):hover img:first-child,
+  .section4 > div:not(:last-child):hover p:first-child {
+    transform: none;
+  }
+}
+@media only screen and (max-width: 992px) {
+  .section4 > div:last-child > div div {
+    padding: 2vmin;
+  }
+}
+/*--------------*/
+.noPinSection {
+  background: #000000;
+  color: wheat;
+  border-radius: 5vmin 5vmin 0 0;
+  overflow: hidden;
+  height: max-content;
+}
+.section5 {
+  height: 100vh;
+
+  background-image: url(../../assets/img/Strumix-structure-view3.jpg);
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  padding-top: 10vh;
+  overflow: hidden;
+}
+.section5 .infiniteScrollText {
+  display: flex;
+  align-items: center;
+  direction: ltr;
+  width: 110vw;
+
+  font-family: "Damn";
+  text-transform: uppercase;
+  font-weight: 200;
+  background-color: #f2ecdc78;
+  color: black;
+  font-size: clamp(5rem, 6vw, 100rem);
+  padding: 2vmin 0;
+  transform: rotate(5deg) translateX(-5vw);
+}
+.section5 .infiniteScrollText:last-child {
+  font-family: "BagnardSans";
+  background-color: #ff0000de;
+  color: white;
+  font-size: clamp(2rem, 3vw, 100rem);
+  padding: 2vmin 0;
+  transform: rotate(-5deg) translate(-5vw, -15vmin);
+}
+.section5 .infiniteScrollText div {
+  position: relative;
+  white-space: nowrap;
+  will-change: transform;
+}
+
+.section5 .infiniteScrollText div span {
+  display: inline-block;
+}
+
+@media only screen and (max-width: 768px) {
+  .section5 {
+    height: 50vh;
+    border: 3vw #f2ecdc solid;
+  }
+}
+.section6 {
+  padding: 10vmin 10vw;
+  color: white;
+  height: max-content;
+  position: relative;
+}
+.section6::before {
+  content: "";
+  position: absolute;
+  right: 0;
+  left: 0;
+  top: calc(100% - 30vmin);
+  bottom: calc(0% + 9vmin);
+  background: linear-gradient(180deg, #ffffff00 0%, #000000 90%);
+  pointer-events: none;
+
+  z-index: 1;
+}
+
+.section6 > div:first-child {
+  border-bottom: 0.1vmin white solid;
+  font-family: "BagnardSans";
+  font-size: clamp(1rem, 1.6vw, 100rem);
+  padding: 2vmin 0;
+}
+.section6 > div:nth-child(2) {
+  padding: 5vmin 5vw 15vmin 5vw;
+  height: 70vmin;
+  overflow-y: scroll;
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+  position: relative;
+}
+.section6 > div #line {
+  display: inline-block;
+  width: 0vmin;
+  height: 0.1vmin;
+  vertical-align: middle;
+  margin-left: 3vmin;
+  background: #ffffff;
+}
+.section6 table {
+  table-layout: auto;
+  width: 100%;
+}
+.section6 table thead {
+  font-family: "BagnardSans";
+  text-align: right;
+  font-size: clamp(0.9rem, 1.2vw, 100rem);
+  position: sticky;
+  background: #000000;
+  z-index: 1;
+  top: -5vmin;
+}
+.section6 table thead th {
+  padding: 2vmin 0;
+}
+.section6 table th,
+.section6 table td {
+  white-space: nowrap;
+}
+.section6 table th:last-child,
+.section6 table td:last-child {
+  width: 0;
+}
+.section6 table tbody td {
+  position: relative;
+  text-indent: 5vmin;
+  font-size: clamp(0.8rem, 1vw, 100rem);
+}
+.section6 table td::before {
+  content: "";
+  position: absolute;
+  right: 2vmin;
+  top: 50%;
+  bottom: 50%;
+  transform: translateY(-50%);
+  background: white;
+  height: 0.8vmin;
+  width: 0.8vmin;
+  border-radius: 50%;
+}
+
+@media only screen and (max-width: 768px) {
+  .section6 table tbody tr td:nth-child(3),
+  .section6 table thead tr th:nth-child(3) {
+    display: none;
+  }
+}
+.section7 {
+  background: #f2ecdc;
+  height: 100vh;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: end;
+  padding-bottom: 20vh;
+  overflow: hidden;
+  font-size: clamp(0.9rem, 1vw, 100rem);
+}
+.section7::before {
+  content: "";
+  position: absolute;
+  inset: 7vmin;
+  background: url(../../assets/img/Strumix-structure-view4.jpg) center/100% auto
+    no-repeat;
+  filter: brightness(0.5);
+  z-index: 1;
+}
+.section7 > span {
+  display: block;
+  position: absolute;
+  top: 0;
+  right: 0;
+  left: 0;
+  bottom: 0;
+}
+.section7 > div {
+  background: #f2ecdc;
+  color: #3e362e;
+  position: relative;
+  display: flex;
+  flex-wrap: wrap;
+  width: 80vmin;
+  padding: 3vmin;
+  z-index: 1;
+}
+.section7 > div > div {
+  width: 50%;
+}
+
+.section7 > div > div:last-child {
+  width: 100%;
+}
+.section7 h3 {
+  font-family: "BagnardSans";
+  white-space: nowrap;
+}
+
+.section7 #line {
+  display: inline-block;
+  width: 100%;
+  height: 0.1vmin;
+  margin-right: 1vmin;
+  vertical-align: middle;
+  margin-left: 3vmin;
+  background: #000000;
+}
+.section7 #line2 {
+  display: inline-block;
+  width: 10vmin;
+  height: 0.1vmin;
+  vertical-align: middle;
+  margin: 1.5vmin 0 0 1vmin;
+  background: #000000;
+}
+
+.section7 .rightSide div {
+  display: flex;
+  text-align: justify;
+  text-justify: auto;
+}
+.section7 .leftSide {
+  display: flex;
+  flex-direction: column;
+  align-items: end;
+  justify-content: space-between;
+  background: #f2ecdc;
+}
+/**/
+.section7 .button {
+  overflow: hidden;
+  font-family: "BagnardSans";
+  padding: 1vmin 0;
+}
+.section7 .button a {
+  display: flex;
+  align-items: center;
+  justify-content: right;
+
+  border: 0.1vmin solid #3e2e2e;
+  border-radius: 0.5vmin;
+
+  text-decoration: none;
+  color: #3e362e;
+  white-space: nowrap;
+}
+.section7 .button a:hover {
+  background: #ff0000;
+  color: white;
+}
+.section7 p {
+  padding: 0 1vmin;
+}
+.section7 .button * {
+  transition: all 0.2s;
+}
+.section7 .button div {
+  background: #c73334;
+  display: flex;
+  flex-direction: column;
+  padding: 1vmin;
+  position: relative;
+  overflow: hidden;
+
+  border-top-right-radius: 0.5vmin;
+  border-bottom-right-radius: 0.5vmin;
+}
+.section7 .button:hover div {
+  background: #ff0000;
+  color: white;
+}
+.section7 .button div img:last-child {
+  position: absolute;
+  top: 105%;
+}
+.section7 .button:hover div img:first-child {
+  transform: translateX(-200%);
+  transition: ease 0.5s;
+}
+.section7 .button:hover div img:last-child {
+  top: 50%;
+  transform: translateY(-50%);
+  transition: ease 0.5s;
+}
+.section7 img {
+  filter: brightness(100);
+  width: 2vmin;
+  height: 2vmin;
+}
+/**/
+
+.section7 .circleAnimation {
+  position: relative;
+  width: 80%;
+  height: 5vmin;
+}
+.section7 .circleAnimation::before {
+  content: "";
+  position: absolute;
+  top: 15%;
+  bottom: 15%;
+  left: 5%;
+  right: 5%;
+  border: 1px solid #3e362e;
+  border-radius: 50%;
+  animation: 5s infinite alternate rotateTopPartThird;
+}
+.section7 .circleAnimation::after {
+  content: "";
+  position: absolute;
+  top: 15%;
+  bottom: 15%;
+  left: 5%;
+  right: 5%;
+  border: 1px solid #3e362e;
+  border-radius: 50%;
+  animation: 5s infinite alternate-reverse rotateTopPartThird;
+}
+@keyframes rotateTopPartThird {
+  from {
+    transform: rotate3d(0, 1, 0, 0deg);
+  }
+  to {
+    transform: rotate3d(0, 1, 0, 180deg);
+  }
+}
+.section7 .circleAnimation div {
+  position: relative;
+  height: 100%;
+  width: 100%;
+}
+.section7 .circleAnimation div::after {
+  content: "";
+  position: absolute;
+  height: calc(1.5vmin - 2px);
+  width: calc(1.5vmin - 2px);
+  top: 50%;
+  left: 50%;
+  transform: translate(35%, -50%);
+  outline: #3e362e solid 1px;
+  border-radius: 50%;
+}
+.section7 .circleAnimation div::before {
+  content: "";
+  position: absolute;
+  height: 1.5vmin;
+  width: 1.5vmin;
+  top: 50%;
+  left: 50%;
+  transform: translate(-35%, -50%);
+  background-color: #3e362e;
+  border-radius: 50%;
+}
+
+@media only screen and (max-width: 768px) {
+  .section7 {
+    height: min-content;
+    align-items: center;
+    justify-content: center;
+    padding-bottom: 0;
+  }
+  .section7::before {
+    top: calc(0% + 3vw);
+    bottom: calc(0% + 3vw);
+    right: calc(0% + 3vw);
+    left: calc(0% + 3vw);
+    background-size: cover;
+  }
+  .section7 > div {
+    width: 80vw;
+    margin: 10vmin 0;
+    padding: 5vw;
+    flex-direction: column;
+  }
+  .section7 > div > div {
+    width: 100%;
+    overflow: hidden;
+  }
+  .section7 .button div {
+    padding: 2vmin;
+  }
+  .section7 .circleAnimation {
+    position: relative;
+    width: 100%;
+    height: 10vmin;
+    margin: 3vw 0;
+  }
+}
+
+.settingsCSS {
+  display: none;
+}
