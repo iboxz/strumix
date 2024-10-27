@@ -1,7 +1,6 @@
 main {
   background: #f2ecdc;
   font-family: "YekanBakhFaNum", "vazir", "nazanin", "Dubai", Arial, sans-serif;
-  direction: rtl;
 }
 
 ::-webkit-scrollbar {
@@ -16,15 +15,12 @@ h4,
 h4,
 h6 {
   font-weight: 600 !important;
-  font-family: "Rokh";
+  font-family: "BagnardSans";
 }
 .section2 *,
 .section3 *,
 .section4 * {
   font-weight: 200;
-}
-.englishText {
-  font-family: "Montserrat", "YekanBakhFaNum";
 }
 
 .flexGrow {
@@ -94,8 +90,8 @@ html {
 
 .hero div h1 {
   font-size: clamp(1.3rem, 4vw, 100rem);
-  font-family: "Rokh";
-  text-align: justify;
+  font-family: "BagnardSans";
+
   font-weight: 700;
 }
 
@@ -457,7 +453,7 @@ html {
   right: 30%;
   left: 30%;
   position: absolute;
-  border-bottom: 0.3vmin #e0c478 solid;
+  border-bottom: 0.2vmin #000000 solid;
   transition: right 0.3s, left 0.3s;
 }
 .otherProductHeader.active::after {
@@ -475,8 +471,8 @@ html {
   bottom: 0;
   width: 10vmin;
 }
-.otherProduct .otherProductArrow.arrow-prev {
-  transform: rotate(180deg);
+.otherProduct .otherProductArrow.arrow-next {
+  transform: rotate(-180deg);
 }
 .otherProduct .otherProductArrow.disabled {
   background: url("../../assets/VectorProduct3.svg");

@@ -49,7 +49,6 @@ gsap.to(".hero img", {
     start: "top top",
     end: "bottom top",
     scrub: 2,
-    // markers: true,
   },
   y: "20%",
   duration: 1,
@@ -57,7 +56,6 @@ gsap.to(".hero img", {
 });
 
 if (window.innerWidth > 992) {
-  // pin: true .hero div section
   var section3 = document.querySelector(".section3");
   gsap.to(".hero > div", {
     scrollTrigger: {
@@ -66,7 +64,6 @@ if (window.innerWidth > 992) {
       end: `+=${section3.offsetTop} top`,
       scrub: 2,
       pin: true,
-      // markers: true,
       pinSpacing: false,
     },
     duration: 1,
@@ -112,18 +109,18 @@ function addSection(products) {
     const productInfo = document.createElement("div");
 
     const titleFa = document.createElement("h3");
-    titleFa.textContent = product.name.fa;
+    titleFa.textContent = product.name.long;
 
     const titleEn = document.createElement("span");
     titleEn.classList.add("englishText");
-    titleEn.textContent = product.name.en;
+    titleEn.textContent = product.name.short;
 
     productInfo.appendChild(titleEn);
     productInfo.appendChild(titleFa);
 
     const image = document.createElement("img");
-    image.src = `../assets/productImg/${product.image}`;
-    image.alt = `${product.image} Image`;
+    image.src = `../../assets/productImg/${product.image}`;
+    image.alt = `${product.name.long} Image`;
 
     const LinkContainer = document.createElement("a");
     LinkContainer.href = product.url;
@@ -203,9 +200,9 @@ window.addEventListener("load", async () => {
           otherProductHeader.classList.remove("active");
         }, 300);
         event.preventDefault();
-        x = content.clientWidth / 2 + content.scrollLeft + 0;
+        x = content.clientWidth / 2 - content.scrollLeft + 0;
         content.scroll({
-          left: x,
+          left: -x,
           behavior: "smooth",
         });
       });
@@ -218,9 +215,9 @@ window.addEventListener("load", async () => {
           otherProductHeader.classList.remove("active");
         }, 300);
         event.preventDefault();
-        x = content.clientWidth / 2 - content.scrollLeft + 0;
+        x = content.clientWidth / 2 + content.scrollLeft + 0;
         content.scroll({
-          left: -x,
+          left: x,
           behavior: "smooth",
         });
       });
@@ -243,9 +240,9 @@ window.addEventListener("load", async () => {
       toggleArrows();
     };
     const toggleArrows = () => {
-      if (-content.scrollLeft > maxScrollWidth - 10) {
+      if (content.scrollLeft > maxScrollWidth - 10) {
         prevButton.classList.add("disabled");
-      } else if (-content.scrollLeft < 10) {
+      } else if (content.scrollLeft < 10) {
         nextButton.classList.add("disabled");
       } else {
         nextButton.classList.remove("disabled");

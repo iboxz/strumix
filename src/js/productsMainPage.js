@@ -24,23 +24,30 @@ if (!navigator.userAgent.match(/iPhone/i)) {
 }
 
 //---------------------------------------------------------------------------
-const searchProduct = async (productName) => {
-  smoother.scrollTo(bottomSectionContainer, true, "bottom top");
-  const data = await fetchDataForSearch();
-  if (data) {
-    const foundProducts = findProductsByName(data, productName);
-    displaySearchResults(foundProducts);
-  }
-};
 const productList = document.querySelector(".productList");
 const bottomSectionContainer = document.getElementById("bottomSection");
 
-const fetchDataForSearch = async () => {
-  try {
-    const data = await (await fetch("../products/products.json")).json();
-    return data;
-  } catch (error) {
-    console.error("Error fetching data:", error);
+let data = null;
+
+const fetchData = async () => {
+  if (!data) {
+    try {
+      data = await (await fetch("../products/products.json")).json();
+    } catch (error) {
+      console.error("Error fetching data:", error);
+    }
+  }
+  return data;
+};
+
+const searchProduct = async (productName) => {
+  const bottomSectionContainer = document.getElementById("bottomSection");
+  const productList = document.querySelector(".productList");
+  smoother.scrollTo(bottomSectionContainer, true, "bottom top");
+  const data = await fetchData();
+  if (data) {
+    const foundProducts = findProductsByName(data, productName);
+    displaySearchResults(foundProducts, productList);
   }
 };
 
@@ -61,7 +68,7 @@ const findProductsByName = (data, productName) => {
   return foundProducts;
 };
 
-const displaySearchResults = (products) => {
+const displaySearchResults = (products, productList) => {
   productList.innerHTML = "";
   if (products.length > 0) {
     for (const product of products) {
@@ -72,7 +79,6 @@ const displaySearchResults = (products) => {
       const img = document.createElement("img");
       img.src = `../assets/productImg/${product.image}`;
       img.alt = `${product.name.en} image, تصویر ${product.name.fa}`;
-
       img.setAttribute("loading", "lazy");
       link.appendChild(img);
       [product.name.en, product.name.fa].forEach((name) => {
@@ -83,7 +89,6 @@ const displaySearchResults = (products) => {
       });
       div.appendChild(link);
       productList.appendChild(div);
-
       activateCustomCursors();
     }
   } else {
@@ -92,50 +97,52 @@ const displaySearchResults = (products) => {
   const counter = document.querySelector(".counter");
   counter.textContent = `${products.length} محصول`;
 };
-//-----------------------------------search system--------------------------------\\
 
-window.addEventListener("load", (event) => {
-  const scrollContainer = document.getElementById("scrollContainer");
+const renderAllProducts = async () => {
+  const data = await fetchData();
+  if (data) {
+    productList.innerHTML = "";
+    let allProducts = [];
 
-  scrollContainer.addEventListener("wheel", (event) => {
-    event.preventDefault();
+    let buttons = document.querySelectorAll(".selection .buttonCards");
+    buttons.forEach((button) => button.classList.remove("active"));
+    document.getElementById("allProducts").classList.add("active");
 
-    scrollContainer.scrollLeft += -event.deltaY;
-  });
-  function fetchDataAndRender(subCategory) {
+    data.categories.forEach((category) => {
+      allProducts = allProducts.concat(category.products);
+    });
+    displaySearchResults(allProducts, productList);
+  }
+};
+
+document.addEventListener("DOMContentLoaded", async () => {
+  await fetchData();
+
+  const fetchDataAndRender = (subCategory) => {
     return async () => {
-      try {
-        const data = await (await fetch("../products/products.json")).json();
+      const data = await fetchData();
+      if (data) {
         const categoryLists = data.categories.filter(
           (category) => category.subCategory === subCategory
         );
         bottomSectionContainer.className = "bottomSectionContainer";
-
         bottomSectionContainer.innerHTML = "";
-
         let buttons = document.querySelectorAll(".selection .buttonCards");
         buttons.forEach((button) => button.classList.remove("active"));
         document.getElementById(subCategory).classList.add("active");
-
         productList.innerHTML = "";
-
         let productCount = 0;
-
         categoryLists.forEach((category) => {
           const buttonCard = document.createElement("div");
           buttonCard.className = "buttonCards";
-
           [1, 2].forEach(() => {
             const paragraph = document.createElement("p");
             paragraph.textContent = category.faName;
             buttonCard.id = category.name;
             buttonCard.appendChild(paragraph);
           });
-
           bottomSectionContainer.appendChild(buttonCard);
-
           productCount += renderProducts(category.products);
-
           document
             .getElementById(category.name)
             .addEventListener("click", () => {
@@ -143,18 +150,14 @@ window.addEventListener("load", (event) => {
               smoother.scrollTo(bottomSectionContainer, true, "bottom top");
             });
         });
-
         const counter = document.querySelector(".counter");
         counter.textContent = `${productCount} محصول`;
-      } catch (error) {
-        console.error("Error fetching data:", error);
       }
     };
-  }
+  };
 
   const renderProducts = (products) => {
     let categoryProductCount = 0;
-
     products.forEach((product) => {
       const div = document.createElement("div");
       div.setAttribute("data-cursor", "pointerLinkNavbar");
@@ -163,7 +166,6 @@ window.addEventListener("load", (event) => {
       const img = document.createElement("img");
       img.src = `../assets/productImg/${product.image}`;
       img.alt = `${product.name.en} image, تصویر ${product.name.fa}`;
-
       img.setAttribute("loading", "lazy");
       link.appendChild(img);
       [product.name.en, product.name.fa].forEach((name) => {
@@ -174,12 +176,33 @@ window.addEventListener("load", (event) => {
       });
       div.appendChild(link);
       productList.appendChild(div);
-
       categoryProductCount++;
     });
-
     activateCustomCursors();
     return categoryProductCount;
+  };
+
+  const fetchAndLogProducts = async (categoryName) => {
+    const data = await fetchData();
+    if (data) {
+      let buttons = document.querySelectorAll(".selection .buttonCards");
+      buttons.forEach((button) => button.classList.remove("active"));
+      document.getElementById(categoryName).classList.add("active");
+      const category = data.categories.find((cat) => cat.name === categoryName);
+      const counter = document.querySelector(".counter");
+      counter.textContent = `${category.products.length} محصول`;
+      if (category) {
+        productList.innerHTML = "";
+        renderProducts(category.products);
+      } else {
+        console.log(`Category "${categoryName}" not found.`);
+      }
+    }
+  };
+
+  const resetData = () => {
+    bottomSectionContainer.className = "";
+    bottomSectionContainer.innerHTML = "";
   };
 
   document
@@ -191,103 +214,23 @@ window.addEventListener("load", (event) => {
   document
     .getElementById("waterstop")
     .addEventListener("click", fetchDataAndRender("waterstop"));
-
-  const fetchData = async () => {
-    try {
-      const data = await fetch("../products/products.json").then((response) =>
-        response.json()
-      );
-      productList.innerHTML = "";
-
-      document
-        .querySelectorAll(".selection .buttonCards")
-        .forEach((button) => button.classList.remove("active"));
-      document.getElementById("allProducts").classList.add("active");
-
-      bottomSectionContainer.className = "";
-      bottomSectionContainer.innerHTML = "";
-
-      const uniqueNames = new Set();
-
-      data.categories.forEach((category) => {
-        category.products.forEach((product) => {
-          if (!uniqueNames.has(product.name.en)) {
-            uniqueNames.add(product.name.en);
-
-            const div = document.createElement("div");
-            div.setAttribute("data-cursor", "pointerLinkNavbar");
-
-            const link = document.createElement("a");
-            link.href = product.url;
-
-            const img = document.createElement("img");
-            img.src = `../assets/productImg/${product.image}`;
-            img.alt = `${product.name.en} image, تصویر ${product.name.fa}`;
-            img.setAttribute("loading", "lazy");
-
-            link.appendChild(img);
-
-            [product.name.en, product.name.fa].forEach((name) => {
-              const p = document.createElement("p");
-              p.className = "englishText";
-              p.textContent = name;
-              link.appendChild(p);
-            });
-
-            div.appendChild(link);
-            productList.appendChild(div);
-          }
-        });
-      });
-
-      activateCustomCursors();
-      const productCount = uniqueNames.size;
-      document.querySelector(".counter").textContent = `${productCount} محصول`;
-    } catch (error) {
-      console.error("Error fetching data:", error);
-    }
-  };
-  const fetchAndLogProducts = async (categoryName) => {
-    try {
-      let buttons = document.querySelectorAll(".selection .buttonCards");
-      buttons.forEach((button) => button.classList.remove("active"));
-      document.getElementById(categoryName).classList.add("active");
-
-      const data = await (await fetch("../products/products.json")).json();
-      const category = data.categories.find((cat) => cat.name === categoryName);
-
-      const counter = document.querySelector(".counter");
-      counter.textContent = `${category.products.length} محصول`;
-
-      if (category) {
-        productList.innerHTML = "";
-        renderProducts(category.products);
-      } else {
-        console.log(`Category "${categoryName}" not found.`);
-      }
-    } catch (error) {
-      console.error("Error yfetching or logging data:", error);
-    }
-  };
-
-  const resetData = () => {
-    bottomSectionContainer.className = "";
-    bottomSectionContainer.innerHTML = "";
-  };
-
-  document.getElementById("allProducts").addEventListener("click", fetchData);
+  document.getElementById("allProducts").addEventListener("click", () => {
+    renderAllProducts();
+    smoother.scrollTo(bottomSectionContainer, true, "bottom top");
+    resetData();
+  });
   document.getElementById("plastic-spacers").addEventListener("click", () => {
     fetchAndLogProducts("plastic-spacers");
     smoother.scrollTo(bottomSectionContainer, true, "bottom top");
     resetData();
   });
-
   document.getElementById("raw-materials").addEventListener("click", () => {
     fetchAndLogProducts("raw-materials");
     smoother.scrollTo(bottomSectionContainer, true, "bottom top");
     resetData();
   });
-  fetchData();
+
+  await renderAllProducts();
 
   function getUrlParameter(name) {
     const urlParams = new URLSearchParams(window.location.search);
