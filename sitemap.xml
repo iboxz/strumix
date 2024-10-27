@@ -488,7 +488,7 @@
 	<url>
 		<loc>https://www.strumix.com/products/strubond-ep500</loc>
 		<priority>0.33</priority>
-		<lastmod>2024-10-16</lastmod>
+		<lastmod>2024-10-27</lastmod>
 	</url>
 	<url>
 		<loc>https://www.strumix.com/products/strubond-acro8</loc>
@@ -613,7 +613,7 @@
 	<url>
 		<loc>https://www.strumix.com/en/products/Strubond-Strong7</loc>
 		<priority>0.25</priority>
-		<lastmod>2024-10-24</lastmod>
+		<lastmod>2024-10-27</lastmod>
 	</url>
 	<url>
 		<loc>https://www.strumix.com/en/products/Strutile-PH4</loc>
@@ -623,7 +623,7 @@
 	<url>
 		<loc>https://www.strumix.com/en/products/Strusin-PLS22</loc>
 		<priority>0.25</priority>
-		<lastmod>2024-10-24</lastmod>
+		<lastmod>2024-10-27</lastmod>
 	</url>
 	<url>
 		<loc>https://www.strumix.com/en/products/Struset-RST</loc>
@@ -638,7 +638,7 @@
 	<url>
 		<loc>https://www.strumix.com/en/products/Strutile-C10</loc>
 		<priority>0.25</priority>
-		<lastmod>2024-10-24</lastmod>
+		<lastmod>2024-10-27</lastmod>
 	</url>
 	<url>
 		<loc>https://www.strumix.com/en/products/Strusin-N510</loc>
@@ -678,7 +678,7 @@
 	<url>
 		<loc>https://www.strumix.com/en/products/Strusin-N520</loc>
 		<priority>0.25</priority>
-		<lastmod>2024-10-23</lastmod>
+		<lastmod>2024-10-27</lastmod>
 	</url>
 	<url>
 		<loc>https://www.strumix.com/en/products/Struproof-HP</loc>
@@ -828,7 +828,7 @@
 	<url>
 		<loc>https://www.strumix.com/en/products/Strubond-Strong8</loc>
 		<priority>0.25</priority>
-		<lastmod>2024-10-24</lastmod>
+		<lastmod>2024-10-27</lastmod>
 	</url>
 	<url>
 		<loc>https://www.strumix.com/en/products/Strugrout-ES500</loc>
@@ -849,6 +849,11 @@
 		<loc>https://www.strumix.com/en/products/Strusin-N500</loc>
 		<priority>0.25</priority>
 		<lastmod>2024-10-24</lastmod>
+	</url>
+	<url>
+		<loc>https://www.strumix.com/en/products/Strutile-C20</loc>
+		<priority>0.25</priority>
+		<lastmod>2024-10-27</lastmod>
 	</url>
 	<url>
 		<loc>https://www.strumix.com/en/products/Dalcoub</loc>

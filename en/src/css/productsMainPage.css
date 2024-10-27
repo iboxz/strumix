@@ -211,7 +211,7 @@ html {
     margin: 2vmin 5vmin;
   }
   .selection .main {
-    padding: 0 5vmin 0 15vmin;
+    padding: 0 15vmin 0 5vmin;
   }
   .selection .searchCounterSection img {
     width: 3vmin;

@@ -249,3 +249,10 @@ document.addEventListener("DOMContentLoaded", async () => {
     }, 1000);
   }
 });
+
+const scrollContainer = document.querySelector("#scrollContainer");
+
+scrollContainer.addEventListener("wheel", (event) => {
+  event.preventDefault();
+  scrollContainer.scrollLeft += event.deltaY;
+});

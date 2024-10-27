@@ -160,14 +160,10 @@ window.addEventListener("load", (event) => {
   };
   const categories = [
     { name: "All Products", id: "" },
-    { name: "Concrete Additive", id: "concreteAdditive" },
-    { name: "Construction Chemicals", id: "constructionChemicals" },
-    { name: "Waterstop", id: "waterstop" },
-    { name: "Plastic Concrete Spacers", id: "plastic-spacers" },
-    {
-      name: "Raw Materials for Concrete Additives and Construction Chemicals",
-      id: "raw-materials",
-    },
+    { name: "Concrete Admixrures", id: "ConcreteAdmixrures" },
+    { name: "Construction Chemicals", id: "ConstructionChemicals" },
+    { name: "Waterstops", id: "Waterstops" },
+    { name: "Concrete Plastic Accessories", id: "ConcretePlasticAccessories" },
   ];
 
   const navigation = createEl("nav");
@@ -350,7 +346,7 @@ window.addEventListener("load", (event) => {
   });
 
   function fetchDataForProducts() {
-    fetch(new URL("/products/products.json", baseUrl))
+    fetch(new URL("en/products/products.json", baseUrl))
       .then((response) => response.json())
       .then((data) => {
         const selectedProducts = [];
@@ -380,11 +376,10 @@ window.addEventListener("load", (event) => {
       const productInfo = document.createElement("div");
 
       const titleFa = document.createElement("h5");
-      titleFa.textContent = product.name.fa;
+      titleFa.textContent = product.name.long;
 
       const titleEn = document.createElement("span");
-      titleEn.classList.add("englishText");
-      titleEn.textContent = product.name.en;
+      titleEn.textContent = product.name.short;
 
       productInfo.appendChild(titleEn);
       productInfo.appendChild(titleFa);
@@ -392,7 +387,7 @@ window.addEventListener("load", (event) => {
       const image = document.createElement("img");
       productInfo.setAttribute("data-cursor", "pointerLinkNavbar");
       image.setAttribute("data-cursor", "pointerLinkNavbar");
-      image.src = `../assets/productImg/${product.image}`;
+      image.src = `../../assets/productImg/${product.image}`;
       image.alt = `${product.image} Image`;
 
       const linkContainer = document.createElement("a");
@@ -596,50 +591,51 @@ window.addEventListener("load", (event) => {
   document.body.insertAdjacentHTML(
     "afterend",
     `
-    <section class="settingsCSS">
-      <div data-cursor="pointerFocus" class="copyButton">
-        <p>کپی لینک صفحه!</p>
-        <img src="../assets/VectorShare.svg" alt="Vector copy" />
-      </div>
-      <div data-cursor="pointerFocus">
-        <img src="../assets/VectorPhone.svg" alt="Vector phone" />
-      </div>
-      <div>
-        <a
-          target="_blank"
-          href="https://api.whatsapp.com/send?phone=989122087393"
-          ><p>پشتیبانی فنی</p></a
-        >
-        <a
-          target="_blank"
-          href="https://api.whatsapp.com/send?phone=989928210625"
-          ><p>پشتیبانی فروش</p></a
-        >
-        <a href="tel:02144403448">
-          <p>تلفن تماس</p>
-          <p>021-44403448</p>
-        </a>
-        <a href="tel:021-44000408">
-          <p>تلفن تماس 2</p>
-          <p>021-44000408</p>
-        </a>
-        <a href="mailto:info@strumix.com">
-          <p>ایمیل</p>
-          <p>info@strumix.com</p>
-        </a>
-      </div>
-    </section>    `
+      <section class="settingsCSS">
+        <div data-cursor="pointerFocus" class="copyButton">
+          <img src="../assets/VectorShare.svg" alt="Vector copy" />
+          <p>Copy page link!</p>
+        </div>
+        <div data-cursor="pointerFocus">
+          <img src="../assets/VectorPhone.svg" alt="Vector phone" />
+        </div>
+        <div>
+          <a
+            target="_blank"
+            href="https://api.whatsapp.com/send?phone=989122087393"
+            ><p>Technical Support</p></a
+          >
+          <a
+            target="_blank"
+            href="https://api.whatsapp.com/send?phone=989928210625"
+            ><p>Sales Support</p></a
+          >
+          <a href="tel:02144403448">
+            <p>Contact Phone Number I</p>
+            <p>021-44403448</p>
+          </a>
+          <a href="tel:021-44000408">
+            <p>Contact Phone Number II</p>
+            <p>021-44000408</p>
+          </a>
+          <a href="mailto:info@strumix.com">
+            <p>Email</p>
+            <p>info@strumix.com</p>
+          </a>
+        </div>
+      </section>
+    `
   );
   document.querySelector(".copyButton").addEventListener("click", () => {
     const shareText = document.querySelector(".copyButton p");
     const originalText = shareText.textContent;
     const url = window.location.href;
-
+  
     if (navigator.clipboard) {
       navigator.clipboard
         .writeText(url)
         .then(() => {
-          shareText.textContent = "کپی شد.";
+          shareText.textContent = "Copied!";
           setTimeout(() => (shareText.textContent = originalText), 3000);
         })
         .catch((err) => console.error("Failed to copy: ", err));
@@ -650,7 +646,7 @@ window.addEventListener("load", (event) => {
       textarea.select();
       try {
         document.execCommand("copy");
-        shareText.textContent = "کپی شد.";
+        shareText.textContent = "Copied!";
         setTimeout(() => (shareText.textContent = originalText), 3000);
       } catch (err) {
         console.error("Failed to copy: ", err);
@@ -658,6 +654,7 @@ window.addEventListener("load", (event) => {
       document.body.removeChild(textarea);
     }
   });
+  
 
   function isMobileDevice() {
     let check = false;
@@ -688,7 +685,7 @@ window.addEventListener("load", (event) => {
         } else {
           const numberToCopy = phoneNumber.replace("tel:", "");
           navigator.clipboard.writeText(numberToCopy).then(function () {
-            copyText.textContent = "کپی شد.";
+            copyText.textContent = "Copied!";
             setTimeout(() => {
               copyText.textContent = originalText;
             }, 3000);
@@ -736,7 +733,7 @@ window.addEventListener("load", (event) => {
 
 let items = {};
 
-const url = new URL("/serverAssets/technicalDoc.json", baseUrl);
+const url = new URL("/serverAssets/technicalDocEn.json", baseUrl);
 
 url.searchParams.set("t", new Date().getTime());
 

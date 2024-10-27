@@ -271,7 +271,7 @@ boxes.forEach((box) => {
   box.addEventListener("mouseover", function () {
     productImg.style.opacity = "1";
     productImg.style.filter = "blur(0)";
-    productImg.innerHTML = `<img src="assets/productImg/${
+    productImg.innerHTML = `<img src="../assets/productImg/${
       products[box.id]
     }" alt="" />`;
   });
@@ -289,7 +289,7 @@ boxes.forEach((box) => {
 });
 
 
-gsap.to(".section5 > div", {
+gsap.to(".section5 > div:nth-child(1)", {
   scrollTrigger: {
     trigger: ".section5",
     start: "top center",

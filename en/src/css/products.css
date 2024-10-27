@@ -159,12 +159,13 @@ html {
 .section3 > img {
   position: absolute;
   top: 5vmin;
-  left: 5vmin;
+  right: 5vmin;
   width: 15vmax;
   -webkit-user-drag: none;
   -khtml-user-drag: none;
   -moz-user-drag: none;
   -o-user-drag: none;
+  transform: scaleX(-1);
 }
 .section3 h3 {
   padding: 5vmin 0 3vmin 0;

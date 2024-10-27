@@ -52,7 +52,7 @@ gsap.to(".hero img", {
   },
   y: "20%",
   duration: 1,
-  scale: 1.2,
+  scale: 1.1,
 });
 
 if (window.innerWidth > 992) {
@@ -162,8 +162,8 @@ fetch("./products.json")
         if (currentUrl.includes(product.url)) {
           const MainImg = document.querySelector(".hero img");
 
-          MainImg.src = `../assets/productImg/${product.image}`;
-          MainImg.alt = `The ${product.name.en} product img - ${product.name.fa} تصویر `;
+          MainImg.src = `../../assets/productImg/${product.image}`;
+          MainImg.alt = `The ${product.name.short} product img - ${product.name.long}`;
         }
       });
     });

@@ -749,6 +749,11 @@ nav > .active > span:last-child {
   color: white;
 }
 
+@media only screen and (max-width: 1200px) {
+  .footer {
+    padding: 10vmin 5vmin 1vmin 5vmin;
+  }
+}
 @media only screen and (max-width: 992px) {
   .footer {
     padding: 5vmin 5vmin 1vmin 5vmin;
@@ -758,6 +763,12 @@ nav > .active > span:last-child {
   }
   .footer > div:nth-child(2) {
     width: 55%;
+  }
+  .footer > div:nth-child(2) div div {
+    flex-direction: column;
+  }
+  .footer > div:nth-child(2) div div p:last-child {
+    text-align: end;
   }
 }
 
@@ -889,7 +900,7 @@ nav > .active > span:last-child {
   top: 50%;
   bottom: 50%;
   height: 0.1vmin;
-  right: 2vmin;
+  left: 2vmin;
   width: 0;
   transition: ease 0.5s;
 }
@@ -903,7 +914,7 @@ nav > .active > span:last-child {
   filter: brightness(100);
   height: 2vmin;
   padding: 0 2vmin;
-  transform: rotate(45deg) translateY(50%);
+  transform: rotate(-135deg) translateY(-50%);
 }
 @media only screen and (max-width: 768px) {
   .downloadDataSheet > div {
@@ -957,10 +968,10 @@ nav > .active > span:last-child {
 
 .settingsCSS > div:nth-child(1) {
   position: relative;
-  margin-right: auto;
   margin-left: 10px;
   display: flex;
   white-space: nowrap;
+  order: 2;
 }
 
 .settingsCSS > div:nth-child(1) p {
