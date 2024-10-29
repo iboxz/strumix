@@ -152,9 +152,10 @@ window.addEventListener("load", (event) => {
     popup = document.createElement("div");
     popup.className = "langPopup";
     popup.innerHTML = `
+          <p>Do you want to change the website language?</p>
           <p>آیا می‌خواهید زبان وبسایت را تغییر دهید؟</p>
-          <button id="noBtn">خیر</button>
-          <button id="yesBtn">بله</button>
+          <button id="noBtn">خیر / No</button>
+          <button id="yesBtn">بله / yes</button>
       `;
     document.body.appendChild(popup);
 
@@ -648,7 +649,7 @@ window.addEventListener("load", (event) => {
   div2.appendChild(socialMediaDiv);
 
   const copyrightParagraph = document.createElement("p");
-  copyrightParagraph.innerHTML = 'Copyright © 2024 strumix / All rights reserved / Developed by <a target="_blank" data-cursor="pointerNavbar" href="https://firstibox.glitch.me/">FirstIBOX</a> / <a target="_blank" data-cursor="pointerNavbar" href="https://strumix.com/privacyPolicy">Privacy Policy</a>';
+  copyrightParagraph.innerHTML = 'Copyright © 2024 strumix / All rights reserved / Developed by <a target="_blank" data-cursor="pointerNavbar" href="https://firstibox.glitch.me/">FirstIBOX</a> / <a target="_blank" data-cursor="pointerNavbar" href="https://strumix.com/en/privacyPolicy">Privacy Policy</a>';
 
   section.appendChild(div1);
   section.appendChild(div2);

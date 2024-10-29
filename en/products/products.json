@@ -6,7 +6,7 @@
       "products": [
         {
           "id": 1,
-          "url": "Strusin-N530",
+          "url": "strusin-n530",
           "name": {
             "short": "Strusin N530",
             "long": "High-Range Water Reducing Admixture, Based on Polycarboxylate"
@@ -15,7 +15,7 @@
         },
         {
           "id": 2,
-          "url": "Strusin-N520",
+          "url": "strusin-n520",
           "name": {
             "short": "Strusin N520",
             "long": "High-Range Water Reducing Admixture, Based on Polycarboxylate"
@@ -24,7 +24,7 @@
         },
         {
           "id": 3,
-          "url": "Strusin-N510",
+          "url": "strusin-n510",
           "name": {
             "short": "Strusin N510",
             "long": "High-Range Water Reducing Admixture, Based on Polycarboxylate"
@@ -33,7 +33,7 @@
         },
         {
           "id": 4,
-          "url": "Strusin-PLS22",
+          "url": "strusin-pls22",
           "name": {
             "short": "Strusin PLS22",
             "long": "High-Range Water Reducing Admixture, Based on Polycarboxylate - lignosulphonate"
@@ -42,7 +42,7 @@
         },
         {
           "id": 5,
-          "url": "Strusin-N500",
+          "url": "strusin-n500",
           "name": {
             "short": "Strusin N500",
             "long": "High-Range Water Reducing Admixture, Based on Polycarboxylate"
@@ -57,7 +57,7 @@
       "products": [
         {
           "id": 1,
-          "url": "Struplast-N322",
+          "url": "struplast-n322",
           "name": {
             "short": "Struplast N322",
             "long": "Plasticizing Admixture"
@@ -66,7 +66,7 @@
         },
         {
           "id": 2,
-          "url": "Struplast-N321",
+          "url": "struplast-n321",
           "name": {
             "short": "Struplast N321",
             "long": "Plasticizing Admixture"
@@ -81,7 +81,7 @@
       "products": [
         {
           "id": 1,
-          "url": "Struplast-N480",
+          "url": "struplast-n480",
           "name": {
             "short": "Struplast N480",
             "long": "High-range Super Plasticizing Admixture"
@@ -90,7 +90,7 @@
         },
         {
           "id": 2,
-          "url": "Struplast-N470",
+          "url": "struplast-n470",
           "name": {
             "short": "Struplast N470",
             "long": "High-range Super Plasticizing Admixture"
@@ -99,7 +99,7 @@
         },
         {
           "id": 3,
-          "url": "Struplast-N410",
+          "url": "struplast-n410",
           "name": {
             "short": "Struplast N410",
             "long": "Super Plasticizing Admixture"
@@ -114,7 +114,7 @@
       "products": [
         {
           "id": 1,
-          "url": "Struset-Nitro",
+          "url": "struset-nitro",
           "name": {
             "short": "Struset Nitro",
             "long": "Chloride Free Accelerating Admixture"
@@ -123,7 +123,7 @@
         },
         {
           "id": 2,
-          "url": "Struset-SPA",
+          "url": "struset-spa",
           "name": {
             "short": "Struset SPA",
             "long": "Powder Accelerator for Shotcrete"
@@ -132,7 +132,7 @@
         },
         {
           "id": 3,
-          "url": "Struset-SLA",
+          "url": "struset-sla",
           "name": {
             "short": "Struset SLA",
             "long": "Liquid Accelerator for Shotcrete"
@@ -141,7 +141,7 @@
         },
         {
           "id": 4,
-          "url": "Struset-RST",
+          "url": "struset-rst",
           "name": {
             "short": "Struset RST",
             "long": "Set-Retarding and Slump Retaining Admixtures"
@@ -156,7 +156,7 @@
       "products": [
         {
           "id": 1,
-          "url": "Strumin-SL",
+          "url": "strumin-sl",
           "name": {
             "short": "Strumin SL",
             "long": "Silica Fume Slurry Admixture"
@@ -165,7 +165,7 @@
         },
         {
           "id": 2,
-          "url": "Strumin-Complex",
+          "url": "strumin-complex",
           "name": {
             "short": "Strumin Complex",
             "long": "Silica Fume Gel Admixture"
@@ -174,7 +174,7 @@
         },
         {
           "id": 3,
-          "url": "Strumin-Dura",
+          "url": "strumin-dura",
           "name": {
             "short": "Strumin Dura",
             "long": "Silica Fume Gel Admixture"
@@ -183,7 +183,7 @@
         },
         {
           "id": 4,
-          "url": "Strumin-MP980",
+          "url": "strumin-mp980",
           "name": {
             "short": "Strumin MP980",
             "long": "Silica Fume Mineral Powder Admixture"
@@ -198,7 +198,7 @@
       "products": [
         {
           "id": 1,
-          "url": "Struseal-C512",
+          "url": "struseal-c512",
           "name": {
             "short": "Struseal C512",
             "long": "Integral waterproofi ng admixture based on crystalline formation to produce water tight concrete"
@@ -207,7 +207,7 @@
         },
         {
           "id": 2,
-          "url": "Struproof-HP",
+          "url": "struproof-hp",
           "name": {
             "short": "Struproof HP",
             "long": "Concrete and Mortar Integral Waterproofing Admixture, Powder"
@@ -216,7 +216,7 @@
         },
         {
           "id": 3,
-          "url": "Struproof-WL",
+          "url": "struproof-wl",
           "name": {
             "short": "Struproof WL",
             "long": "Concrete and Mortar Integral Waterproofing Admixture, Liquid"
@@ -231,7 +231,7 @@
       "products": [
         {
           "id": 1,
-          "url": "Struplast-Air",
+          "url": "struplast-air",
           "name": {
             "short": "Struplast Air",
             "long": "Concrete and Mortar Air entraining agent"
@@ -240,7 +240,7 @@
         },
         {
           "id": 2,
-          "url": "Strufiber-FP",
+          "url": "strufiber-fp",
           "name": {
             "short": "Strufiber FP",
             "long": "High performance micro polypropylene fibre"
@@ -249,7 +249,7 @@
         },
         {
           "id": 3,
-          "url": "Struplast-VM750P",
+          "url": "struplast-vm750p",
           "name": {
             "short": "Struplast VM750P",
             "long": "Powder Viscosity Modifier Admixture"
@@ -264,7 +264,7 @@
       "products": [
         {
           "id": 1,
-          "url": "Strutop-Brush",
+          "url": "strutop-brush",
           "name": {
             "short": "Strutop Brush",
             "long": "Flexible acrylic polymer modified protective & decorative coating for concrete & masonry"
@@ -273,7 +273,7 @@
         },
         {
           "id": 2,
-          "url": "Struseal-C514",
+          "url": "struseal-c514",
           "name": {
             "short": "Struseal C514",
             "long": "Crystalline capillary waterproofing for concrete substrates"
@@ -282,7 +282,7 @@
         },
         {
           "id": 3,
-          "url": "Strutop-Gard-PA",
+          "url": "strutop-gard-pa",
           "name": {
             "short": "Strutop Gard-PA",
             "long": "Rapid setting cement based, water-stopping mortar"
@@ -291,7 +291,7 @@
         },
         {
           "id": 4,
-          "url": "Strutop-WR7",
+          "url": "strutop-wr7",
           "name": {
             "short": "Strutop WR7",
             "long": "Non-Film Forming Water Repellent Sealer"
@@ -300,7 +300,7 @@
         },
         {
           "id": 5,
-          "url": "Strutop-SR12",
+          "url": "strutop-sr12",
           "name": {
             "short": "Strutop SR12",
             "long": "Penetrating hydrophobic silane-siloxane treatment"
@@ -309,7 +309,7 @@
         },
         {
           "id": 6,
-          "url": "Strutop-Cem260",
+          "url": "strutop-cem260",
           "name": {
             "short": "Strutop Cem260",
             "long": "Non-Film Forming and polishing Water Repellent Sealer"
@@ -318,7 +318,7 @@
         },
         {
           "id": 7,
-          "url": "Strutop-JS3",
+          "url": "strutop-js3",
           "name": {
             "short": "Strutop JS3",
             "long": "Cold applied Modified bitumen rubber sealant"
@@ -333,7 +333,7 @@
       "products": [
         {
           "id": 1,
-          "url": "Strutile-C50",
+          "url": "strutile-c50",
           "name": {
             "short": "Strutile C50",
             "long": "Polymer-Modified, One Component, High Performance, Waterproof Tile Adhesive"
@@ -342,7 +342,7 @@
         },
         {
           "id": 2,
-          "url": "Strutile-C20",
+          "url": "strutile-c20",
           "name": {
             "short": "Strutile C20",
             "long": "Tile Adhesive for Use in Porous surfaces"
@@ -351,7 +351,7 @@
         },
         {
           "id": 3,
-          "url": "Strutile-C10",
+          "url": "strutile-c10",
           "name": {
             "short": "Strutile C10",
             "long": "Ceramic & Tile Adhesive for Use in Floor & Wall"
@@ -360,7 +360,7 @@
         },
         {
           "id": 4,
-          "url": "Strutile-PH4",
+          "url": "strutile-ph4",
           "name": {
             "short": "Strutile PH4",
             "long": "Ready for use paste tile adhesive, with no vertical slip and extended open time, for ceramic tiles"
@@ -369,7 +369,7 @@
         },
         {
           "id": 5,
-          "url": "Strutile-GR110",
+          "url": "strutile-gr110",
           "name": {
             "short": "Strutile GR110",
             "long": "Polymer modified, cementitious tile grout"
@@ -384,7 +384,7 @@
       "products": [
         {
           "id": 1,
-          "url": "Strubond-Magma",
+          "url": "strubond-magma",
           "name": {
             "short": "Strubond Magma",
             "long": "Multi-purpose Emulsion Polymer, Waterproofs, Improves mortars and Bonding agent"
@@ -393,7 +393,7 @@
         },
         {
           "id": 2,
-          "url": "Strubond-Acro8",
+          "url": "strubond-acro8",
           "name": {
             "short": "Strubond Acro8",
             "long": "Polymer bonding aid and mortar additive"
@@ -402,7 +402,7 @@
         },
         {
           "id": 3,
-          "url": "Strubond-Acro7",
+          "url": "strubond-acro7",
           "name": {
             "short": "Strubond Acro7",
             "long": "A Primer for Masonry Surfaces, Bonding Additive and Waterproofer for Cement Based Mixtures"
@@ -411,7 +411,7 @@
         },
         {
           "id": 4,
-          "url": "Strubond-Strong8",
+          "url": "strubond-strong8",
           "name": {
             "short": "Strubond Strong8",
             "long": "Multi-purpose PVA adhesive, sealer and cement admixture"
@@ -420,7 +420,7 @@
         },
         {
           "id": 5,
-          "url": "Strubond-Strong7",
+          "url": "strubond-strong7",
           "name": {
             "short": "Strubond Strong7",
             "long": "A Primer for Masonry Surfaces and Bonding Additive to Cement Based Mixtures"
@@ -435,7 +435,7 @@
       "products": [
         {
           "id": 1,
-          "url": "Strutop-RM450",
+          "url": "strutop-rm450",
           "name": {
             "short": "Strutop RM450",
             "long": "Shrinkage Controlled, Vertical and Overhead Cementitious Waterproof Repair Mortar"
@@ -444,7 +444,7 @@
         },
         {
           "id": 2,
-          "url": "Strutop-RM650",
+          "url": "strutop-rm650",
           "name": {
             "short": "Strutop RM650",
             "long": "Shrinkage Compensated, Fibre Reinforced, Repair Mortar System"
@@ -453,7 +453,7 @@
         },
         {
           "id": 3,
-          "url": "Struseal-C515",
+          "url": "struseal-c515",
           "name": {
             "short": "Struseal C515",
             "long": "Crystalline repair mortar used to repair non-moving cracks and damaged concrete"
@@ -468,7 +468,7 @@
       "products": [
         {
           "id": 1,
-          "url": "Strugrout-N880",
+          "url": "strugrout-n880",
           "name": {
             "short": "Strugrout N880",
             "long": "High Strength, Non-Shrink Cementitious Construction Grout"
@@ -477,7 +477,7 @@
         },
         {
           "id": 2,
-          "url": "Strugrout-E760",
+          "url": "strugrout-e760",
           "name": {
             "short": "Strugrout E760",
             "long": "Expanding Cementitious Construction Grout"
@@ -486,7 +486,7 @@
         },
         {
           "id": 3,
-          "url": "Strugrout-G750",
+          "url": "strugrout-g750",
           "name": {
             "short": "Strugrout G750",
             "long": "Expanding Cementitious Construction Grout"
@@ -495,7 +495,7 @@
         },
         {
           "id": 4,
-          "url": "Strugrout-ES500",
+          "url": "strugrout-es500",
           "name": {
             "short": "Strugrout ES500",
             "long": "Plasticized Expanding Grout and Mortar Admixture"
@@ -504,7 +504,7 @@
         },
         {
           "id": 5,
-          "url": "Strugrout-Ker320",
+          "url": "strugrout-ker320",
           "name": {
             "short": "Strugrout Ker320",
             "long": "Low exotherm, epoxy resin free flow grout"
@@ -519,7 +519,7 @@
       "products": [
         {
           "id": 1,
-          "url": "Dalcoub",
+          "url": "dalcoub",
           "name": {
             "short": "Dalcoub",
             "long": "Surface Hardening Powder for Fresh Concrete Floors"
@@ -528,7 +528,7 @@
         },
         {
           "id": 2,
-          "url": "Strufloor-S70",
+          "url": "strufloor-s70",
           "name": {
             "short": "Strufloor S70",
             "long": "Concrete Surface Liquid Hardener & Densifier"
@@ -543,7 +543,7 @@
       "products": [
         {
           "id": 1,
-          "url": "Strumould-SLV",
+          "url": "strumould-slv",
           "name": {
             "short": "Strumould SLV",
             "long": "Chemical mould release agent"
@@ -552,7 +552,7 @@
         },
         {
           "id": 2,
-          "url": "Strumould-WRA",
+          "url": "strumould-wra",
           "name": {
             "short": "Strumould WRA",
             "long": "Water based, chemical mould release agent"
@@ -561,7 +561,7 @@
         },
         {
           "id": 3,
-          "url": "Strucure-SW50",
+          "url": "strucure-sw50",
           "name": {
             "short": "Strucure SW50",
             "long": "Silicate salts based concrete curing compound"
@@ -576,7 +576,7 @@
       "products": [
         {
           "id": 1,
-          "url": "Strubar",
+          "url": "strubar",
           "name": {
             "short": "Strubar",
             "long": "Flexible PVC Waterstop"
@@ -591,7 +591,7 @@
       "products": [
         {
           "id": 1,
-          "url": "Concrete-Plastic-Accessories",
+          "url": "concrete-plastic-accessories",
           "name": {
             "short": "PLASTIC SPACERS",
             "long": "Concrete Plastic Accessories"
