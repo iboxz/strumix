@@ -14,9 +14,7 @@ function isMobileDevice() {
   let check = false;
   (function (a) {
     if (
-      /(android|bb\d+|meego).+mobile|avantgo|bada\/|blackberry|blazer|compal|elaine|fennec|hiptop|iemobile|ip(hone|od)|iris|kindle|lge |maemo|midp|mmp|mobile.+firefox|netfront|opera m(ob|in)i|palm( os)?|phone|p(ixi|re)\/|plucker|pocket|psp|series(4|6)0|symbian|treo|up\.(browser|link)|vodafone|wap|windows ce|xda|xiino/i.test(
-        a
-      ) ||
+      /(android|bb\d+|meego).+mobile|avantgo|bada\/|blackberry|blazer|compal|elaine|fennec|hiptop|iemobile|ip(hone|od)|iris|kindle|lge |maemo|midp|mmp|mobile.+firefox|netfront|opera m(ob|in)i|palm( os)?|phone|p(ixi|re)\/|plucker|pocket|psp|series(4|6)0|symbian|treo|up\.(browser|link)|vodafone|wap|windows ce|xda|xiino/i.test(a) ||
       /1207|6310|6590|3gso|4thp|50[1-6]i|770s|802s|a wa|abac|ac(er|oo|s\-)|ai(ko|rn)|al(av|ca|co)|amoi|an(ex|ny|yw)|aptu|ar(ch|go)|as(te|us)|attw|au(di|\-m|r |s )|avan|be(ck|ll|nq)|bi(lb|rd)|bl(ac|az)|br(e|v)w|bumb|bw\-(n|u)|c55\/|capi|ccwa|cdm\-|cell|chtm|cldc|cmd\-|co(mp|nd)|craw|da(it|ll|ng)|dbte|dc\-s|devi|dica|dmob|do(c|p)o|ds(12|\-d)|el(49|ai)|em(l2|ul)|er(ic|k0)|esl8|ez([4-7]0|os|wa|ze)|fetc|fly(\-|_)|g1 u|g560|gene|gf\-5|g\-mo|go(\.w|od)|gr(ad|un)|haie|hcit|hd\-(m|p|t)|hei\-|hi(pt|ta)|hp( i|ip)|hs\-c|ht(c(\-| |_|a|g|p|s|t)|tp)|hu(aw|tc)|i\-(20|go|ma)|i230|iac( |\-|\/)|ibro|idea|ig01|ikom|im1k|inno|ipaq|iris|ja(t|v)a|jbro|jemu|jigs|kddi|keji|kgt( |\/)|klon|kpt |kwc\-|kyo(c|k)|le(no|xi)|lg( g|\/(k|l|u)|50|54|\-[a-w])|libw|lynx|m1\-w|m3ga|m50\/|ma(te|ui|xo)|mc(01|21|ca)|m\-cr|me(rc|ri)|mi(o8|oa|ts)|mmef|mo(01|02|bi|de|do|t(\-| |o|v)|zz)|mt(50|p1|v )|mwbp|mywa|n10[0-2]|n20[2-3]|n30(0|2)|n50(0|2|5)|n7(0(0|1)|10)|ne((c|m)\-|on|tf|wf|wg|wt)|nok(6|i)|nzph|o2im|op(ti|wv)|oran|owg1|p800|pan(a|d|t)|pdxg|pg(13|\-([1-8]|c))|phil|pire|pl(ay|uc)|pn\-2|po(ck|rt|se)|prox|psio|pt\-g|qa\-a|qc(07|12|21|32|60|\-[2-7]|i\-)|qtek|r380|r600|raks|rim9|ro(ve|zo)|s55\/|sa(ge|ma|mm|ms|ny|va)|sc(01|h\-|oo|p\-)|sdk\/|se(c(\-|0|1)|47|mc|nd|ri)|sgh\-|shar|sie(\-|m)|sk\-0|sl(45|id)|sm(al|ar|b3|it|t5)|so(ft|ny)|sp(01|h\-|v\-|v )|sy(01|mb)|t2(18|50)|t6(00|10|18)|ta(gt|lk)|tcl\-|tdg\-|tel(i|m)|tim\-|t\-mo|to(pl|sh)|ts(70|m\-|m3|m5)|tx\-9|up(\.b|g1|si)|utst|v400|v750|veri|vi(rg|te)|vk(40|5[0-3]|\-v)|vm40|voda|vulc|vx(52|53|60|61|70|80|81|83|85|98)|w3c(\-| )|webc|whit|wi(g |nc|nw)|wmlb|wonu|x700|yas\-|your|zeto|zte\-/i.test(
         a.substr(0, 4)
       )
@@ -36,13 +34,11 @@ function setupAnimations() {
         pinSpacing: false,
         onEnter: () => {
           if (window.innerWidth > 768) {
-            document.querySelector(".section2 header").style.borderBottomWidth =
-              "0.1vmin";
+            document.querySelector(".section2 header").style.borderBottomWidth = "0.1vmin";
           }
         },
         onLeaveBack: () => {
-          document.querySelector(".section2 header").style.borderBottomWidth =
-            "0";
+          document.querySelector(".section2 header").style.borderBottomWidth = "0";
         },
       },
     });
@@ -91,8 +87,7 @@ window.addEventListener("resize", () => {
 
 window.addEventListener("load", (event) => {
   const path = document.querySelector(".splashScreen svg path");
-  var pathData =
-    "M3 252.473C7 236.473 36.2346 186.5 41 179C44.3333 142 80.9 58.4725 198.5 16.4725C222.333 6.30583 282.5 -7.9275 332.5 16.4725C319.167 31.3059 293 71 283.5 83.9727C274 96.9453 245 132.473 183 132.473C150.667 129.982 72.6582 138.3 39.4582 181.5C39.4582 181.5 91.5 54.5 265.5 33";
+  var pathData = "M3 252.473C7 236.473 36.2346 186.5 41 179C44.3333 142 80.9 58.4725 198.5 16.4725C222.333 6.30583 282.5 -7.9275 332.5 16.4725C319.167 31.3059 293 71 283.5 83.9727C274 96.9453 245 132.473 183 132.473C150.667 129.982 72.6582 138.3 39.4582 181.5C39.4582 181.5 91.5 54.5 265.5 33";
 
   path.setAttribute("d", pathData);
   var length = path.getTotalLength();
@@ -128,21 +123,15 @@ window.addEventListener("load", (event) => {
   activateCustomCursors();
   /*--------------*/
 
-  let loops = gsap.utils
-      .toArray(".section5 .infiniteScrollText div")
-      .map((line, i) => {
-        const links = line.querySelectorAll(
-          ".section5  .infiniteScrollText div span"
-        );
-        return horizontalLoop(links, {
-          repeat: -1,
-          speed: 1 + i * 0.5,
-          reversed: false,
-          paddingRight: parseFloat(
-            gsap.getProperty(links[0], "marginRight", "px")
-          ),
-        });
-      }),
+  let loops = gsap.utils.toArray(".section5 .infiniteScrollText div").map((line, i) => {
+      const links = line.querySelectorAll(".section5  .infiniteScrollText div span");
+      return horizontalLoop(links, {
+        repeat: -1,
+        speed: 1 + i * 0.5,
+        reversed: false,
+        paddingRight: parseFloat(gsap.getProperty(links[0], "marginRight", "px")),
+      });
+    }),
     currentScroll = 0,
     scrollDirection = 1;
 
@@ -164,8 +153,7 @@ window.addEventListener("load", (event) => {
         repeat: config.repeat,
         paused: config.paused,
         defaults: { ease: "none" },
-        onReverseComplete: () =>
-          tl.totalTime(tl.rawTime() + tl.duration() * 100),
+        onReverseComplete: () => tl.totalTime(tl.rawTime() + tl.duration() * 100),
       }),
       length = items.length,
       startX = items[0].offsetLeft,
@@ -174,8 +162,7 @@ window.addEventListener("load", (event) => {
       xPercents = [],
       curIndex = 0,
       pixelsPerSecond = (config.speed || 1) * 100,
-      snap =
-        config.snap === false ? (v) => v : gsap.utils.snap(config.snap || 1),
+      snap = config.snap === false ? (v) => v : gsap.utils.snap(config.snap || 1),
       totalWidth,
       curX,
       distanceToStart,
@@ -186,29 +173,19 @@ window.addEventListener("load", (event) => {
     gsap.set(items, {
       xPercent: (i, el) => {
         let w = (widths[i] = parseFloat(gsap.getProperty(el, "width", "px")));
-        xPercents[i] = snap(
-          (parseFloat(gsap.getProperty(el, "x", "px")) / w) * 100 +
-            gsap.getProperty(el, "xPercent")
-        );
+        xPercents[i] = snap((parseFloat(gsap.getProperty(el, "x", "px")) / w) * 100 + gsap.getProperty(el, "xPercent"));
         return xPercents[i];
       },
     });
 
     gsap.set(items, { x: 0 });
-    totalWidth =
-      items[length - 1].offsetLeft +
-      (xPercents[length - 1] / 100) * widths[length - 1] -
-      startX +
-      items[length - 1].offsetWidth *
-        gsap.getProperty(items[length - 1], "scaleX") +
-      (parseFloat(config.paddingRight) || 0);
+    totalWidth = items[length - 1].offsetLeft + (xPercents[length - 1] / 100) * widths[length - 1] - startX + items[length - 1].offsetWidth * gsap.getProperty(items[length - 1], "scaleX") + (parseFloat(config.paddingRight) || 0);
 
     for (i = 0; i < length; i++) {
       item = items[i];
       curX = (xPercents[i] / 100) * widths[i];
       distanceToStart = item.offsetLeft + curX - startX;
-      distanceToLoop =
-        distanceToStart + widths[i] * gsap.getProperty(item, "scaleX");
+      distanceToLoop = distanceToStart + widths[i] * gsap.getProperty(item, "scaleX");
       tl.to(
         item,
         {
@@ -220,14 +197,11 @@ window.addEventListener("load", (event) => {
         .fromTo(
           item,
           {
-            xPercent: snap(
-              ((curX - distanceToLoop + totalWidth) / widths[i]) * 100
-            ),
+            xPercent: snap(((curX - distanceToLoop + totalWidth) / widths[i]) * 100),
           },
           {
             xPercent: xPercents[i],
-            duration:
-              (curX - distanceToLoop + totalWidth - curX) / pixelsPerSecond,
+            duration: (curX - distanceToLoop + totalWidth - curX) / pixelsPerSecond,
             immediateRender: false,
           },
           distanceToLoop / pixelsPerSecond
@@ -238,8 +212,7 @@ window.addEventListener("load", (event) => {
 
     function toIndex(index, vars) {
       vars = vars || {};
-      Math.abs(index - curIndex) > length / 2 &&
-        (index += index > curIndex ? -length : length);
+      Math.abs(index - curIndex) > length / 2 && (index += index > curIndex ? -length : length);
       let newIndex = gsap.utils.wrap(0, length, index),
         time = times[newIndex];
       if (time > tl.time() !== index > curIndex) {
@@ -327,10 +300,7 @@ window.addEventListener("load", (event) => {
       root.style.setProperty("--categorySelector-card", "#e8dfc7");
       root.style.setProperty("--invert-icon-color", "none");
       root.style.setProperty("--invert-icon-color2", "none");
-      root.style.setProperty(
-        "--invert-icon-color3",
-        "invert(99%) sepia(0%) saturate(0%) hue-rotate(141deg) brightness(109%) contrast(101%)"
-      );
+      root.style.setProperty("--invert-icon-color3", "invert(99%) sepia(0%) saturate(0%) hue-rotate(141deg) brightness(109%) contrast(101%)");
       changeThemeButton.src = "../assets/VectorNight.svg";
     } else if (themeName === "dark") {
       root.style.setProperty("--background-color", "#0f0f0f");
@@ -346,14 +316,8 @@ window.addEventListener("load", (event) => {
       root.style.setProperty("--categorySelector-card", "#1d1d1d");
       root.style.setProperty("--section5-card-first", "#696969");
       root.style.setProperty("--section5-card-second", "#ff1f1fde");
-      root.style.setProperty(
-        "--invert-icon-color",
-        "invert(48%) brightness(1000%)"
-      );
-      root.style.setProperty(
-        "--invert-icon-color2",
-        "invert(99%) sepia(0%) saturate(0%) hue-rotate(338deg) brightness(113%) contrast(100%)"
-      );
+      root.style.setProperty("--invert-icon-color", "invert(48%) brightness(1000%)");
+      root.style.setProperty("--invert-icon-color2", "invert(99%) sepia(0%) saturate(0%) hue-rotate(338deg) brightness(113%) contrast(100%)");
       root.style.setProperty("--invert-icon-color3", "none");
 
       changeThemeButton.src = "../assets/VectorDay.svg";
@@ -440,8 +404,7 @@ function activateCustomCursors() {
           cursor.style.display = "none";
           cursorBorder.style.setProperty("--size", "10vmin");
           cursorBorder.style.backgroundColor = "#f2ecdc ";
-          cursorBorder.style.backgroundImage =
-            "url(../../assets/VectorFlesh4.svg)";
+          cursorBorder.style.backgroundImage = "url(../../assets/VectorFlesh4.svg)";
           cursorBorder.style.backgroundSize = "3vmin 3vmin";
           cursorBorder.style.boxShadow = "0 0 0 0.1vmin black";
 
@@ -451,8 +414,7 @@ function activateCustomCursors() {
           cursorBorder.style.setProperty("--size", "10vmin");
           cursorBorder.style.backgroundColor = "#ffffff30";
           cursorBorder.style.backdropFilter = "blur(0.8vmin)";
-          cursorBorder.style.backgroundImage =
-            "url(../../assets/VectorFlesh4.svg)";
+          cursorBorder.style.backgroundImage = "url(../../assets/VectorFlesh4.svg)";
           cursorBorder.style.backgroundSize = "3vmin 3vmin";
           cursorBorder.style.boxShadow = "0 0 0 0.1vmin black";
 
@@ -461,12 +423,10 @@ function activateCustomCursors() {
           cursorBorder.style.display = "none";
 
           cursor.style.setProperty("--sizeMainCursor", "30vmin");
-          cursor.style.background =
-            "linear-gradient(120deg, #ffffff, #000000, #ffffff, #000000, #ffffff)";
+          cursor.style.background = "linear-gradient(120deg, #ffffff, #000000, #ffffff, #000000, #ffffff)";
           cursor.style.backgroundSize = " 1600% 1600%";
 
-          cursor.style.animation =
-            "blobRadius 5s ease infinite, blobBackground 15s ease infinite";
+          cursor.style.animation = "blobRadius 5s ease infinite, blobBackground 15s ease infinite";
           cursor.style.mixBlendMode = "difference";
 
           break;
@@ -512,9 +472,7 @@ function activateCustomCursors() {
 const blogSelector = document.querySelector(".blogSelector");
 const categorySelector = document.querySelector(".categorySelector");
 const showMoreButton = document.querySelector("#showMore");
-const showRandomButton = document.querySelector(
-  ".section5 > div:last-child a:first-child"
-);
+const showRandomButton = document.querySelector(".section5 > div:last-child a:first-child");
 
 let currentIndex = 0;
 const articlesPerPage = 5;
@@ -527,10 +485,7 @@ function highlight(text, query) {
   }
   const words = query.split(/\s+/);
   const regex = new RegExp(`(${words.join("|")})`, "gi");
-  return text.replace(
-    regex,
-    (match) => `<span class="highlight">${match}</span>`
-  );
+  return text.replace(regex, (match) => `<span class="highlight">${match}</span>`);
 }
 
 function displayArticles(articles, append = false, query = "") {
@@ -555,10 +510,7 @@ function displayArticles(articles, append = false, query = "") {
     return;
   }
 
-  const blogsToShow = currentArticles.slice(
-    currentIndex,
-    currentIndex + articlesPerPage
-  );
+  const blogsToShow = currentArticles.slice(currentIndex, currentIndex + articlesPerPage);
   blogsToShow.forEach((blog) => {
     const div = document.createElement("a");
     div.setAttribute("data-cursor", "pointerLinkNavbar");
@@ -596,14 +548,7 @@ function displayArticles(articles, append = false, query = "") {
 function searchProduct(query) {
   const keywords = query.toLowerCase().split(/\s+/);
   const filteredBlogs = blogs.filter((blog) => {
-    return keywords.every(
-      (keyword) =>
-        blog.title.toLowerCase().includes(keyword) ||
-        blog.description.toLowerCase().includes(keyword) ||
-        blog.category.toLowerCase().includes(keyword) ||
-        (blog.tags &&
-          blog.tags.some((tag) => tag.toLowerCase().includes(keyword)))
-    );
+    return keywords.every((keyword) => blog.title.toLowerCase().includes(keyword) || blog.description.toLowerCase().includes(keyword) || blog.category.toLowerCase().includes(keyword) || (blog.tags && blog.tags.some((tag) => tag.toLowerCase().includes(keyword))));
   });
   displayArticles(filteredBlogs, false, query);
 }
@@ -615,7 +560,10 @@ function showRandomArticle() {
   window.location.href = randomBlog.url;
 }
 
-fetch("../serverAssets/blogs.json")
+const today = new Date();
+const version = `${today.getFullYear()}${(today.getMonth() + 1).toString().padStart(2, "0")}${today.getDate().toString().padStart(2, "0")}`;
+
+fetch(`../serverAssets/blogs.json?version=${version}`)
   .then((response) => response.json())
   .then((data) => {
     blogs = data.blogs;
@@ -631,9 +579,7 @@ fetch("../serverAssets/blogs.json")
     });
 
     const totalArticles = blogs.length;
-    const sortedCategories = Object.entries(categoryCount).sort(
-      (a, b) => b[1] - a[1]
-    );
+    const sortedCategories = Object.entries(categoryCount).sort((a, b) => b[1] - a[1]);
 
     const allArticlesDiv = document.createElement("div");
     allArticlesDiv.setAttribute("data-cursor", "pointerClickable");
@@ -652,9 +598,7 @@ fetch("../serverAssets/blogs.json")
             <p>${count}</p>
           `;
       div.addEventListener("click", () => {
-        const filteredBlogs = blogs.filter(
-          (blog) => blog.category === category
-        );
+        const filteredBlogs = blogs.filter((blog) => blog.category === category);
         displayArticles(filteredBlogs);
       });
       categorySelector.appendChild(div);
@@ -675,8 +619,7 @@ fetch("../serverAssets/blogs.json")
   .catch((error) => console.error("Error fetching data:", error));
 /* */
 const registerButton = document.querySelector(".section4 > p:nth-child(6)");
-const emailRegex =
-  /(?:[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*|"(?:[\x01-\x08\x0b\x0c\x0e-\x1f\x21\x23-\x5b\x5d-\x7f]|\\[\x01-\x09\x0b\x0c\x0e-\x7f])*")@(?:(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?|\[(?:(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.){3}(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?|[a-z0-9-]*[a-z0-9]:(?:[\x01-\x08\x0b\x0c\x0e-\x1f\x21-\x5a\x53-\x7f]|\\[\x01-\x09\x0b\x0c\x0e-\x7f])+)\])/;
+const emailRegex = /(?:[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*|"(?:[\x01-\x08\x0b\x0c\x0e-\x1f\x21\x23-\x5b\x5d-\x7f]|\\[\x01-\x09\x0b\x0c\x0e-\x7f])*")@(?:(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?|\[(?:(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.){3}(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?|[a-z0-9-]*[a-z0-9]:(?:[\x01-\x08\x0b\x0c\x0e-\x1f\x21-\x5a\x53-\x7f]|\\[\x01-\x09\x0b\x0c\x0e-\x7f])+)\])/;
 
 function validateEmailInput(emailInputMain) {
   const emailInput = emailInputMain.value;
@@ -714,10 +657,8 @@ function processEmailInput() {
 
     xhr.onreadystatechange = function () {
       if (xhr.readyState === XMLHttpRequest.DONE) {
-        registerButton.style.backgroundColor =
-          xhr.status === 200 ? "#5dba82" : "#c44141";
-        registerButton.textContent =
-          xhr.status === 200 ? "ثبت شد!" : "ثبت نشد، دوباره تلاش کنید!";
+        registerButton.style.backgroundColor = xhr.status === 200 ? "#5dba82" : "#c44141";
+        registerButton.textContent = xhr.status === 200 ? "ثبت شد!" : "ثبت نشد، دوباره تلاش کنید!";
         if (xhr.status === 200) processOnlyOnce = true;
         else console.error("Error adding document: ", xhr.status);
       }

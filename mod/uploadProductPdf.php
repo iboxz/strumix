@@ -25,7 +25,7 @@ if ($resultAuthorisation->num_rows > 0) {
             $title = $_POST['title'];
             $file = $_FILES['file'];
 
-            $uploadDirectory = '../assets/productCatalogue/';
+            $uploadDirectory = '../serverAssets/productCatalogue/';
 
             $fileExtension = pathinfo($file['name'], PATHINFO_EXTENSION);
             if (strtolower($fileExtension) !== 'pdf') {

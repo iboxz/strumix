@@ -20,6 +20,7 @@ h3 {
   text-transform: uppercase;
 
   position: relative;
+  overflow: hidden;
 }
 .hero .imageSide {
   position: relative;

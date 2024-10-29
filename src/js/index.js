@@ -22,9 +22,7 @@ if (!("ontouchstart" in window)) {
 async function initializeTriggers() {
   if (window.innerWidth >= 769) {
     await new Promise((resolve) => setTimeout(resolve, 400));
-    let sections = gsap.utils.toArray(
-      ".section2, .section3, .section4, .sectionBlogs, .noPinSection"
-    );
+    let sections = gsap.utils.toArray(".section2, .section3, .section4, .sectionBlogs, .noPinSection");
 
     sections.forEach((section, i) => {
       let trigger = null;
@@ -70,11 +68,7 @@ document.addEventListener("mousemove", function (e) {
   var mouseXPercent = (e.clientX / pageWidth) * 100;
   var mouseYPercent = (e.clientY / pageHeight) * 100;
 
-  document.getElementById(
-    "movingBox"
-  ).style.transform = `rotate(-35deg) translate(${
-    (-50 + mouseXPercent) / 6
-  }%, ${(-50 + mouseYPercent) * 2}%)`;
+  document.getElementById("movingBox").style.transform = `rotate(-35deg) translate(${(-50 + mouseXPercent) / 6}%, ${(-50 + mouseYPercent) * 2}%)`;
 });
 
 gsap.to("#movingBox", {
@@ -147,7 +141,7 @@ gsap.from(".section3 div:nth-child(1) img", {
     end: "top top",
     scrub: 4,
   },
-  scale: "1.1"
+  scale: "1.1",
 });
 gsap.to(".section3 .textSide hr", {
   scrollTrigger: {
@@ -263,17 +257,13 @@ const products = {
 };
 
 const section4 = document.querySelector(".section4");
-const boxes = section4.querySelectorAll(
-  "div:not(:first-child):not(:last-child)"
-);
+const boxes = section4.querySelectorAll("div:not(:first-child):not(:last-child)");
 
 boxes.forEach((box) => {
   box.addEventListener("mouseover", function () {
     productImg.style.opacity = "1";
     productImg.style.filter = "blur(0)";
-    productImg.innerHTML = `<img src="assets/productImg/${
-      products[box.id]
-    }" alt="" />`;
+    productImg.innerHTML = `<img src="assets/productImg/${products[box.id]}" alt="" />`;
   });
 
   box.addEventListener("mouseout", function () {
@@ -328,21 +318,15 @@ gsap.to(".section5 > div", {
   },
   y: "100%",
 });
-let loops = gsap.utils
-    .toArray(".section5 .infiniteScrollText div")
-    .map((line, i) => {
-      const links = line.querySelectorAll(
-        ".section5  .infiniteScrollText div span"
-      );
-      return horizontalLoop(links, {
-        repeat: -1,
-        speed: 1.5 + i * 0.5,
-        reversed: false,
-        paddingRight: parseFloat(
-          gsap.getProperty(links[0], "marginRight", "px")
-        ),
-      });
-    }),
+let loops = gsap.utils.toArray(".section5 .infiniteScrollText div").map((line, i) => {
+    const links = line.querySelectorAll(".section5  .infiniteScrollText div span");
+    return horizontalLoop(links, {
+      repeat: -1,
+      speed: 1.5 + i * 0.5,
+      reversed: false,
+      paddingRight: parseFloat(gsap.getProperty(links[0], "marginRight", "px")),
+    });
+  }),
   currentScroll = 0,
   scrollDirection = 1;
 
@@ -384,29 +368,19 @@ function horizontalLoop(items, config) {
   gsap.set(items, {
     xPercent: (i, el) => {
       let w = (widths[i] = parseFloat(gsap.getProperty(el, "width", "px")));
-      xPercents[i] = snap(
-        (parseFloat(gsap.getProperty(el, "x", "px")) / w) * 100 +
-          gsap.getProperty(el, "xPercent")
-      );
+      xPercents[i] = snap((parseFloat(gsap.getProperty(el, "x", "px")) / w) * 100 + gsap.getProperty(el, "xPercent"));
       return xPercents[i];
     },
   });
 
   gsap.set(items, { x: 0 });
-  totalWidth =
-    items[length - 1].offsetLeft +
-    (xPercents[length - 1] / 100) * widths[length - 1] -
-    startX +
-    items[length - 1].offsetWidth *
-      gsap.getProperty(items[length - 1], "scaleX") +
-    (parseFloat(config.paddingRight) || 0);
+  totalWidth = items[length - 1].offsetLeft + (xPercents[length - 1] / 100) * widths[length - 1] - startX + items[length - 1].offsetWidth * gsap.getProperty(items[length - 1], "scaleX") + (parseFloat(config.paddingRight) || 0);
 
   for (i = 0; i < length; i++) {
     item = items[i];
     curX = (xPercents[i] / 100) * widths[i];
     distanceToStart = item.offsetLeft + curX - startX;
-    distanceToLoop =
-      distanceToStart + widths[i] * gsap.getProperty(item, "scaleX");
+    distanceToLoop = distanceToStart + widths[i] * gsap.getProperty(item, "scaleX");
     tl.to(
       item,
       {
@@ -418,14 +392,11 @@ function horizontalLoop(items, config) {
       .fromTo(
         item,
         {
-          xPercent: snap(
-            ((curX - distanceToLoop + totalWidth) / widths[i]) * 100
-          ),
+          xPercent: snap(((curX - distanceToLoop + totalWidth) / widths[i]) * 100),
         },
         {
           xPercent: xPercents[i],
-          duration:
-            (curX - distanceToLoop + totalWidth - curX) / pixelsPerSecond,
+          duration: (curX - distanceToLoop + totalWidth - curX) / pixelsPerSecond,
           immediateRender: false,
         },
         distanceToLoop / pixelsPerSecond
@@ -436,8 +407,7 @@ function horizontalLoop(items, config) {
 
   function toIndex(index, vars) {
     vars = vars || {};
-    Math.abs(index - curIndex) > length / 2 &&
-      (index += index > curIndex ? -length : length);
+    Math.abs(index - curIndex) > length / 2 && (index += index > curIndex ? -length : length);
     let newIndex = gsap.utils.wrap(0, length, index),
       time = times[newIndex];
     if (time > tl.time() !== index > curIndex) {
@@ -481,7 +451,10 @@ gsap.from(CSSRulePlugin.getRule(".section7::before"), {
   backgroundSize: "200% auto",
 });
 
-fetch("./serverAssets/blogs.json")
+const today = new Date();
+const version = `${today.getFullYear()}${(today.getMonth() + 1).toString().padStart(2, "0")}${today.getDate().toString().padStart(2, "0")}`;
+
+fetch(`../serverAssets/blogs.json?version=${version}`)
   .then((response) => response.json())
   .then((data) => {
     const blogs = data.blogs;
@@ -493,18 +466,12 @@ fetch("./serverAssets/blogs.json")
     let articlesHtml = "";
     latestBlogs.forEach((blog, index) => {
       articlesHtml += `
-        <a class="cards" href="./blogs/${
-          blog.url
-        }" data-cursor="pointerLinkNavbar">
+        <a class="cards" href="./blogs/${blog.url}" data-cursor="pointerLinkNavbar">
           <div>
             <h4>
               <span>${blog.title}</span>
             </h4>
-            ${
-              index === 0
-                ? `<img src="./serverAssets/blogsCoverImg/${blog.image}" alt="${blog.title} تصویر مقاله" />`
-                : ""
-            }
+            ${index === 0 ? `<img src="./serverAssets/blogsCoverImg/${blog.image}" alt="${blog.title} تصویر مقاله" />` : ""}
             <p>
               ${blog.description}
             </p>
@@ -524,6 +491,5 @@ fetch("./serverAssets/blogs.json")
 
     document.querySelector(".body").innerHTML = articlesHtml;
     activateCustomCursors();
-
   })
   .catch((error) => console.error("Error fetching data:", error));
