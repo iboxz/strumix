@@ -2,7 +2,10 @@
 <html lang="fa">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0"
+    />
     <title>ادمین - مدارک فنی</title>
     <link
       rel="stylesheet"
@@ -110,9 +113,22 @@
   </head>
   <body>
     <h1>اپلود مدرک فنی جدید:</h1>
-    <form id="uploadForm" enctype="multipart/form-data">
-      <input type="text" id="fileTitle" placeholder="عنوان فایل" required />
-      <input type="file" id="fileInput" accept=".pdf,.jpg,.png" required />
+    <form
+      id="uploadForm"
+      enctype="multipart/form-data"
+    >
+      <input
+        type="text"
+        id="fileTitle"
+        placeholder="عنوان فایل"
+        required
+      />
+      <input
+        type="file"
+        id="fileInput"
+        accept=".pdf,.jpg,.png"
+        required
+      />
       <button type="submit">آپلود فایل</button>
     </form>
 
@@ -140,8 +156,7 @@
               document.body.innerHTML = "";
 
               // اضافه کردن دیتای جدید
-              document.body.innerHTML =
-                '<a style="display: block; width: 100%; text-align: center; font-size: larger;" href="index.html">لاگین کنید</a>';
+              document.body.innerHTML = '<a style="display: block; width: 100%; text-align: center; font-size: larger;" href="index.html">لاگین کنید</a>';
             }
           })
           .catch((error) => console.error("Error:", error));
@@ -155,7 +170,7 @@
         let data; // Define the data variable
 
         // خواندن داده‌ها از فایل JSON
-        $.getJSON("../serverAssets/technicalDoc.json", function (fetchedData) {
+        $.getJSON("../serverAssets/technicalDoc.json", { _: new Date().getTime() }, function (fetchedData) {
           data = fetchedData; // Initialize the data variable
 
           for (const category in data) {
@@ -191,17 +206,13 @@
           $(".edit").click(function () {
             const newTitle = prompt("عنوان جدید را وارد کنید:");
             if (newTitle) {
-              $(this).closest("li").contents().first()[0].textContent =
-                newTitle;
+              $(this).closest("li").contents().first()[0].textContent = newTitle;
             }
           });
 
           // رویداد نمایش
           $(".view").click(function () {
-            const url =
-              data[$(this).closest("li").data("category")][
-                $(this).closest("li").data("index")
-              ].url;
+            const url = data[$(this).closest("li").data("category")][$(this).closest("li").data("index")].url;
             window.open(url, "_blank");
           });
         });
@@ -218,10 +229,7 @@
               .each(function () {
                 const originalCategory = $(this).data("category");
                 const index = $(this).data("index");
-                const newTitle = $(this)
-                  .contents()
-                  .first()[0]
-                  .textContent.trim();
+                const newTitle = $(this).contents().first()[0].textContent.trim();
 
                 newOrder[category].push({
                   originalCategory,

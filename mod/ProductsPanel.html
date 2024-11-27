@@ -2,9 +2,18 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="robots" content="noindex, nofollow" />
-    <meta name="googlebot" content="noindex,indexifembedded" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0"
+    />
+    <meta
+      name="robots"
+      content="noindex, nofollow"
+    />
+    <meta
+      name="googlebot"
+      content="noindex,indexifembedded"
+    />
     <title>ادمین - صفحه ادیت محصولات</title>
 
     <link
@@ -14,11 +23,20 @@
       sizes="any"
     />
 
-    <link rel="stylesheet" href="../src/css/main.css?v=1.0.13" />
-    <link rel="stylesheet" href="../src/css/products.css?v=1.0.13" />
+    <link
+      rel="stylesheet"
+      href="../src/css/main.css?v=1.0.13"
+    />
+    <link
+      rel="stylesheet"
+      href="../src/css/products.css?v=1.0.13"
+    />
 
     <script src="../src/js/chart.js"></script>
-    <script defer="" src="../src/js/lineChart.js"></script>
+    <script
+      defer=""
+      src="../src/js/lineChart.js"
+    ></script>
 
     <style>
       main {
@@ -60,15 +78,6 @@
         z-index: 99;
         position: relative;
       }
-      .editPanelBtn {
-        position: fixed;
-        bottom: 0;
-        right: 0;
-        padding: 2vmin;
-        display: flex;
-        flex-wrap: wrap;
-        width: 100%;
-      }
       .hidden {
         display: none;
       }
@@ -95,145 +104,59 @@
         margin-top: 5px;
         box-sizing: border-box;
       }
-      .btn-17,
-      .btn-17 *,
-      .btn-17 :after,
-      .btn-17 :before,
-      .btn-17:after,
-      .btn-17:before {
-        border: 0 solid;
-        box-sizing: border-box;
+      .editPanelBtn {
+        display: flex;
+        flex-direction: column;
+        position: fixed;
+        width: 500px;
+        background-color: #f0f0f0;
+        position: fixed;
+        bottom: 1vmin;
+        left: 1vmin;
+        padding: 1vmin;
+        display: flex;
+        flex-wrap: wrap;
+        direction: ltr;
+        border-radius: 5px;box-shadow: rgba(0, 0, 0, 0.05) 0px 6px 24px 0px, rgba(0, 0, 0, 0.08) 0px 0px 0px 1px;
       }
 
-      .btn-17 {
-        -webkit-tap-highlight-color: transparent;
-        -webkit-appearance: button;
-        background-color: #000;
-        background-image: none;
+      .editPanelBtn button,
+      .editPanelBtn input[type="file"],
+      .editPanelBtn select {
+        background-color: #088f9e;
         color: #fff;
+        border: none;
+        padding: 5px 10px;
+        margin-bottom: 5px;
         cursor: pointer;
-        font-family: Montserrat;
-        font-weight: 900;
-        margin: 0;
-        -webkit-mask-image: -webkit-radial-gradient(#000, #fff);
-        padding: 0;
-        text-transform: uppercase;
-      }
-
-      .btn-17:disabled {
-        cursor: default;
-      }
-
-      .btn-17:-moz-focusring {
-        outline: auto;
-      }
-
-      .btn-17 svg {
-        display: block;
-        vertical-align: middle;
-      }
-
-      .btn-17 [hidden] {
-        display: none;
-      }
-
-      .btn-17 {
-        border-radius: 10px;
-        border-width: 2px;
-        padding: 0.4rem 2rem;
-        z-index: 0;
-      }
-
-      .btn-17,
-      .btn-17 .text-container {
-        overflow: hidden;
-        position: relative;
-      }
-
-      .btn-17 .text-container {
-        display: block;
-      }
-
-      .btn-17 .text {
-        display: block;
-        position: relative;
-      }
-
-      .btn-17:hover {
-        color: black;
-      }
-      .btn-17:hover .text {
-        -webkit-animation: move-up-alternate 0.3s forwards;
-        animation: move-up-alternate 0.3s forwards;
-      }
-
-      @-webkit-keyframes move-up-alternate {
-        0% {
-          transform: translateY(0);
-        }
-
-        50% {
-          transform: translateY(80%);
-        }
-
-        51% {
-          transfo-1rm: translateY(-80%);
-        }
-
-        to {
-          transform: translateY(0);
-        }
-      }
-
-      @keyframes move-up-alternate {
-        0% {
-          transform: translateY(0);
-        }
-
-        50% {
-          transform: translateY(80%);
-        }
-
-        51% {
-          transform: translateY(-80%);
-        }
-
-        to {
-          transform: translateY(0);
-        }
-      }
-
-      .btn-17:after,
-      .btn-17:before {
-        --skew: 0.2;
-        background: #fff;
-        content: "";
-        display: block;
-        height: 102%;
-        left: calc(-42% - 42% * var(--skew));
-        pointer-events: none;
-        position: absolute;
-        top: -104%;
-        transform: skew(calc(150deg * var(--skew)))
-          translateY(var(--progress, 0));
-        transition: transform 0.2s ease;
+        font-size: 16px;
+        border-radius: 5px;
+        transition: background-color 0.3s;
         width: 100%;
-        z-index: -1;
       }
 
-      .btn-17:after {
-        --progress: 0%;
-        left: calc(50% + 50% * var(--skew));
-        top: 102%;
-        z-index: -1;
+      .editPanelBtn hr {
+        margin-bottom: 5px;
+      }
+      .editPanelBtn button:hover,
+      .editPanelBtn input[type="file"]:hover,
+      .editPanelBtn select:hover {
+        background-color: #066f7a;
       }
 
-      .btn-17:hover:before {
-        --progress: 100%;
+      .editPanelBtn span {
+        font-size: 16px;
+        font-family: Arial, Helvetica, sans-serif;
+        text-transform: capitalize;
+        margin-bottom: 5px;
       }
-
-      .btn-17:hover:after {
-        --progress: -102%;
+      #message {
+        margin-top: 10px;
+        width: 100%;
+        border: 2px black solid;
+        border-radius: 5px;
+        padding: 6px;
+        background: white;
       }
       input[type="file"]::file-selector-button {
         border: white 1px solid;
@@ -251,10 +174,34 @@
       }
       #message {
         width: 100%;
-        border: 2px black solid;
+        border: 1px black solid;
         border-radius: 5px;
         padding: 6px;
-        background: white;
+        margin-bottom: 5px;
+        background: rgb(255, 255, 255);
+      }
+      .panelHidden {
+        display: none;
+      }
+      .fleshDown {
+        content: url(../assets/VectorFlesh5.svg);
+        vertical-align: middle;
+        height: 100%;
+        width: 20px;
+        height: 20px;
+        min-width: 10p;
+        padding: 3px;
+        border: 1px solid black;
+        border-radius: 50vmin;
+        margin-left: auto;
+        transition: 0.5s ease;
+      }
+      .fleshDown.active {
+        transform: rotate(180deg);
+      }
+      .button-container-main > button {
+        font-family: YekanBakhFaNum;
+        font-size: 12px;
       }
     </style>
   </head>
@@ -262,45 +209,91 @@
     <main id="smooth-wrapper"></main>
 
     <div class="editPanelBtn">
-      <button class="btn-17" onclick="saveAllSections()">
+      <span
+        id="toggleContainerButton"
+        class="fleshDown"
+      ></span>
+      <hr />
+      <span>Add products:</span>
+      <button>
         <span class="text-container">
-          <span class="text">Save</span>
+          <span class="text">Add Product</span>
         </span>
       </button>
-      <button class="btn-17" id="toggleButton">
-        <span class="text-container">
-          <span class="text">Edit Chart Data</span>
-        </span>
-      </button>
+      <hr />
+      <span>Edit products:</span>
+      <select id="productSelect"></select>
+      <hr />
+      <span>product image:</span>
+      <input
+        type="file"
+        title="file"
+        id="file"
+        name="uploadFile"
+        accept=".png, .jpg"
+      />
+      <hr />
+      <span>product catalog:</span>
       <input
         type="file"
         title="file"
         id="file"
         name="uploadFile"
         accept=".pdf"
-        class="btn-17"
       />
-      <select class="btn-17" id="productSelect"></select>
-      <div id="message"></div>
+      <hr />
+      <button id="toggleButton">
+        <span class="text-container">
+          <span class="text">Edit Chart Data</span>
+        </span>
+      </button>
 
-      <div id="editPanel" class="hidden">
+      <hr />
+      <button onclick="saveAllSections()">
+        <span class="text-container">
+          <span class="text">Save</span>
+        </span>
+      </button>
+      <div id="message"></div>
+      <div
+        id="editPanel"
+        class="hidden"
+      >
         <label for="labels">Labels (comma separated):</label>
-        <input type="text" id="labels" />
+        <input
+          type="text"
+          id="labels"
+        />
 
         <label for="labelYellow">Label Yellow:</label>
-        <input type="text" id="labelYellow" />
+        <input
+          type="text"
+          id="labelYellow"
+        />
 
         <label for="labelRed">Label Red:</label>
-        <input type="text" id="labelRed" />
+        <input
+          type="text"
+          id="labelRed"
+        />
 
         <label for="dataYellow">Data Yellow (comma separated):</label>
-        <input type="text" id="dataYellow" />
+        <input
+          type="text"
+          id="dataYellow"
+        />
 
         <label for="dataRed">Data Red (comma separated):</label>
-        <input type="text" id="dataRed" />
+        <input
+          type="text"
+          id="dataRed"
+        />
 
         <label for="titleText">Title:</label>
-        <input type="text" id="titleText" />
+        <input
+          type="text"
+          id="titleText"
+        />
 
         <button id="saveButton">Save</button>
       </div>
@@ -310,7 +303,7 @@
       const username = sessionStorage.getItem("username");
       const password = sessionStorage.getItem("password");
 
-      document.addEventListener("DOMContentLoaded", function () {
+      /*       document.addEventListener("DOMContentLoaded", function () {
         const formData = new FormData();
         formData.append("username", username);
         formData.append("password", password);
@@ -329,624 +322,324 @@
             }
           })
           .catch((error) => console.error("Error:", error));
-      });
+      }); */
 
+      // تعریف متغیرهای مورد نیاز
       var pageUrl = "";
 
-      async function saveAllSections() {
-        var selectors = "h1, h2, h3, h4, p, ul, td";
-        var editables = document.querySelectorAll(selectors);
-        editables.forEach(function (element) {
+      // تابع نمایش پیام‌ها
+      function displayMessage(message) {
+        const messageDiv = document.getElementById("message");
+        messageDiv.innerHTML += message + "<br>";
+      }
+
+      // تابع حذف ویژگی‌های edit و تمیز کردن المان‌ها
+      function cleanEditables() {
+        const selectors = "h1, h2, h3, h4, p, ul, td";
+        document.querySelectorAll(selectors).forEach((element) => {
           element.removeAttribute("contentEditable");
           element.classList.remove("editable");
-          if (element.classList.length === 0) {
-            element.removeAttribute("class");
-          }
-          var buttonContainersSelectors = [
-            ".button-container-add",
-            ".button-container-main",
-            ".button-container",
-            ".add-btn",
-          ];
-
-          buttonContainersSelectors.forEach(function (selector) {
-            var existingButtonContainers = document.querySelectorAll(selector);
-            existingButtonContainers.forEach(function (buttonContainer) {
-              buttonContainer.remove();
-            });
-          });
+          if (!element.classList.length) element.removeAttribute("class");
         });
+        [".button-container-add", ".button-container-main", ".button-container", ".add-btn"].forEach((selector) => {
+          document.querySelectorAll(selector).forEach((btn) => btn.remove());
+        });
+      }
 
+      // تابع آپلود فایل PDF
+      async function uploadPDF() {
         const fileInput = document.getElementById("file");
         const file = fileInput.files[0];
-
         if (!file || file.type !== "application/pdf") {
-          displayMessage("Please select a valid PDF file.", "error");
+          displayMessage("لطفاً یک فایل PDF معتبر انتخاب کنید.");
+          return;
         }
-
-        const formProductPdf = new FormData();
-        formProductPdf.append("file", file);
-        formProductPdf.append("title", pageUrl);
-        formProductPdf.append("username", username);
-        formProductPdf.append("password", password);
+        const formData = new FormData();
+        formData.append("file", file);
+        formData.append("title", pageUrl);
+        formData.append("username", username);
+        formData.append("password", password);
         try {
-          const productPdfResponse = await fetch("uploadProductPdf.php", {
-            method: "POST",
-            body: formProductPdf,
-          });
-          const productPdfText = await productPdfResponse.text();
-          if (productPdfText.includes("PDF uploaded successfully!")) {
-            displayMessage("PDF uploaded successfully!");
+          const response = await fetch("uploadProductPdf.php", { method: "POST", body: formData });
+          const text = await response.text();
+          if (text.includes("PDF uploaded successfully!")) {
+            displayMessage("PDF با موفقیت بارگذاری شد!");
           } else {
-            displayMessage(`${productPdfText}`);
-            throw new Error(`Upload response: ${productPdfText}`);
+            displayMessage(text);
+            throw new Error(`Upload response: ${text}`);
           }
         } catch (error) {
           displayMessage(error);
         }
+      }
 
-        /*-----*/
-
+      // تابع آپلود محتوای صفحه
+      async function uploadContent() {
         const body = document.querySelector("main").innerHTML;
         const formData = new FormData();
         formData.append("url", pageUrl);
         formData.append("body", body);
-
-        formData.append("labels", window.labels);
-        formData.append("labelYellow", window.labelYellow);
-        formData.append("labelRed", window.labelRed);
-        formData.append("dataYellow", window.dataYellow);
-        formData.append("dataRed", window.dataRed);
-        formData.append("titleText", window.titleText);
-
+        ["labels", "labelYellow", "labelRed", "dataYellow", "dataRed", "titleText"].forEach((param) => {
+          formData.append(param, window[param]);
+        });
         formData.append("username", username);
         formData.append("password", password);
-
         try {
-          const newBlogsResponse = await fetch("uploadNewProduct.php", {
-            method: "POST",
-            body: formData,
-          });
-          const newBlogsText = await newBlogsResponse.text();
-          if (newBlogsText.includes("صفحه با موفقیت به‌روزرسانی شد")) {
-            displayMessage(newBlogsText);
-          } else {
-            displayMessage(newBlogsText);
-            throw new Error(newBlogsText);
+          const response = await fetch("uploadNewProduct.php", { method: "POST", body: formData });
+          const text = await response.text();
+          displayMessage(text);
+          if (!text.includes("صفحه با موفقیت به‌روزرسانی شد")) {
+            throw new Error(text);
           }
         } catch (error) {
           displayMessage(error.message);
         }
       }
-      function displayMessage(message) {
-        const messageDiv = document.getElementById("message");
-        messageDiv.innerHTML += message + "<br>";
-      }
-      /*---*/
+
+      // تابع پر کردن ورودی‌ها
       function populateInputs() {
-        document.getElementById("labels").value = window.labels;
-        document.getElementById("labelYellow").value = window.labelYellow;
-        document.getElementById("labelRed").value = window.labelRed;
-        document.getElementById("dataYellow").value = window.dataYellow;
-        document.getElementById("dataRed").value = window.dataRed;
-        document.getElementById("titleText").value = window.titleText;
+        ["labels", "labelYellow", "labelRed", "dataYellow", "dataRed", "titleText"].forEach((id) => {
+          document.getElementById(id).value = window[id];
+        });
       }
 
-      // Function to toggle edit panel visibility
-      document
-        .getElementById("toggleButton")
-        .addEventListener("click", function () {
-          var panel = document.getElementById("editPanel");
-          panel.classList.toggle("hidden");
-          if (!panel.classList.contains("hidden")) {
-            populateInputs(); // Populate inputs with current values when panel is shown
-          }
+      // رویداد برای دکمه نمایش/مخفی کردن پنل ویرایش
+      document.getElementById("toggleButton").addEventListener("click", () => {
+        const panel = document.getElementById("editPanel");
+        panel.classList.toggle("hidden");
+        if (!panel.classList.contains("hidden")) populateInputs();
+      });
+
+      // رویداد برای دکمه ذخیره تغییرات
+      document.getElementById("saveButton").addEventListener("click", () => {
+        window.labels = document
+          .getElementById("labels")
+          .value.split(",")
+          .map((item) => item.trim());
+        ["labelYellow", "labelRed", "titleText"].forEach((id) => {
+          window[id] = document.getElementById(id).value;
         });
-
-      // Function to save changes
-      document
-        .getElementById("saveButton")
-        .addEventListener("click", function () {
-          window.labels = document
-            .getElementById("labels")
-            .value.split(",")
-            .map((item) => item.trim());
-          labelYellow = document.getElementById("labelYellow").value;
-          labelRed = document.getElementById("labelRed").value;
-          dataYellow = document
-            .getElementById("dataYellow")
-            .value.split(",")
-            .map(Number);
-          dataRed = document
-            .getElementById("dataRed")
-            .value.split(",")
-            .map(Number);
-          titleText = document.getElementById("titleText").value;
-
-          // Optional: Hide panel after saving
-          initializeChart();
-          document.getElementById("editPanel").classList.add("hidden");
+        ["dataYellow", "dataRed"].forEach((id) => {
+          window[id] = document.getElementById(id).value.split(",").map(Number);
         });
-      // Here you can handle the updated values, such as updating a chart or saving to local storage
+        initializeChart();
+        document.getElementById("editPanel").classList.add("hidden");
+      });
 
+      // تابع فعال‌سازی ویرایش همه بخش‌ها
       function editAllSections() {
-        var selectors = "h1, h2, h3, h4, p, ul, td";
-        var editables = document.querySelectorAll(selectors);
-        editables.forEach(function (element) {
+        document.querySelectorAll("h1, h2, h3, h4, p, ul, td").forEach((element) => {
           element.contentEditable = true;
           element.classList.add("editable");
         });
       }
-      editAllSections();
 
+      // تابع ایجاد دکمه‌های افزودن و حذف برای هر دیو
       function addIconsToDivs() {
-        var innerDivs = document.querySelectorAll(".leftSide > div > div");
-
-        innerDivs.forEach(function (div) {
-          // بررسی وجود buttonContainer و حذف آن در صورت وجود
-          var existingButtonContainer = div.querySelector(
-            ".button-container-add"
-          );
-          if (existingButtonContainer) {
-            existingButtonContainer.remove();
-          }
-
-          // ایجاد یک div برای دکمه‌ها
-          var buttonContainer = document.createElement("div");
+        document.querySelectorAll(".leftSide > div > div").forEach((div) => {
+          div.querySelector(".button-container-add")?.remove();
+          const buttonContainer = document.createElement("div");
           buttonContainer.classList.add("button-container-add");
-
-          var addButton = document.createElement("button");
-          addButton.innerHTML = "+";
-          addButton.classList.add("add-btn");
-          addButton.onclick = function () {
-            addNewElement(div);
-          };
-
-          var removeButton = document.createElement("button");
-          removeButton.innerHTML = "-";
-          removeButton.classList.add("add-btn");
-          removeButton.onclick = function () {
-            removeLastElement(div);
-          };
-
-          buttonContainer.appendChild(addButton);
-          buttonContainer.appendChild(removeButton);
-
-          // اضافه کردن buttonContainer به انتهای div
+          buttonContainer.appendChild(createButton("+", () => addNewElement(div)));
+          buttonContainer.appendChild(createButton("-", () => removeLastElement(div)));
           div.appendChild(buttonContainer);
         });
       }
 
-      function addNewElement(parentDiv) {
-        var newH4 = document.createElement("h4");
-        newH4.contentEditable = true;
-        newH4.classList.add("editable");
-        newH4.innerText = "عنوان جدید";
-
-        var newP = document.createElement("p");
-        newP.contentEditable = true;
-        newP.classList.add("editable");
-        newP.innerText = "متن جدید";
-
-        // اضافه کردن عناصر جدید قبل از buttonContainer
-        var buttonContainer = parentDiv.querySelector(".button-container-add");
-        parentDiv.insertBefore(newH4, buttonContainer);
-        parentDiv.insertBefore(newP, buttonContainer);
-      }
-      function removeLastElement(parentDiv) {
-        var allH4s = parentDiv.querySelectorAll("h4");
-        var allPs = parentDiv.querySelectorAll("p");
-
-        if (allH4s.length > 0) {
-          parentDiv.removeChild(allH4s[allH4s.length - 1]);
-        }
-
-        if (allPs.length > 0) {
-          parentDiv.removeChild(allPs[allPs.length - 1]);
-        }
-      }
-
+      // تابع ایجاد دکمه برای هر h3
       function addParagraphAndListToH3() {
-        var existingButtonContainers = document.querySelectorAll(
-          ".button-container-main"
-        );
-        existingButtonContainers.forEach(function (buttonContainer) {
-          buttonContainer.remove();
-        });
-
-        var h3Elements = document.querySelectorAll("h3");
-        h3Elements.forEach(function (h3) {
-          // ایجاد یک div برای دکمه‌ها
-          var buttonContainer = document.createElement("div");
+        document.querySelectorAll(".button-container-main").forEach((btn) => btn.remove());
+        document.querySelectorAll("h3").forEach((h3) => {
+          const buttonContainer = document.createElement("div");
           buttonContainer.classList.add("button-container-main");
-
-          // دکمه برای اضافه کردن پاراگراف
-          var addParagraphButton = document.createElement("button");
-          addParagraphButton.innerText = "Add Paragraph";
-          addParagraphButton.classList.add("add-btn");
-          addParagraphButton.onclick = function () {
-            var newP = document.createElement("p");
-            newP.contentEditable = true;
-            newP.classList.add("editable");
-            newP.innerText = "متن جدید";
-            h3.parentNode.appendChild(newP);
-          };
-          buttonContainer.appendChild(addParagraphButton);
-
-          // دکمه برای اضافه کردن لیست
-          var addListButton = document.createElement("button");
-          addListButton.innerText = "Add List";
-          addListButton.classList.add("add-btn");
-          addListButton.onclick = function () {
-            var newUl = document.createElement("ul");
-            newUl.contentEditable = true;
-            newUl.classList.add("editable");
-            newUl.innerHTML = "<li>Item 1</li><li>Item 2</li>"; // مثال لیست‌های پیش‌فرض
-            h3.parentNode.appendChild(newUl);
-          };
-          buttonContainer.appendChild(addListButton);
-
-          // دکمه برای اضافه کردن جدول
-          var addTableButton = document.createElement("button");
-          addTableButton.innerText = "Add Table";
-          addTableButton.classList.add("add-btn");
-          addTableButton.onclick = function () {
-            // بررسی اینکه آیا جدول قبلاً اضافه شده است یا خیر
-            if (h3.parentNode.querySelector("table")) {
-              alert("A table has already been added.");
-              return; // خروج از تابع در صورت وجود جدول
-            }
-
-            var newTable = document.createElement("table");
-            newTable.classList.add("table");
-            newTable.innerHTML = `
-          <thead>
-            <tr>
-              <td contenteditable="true" class="editable">Header 1</td>
-              <td contenteditable="true" class="editable">Header 2</td>
-              <td contenteditable="true" class="editable">Header 3</td>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td contenteditable="true" class="editable">Row 1, Cell 1</td>
-              <td contenteditable="true" class="editable">Row 1, Cell 2</td>
-              <td contenteditable="true" class="editable">Row 1, Cell 3</td>
-            </tr>
-          </tbody>
-        `;
-            h3.parentNode.appendChild(newTable);
-
-            // اجرای فانکشن addTableButtons پس از اضافه شدن جدول
-            addTableButtons();
-          };
-          buttonContainer.appendChild(addTableButton);
-
-          // دکمه برای ایجاد نمودار
-
-          var targetDiv = document.querySelector(
-            ".section4 > div:nth-child(2) > h3"
-          );
-          if (targetDiv === h3) {
-            var createChartButton = document.createElement("button");
-            createChartButton.innerText = "Create Chart";
-            createChartButton.classList.add("add-btn");
-            createChartButton.onclick = function () {
-              var existingChartContainer =
-                document.querySelector(".chartContainer");
-              if (existingChartContainer) {
-                return; // اگر نمودار قبلاً اضافه شده باشد، از اضافه کردن مجدد جلوگیری کن
-              }
-
-              var chartContainer = document.createElement("div");
-              chartContainer.classList.add("chartContainer");
-              chartContainer.innerHTML = `
-              <canvas id="Chart">
-                المنت کانوا نمایش داده نشد، صفحه را رفرش کنید یا مرورگر را بروزرسانی کنید
-              </canvas>
-            `;
-              h3.parentNode.appendChild(chartContainer);
-
-              initializeChart();
-            };
-            buttonContainer.appendChild(createChartButton);
+          buttonContainer.appendChild(createButton("افزودن پاراگراف", () => addParagraph(h3)));
+          buttonContainer.appendChild(createButton("افزودن لیست", () => addList(h3)));
+          buttonContainer.appendChild(createButton("افزودن جدول", () => addTable(h3)));
+          if (h3.matches(".section4 > div:nth-child(2) > h3")) {
+            buttonContainer.appendChild(createButton("ایجاد نمودار", () => createChart(h3)));
           }
-          // دکمه برای حذف آخرین مورد
-          var removeLastButton = document.createElement("button");
-          removeLastButton.innerText = "Remove Last";
-          removeLastButton.classList.add("add-btn");
-          removeLastButton.onclick = function () {
-            var siblingNodes = Array.from(h3.parentNode.childNodes);
-            var lastAdded = null;
-
-            for (var i = siblingNodes.length - 1; i >= 0; i--) {
-              if (
-                siblingNodes[i] !== h3 &&
-                siblingNodes[i] !== buttonContainer &&
-                (siblingNodes[i].nodeName === "P" ||
-                  siblingNodes[i].nodeName === "UL" ||
-                  siblingNodes[i].nodeName === "TABLE" ||
-                  (siblingNodes[i].nodeName === "DIV" &&
-                    siblingNodes[i].classList.contains("chartContainer")))
-              ) {
-                lastAdded = siblingNodes[i];
-                break;
-              }
-            }
-
-            console.log(siblingNodes, lastAdded);
-            if (lastAdded) {
-              lastAdded.remove();
-            }
-            addTableButtons();
-          };
-          buttonContainer.appendChild(removeLastButton);
-
-          // دکمه برای حذف تمام محتویات سکشن و اضافه کردن دکمه "اضافه سازی هدر"
-          var removeAllButton = document.createElement("button");
-          removeAllButton.innerText = "Remove All";
-          removeAllButton.classList.add("add-btn");
-          removeAllButton.onclick = function () {
-            // بررسی وجود والدین عنصر h3
-            if (h3.parentNode) {
-              // حذف تمام محتوای داخل سکشن
-              var h3Parent = h3.parentNode;
-              h3Parent.innerHTML = "";
-
-              // اضافه کردن دکمه "اضافه سازی هدر"
-              var addHeaderButton = document.createElement("button");
-              addHeaderButton.innerText = "Create Header";
-              addHeaderButton.classList.add("add-btn");
-              addHeaderButton.onclick = function () {
-                var newH3 = document.createElement("h3");
-                newH3.contentEditable = true;
-                newH3.classList.add("editable");
-                newH3.innerText = "هدر جدید";
-                h3Parent.appendChild(newH3);
-                addParagraphAndListToH3();
-                addHeaderButton.remove();
-              };
-              h3Parent.appendChild(addHeaderButton);
-            }
-          };
-          buttonContainer.appendChild(removeAllButton);
-
-          // اضافه کردن div دکمه‌ها به بعد از h3
+          buttonContainer.appendChild(createButton("حذف آخرین", () => removeLastContent(h3)));
+          buttonContainer.appendChild(createButton("حذف همه", () => removeAllContent(h3)));
           h3.parentNode.insertBefore(buttonContainer, h3.nextSibling);
         });
         editAllSections();
       }
-      document.addEventListener("DOMContentLoaded", function () {
-        addIconsToDivs();
-        addParagraphAndListToH3();
-      });
 
-      /*-------------------------------------------------*/ // تابعی برای اضافه کردن دکمه‌ها برای هر جدول
-      function addTableButtons() {
-        // حذف تمام دکمه‌های موجود در صفحه
-        var existingButtonContainers =
-          document.querySelectorAll(".button-container");
-        existingButtonContainers.forEach(function (buttonContainer) {
-          buttonContainer.remove();
+      // سایر توابع مورد نیاز
+      function createButton(text, onClick) {
+        const btn = document.createElement("button");
+        btn.innerText = text;
+        btn.classList.add("add-btn");
+        btn.onclick = onClick;
+        return btn;
+      }
+
+      function createEditableElement(tag, text) {
+        const element = document.createElement(tag);
+        element.contentEditable = true;
+        element.classList.add("editable");
+        element.innerText = text;
+        return element;
+      }
+
+      function addNewElement(parentDiv) {
+        const buttonContainer = parentDiv.querySelector(".button-container-add");
+        parentDiv.insertBefore(createEditableElement("h4", "عنوان جدید"), buttonContainer);
+        parentDiv.insertBefore(createEditableElement("p", "متن جدید"), buttonContainer);
+      }
+
+      function removeLastElement(parentDiv) {
+        ["h4", "p"].forEach((tag) => {
+          const elements = parentDiv.querySelectorAll(tag);
+          if (elements.length) parentDiv.removeChild(elements[elements.length - 1]);
         });
+      }
 
-        var tables = document.querySelectorAll(".table");
+      function addParagraph(h3) {
+        h3.parentNode.appendChild(createEditableElement("p", "متن جدید"));
+      }
 
-        tables.forEach(function (table) {
-          var buttonContainer = document.createElement("div");
+      function addList(h3) {
+        const newUl = createEditableElement("ul", "");
+        newUl.innerHTML = "<li>آیتم ۱</li><li>آیتم ۲</li>";
+        h3.parentNode.appendChild(newUl);
+      }
+
+      function addTable(h3) {
+        if (h3.parentNode.querySelector("table")) {
+          alert("یک جدول قبلاً اضافه شده است.");
+          return;
+        }
+        const newTable = document.createElement("table");
+        newTable.classList.add("table");
+        newTable.innerHTML = `
+        <thead>
+            <tr>
+                <td contenteditable="true" class="editable">سرستون ۱</td>
+                <td contenteditable="true" class="editable">سرستون ۲</td>
+                <td contenteditable="true" class="editable">سرستون ۳</td>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td contenteditable="true" class="editable">ردیف ۱، سلول ۱</td>
+                <td contenteditable="true" class="editable">ردیف ۱، سلول ۲</td>
+                <td contenteditable="true" class="editable">ردیف ۱، سلول ۳</td>
+            </tr>
+        </tbody>`;
+        h3.parentNode.appendChild(newTable);
+        addTableButtons();
+      }
+
+      function createChart(h3) {
+        if (document.querySelector(".chartContainer")) return;
+        const chartContainer = document.createElement("div");
+        chartContainer.classList.add("chartContainer");
+        chartContainer.innerHTML = `<canvas id="Chart">برای نمایش نمودار، صفحه را رفرش کنید یا مرورگر را به‌روز کنید.</canvas>`;
+        h3.parentNode.appendChild(chartContainer);
+        initializeChart();
+      }
+
+      function removeLastContent(h3) {
+        const siblings = Array.from(h3.parentNode.childNodes);
+        for (let i = siblings.length - 1; i >= 0; i--) {
+          const elem = siblings[i];
+          if (elem !== h3 && !elem.classList?.contains("button-container-main") && ["P", "UL", "TABLE", "DIV"].includes(elem.nodeName) && (elem.nodeName !== "DIV" || elem.classList.contains("chartContainer"))) {
+            elem.remove();
+            break;
+          }
+        }
+        addTableButtons();
+      }
+
+      function removeAllContent(h3) {
+        const parent = h3.parentNode;
+        if (parent) {
+          parent.innerHTML = "";
+          const addHeaderButton = createButton("ایجاد هدر", function () {
+            parent.appendChild(createEditableElement("h3", "هدر جدید"));
+            addParagraphAndListToH3();
+            this.remove();
+          });
+          parent.appendChild(addHeaderButton);
+        }
+      }
+
+      // توابع مربوط به جداول
+      function addTableButtons() {
+        document.querySelectorAll(".button-container").forEach((btn) => btn.remove());
+        document.querySelectorAll(".table").forEach((table) => {
+          const buttonContainer = document.createElement("div");
           buttonContainer.classList.add("button-container");
-
-          // دکمه اضافه کردن ردیف
-          var addRowButton = document.createElement("button");
-          addRowButton.innerHTML = "+ Row";
-          addRowButton.classList.add("add-btn");
-          addRowButton.onclick = function () {
-            addTableRow(table);
-          };
-
-          // دکمه اضافه کردن سلول به ردیف
-          var addCellButton = document.createElement("button");
-          addCellButton.innerHTML = "+ Cell";
-          addCellButton.classList.add("add-btn");
-          addCellButton.onclick = function () {
-            addTableCell(table);
-          };
-
-          // دکمه حذف آخرین ردیف
-          var removeRowButton = document.createElement("button");
-          removeRowButton.innerHTML = "- Row";
-          removeRowButton.classList.add("add-btn");
-          removeRowButton.onclick = function () {
-            removeTableRow(table);
-          };
-
-          // دکمه حذف آخرین سلول از ردیف
-          var removeCellButton = document.createElement("button");
-          removeCellButton.innerHTML = "- Cell";
-          removeCellButton.classList.add("add-btn");
-          removeCellButton.onclick = function () {
-            removeTableCell(table);
-          };
-
-          // دکمه اضافه کردن سلول به هدر
-          var addHeaderCellButton = document.createElement("button");
-          addHeaderCellButton.innerHTML = "+ Header Cell";
-          addHeaderCellButton.classList.add("add-btn");
-          addHeaderCellButton.onclick = function () {
-            addTableHeaderCell(table);
-          };
-
-          // دکمه حذف آخرین سلول از هدر
-          var removeHeaderCellButton = document.createElement("button");
-          removeHeaderCellButton.innerHTML = "- Header Cell";
-          removeHeaderCellButton.classList.add("add-btn");
-          removeHeaderCellButton.onclick = function () {
-            removeTableHeaderCell(table);
-          };
-
-          buttonContainer.appendChild(addRowButton);
-          buttonContainer.appendChild(removeRowButton);
-          buttonContainer.appendChild(addCellButton);
-          buttonContainer.appendChild(removeCellButton);
-          buttonContainer.appendChild(addHeaderCellButton);
-          buttonContainer.appendChild(removeHeaderCellButton);
-
+          buttonContainer.appendChild(createButton("+ ردیف", () => addTableRow(table)));
+          buttonContainer.appendChild(createButton("- ردیف", () => removeTableRow(table)));
+          buttonContainer.appendChild(createButton("+ سلول", () => addTableCell(table)));
+          buttonContainer.appendChild(createButton("- سلول", () => removeTableCell(table)));
+          buttonContainer.appendChild(createButton("+ سلول هدر", () => addTableHeaderCell(table)));
+          buttonContainer.appendChild(createButton("- سلول هدر", () => removeTableHeaderCell(table)));
           table.parentNode.insertBefore(buttonContainer, table.nextSibling);
         });
       }
 
-      // تابعی برای اضافه کردن یک ردیف جدید به جدول
       function addTableRow(table) {
-        var tbody = table.querySelector("tbody");
-
-        if (!tbody) {
-          tbody = document.createElement("tbody");
-          table.appendChild(tbody);
+        const tbody = table.querySelector("tbody") || table.appendChild(document.createElement("tbody"));
+        const newRow = document.createElement("tr");
+        const numCells = table.querySelector("thead tr")?.children.length || 3;
+        for (let i = 0; i < numCells; i++) {
+          newRow.appendChild(createEditableElement("td", "سلول جدید"));
         }
-
-        var newRow = document.createElement("tr");
-        var numCells = table.querySelector("thead tr")
-          ? table.querySelector("thead tr").children.length
-          : 2;
-
-        for (var i = 0; i < numCells; i++) {
-          var newCell = document.createElement("td");
-          newCell.contentEditable = true;
-          newCell.classList.add("editable");
-          newCell.innerText = "New Cell";
-          newRow.appendChild(newCell);
-        }
-
         tbody.appendChild(newRow);
       }
 
-      // تابعی برای اضافه کردن یک سلول جدید به هدر
-      function addTableHeaderCell(table) {
-        var thead = table.querySelector("thead");
-        var headerRow = thead ? thead.querySelector("tr") : null;
-
-        if (headerRow) {
-          var newHeaderCell = document.createElement("td");
-          newHeaderCell.contentEditable = true;
-          newHeaderCell.classList.add("editable");
-          newHeaderCell.innerText = "New Header Cell";
-          headerRow.appendChild(newHeaderCell);
-
-          // اگر هیچ ردیفی در tbody وجود ندارد، یک ردیف جدید اضافه کنیم
-          if (!table.querySelector("tbody")) {
-            addTableRow(table);
-          }
-        } else {
-          console.warn("No header row to add cells to.");
-        }
-      }
-
-      // تابعی برای اضافه کردن یک سلول جدید به آخرین ردیف جدول
       function addTableCell(table) {
-        var lastRow = table.querySelector("tbody tr:last-of-type");
-
-        if (lastRow) {
-          var newCell = document.createElement("td");
-          newCell.contentEditable = true;
-          newCell.classList.add("editable");
-          newCell.innerText = "New Cell";
-          lastRow.appendChild(newCell);
-        } else {
-          console.warn("No rows to add cells to.");
-          addTableRow(table); // اگر هیچ ردیفی وجود ندارد، یک ردیف جدید اضافه کنیم
-        }
+        const lastRow = table.querySelector("tbody tr:last-of-type") || addTableRow(table);
+        lastRow.appendChild(createEditableElement("td", "سلول جدید"));
       }
 
-      // تابعی برای حذف آخرین ردیف از جدول
       function removeTableRow(table) {
-        var tbody = table.querySelector("tbody");
-        var lastRow = tbody ? tbody.querySelector("tr:last-of-type") : null;
-
+        const tbody = table.querySelector("tbody");
+        const lastRow = tbody?.lastElementChild;
         if (lastRow) {
           tbody.removeChild(lastRow);
-
-          if (!tbody.children.length) {
-            table.removeChild(tbody);
-          }
-        } else {
-          console.warn("No rows to remove.");
+          if (!tbody.children.length) tbody.remove();
         }
       }
 
-      // تابعی برای حذف آخرین سلول از هدر
-      function removeTableHeaderCell(table) {
-        var headerRow = table.querySelector("thead tr");
-
-        if (headerRow) {
-          var lastHeaderCell = headerRow.querySelector("td:last-of-type");
-
-          if (lastHeaderCell) {
-            headerRow.removeChild(lastHeaderCell);
-
-            if (!headerRow.children.length) {
-              console.warn("No header cells to remove.");
-            }
-          } else {
-            console.warn(
-              "No cells to remove in the header row.",
-              lastHeaderCell
-            );
-          }
-        } else {
-          console.warn("No header row to remove cells from.");
-        }
-      }
-
-      // تابعی برای حذف آخرین سلول از آخرین ردیف جدول
       function removeTableCell(table) {
-        var lastRow = table.querySelector("tbody tr:last-of-type");
-
-        if (lastRow) {
-          var lastCell = lastRow.querySelector("td:last-of-type");
-
-          if (lastCell) {
-            lastRow.removeChild(lastCell);
-
-            if (!lastRow.children.length) {
-              removeTableRow(table);
-            }
-          } else {
-            console.warn("No cells to remove in the last row.");
-          }
-        } else {
-          console.warn("No rows to remove cells from.");
+        const lastRow = table.querySelector("tbody tr:last-of-type");
+        const lastCell = lastRow?.lastElementChild;
+        if (lastCell) {
+          lastRow.removeChild(lastCell);
+          if (!lastRow.children.length) removeTableRow(table);
         }
       }
 
-      // صدا زدن تابع برای اضافه کردن دکمه‌ها بعد از بارگذاری صفحه
-      document.addEventListener("DOMContentLoaded", function () {
+      function addTableHeaderCell(table) {
+        const headerRow = table.querySelector("thead tr");
+        if (headerRow) {
+          headerRow.appendChild(createEditableElement("td", "سرستون جدید"));
+        } else {
+          console.warn("سرستونی برای اضافه کردن وجود ندارد.");
+        }
+        if (!table.querySelector("tbody tr")) addTableRow(table);
+      }
+
+      function removeTableHeaderCell(table) {
+        const headerRow = table.querySelector("thead tr");
+        const lastCell = headerRow?.lastElementChild;
+        if (lastCell) {
+          headerRow.removeChild(lastCell);
+          if (!headerRow.children.length) console.warn("سرستونی برای حذف وجود ندارد.");
+        }
+      }
+
+      // رویداد بارگذاری صفحه
+      document.addEventListener("DOMContentLoaded", () => {
+        editAllSections();
+        addIconsToDivs();
+        addParagraphAndListToH3();
         addTableButtons();
       });
-      function addRemoveAllButtonToEmptyDivs() {
-        var divs = document.querySelectorAll("main div");
-
-        divs.forEach(function (div) {
-          if (div.innerHTML.trim() === "") {
-            var addHeaderButton = document.createElement("button");
-            addHeaderButton.innerText = "Create Header";
-            addHeaderButton.classList.add("add-btn");
-
-            addHeaderButton.onclick = function () {
-              var newH3 = document.createElement("h3");
-              newH3.contentEditable = true;
-              newH3.classList.add("editable");
-              newH3.innerText = "هدر جدید";
-
-              div.appendChild(newH3);
-              addParagraphAndListToH3();
-              addHeaderButton.remove();
-            };
-
-            div.appendChild(addHeaderButton);
-          }
-        });
-      }
-      addRemoveAllButtonToEmptyDivs();
       /*-----------------*/
       function loadJSON(callback) {
         const xhr = new XMLHttpRequest();
@@ -1016,10 +709,7 @@
                 window.titleText = titleText;
               });
 
-              // حذف سکشن با کلاس .otherProduct
-              const otherProductSection = smoothWrapper.querySelector(
-                "section.otherProduct"
-              );
+              const otherProductSection = smoothWrapper.querySelector("section.otherProduct");
               if (otherProductSection) {
                 otherProductSection.remove();
               }
@@ -1037,17 +727,30 @@
           });
       }
 
-      document
-        .getElementById("productSelect")
-        .addEventListener("change", function () {
-          const selectedUrl = this.value;
-          if (selectedUrl) {
-            fetchProductPage(selectedUrl);
-            pageUrl = selectedUrl;
-          }
-        });
+      document.getElementById("productSelect").addEventListener("change", function () {
+        const selectedUrl = this.value;
+        if (selectedUrl) {
+          fetchProductPage(selectedUrl);
+          pageUrl = selectedUrl;
+        }
+      });
 
       loadJSON(populateProductsTitles);
+
+      /*------------------*/
+      const toggleContainerButton = document.getElementById("toggleContainerButton");
+      toggleContainerButton.addEventListener("click", function () {
+        const contentContainers = document.querySelectorAll(".editPanelBtn > :not(#toggleContainerButton)");
+        contentContainers.forEach(function (contentContainer) {
+          if (contentContainer.classList.contains("panelHidden")) {
+            contentContainer.classList.remove("panelHidden");
+            toggleContainerButton.classList.remove("active");
+          } else {
+            contentContainer.classList.add("panelHidden");
+            toggleContainerButton.classList.add("active");
+          }
+        });
+      });
     </script>
   </body>
 </html>
