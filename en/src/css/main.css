@@ -205,7 +205,7 @@ html {
 
   z-index: 996;
   overflow: hidden;
-  animation: slideUp 0.1s 0.1s ease-in-out forwards;
+  /* animation: slideUp 0.1s 0.1s ease-in-out forwards; */
 }
 @keyframes slideUp {
   0% {
@@ -349,6 +349,14 @@ nav .fleshDown {
   width: 1.5vmin;
   min-width: 10px;
   margin: 0 1vmin;
+}
+nav .vectorLanguage {
+  content: url(../../assets/VectorLanguage.svg);
+  vertical-align: middle;
+  height: 100%;
+  width: 2vmin;
+  min-width: 10px;
+  margin: 0 0.5vmin;
 }
 nav .products {
   width: 100%;
@@ -1212,7 +1220,7 @@ nav > .active > span:last-child {
   display: flex;
   flex-wrap: wrap;
   justify-content: end;
-  z-index: 1000;
+  z-index: 995;
   padding: 1vmax;
 
   font-family: Montserrat, Rokh;

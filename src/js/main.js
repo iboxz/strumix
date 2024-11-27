@@ -249,7 +249,8 @@ window.addEventListener("load", (event) => {
 
   const divLanguage = createEl("div");
   const languageParagraph = createEl("p", {}, "زبان وبسایت");
-  const languageSpan = createEl("span", { class: "fleshDown" });
+  const languageSpan = createEl("span", { class: "vectorLanguage" });
+
   languageParagraph.appendChild(languageSpan);
   divLanguage.appendChild(languageParagraph);
 
