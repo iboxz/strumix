@@ -2,18 +2,9 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <meta
-      name="viewport"
-      content="width=device-width, initial-scale=1.0"
-    />
-    <meta
-      name="robots"
-      content="noindex, nofollow"
-    />
-    <meta
-      name="googlebot"
-      content="noindex,indexifembedded"
-    />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="robots" content="noindex, nofollow" />
+    <meta name="googlebot" content="noindex,indexifembedded" />
     <title>ادمین - لیست مقالات</title>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
@@ -24,19 +15,10 @@
     <script src="../src/js/ScrollSmoother.min.js"></script>
     <script src="../src/js/SplitText.min.js"></script>
 
-    <link
-      rel="stylesheet"
-      href="../src/blogs/index.css?v=1.0.13"
-    />
-    <link
-      rel="stylesheet"
-      href="../src/css/main.css"
-    />
+    <link rel="stylesheet" href="../src/blogs/index.css?v=1.0.13" />
+    <link rel="stylesheet" href="../src/css/main.css" />
 
-    <link
-      href="https://cdn.quilljs.com/1.3.6/quill.snow.css"
-      rel="stylesheet"
-    />
+    <link href="https://cdn.quilljs.com/1.3.6/quill.snow.css" rel="stylesheet" />
     <link
       href="
     https://cdn.jsdelivr.net/npm/quill-image-uploader@1.3.0/dist/quill.imageUploader.min.css
@@ -204,138 +186,60 @@
     </div>
 
     <section class="editorContainer">
-      <input
-        type="text"
-        id="pageUrl"
-        name="pageUrl"
-      />
+      <input type="text" id="pageUrl" name="pageUrl" />
       <label for="pageUrl">آدرس صفحه</label>
       <br />
-      <input
-        type="text"
-        id="title"
-        name="title"
-      />
+      <input type="text" id="title" name="title" />
       <label for="title">عنوان</label>
       <br />
-      <input
-        type="text"
-        id="datePicker"
-        name="date"
-      />
+      <input type="text" id="datePicker" name="date" />
       <label for="datePicker">تاریخ شمسی</label>
       <br />
-      <input
-        type="text"
-        id="datePickerEnTranslate"
-        name="date"
-        disabled
-      />
+      <input type="text" id="datePickerEnTranslate" name="date" disabled />
       <label for="datePickerEnTranslate">تاریخ میلادی</label>
       <br />
-      <input
-        type="text"
-        id="datePickerEn"
-        name="datePickerEn"
-      />
+      <input type="text" id="datePickerEn" name="datePickerEn" />
       <label for="datePickerEn">تاریخ میلادی سئو</label>
       <br />
 
-      <textarea
-        id="description"
-        name="Description"
-        rows="5"
-      ></textarea>
+      <textarea id="description" name="Description" rows="5"></textarea>
       <label for="Description">شرح خلاصه</label>
       <br />
-      <input
-        type="file"
-        id="imageInput"
-        name="imageInput"
-      />
+      <input type="file" id="imageInput" name="imageInput" />
       <label for="imageInput">تصویر کاور</label>
-      <img
-        id="previewImage"
-        src="#"
-        style="max-width: 300px; max-height: 300px"
-      />
+      <img id="previewImage" src="#" style="max-width: 300px; max-height: 300px" />
       <br />
-      <input
-        type="text"
-        id="tag-input"
-        placeholder="Enter tags and press Enter"
-      />
+      <input type="text" id="tag-input" placeholder="Enter tags and press Enter" />
       <label for="tag-input">تگ</label>
-      <div
-        class="tag-container"
-        id="tag-container"
-      ></div>
+      <div class="tag-container" id="tag-container"></div>
       <br />
       <label for="category">دسته بندی</label>
       <br />
-      <input
-        type="text"
-        id="category"
-        name="category"
-      />
+      <input type="text" id="category" name="category" />
       <select id="categorySelector">
-        <option
-          value=""
-          selected
-          disabled
-        >
-          انتخاب کنید
-        </option>
+        <option value="" selected disabled>انتخاب کنید</option>
       </select>
 
       <br />
 
-      <input
-        id="imgWidth"
-        name="imgWidth"
-        type="number"
-        min="1"
-        max="100"
-        required
-      />
+      <input id="imgWidth" name="imgWidth" type="number" min="1" max="100" required />
       <label for="imgWidth">عرض تصویر</label>
 
       <div id="editor"></div>
 
       <div id="toolbar">
         <select id="blogSelect">
-          <option
-            value=""
-            selected
-            disabled
-          >
-            انتخاب کنید
-          </option>
+          <option value="" selected disabled>انتخاب کنید</option>
         </select>
         <label for="blogSelect">ویرایش مقالات</label>
         <br />
         <button id="preview">پیش نمایش</button>
-        <button
-          class="popUpFuc"
-          id="submitForm"
-          data-function="submitFormFunction"
-        >
-          ثبت
-        </button>
-        <button
-          class="popUpFuc"
-          id="deletePage"
-          data-function="deleteBlogFunction"
-        >
-          حذف
-        </button>
+        <button class="popUpFuc" id="submitForm" data-function="submitFormFunction">ثبت</button>
+        <button class="popUpFuc" id="deletePage" data-function="deleteBlogFunction">حذف</button>
       </div>
       <div id="logContainer"></div>
 
-      <div
-        id="popup"
-        class="popup"
-      >
+      <div id="popup" class="popup">
         <div class="popup-content">
           <p>آیا اطمینان دارید که می‌خواهید ادامه دهید؟</p>
           <button id="yesButton">بله</button>
@@ -348,37 +252,13 @@
     </section>
     <section class="section2">
       <header class="magnetic-wrap">
-        <a
-          class="mouseSticky"
-          data-cursor="pointerClickable"
-          >لیست مقالات</a
-        >
-        <a
-          class="mouseSticky"
-          data-cursor="pointerClickable"
-          >صفحه‌ی اصلی</a
-        >
-        <a
-          class="mouseSticky"
-          data-cursor="pointerClickable"
-          >کاتالوگ محصولات</a
-        >
-        <a
-          class="mouseSticky"
-          data-cursor="pointerClickable"
-          >ارتباط با ما</a
-        >
-        <a
-          class="mouseSticky"
-          data-cursor="pointerClickable"
-          >استرامیکس</a
-        >
+        <a class="mouseSticky" data-cursor="pointerClickable">لیست مقالات</a>
+        <a class="mouseSticky" data-cursor="pointerClickable">صفحه‌ی اصلی</a>
+        <a class="mouseSticky" data-cursor="pointerClickable">کاتالوگ محصولات</a>
+        <a class="mouseSticky" data-cursor="pointerClickable">ارتباط با ما</a>
+        <a class="mouseSticky" data-cursor="pointerClickable">استرامیکس</a>
         <span>&nbsp;&nbsp;/&nbsp;&nbsp;</span>
-        <a
-          id="dateSelector"
-          class="mouseSticky"
-          data-cursor="pointerClickable"
-        ></a>
+        <a id="dateSelector" class="mouseSticky" data-cursor="pointerClickable"></a>
       </header>
       <div class="mainBlogContainer"></div>
       <div class="blogTags"></div>
@@ -389,18 +269,12 @@
         <div style="width: 33vw"></div>
         <div style="width: 33vw"></div>
         <div class="card">
-          <a
-            href=""
-            data-cursor="pointerLinkNavbar"
-          >
+          <a href="" data-cursor="pointerLinkNavbar">
             <div>
               <p class="category"></p>
               <p class="time"></p>
             </div>
-            <img
-              class="img"
-              src=""
-            />
+            <img class="img" src="" />
             <h6 class="title"></h6>
             <p class="description"></p>
           </a>

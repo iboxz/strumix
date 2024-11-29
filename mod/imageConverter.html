@@ -1,0 +1,456 @@
+<!DOCTYPE html>
+<html lang="fa">
+  <head>
+    <meta charset="UTF-8" />
+    <title>تبدیل تصویر به JPG با گزینه‌های پیش‌فرض و برش تصویر</title>
+    <!-- اضافه کردن فایل CSS مورد نظر -->
+    <link rel="stylesheet" href="../src/css/main.css" />
+    <!-- افزودن استایل‌های Cropper.js -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/cropperjs/1.5.13/cropper.min.css" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <!-- افزودن فونت Rokh -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/rastikerdar/rokh-font@v1.1.0/dist/font-face.css" type="text/css" charset="utf-8" />
+    <style>
+      body {
+        font-family: "Rokh", sans-serif;
+        background: #f2ecdc; /* تنظیم پس‌زمینه صفحه */
+        margin: 0;
+        padding: 0;
+        direction: rtl;
+      }
+
+      .container {
+        max-width: 800px;
+        margin: 0 auto;
+        padding: 20px;
+      }
+
+      h1 {
+        text-align: center;
+        color: #333;
+        margin: 20px;
+      }
+
+      #uploadSection,
+      #options,
+      #inputs,
+      #buttons,
+      #resultSection {
+        background-color: #fff;
+        padding: 15px;
+        margin-bottom: 15px;
+        border-radius: 8px;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+      }
+
+      #uploadSection,
+      #inputs {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        justify-content: space-between;
+      }
+
+      label {
+        flex: 1 1 100%;
+        margin-top: 10px;
+        color: #555;
+      }
+
+      input[type="number"],
+      input[type="file"] {
+        flex: 1 1 100%;
+        padding: 8px;
+        margin-top: 5px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        font-family: "Rokh", sans-serif;
+      }
+
+      input[type="file"] {
+        border: none;
+      }
+
+      button {
+        background-color: #008cba; /* تنظیم رنگ دکمه‌ها */
+        color: #fff;
+        border: none;
+        padding: 10px 15px;
+        margin: 5px;
+        border-radius: 5px;
+        cursor: pointer;
+        font-family: "Rokh", sans-serif;
+        font-size: 16px;
+        transition: background-color 0.3s;
+      }
+
+      button:hover {
+        background-color: #00688b;
+      }
+
+      #options {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-wrap: wrap;
+      }
+
+      #options span {
+        margin-left: 10px;
+        color: #555;
+      }
+
+      #cropContainer {
+        display: none;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        background-color: #fff;
+        padding: 15px;
+        margin-bottom: 15px;
+        border-radius: 8px;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+      }
+
+      #cropContainer img {
+        max-width: 100%;
+        max-height: 70vh;
+      }
+
+      #cropButtons {
+        margin-top: 10px;
+      }
+
+      #aspectRatios {
+        margin-top: 10px;
+      }
+
+      #aspectRatios button {
+        background-color: #555;
+        color: #fff;
+        margin: 3px;
+        padding: 5px 10px;
+        font-size: 14px;
+      }
+
+      #aspectRatios button:hover {
+        background-color: #333;
+      }
+
+      #resultSection {
+        text-align: center;
+      }
+
+      #convertedImage {
+        max-width: 100%;
+        border-radius: 8px;
+      }
+
+      #imageInfo {
+        margin-top: 10px;
+        color: #555;
+      }
+
+      a#downloadLink {
+        display: inline-block;
+        margin-top: 10px;
+        text-decoration: none;
+        background-color: #28a745;
+        padding: 10px 15px;
+        border-radius: 5px;
+        color: #fff;
+        font-family: "Rokh", sans-serif;
+        transition: background-color 0.3s;
+      }
+
+      a#downloadLink:hover {
+        background-color: #218838;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h1>پنل ویرایش تصاویر</h1>
+
+      <div id="uploadSection">
+        <label for="uploadImage">انتخاب تصویر:</label>
+        <input type="file" id="uploadImage" accept="image/*" />
+      </div>
+
+      <!-- دکمه‌های گزینه‌های پیش‌فرض -->
+      <div id="options">
+        <span>گزینه‌های ادیت:</span>
+        <button id="defaultProduct">تصویر استاندارد محصولات</button>
+        <!-- دکمه برش تصویر -->
+        <button id="cropButton">برش تصویر</button>
+      </div>
+
+      <div id="inputs">
+        <label for="width">عرض تصویر (پیکسل):</label>
+        <input type="number" id="width" max="3000" placeholder="" />
+
+        <label for="height">ارتفاع تصویر (پیکسل):</label>
+        <input type="number" id="height" max="3000" placeholder="" />
+
+        <label for="quality">کیفیت تصویر (0.1 تا 1):</label>
+        <input type="number" id="quality" min="0.1" max="1" step="0.05" value="0.8" />
+      </div>
+
+      <div id="buttons">
+        <button id="convertButton">تبدیل به JPG</button>
+      </div>
+
+      <!-- کانتینر برای برش تصویر -->
+      <div id="cropContainer">
+        <img id="imageToCrop" src="" />
+        <!-- گزینه‌های نسبت تصویر -->
+        <div id="aspectRatios">
+          <span>انتخاب نسبت تصویر:</span>
+          <button data-ratio="NaN">آزاد</button>
+          <button data-ratio="1">1:1</button>
+          <button data-ratio="4/3">4:3</button>
+          <button data-ratio="3/4">3:4</button>
+          <button data-ratio="16/9">16:9</button>
+          <button data-ratio="9/16">9:16</button>
+        </div>
+        <div id="cropButtons">
+          <button id="confirmCropButton">تأیید برش</button>
+          <button id="cancelCropButton">لغو برش</button>
+        </div>
+      </div>
+
+      <div id="resultSection">
+        <canvas id="canvas" style="display: none"></canvas>
+        <a id="downloadLink" href="#" download="converted.jpg">دانلود تصویر تبدیل شده</a><br /><br />
+        <!-- نمایش حجم و رزولوشن تصویر -->
+        <p id="imageInfo"></p>
+        <img id="convertedImage" alt="تصویر تبدیل شده" /><br /><br />
+      </div>
+    </div>
+
+    <!-- افزودن اسکریپت‌های Cropper.js -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/cropperjs/1.5.13/cropper.min.js" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+    <script>
+      // کد جاوااسکریپت شما
+      const uploadImage = document.getElementById("uploadImage");
+      const convertButton = document.getElementById("convertButton");
+      const defaultProductButton = document.getElementById("defaultProduct");
+      const cropButton = document.getElementById("cropButton");
+      const confirmCropButton = document.getElementById("confirmCropButton");
+      const cancelCropButton = document.getElementById("cancelCropButton");
+      const canvas = document.getElementById("canvas");
+      const downloadLink = document.getElementById("downloadLink");
+      const convertedImage = document.getElementById("convertedImage");
+      const imageInfo = document.getElementById("imageInfo");
+      const cropContainer = document.getElementById("cropContainer");
+      const imageToCrop = document.getElementById("imageToCrop");
+      const aspectRatios = document.getElementById("aspectRatios");
+
+      const widthInput = document.getElementById("width");
+      const heightInput = document.getElementById("height");
+      const qualityInput = document.getElementById("quality");
+
+      let originalImage = new Image();
+      let originalWidth, originalHeight;
+      let isDefaultProduct = false;
+      let croppedCanvas;
+      let cropper;
+
+      uploadImage.addEventListener("change", function (event) {
+        const file = event.target.files[0];
+        if (!file) return;
+        const reader = new FileReader();
+        reader.onload = function (e) {
+          originalImage.onload = function () {
+            originalWidth = originalImage.width;
+            originalHeight = originalImage.height;
+            widthInput.placeholder = `عرض اصلی: ${originalWidth}px`;
+            heightInput.placeholder = `ارتفاع اصلی: ${originalHeight}px`;
+            resetInputs();
+          };
+          originalImage.src = e.target.result;
+          imageToCrop.src = e.target.result; // برای برش تصویر
+        };
+        reader.readAsDataURL(file);
+      });
+
+      function resetInputs() {
+        widthInput.value = "";
+        heightInput.value = "";
+        qualityInput.value = 0.8;
+        isDefaultProduct = false;
+        croppedCanvas = null;
+        if (cropper) {
+          cropper.destroy();
+          cropper = null;
+        }
+        cropContainer.style.display = "none";
+      }
+
+      // رویداد برای دکمه گزینه پیش‌فرض تصویر محصولات
+      defaultProductButton.addEventListener("click", function () {
+        widthInput.value = 1000;
+        heightInput.value = "";
+        qualityInput.value = 0.8;
+        isDefaultProduct = true;
+        updateHeight();
+      });
+
+      // رویداد برای دکمه برش تصویر
+      cropButton.addEventListener("click", function () {
+        if (!originalImage.src) {
+          alert("لطفاً ابتدا یک تصویر انتخاب کنید.");
+          return;
+        }
+        cropContainer.style.display = "flex";
+        if (cropper) {
+          cropper.destroy();
+        }
+        cropper = new Cropper(imageToCrop, {
+          viewMode: 1,
+          movable: true,
+          zoomable: true,
+          scalable: false,
+          aspectRatio: NaN,
+          autoCropArea: 1,
+          ready() {
+            cropper.setCanvasData(cropper.getCanvasData());
+          },
+        });
+      });
+
+      // رویداد برای انتخاب نسبت تصویر
+      aspectRatios.addEventListener("click", function (event) {
+        if (!cropper) return;
+        const ratio = event.target.getAttribute("data-ratio");
+        if (ratio !== null) {
+          cropper.setAspectRatio(eval(ratio));
+        }
+      });
+
+      // رویداد برای تأیید برش
+      confirmCropButton.addEventListener("click", function () {
+        if (cropper) {
+          croppedCanvas = cropper.getCroppedCanvas();
+          cropper.destroy();
+          cropper = null;
+          cropContainer.style.display = "none";
+
+          // به‌روزرسانی ابعاد بر اساس تصویر برش‌خورده
+          originalWidth = croppedCanvas.width;
+          originalHeight = croppedCanvas.height;
+          widthInput.placeholder = `عرض برش‌خورده: ${originalWidth}px`;
+          heightInput.placeholder = `ارتفاع برش‌خورده: ${originalHeight}px`;
+          widthInput.value = originalWidth;
+          heightInput.value = originalHeight;
+        }
+      });
+
+      // رویداد برای لغو برش
+      cancelCropButton.addEventListener("click", function () {
+        if (cropper) {
+          cropper.destroy();
+          cropper = null;
+          cropContainer.style.display = "none";
+        }
+      });
+
+      widthInput.addEventListener("input", function () {
+        updateHeight();
+        isDefaultProduct = false;
+      });
+
+      heightInput.addEventListener("input", function () {
+        updateWidth();
+        isDefaultProduct = false;
+      });
+
+      function updateHeight() {
+        if (!originalWidth || !originalHeight) return;
+        let widthValue = parseInt(widthInput.value);
+        if (widthValue > 3000) {
+          widthValue = 3000;
+          widthInput.value = widthValue;
+        }
+        if (widthValue) {
+          const heightValue = Math.round((widthValue * originalHeight) / originalWidth);
+          heightInput.value = heightValue > 3000 ? 3000 : heightValue;
+        } else {
+          heightInput.value = "";
+        }
+      }
+
+      function updateWidth() {
+        if (!originalWidth || !originalHeight) return;
+        let heightValue = parseInt(heightInput.value);
+        if (heightValue > 3000) {
+          heightValue = 3000;
+          heightInput.value = heightValue;
+        }
+        if (heightValue) {
+          const widthValue = Math.round((heightValue * originalWidth) / originalHeight);
+          widthInput.value = widthValue > 3000 ? 3000 : widthValue;
+        } else {
+          widthInput.value = "";
+        }
+      }
+
+      convertButton.addEventListener("click", function () {
+        if (!originalWidth || !originalHeight) {
+          alert("لطفاً ابتدا یک تصویر انتخاب کنید.");
+          return;
+        }
+
+        let width = parseInt(widthInput.value) || originalWidth;
+        let height = parseInt(heightInput.value) || originalHeight;
+        let quality = parseFloat(qualityInput.value) || 0.8;
+
+        // اطمینان از اینکه عرض و ارتفاع از 3000 بیشتر نباشند
+        if (width > 3000) width = 3000;
+        if (height > 3000) height = 3000;
+
+        canvas.width = width;
+        canvas.height = height;
+        const ctx = canvas.getContext("2d");
+
+        if (croppedCanvas) {
+          // رسم تصویر برش‌خورده
+          ctx.drawImage(croppedCanvas, 0, 0, width, height);
+        } else {
+          // رسم تصویر اصلی
+          ctx.drawImage(originalImage, 0, 0, originalWidth, originalHeight, 0, 0, width, height);
+        }
+
+        let dataURL = canvas.toDataURL("image/jpeg", quality);
+
+        // تنظیم کیفیت برای رسیدن به حجم مورد نظر
+        if (isDefaultProduct) {
+          // هدف 100 کیلوبایت
+          let targetSize = 100 * 1024;
+          let currentQuality = quality;
+          let step = 0.05;
+          let iterations = 0;
+
+          while (iterations < 10) {
+            let fileSize = Math.round(dataURL.length * (3 / 4));
+            if (fileSize <= targetSize || currentQuality <= 0.1) break;
+            currentQuality -= step;
+            dataURL = canvas.toDataURL("image/jpeg", currentQuality);
+            iterations++;
+          }
+          quality = currentQuality;
+          qualityInput.value = quality.toFixed(2);
+        }
+
+        downloadLink.href = dataURL;
+        convertedImage.src = dataURL;
+
+        // محاسبه حجم فایل تصویر تبدیل‌شده
+        const fileSizeKB = Math.round((dataURL.length * (3 / 4)) / 1024); // اندازه به کیلوبایت
+
+        // نمایش اطلاعات تصویر
+        imageInfo.textContent = `حجم تصویر: ${fileSizeKB} کیلوبایت | رزولوشن: ${width}x${height} پیکسل`;
+      });
+    </script>
+  </body>
+</html>
