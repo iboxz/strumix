@@ -1,188 +1,346 @@
 <!DOCTYPE html>
-<html lang='en'>
-
-<head>
-  <meta charset='UTF-8' />
-  <meta name='viewport' content='width=device-width, initial-scale=1.0' />
-  <meta http-equiv='X-UA-Compatible' content='IE=edge' />
-  <meta name='robots' content='index, follow' />
-  <link rel='apple-touch-icon' sizes='180x180' href='../assets/faviconPackage/apple-touch-icon.png'>
-  <link rel='icon' type='image/png' sizes='32x32' href='../assets/faviconPackage/favicon-32x32.png'>
-  <link rel='icon' type='image/png' sizes='16x16' href='../assets/faviconPackage/favicon-16x16.png'>
-  <link rel='manifest' href='../assets/faviconPackage/site.webmanifest'>
-  <link rel='mask-icon' href='../assets/faviconPackage/safari-pinned-tab.svg' color='#5bbad5'>
-  <meta name='msapplication-TileColor' content='#da532c'>
-  <meta name='theme-color' content='#ffffff'> 
-  <title>بهبود دوام و مقاومت سازه‌های بتنی</title>
-  <meta name='description' content='در این مقاله به بررسی کامل مقاوم‌سازی سازه‌های بتنی پرداخته شده است. ضعف‌ها و مشکلات بتن، دلایل نیاز به مقاوم‌سازی، و روش‌های افزایش دوام سازه‌های بتنی مورد بررسی قرار گرفته‌اند. همچنین، استفاده از انواع افزودنی‌های بتن جهت بهبود مقاومت و افزایش طول عمر سازه‌ها به‌طور دقیق تشریح شده است.' />
-  <meta name='keywords' content='مقاوم‌سازی بتن,سازه‌های بتنی,دوام بتندوام بتن,مواد افزودنی بتن,ضعف‌های سازه‌های بتنی,ترک‌خوردگی بتن,خوردگی میلگردها,مقاومت فشاری بتن,آب‌بندی بتن,افزایش عمر مفید سازه‌ها,تکنیک‌های مقاوم‌سازی بتن,بتن ضد یخ‌زدگی,ژل‌های میکروسیلیس,ساختمان‌های بتنی,تعمیر و نگهداری سازه‌های بتنی,بتن مقاوم در برابر شرایط محیطی' />
-  <meta name='robots' content='index, follow' />
-  <meta property='og:title' content='بهبود دوام و مقاومت سازه‌های بتنی' />
-  <meta property='og:description' content='در این مقاله به بررسی کامل مقاوم‌سازی سازه‌های بتنی پرداخته شده است. ضعف‌ها و مشکلات بتن، دلایل نیاز به مقاوم‌سازی، و روش‌های افزایش دوام سازه‌های بتنی مورد بررسی قرار گرفته‌اند. همچنین، استفاده از انواع افزودنی‌های بتن جهت بهبود مقاومت و افزایش طول عمر سازه‌ها به‌طور دقیق تشریح شده است.' />
-  <meta property='og:image' content='https://strumix.com/serverAssets/blogsCoverImg/بهبود_دوام_و_مقاومت_سازه_های_بتنی.jpg' />
-  <meta property='og:url' content='https://strumix.com/blogs/enhancing-concrete-durability' />
-  <meta name='twitter:title' content='بهبود دوام و مقاومت سازه‌های بتنی' />
-  <meta name='twitter:description' content='در این مقاله به بررسی کامل مقاوم‌سازی سازه‌های بتنی پرداخته شده است. ضعف‌ها و مشکلات بتن، دلایل نیاز به مقاوم‌سازی، و روش‌های افزایش دوام سازه‌های بتنی مورد بررسی قرار گرفته‌اند. همچنین، استفاده از انواع افزودنی‌های بتن جهت بهبود مقاومت و افزایش طول عمر سازه‌ها به‌طور دقیق تشریح شده است.' />
-  <meta name='twitter:image' content='https://strumix.com/serverUploadAssets/blogsCoverImg/بهبود_دوام_و_مقاومت_سازه_های_بتنی.jpg' />
-  <script type='application/ld+json'>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="robots" content="index, follow" />
+    <link rel="apple-touch-icon" sizes="180x180" href="../assets/faviconPackage/apple-touch-icon.png" />
+    <link rel="icon" type="image/png" sizes="32x32" href="../assets/faviconPackage/favicon-32x32.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="../assets/faviconPackage/favicon-16x16.png" />
+    <link rel="manifest" href="../assets/faviconPackage/site.webmanifest" />
+    <link rel="mask-icon" href="../assets/faviconPackage/safari-pinned-tab.svg" color="#5bbad5" />
+    <meta name="msapplication-TileColor" content="#da532c" />
+    <meta name="theme-color" content="#ffffff" />
+    <title>بهبود دوام و مقاومت سازه‌های بتنی</title>
+    <meta name="description" content="در این مقاله به بررسی کامل مقاوم‌سازی سازه‌های بتنی پرداخته شده است. ضعف‌ها و مشکلات بتن، دلایل نیاز به مقاوم‌سازی، و روش‌های افزایش دوام سازه‌های بتنی مورد بررسی قرار گرفته‌اند. همچنین، استفاده از انواع افزودنی‌های بتن جهت بهبود مقاومت و افزایش طول عمر سازه‌ها به‌طور دقیق تشریح شده است." />
+    <meta name="keywords" content="مقاوم‌سازی بتن,سازه‌های بتنی,دوام بتندوام بتن,مواد افزودنی بتن,ضعف‌های سازه‌های بتنی,ترک‌خوردگی بتن,خوردگی میلگردها,مقاومت فشاری بتن,آب‌بندی بتن,افزایش عمر مفید سازه‌ها,تکنیک‌های مقاوم‌سازی بتن,بتن ضد یخ‌زدگی,ژل‌های میکروسیلیس,ساختمان‌های بتنی,تعمیر و نگهداری سازه‌های بتنی,بتن مقاوم در برابر شرایط محیطی" />
+    <meta name="robots" content="index, follow" />
+    <meta property="og:title" content="بهبود دوام و مقاومت سازه‌های بتنی" />
+    <meta property="og:description" content="در این مقاله به بررسی کامل مقاوم‌سازی سازه‌های بتنی پرداخته شده است. ضعف‌ها و مشکلات بتن، دلایل نیاز به مقاوم‌سازی، و روش‌های افزایش دوام سازه‌های بتنی مورد بررسی قرار گرفته‌اند. همچنین، استفاده از انواع افزودنی‌های بتن جهت بهبود مقاومت و افزایش طول عمر سازه‌ها به‌طور دقیق تشریح شده است." />
+    <meta property="og:image" content="https://strumix.com/serverAssets/blogsCoverImg/بهبود_دوام_و_مقاومت_سازه_های_بتنی.jpg" />
+    <meta property="og:url" content="https://strumix.com/blogs/enhancing-concrete-durability" />
+    <meta name="twitter:title" content="بهبود دوام و مقاومت سازه‌های بتنی" />
+    <meta name="twitter:description" content="در این مقاله به بررسی کامل مقاوم‌سازی سازه‌های بتنی پرداخته شده است. ضعف‌ها و مشکلات بتن، دلایل نیاز به مقاوم‌سازی، و روش‌های افزایش دوام سازه‌های بتنی مورد بررسی قرار گرفته‌اند. همچنین، استفاده از انواع افزودنی‌های بتن جهت بهبود مقاومت و افزایش طول عمر سازه‌ها به‌طور دقیق تشریح شده است." />
+    <meta name="twitter:image" content="https://strumix.com/serverUploadAssets/blogsCoverImg/بهبود_دوام_و_مقاومت_سازه_های_بتنی.jpg" />
+    <script type="application/ld+json">
       {
-        '@context': 'https://schema.org',
-        '@type': 'Article',
-        'headline': 'بهبود دوام و مقاومت سازه‌های بتنی',
-        'image': ['https://strumix.com/serverUploadAssets/blogsCoverImg/بهبود_دوام_و_مقاومت_سازه_های_بتنی.jpg'],
-        'datePublished': '2024-08-23',
-        'keywords': 'مقاوم‌سازی بتن,سازه‌های بتنی,دوام بتندوام بتن,مواد افزودنی بتن,ضعف‌های سازه‌های بتنی,ترک‌خوردگی بتن,خوردگی میلگردها,مقاومت فشاری بتن,آب‌بندی بتن,افزایش عمر مفید سازه‌ها,تکنیک‌های مقاوم‌سازی بتن,بتن ضد یخ‌زدگی,ژل‌های میکروسیلیس,ساختمان‌های بتنی,تعمیر و نگهداری سازه‌های بتنی,بتن مقاوم در برابر شرایط محیطی'
+        "@context": "https://schema.org",
+        "@type": "Article",
+        "headline": "بهبود دوام و مقاومت سازه‌های بتنی",
+        "image": ["https://strumix.com/serverUploadAssets/blogsCoverImg/بهبود_دوام_و_مقاومت_سازه_های_بتنی.jpg"],
+        "datePublished": "2024-08-23",
+        "keywords": "مقاوم‌سازی بتن,سازه‌های بتنی,دوام بتندوام بتن,مواد افزودنی بتن,ضعف‌های سازه‌های بتنی,ترک‌خوردگی بتن,خوردگی میلگردها,مقاومت فشاری بتن,آب‌بندی بتن,افزایش عمر مفید سازه‌ها,تکنیک‌های مقاوم‌سازی بتن,بتن ضد یخ‌زدگی,ژل‌های میکروسیلیس,ساختمان‌های بتنی,تعمیر و نگهداری سازه‌های بتنی,بتن مقاوم در برابر شرایط محیطی"
       }
     </script>
-  <script async='' src='https://www.googletagmanager.com/gtag/js?id=G-4PJ8JE8SW8'></script>
-  <script src='../src/js/googleAnalytics.js'></script>
+    <script async="" src="https://www.googletagmanager.com/gtag/js?id=G-4PJ8JE8SW8"></script>
+    <script src="../src/js/googleAnalytics.js"></script>
 
-  <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
-  <script src='https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js'></script>
-  <script src='https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js'></script>
-  <script src='https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/TextPlugin.min.js'></script>
-  <script src='https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/CSSRulePlugin.min.js'></script>
-  <script src='../src/js/ScrollSmoother.min.js'></script>
-  <script src='../src/js/SplitText.min.js'></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/TextPlugin.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/CSSRulePlugin.min.js"></script>
+    <script src="../src/js/ScrollSmoother.min.js"></script>
+    <script src="../src/js/SplitText.min.js"></script>
 
-  <script async='' src='../src/blogs/cacheUpdator.js'></script>
-  <script async='' src='../src/blogs/index.js'></script>
+    <script async="" src="../src/blogs/cacheUpdator.js"></script>
+    <script async="" src="../src/blogs/index.js"></script>
 
-  <link rel='stylesheet' href='../src/css/main.css' />
-  <link rel='stylesheet' href='../src/blogs/index.css' />
-  <style>
-    .mainBlogContainer img {
-      width: %;
-    }
-  </style>
-</head>
+    <link rel="stylesheet" href="../src/css/main.css" />
+    <link rel="stylesheet" href="../src/blogs/index.css" />
+    <style>
+      .mainBlogContainer img {
+        width: 100%;
+      }
+    </style>
+  </head>
 
-<body>
-  <section class='splashScreen' data-cursor='pointerWaveBorder'>
-    <p>
-      Strumix
-      <svg viewBox='0 0 337 255' fill='none'>
-        <path class='svg-path' />
-      </svg>
-    </p>
-    <p>بسپار بتن ايرانيان هوشمند</p>
-  </section>
-  <section class='settings'>
-    <div class='changeTheme'>
-      <img src='../assets/VectorNight.svg' alt='Vector dark mode' />
-    </div>
-    <div class='copyButton'>
-      <p>کپی لینک صفحه!</p>
-      <img src='../assets/VectorShare.svg' alt='Vector copy' />
-    </div>
-    <div>
-      <img src='../assets/VectorPhone.svg' alt='Vector phone' />
-    </div>
-    <div>
-      <a target='_blank' href='https://api.whatsapp.com/send?phone=989122087393'>
-        <p>پشتیبانی فنی</p>
-      </a>
-      <a target='_blank' href='https://api.whatsapp.com/send?phone=989928210625'>
-        <p>پشتیبانی فروش</p>
-      </a>
-      <a href='tel:02144403448'>
-        <p>تلفن تماس</p>
-        <p>021-44403448</p>
-      </a>
-      <a href='tel:021-44000408'>
-        <p>تلفن تماس 2</p>
-        <p>021-44000408</p>
-      </a>
-      <a href='mailto:info@strumix.com'>
-        <p>ایمیل</p>
-        <p>info@strumix.com</p>
-      </a>
-    </div>
-  </section>
-  <main id='smooth-wrapper'>
-    <div id='smooth-content'>
-      <section class='hero'>
-        <img src='../assets/VectorLogo.svg' alt='Strumix logo' />
-        <h1>بهبود دوام و مقاومت سازه‌های بتنی</h1>
-      </section>
-      <section class='section2'>
-        <header class='magnetic-wrap'>
-          <a class='mouseSticky' href='./' data-cursor='pointerClickable'>لیست مقالات</a>
-          <a class='mouseSticky' href='../' data-cursor='pointerClickable'>صفحه‌ی اصلی</a>
-          <a class='mouseSticky' href='../products/index.html' data-cursor='pointerClickable'>کاتالوگ محصولات</a>
-          <a class='mouseSticky' href='../contact/index.html' data-cursor='pointerClickable'>ارتباط با ما</a>
-          <a class='mouseSticky' href='../' data-cursor='pointerClickable'>استرامیکس</a>
-          <span>&nbsp;&nbsp;/&nbsp;&nbsp;</span>
-          <a class='mouseSticky' data-cursor='pointerClickable'>۱شهریور۱۴۰۳</a>
-        </header>
-        <div class='mainBlogContainer'><p class="ql-align-justify">مقاوم‌سازی سازه‌های بتنی به عنوان یکی از مهم‌ترین مباحث در مهندسی عمران و معماری شناخته می‌شود. با توجه به رشد روزافزون جمعیت و توسعه شهرنشینی، ساخت و سازهای بتنی در مناطق مختلف با شرایط محیطی گوناگون انجام می‌شود. این شرایط محیطی می‌تواند شامل تغییرات شدید دما، رطوبت بالا، وجود مواد خورنده، و حتی زلزله باشد. در چنین شرایطی، تضمین دوام و پایداری سازه‌های بتنی اهمیت زیادی دارد.</p><p class="ql-align-justify">یکی از اصلی‌ترین چالش‌های موجود در این حوزه، ضعف‌های ذاتی بتن در برابر شرایط محیطی سخت است. این ضعف‌ها می‌توانند منجر به کاهش مقاومت سازه، افزایش ترک‌خوردگی، و در نهایت کاهش عمر مفید ساختمان شوند. به همین دلیل، استفاده از مواد افزودنی مناسب و تکنیک‌های آب‌بندی به منظور بهبود مقاومت و دوام بتن بسیار حیاتی است.</p><p class="ql-align-justify">در این مقاله، به بررسی مقاومت بتن و نقش مواد افزودنی و آب‌بندی در افزایش آن پرداخته می‌شود. همچنین، انواع ضعف‌های سازه‌های بتنی مورد بررسی قرار می‌گیرند تا شناخت دقیقی از چالش‌های موجود در این زمینه به دست آید. علاوه بر این، عواملی که در انتخاب بهترین روش مقاوم‌سازی ساختمان‌های اسکلت بتنی نقش دارند، مورد تجزیه و تحلیل قرار خواهند گرفت. هدف از این مقاله، ارائه راهکارهای عملی و کاربردی برای افزایش دوام و مقاومت سازه‌های بتنی در برابر شرایط محیطی سخت است.</p><p class="ql-align-justify">&nbsp;</p><h1 class="ql-align-justify"><span class="ql-font-Doran">مقاومت بتن چیست؟</span></h1><h1 class="ql-align-justify"><span class="ql-font-Doran">﻿</span><img src="../serverAssets/blogs/1724342052_ بتن چیست؟.jpg"></h1><h2><span class="ql-font-Doran">مقاومت فشاری بتن (Compressive Strength)</span></h2><p>·&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;تعریف: میزان تحمل بتن در برابر نیروهای فشاری قبل از شکست.</p><p>·&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;اهمیت: این نوع مقاومت بیشترین اهمیت را در سازه‌های بتنی دارد و معمولاً به عنوان معیاری برای کیفیت بتن استفاده می‌شود.</p><p>·&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;اندازه‌گیری: معمولاً بر روی نمونه‌های مکعبی یا استوانه‌ای انجام می‌شود و نتایج آن بر حسب مگاپاسکال (MPa) یا پوند بر اینچ مربع (psi) بیان می‌شود.</p><h2><span class="ql-font-Doran">مقاومت کششی بتن (Tensile Strength)</span></h2><p>·&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;تعریف: میزان تحمل بتن در برابر نیروهای کششی قبل از شکست.</p><p>·&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;اهمیت: مقاومت کششی بتن بسیار کمتر از مقاومت فشاری است و به همین دلیل، در طراحی سازه‌های بتنی معمولاً بتن با میلگردهای فولادی ترکیب می‌شود.</p><p>·&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;اندازه‌گیری: از روش‌های مختلفی مانند آزمون شکافتگی یا آزمون خمشی برای تعیین مقاومت کششی بتن استفاده می‌شود.</p><h2><span class="ql-font-Doran">مقاومت خمشی بتن (Flexural Strength)</span></h2><p>·&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;تعریف: میزان تحمل بتن در برابر نیروهای خمشی.</p><p>·&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;اهمیت: این نوع مقاومت برای طراحی دال‌ها و تیرهای بتنی بسیار مهم است.</p><p>·&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;اندازه‌گیری: از آزمون خمش سه نقطه‌ای بر روی نمونه‌های پرتو بتنی استفاده می‌شود.</p><h2><span class="ql-font-Doran">مقاومت برشی (Shear Strength)</span></h2><p>·&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;تعریف: میزان تحمل بتن در برابر نیروهای برشی.</p><p class="ql-align-justify">·&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;اهمیت: این نوع مقاومت برای طراحی عناصر سازه‌ای مانند تیرها و ستون‌ها مهم است.</p><p>&nbsp;</p><h1><span class="ql-font-Doran">عوامل مؤثر بر مقاومت بتن </span></h1><h2><span class="ql-font-Doran">مواد افزودنی بتن (Admixtures)</span></h2><p>·&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;استفاده از مواد افزودنی مانند فوق‌روان‌کننده‌ها، تسریع‌کننده‌ها، و میکروسیلیس می‌تواند بهبود قابل توجهی در مقاومت بتن ایجاد کند.</p><h2><span class="ql-font-Doran">نسبت آب به سیمان (Water-Cement Ratio)</span></h2><p>·&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;کاهش نسبت آب به سیمان باعث افزایش مقاومت بتن می‌شود، زیرا آب زیاد باعث ایجاد حفره‌ها و کاهش تراکم بتن می‌شود.</p><p>نوع و کیفیت سیمان</p><p>·&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;نوع سیمان و کیفیت آن بر مقاومت نهایی بتن تأثیر مستقیم دارد.</p><h2><span class="ql-font-Doran">سنگدانه‌ها (Aggregates)</span></h2><p>·&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;نوع، اندازه، شکل و کیفیت سنگدانه‌ها می‌تواند مقاومت بتن را تحت تأثیر قرار دهد. سنگدانه‌های با کیفیت بالا و تراکم مناسب به افزایش مقاومت بتن کمک می‌کنند.</p><p>شرایط عمل‌آوری (Curing Conditions)</p><p class="ql-align-justify">·&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;شرایط عمل‌آوری بتن، شامل دما و رطوبت، بر فرآیند هیدراتاسیون سیمان و در نتیجه بر مقاومت نهایی بتن تأثیرگذار است. عمل‌آوری مناسب می‌تواند به افزایش مقاومت بتن کمک کند.</p><p>&nbsp;</p><h1><span class="ql-font-Doran">انواع مختلف ضعف‌های سازه‌های بتنی </span></h1><p>سازه‌های بتنی می‌توانند در طول زمان به دلایل مختلف دچار ضعف‌های متعددی شوند. این ضعف‌ها می‌توانند ناشی از شرایط محیطی، طراحی نادرست، کیفیت پایین مصالح، یا عدم رعایت استانداردهای اجرایی باشند. در ادامه، انواع مختلف ضعف‌های سازه‌های بتنی لیست شده‌اند:</p><h2><span class="ql-font-Doran">۱. ترک‌خوردگی بتن</span></h2><p>·&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ترک‌های حرارتی: ناشی از تغییرات دما و انقباض و انبساط بتن.</p><p>·&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ترک‌های جمع‌شدگی پلاستیک: به دلیل از دست دادن سریع آب در سطح بتن تازه.</p><p>·&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ترک‌های جمع‌شدگی خشک: به دلیل از دست دادن رطوبت در طول زمان.</p><p>·&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ترک‌های نشست: به علت نشست یا جابه‌جایی در پایه‌ها و زیرساخت‌ها.</p><p>·&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ترک‌های خمشی: ناشی از بارگذاری اضافی یا طراحی نادرست.</p><p>·&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ترک‌های انقباضی: به دلیل کاهش حجم بتن در زمان گیرش.</p><h2><span class="ql-font-Doran">۲. پوسته‌شدن و جداشدگی بتن</span></h2><p>·&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;پوسته‌شدن سطحی: به دلیل انجماد و ذوب مکرر در مناطق سردسیر.</p><p>·&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;جداشدگی لایه‌های بتن: به علت عدم تراکم مناسب یا استفاده از آب اضافی در مخلوط بتن.</p><p>·&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;جداشدگی سنگدانه‌ها: به دلیل عدم همگنی در مخلوط بتن.</p><h2><span class="ql-font-Doran">۳. خوردگی میلگردها</span></h2><p>·&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;خوردگی ناشی از کلریدها: به دلیل نفوذ آب حاوی کلرید (مانند آب دریا) که باعث زنگ‌زدگی میلگردها می‌شود.</p><p>·&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;خوردگی ناشی از کربناته‌شدن: به دلیل واکنش دی‌اکسید کربن با هیدروکسید کلسیم موجود در بتن که به خوردگی میلگردها منجر می‌شود.</p><h2><span class="ql-font-Doran">۴. نفوذپذیری و جذب آب</span></h2><p>·&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;نفوذ آب: به دلیل عدم آب‌بندی مناسب که می‌تواند باعث خرابی و زوال بتن شود.</p><p>·&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;جذب آب و رطوبت: که می‌تواند منجر به یخ‌زدگی و ترک‌خوردگی یا رشد قارچ و کپک شود.</p><h2><span class="ql-font-Doran">۵. خرابی‌های شیمیایی</span></h2><p>·&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;حمله سولفاتی: به دلیل وجود سولفات‌ها در آب یا خاک که با اجزای سیمان واکنش می‌دهند و باعث خرابی بتن می‌شوند.</p><p>·&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;حمله اسیدی: ناشی از تماس بتن با مواد شیمیایی اسیدی که سیمان را تجزیه می‌کنند.</p><p>·&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;واکنش قلیایی-سیلیسی (ASR): واکنش بین سیلیس موجود در سنگدانه‌ها و قلیایی‌های سیمان که باعث ترک‌خوردگی و تورم بتن می‌شود.</p><h2><span class="ql-font-Doran">۶. خرابی‌های فیزیکی</span></h2><p>·&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;سایش و فرسایش: ناشی از تردد یا جریان آب و مواد ساینده بر روی سطح بتن.</p><p>·&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;یخ‌زدگی و ذوب مکرر: که باعث ایجاد ترک‌ها و خرابی‌های سطحی می‌شود.</p><p>·&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;تورم و جمع‌شدگی: ناشی از تغییرات رطوبت یا دما.</p><h2><span class="ql-font-Doran">۷. ضعف‌های ناشی از بارگذاری</span></h2><p>·&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;بارگذاری اضافی: که باعث ترک‌خوردگی یا خمیدگی بیش از حد سازه می‌شود.</p><p>·&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;بارگذاری دینامیکی: ناشی از زلزله، بادهای شدید، یا بارهای ضربه‌ای که باعث خرابی‌های جدی در سازه می‌شود.</p><p>·&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;نشست پی: که منجر به ترک‌خوردگی و جابه‌جایی سازه می‌شود.</p><h2><span class="ql-font-Doran">۸. ضعف‌های ناشی از طراحی و اجرا</span></h2><p>·&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;طراحی نادرست: مانند عدم در نظر گرفتن بارهای محیطی یا دینامیکی.</p><p>·&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;اجرای نادرست: شامل تراکم ناکافی بتن، استفاده از مخلوط نامناسب، یا عدم رعایت استانداردها در طول ساخت.</p><p>·&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;کیفیت پایین مصالح: که می‌تواند باعث ضعف کلی سازه شود.</p><h2><span class="ql-font-Doran">۹. فرسودگی و پیری بتن</span></h2><p>·&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;پیری بتن: به دلیل اثرات محیطی طولانی‌مدت مانند نفوذ رطوبت، تغییرات دما، و تابش UV که باعث کاهش مقاومت و دوام بتن می‌شود.</p><p>·&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;کاهش مقاومت مکانیکی: به مرور زمان و تحت تاثیر شرایط محیطی مختلف.</p><h2><span class="ql-font-Doran">۱۰. آسیب‌های ناشی از عوامل زیست‌محیطی</span></h2><p>·&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;حمله قارچ‌ها و کپک‌ها: به خصوص در محیط‌های مرطوب که می‌تواند به ساختار بتن آسیب برساند.</p><p>·&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;رشد گیاهان در ترک‌ها: که می‌تواند باعث گسترش ترک‌ها و کاهش استحکام سازه شود.</p><p><br></p><p>&nbsp;</p><h1><span class="ql-font-Doran">مقاومت سازه‌های بتنی در برابر شرایط محیطی سخت: نقش مواد افزودنی و آب‌بندی</span></h1><h2><span class="ql-font-Doran">۱. نقش مواد افزودنی در بهبود مقاومت بتن</span></h2><p>·&nbsp;&nbsp;&nbsp;مواد افزودنی به موادی اطلاق می‌شود که به مخلوط بتن افزوده می‌شوند تا خواص فیزیکی و شیمیایی آن را بهبود بخشند. این مواد به دسته‌های مختلفی تقسیم می‌شوند که هر یک می‌تواند تأثیرات متفاوتی بر روی بتن داشته باشد.</p><h3><span class="ql-font-Doran">۱.۱. ابر روان‌کننده‌ها</span></h3><p>·&nbsp;&nbsp;&nbsp;ابر روان‌کننده‌ها مانند Strusin N510 و&nbsp;Strusin Dragon-WSR501 از جمله مواد افزودنی هستند که باعث کاهش میزان آب مورد نیاز در مخلوط بتن می‌شوند. این مواد با کاهش نسبت آب به سیمان، مقاومت نهایی بتن را افزایش می‌دهند و در عین حال موجب کاهش نفوذپذیری و افزایش دوام آن در برابر شرایط محیطی سخت می‌شوند.</p><h3><span class="ql-font-Doran">۲.۱. افزودنی‌های آب‌بند کننده</span></h3><p>·&nbsp;&nbsp;&nbsp;افزودنی‌های آب‌بند کننده مانند Struseal WS و Strusin Dragon-WSR501 به بتن افزوده می‌شوند تا نفوذپذیری آن در برابر آب را کاهش دهند. این مواد با ایجاد یک شبکه کریستالی در داخل بتن، مسیرهای نفوذ آب را مسدود می‌کنند و از ورود آب و مواد خورنده به داخل سازه جلوگیری می‌کنند.</p><h3><span class="ql-font-Doran">۳.۱. افزودنی‌های ضد یخ‌زدگی</span></h3><p>·&nbsp;&nbsp;&nbsp;برای سازه‌هایی که در مناطق سردسیر قرار دارند، استفاده از افزودنی‌های ضد یخ‌زدگی مانند Struset Nitro ضروری است. این افزودنی‌ها باعث کاهش نقطه انجماد آب در داخل بتن می‌شوند و از تشکیل یخ در منافذ بتن جلوگیری می‌کنند که این امر مانع از ترک‌خوردگی و شکست بتن در شرایط سرد می‌شود.</p><h3><span class="ql-font-Doran">۴.۱. ژل‌های میکروسیلیس</span></h3><p>·&nbsp;&nbsp;&nbsp;ژل‌های میکروسیلیس مانند Strumin Supergel و Strumin Power از جمله افزودنی‌های پوزولانی هستند که به عنوان جایگزین بخشی از سیمان در مخلوط بتن استفاده می‌شوند. این مواد با کاهش نفوذپذیری و افزایش مقاومت بتن در برابر مواد شیمیایی خورنده، نقش مهمی در بهبود دوام سازه‌های بتنی دارند.</p><p>&nbsp;</p><h2><span class="ql-font-Doran">۲.نقش آب‌بندی در افزایش دوام سازه‌های بتنی</span></h2><p>آب‌بندی یکی از مهم‌ترین مراحل در ساخت سازه‌های بتنی است که می‌تواند تأثیر زیادی بر دوام و عملکرد آن‌ها در برابر شرایط محیطی سخت داشته باشد. آب‌بندی به دو دسته کلی تقسیم می‌شود: آب‌بندی داخلی و آب‌بندی خارجی.</p><h3><span class="ql-font-Doran">۲.۱. آب‌بندی داخلی</span></h3><p>·&nbsp;&nbsp;&nbsp;آب‌بندی داخلی به فرآیندی اطلاق می‌شود که در آن مواد آب‌بند کننده به مخلوط بتن افزوده می‌شوند تا نفوذپذیری آن کاهش یابد. محصولات مانند Struseal C512 و Struproof Wl از جمله موادی هستند که به عنوان آب‌بند داخلی در بتن استفاده می‌شوند. این مواد با تشکیل کریستال‌های غیرمحلول در منافذ بتن، مسیرهای نفوذ آب را مسدود می‌کنند و از ورود آب به داخل سازه جلوگیری می‌کنند.</p><p>&nbsp;</p><h3><span class="ql-font-Doran">۲.۲. آب‌بندی خارجی</span></h3><p>·&nbsp;&nbsp;&nbsp;آب‌بندی خارجی به فرآیندی اشاره دارد که در آن لایه‌های محافظتی بر روی سطح بتن اعمال می‌شود تا از نفوذ آب و مواد خورنده به داخل سازه جلوگیری شود. محصولات مانند&nbsp;Strutop Brush و Struseal C514 برای آب‌بندی خارجی بتن استفاده می‌شوند. این مواد با ایجاد یک لایه محافظ بر روی سطح بتن، از نفوذ آب و مواد خورنده به داخل سازه جلوگیری می‌کنند و در عین حال اجازه تنفس بتن را می‌دهند تا رطوبت داخلی آن تبخیر شود.</p><p>&nbsp;</p><h2><span class="ql-font-Doran">۳. مطالعات موردی و تجربیات عملی</span></h2><p>در بسیاری از پروژه‌های ساختمانی بزرگ و مهم، استفاده از مواد افزودنی و آب‌بندی نقش حیاتی در افزایش دوام و عملکرد سازه‌های بتنی داشته است. به عنوان مثال، در ساخت سدها، تونل‌ها و پل‌های بزرگ، استفاده از ژل‌های میکروسیلیس و افزودنی‌های آب‌بند کننده از اهمیت ویژه‌ای برخوردار است. این مواد نه تنها مقاومت بتن را در برابر نفوذ آب و مواد خورنده افزایش می‌دهند، بلکه باعث بهبود خواص مکانیکی و افزایش عمر مفید سازه‌ها نیز می‌شوند.</p><p>&nbsp;</p><h1><span class="ql-font-Doran">انتخاب بهترین روش مقاوم سازی بتن</span></h1><h1><img src="../serverAssets/blogs/1724342070_ روش مقاوم سازی بتن.jpg"></h1><p>مقاوم‌سازی ساختمان‌های اسکلت بتنی یک فرآیند پیچیده است که تحت تأثیر عوامل مختلفی قرار دارد. انتخاب بهترین روش مقاوم‌سازی بستگی به شرایط خاص هر پروژه، نوع آسیب‌دیدگی، و اهداف مقاوم‌سازی دارد. در زیر به بررسی عوامل مؤثر در انتخاب بهترین روش مقاوم‌سازی ساختمان‌های اسکلت بتنی پرداخته می‌شود:</p><h2><span class="ql-font-Doran">۱. نوع و میزان آسیب‌دیدگی</span></h2><p>·&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ترک‌ها و شکستگی‌ها: اگر ساختمان دارای ترک‌ها و شکستگی‌های گسترده باشد، ممکن است نیاز به تقویت با الیاف پلیمری (FRP) یا استفاده از پوشش‌های محافظتی وجود داشته باشد.</p><p>·&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;خوردگی آرماتورها: در صورت وجود خوردگی در آرماتورهای فولادی، استفاده از مواد ضدخوردگی و پوشش‌های حفاظتی می‌تواند مؤثر باشد.</p><p>·&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;افت ظرفیت باربری: اگر ساختمان ظرفیت باربری کافی را از دست داده باشد، می‌توان از روش‌های افزایش مقطع یا تقویت با صفحات فولادی استفاده کرد.</p><h2><span class="ql-font-Doran">۲. نوع سازه و کاربرد آن</span></h2><p>·&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ساختمان‌های مسکونی: برای ساختمان‌های مسکونی که نیاز به حداقل تداخل در زندگی روزمره دارند، روش‌های غیرمخرب مانند استفاده از کامپوزیت‌های FRP مناسب‌تر هستند.</p><p>·&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;سازه‌های صنعتی و تجاری: در این سازه‌ها، که ممکن است بارهای دینامیکی بیشتری تحمل کنند، استفاده از روش‌های تقویتی سنگین‌تری مانند جک‌های پیش‌تنیده یا افزودن ستون‌ها و تیرهای جدید ممکن است لازم باشد.</p><p>&nbsp;</p><h2><span class="ql-font-Doran">۳. شرایط محیطی</span></h2><p>·&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;رطوبت و خوردگی: در مناطقی که رطوبت و خطر خوردگی بالا است، استفاده از مواد مقاوم در برابر خوردگی و رطوبت مانند مواد پلیمری و رزین‌ها توصیه می‌شود.</p><p>·&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;زلزله: در مناطق زلزله‌خیز، تقویت سازه با استفاده از سیستم‌های مقاوم در برابر لرزه مانند دیوارهای برشی یا قاب‌های مقاوم لرزه‌ای ضروری است.</p><h2><span class="ql-font-Doran">۴. محدودیت‌های اجرایی و مالی</span></h2><p>·&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;بودجه پروژه: محدودیت‌های مالی می‌تواند تأثیر زیادی بر انتخاب روش مقاوم‌سازی داشته باشد. روش‌های مقرون‌به‌صرفه مانند استفاده از مواد افزایشی ممکن است ترجیح داده شود.</p><p>·&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;محدودیت‌های فضایی: در صورت محدودیت فضایی، روش‌های کم‌جا مانند استفاده از الیاف پلیمری یا افزایش مقطع داخلی ممکن است مناسب‌تر باشند.</p><p>·&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;زمان اجرا: زمان مورد نیاز برای اجرای پروژه می‌تواند تعیین‌کننده باشد. روش‌های سریع‌الاجرا مانند استفاده از کامپوزیت‌های FRP یا مواد تزریقی ممکن است ترجیح داده شوند.</p><h2><span class="ql-font-Doran">۵. اهداف مقاوم‌سازی</span></h2><p>·&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;افزایش ظرفیت باربری: در مواردی که هدف افزایش ظرفیت باربری سازه است، روش‌های تقویتی سنگین‌تری مانند افزودن ستون‌ها و تیرهای جدید یا استفاده از جک‌های پیش‌تنیده ممکن است مناسب باشد.</p><p>·&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;بهبود عملکرد لرزه‌ای: در مناطقی با خطر زلزله، بهبود عملکرد لرزه‌ای سازه با استفاده از دیوارهای برشی، قاب‌های مقاوم لرزه‌ای یا میراگرهای لرزه‌ای ممکن است ضروری باشد.</p><p>·&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;افزایش دوام و عمر مفید سازه: در مواردی که هدف افزایش دوام و عمر مفید سازه است، استفاده از مواد ضدخوردگی، پوشش‌های محافظتی و روش‌های تعمیر و تقویت ترک‌ها و شکستگی‌ها مؤثر خواهد بود.</p><h2><span class="ql-font-Doran">۶. نوع مصالح مورد استفاده</span></h2><p>·&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;بتن و فولاد: استفاده از مواد تقویتی مانند الیاف پلیمری (FRP)، صفحات فولادی، و مواد تزریقی می‌تواند به بهبود مقاومت و عملکرد سازه کمک کند.</p><p>·&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;مواد پلیمری و رزین‌ها: در مواردی که نیاز به مقاومت در برابر خوردگی و رطوبت وجود دارد، استفاده از مواد پلیمری و رزین‌ها توصیه می‌شود.</p><h2><span class="ql-font-Doran">۷. تأثیر بر ظاهر و معماری ساختمان</span></h2><p>·&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;حفظ ظاهر معماری: در ساختمان‌های تاریخی یا بناهای با ارزش معماری، انتخاب روش‌های مقاوم‌سازی که تأثیری بر ظاهر ساختمان نداشته باشند، مهم است. روش‌هایی مانند استفاده از کامپوزیت‌های FRP یا تقویت داخلی می‌تواند مناسب باشد.</p><p>&nbsp;</p><h2><span class="ql-font-Doran">اما در نهایت؛</span></h2><p>مقاوم‌سازی سازه‌های بتنی در برابر شرایط محیطی سخت، یک فرآیند پیچیده و حیاتی است که نیاز به بررسی دقیق و انتخاب مناسب‌ترین روش‌ها دارد. در این مقاله، تحلیل‌های گسترده‌ای از مقاومت بتن، انواع ضعف‌های رایج در سازه‌های بتنی، و نقش مواد افزودنی و تکنیک‌های آب‌بندی ارائه شد. همچنین، عوامل کلیدی در انتخاب بهترین روش‌های مقاوم‌سازی بررسی گردید.</p><p>مقاومت بتن به عنوان یکی از اصلی‌ترین ویژگی‌های فیزیکی و مکانیکی آن، تأثیر زیادی بر پایداری و عمر مفید سازه‌های بتنی دارد. ضعف‌های متداولی همچون ترک‌خوردگی، خوردگی آرماتورها، و افت ظرفیت باربری می‌توانند منجر به کاهش عملکرد و ایمنی سازه‌ها شوند. به همین دلیل، استفاده از مواد افزودنی مانند الیاف پلیمری، رزین‌های ضدخوردگی، و تکنیک‌های آب‌بندی می‌تواند به طور مؤثری به بهبود مقاومت بتن و دوام سازه‌ها کمک کند.</p><p>انتخاب مناسب‌ترین روش مقاوم‌سازی بستگی به مجموعه‌ای از عوامل شامل نوع و میزان آسیب‌دیدگی، شرایط محیطی، محدودیت‌های اجرایی و مالی، و اهداف مقاوم‌سازی دارد. روش‌هایی مانند استفاده از کامپوزیت‌های FRP، افزایش مقاطع، و جک‌های پیش‌تنیده می‌توانند بر اساس نیازهای خاص هر پروژه به کار گرفته شوند.</p><p>در نهایت، سرمایه‌گذاری در بهبود مقاومت و دوام سازه‌های بتنی نه تنها به افزایش طول عمر سازه‌ها و کاهش هزینه‌های نگهداری کمک می‌کند، بلکه ایمنی و کارایی ساختمان‌ها را نیز تضمین می‌نماید. به کارگیری تکنیک‌های مناسب مقاوم‌سازی و استفاده از مواد با کیفیت بالا، نقش کلیدی در موفقیت پروژه‌های ساختمانی و عمر مفید سازه‌ها ایفا می‌کند.</p><p>&nbsp;</p><h2><span class="ql-font-Doran">منابع:</span></h2><p><span class="ql-size-small">روش های مقاوم سازی و تقویت سازه بتنی - نویسنده: مهرداد مشایخ فر، نشریه مجله عمران و پروژه&nbsp;- خرداد ۱۴۰۲</span></p><p><span class="ql-size-small">مروری بر مباحث مقاوم سازی سازه های بتنی - نویسنده: فربد دائمی، دومین کنفرانس محیط زیست، عمران ،معماری و شهرسازی – ۱۳۹۹</span></p><p><span class="ql-size-small">روشهای مقاوم سازی سازه های بتنی - نویسندگان: مجتبی اصغری سرخی ، یحیی شربتی ناوان ، الهام بخشیان لموکی ، چهاردهمین کنفرانس دانشجویان مهندسی عمران سراسر کشور – ۱۳۸۷</span></p><p><span class="ql-size-small">ترمیم و مقاوم سازی سازه های بتنی - نویسنده: علیرضا سرتیپی زاده، نشریه نشریه مطالعات مهندسی انتظامی&nbsp;- زمستان ۱۳۹۰</span></p><p><span class="ql-size-small">تقویت، ترمیم و مقاوم سازی سازه های بتنی - نویسنده: خالد بهرام زاده، کنفرانس بین المللی معماری، شهرسازی، عمران، هنر و محیط زیست؛ افق های آینده، نگاه به گذشته - ۱۳۹۴</span></p><p><span class="ql-size-small">Pfeifer, C. (2014). Concrete Durability: A Review. Journal of Structural Engineering, 140(6), 04014010. https://doi.org/10.1061/(ASCE)ST.1943-541X.0000923</span></p><p><span class="ql-size-small">Neville, A. M. (2010). Properties of Concrete. 5th Edition. Pearson Education.</span></p><p><span class="ql-size-small">ACI Committee 318. (2019). Building Code Requirements for Structural Concrete (ACI 318-19) and Commentary. American Concrete Institute.</span></p><p><span class="ql-size-small">Mehta, P. K., &amp; Monteiro, P. J. M. (2014). Concrete: Microstructure, Properties, and Materials. 4th Edition. McGraw-Hill Education.</span></p><p><span class="ql-size-small">BS 8110-1. (1997). Structural Use of Concrete – Part 1: Code of Practice for Design and Construction. British Standards Institution.</span></p><p><span class="ql-size-small">Khan, M. N., &amp; Rizvi, S. M. A. (2006). Concrete Technology. 2nd Edition. McGraw-Hill.</span></p><p><span class="ql-size-small">European Committee for Standardization (CEN). (2004). Eurocode 2: Design of Concrete Structures - Part 1-1: General Rules and Rules for Buildings. European Standard.</span></p><p><span class="ql-size-small">Siddique, R., &amp; Klaus, J. (2011). Sustainable Construction Materials: Concrete. Springer.</span></p><p><span class="ql-size-small">Berrocal, J. M., &amp; Torrenti, J. M. (2011). Advanced Concrete Technology. Elsevier.</span></p><p><span class="ql-size-small">Hewlett, P. C., &amp; Liska, J. (2004). Lea's Chemistry of Cement and Concrete. 4th Edition. Butterworth-Heinemann.</span></p><p><span class="ql-size-small">Ramsay, J. D. (2000). Concrete Repair and Rehabilitation. CRC Press.</span></p><p><span class="ql-size-small">Papadakis, V. G., &amp; Vayenas, C. G. (2002). Hydration, Setting, and Durability of Cementitious Materials. Springer.</span></p><p><span class="ql-size-small">American Concrete Institute (ACI). (2003). Guide for the Repair of Concrete. ACI 546R-03.</span></p><p><span class="ql-size-small">El-Dakhakhni, W., &amp; El-Khalil, E. (2013). Strengthening of Concrete Structures Using Fiber Reinforced Polymers. Springer.</span></p><p><span class="ql-size-small">Teng, J. G., &amp; Yu, T. (2009). FRP Strengthened Concrete Structures. Wiley.</span></p><p>&nbsp;</p><p><a href="https://cdn.glitch.global/62cf8202-93e0-4197-a517-cb7c64990d83/%D8%A8%D9%87%D8%A8%D9%88%D8%AF%20%D8%AF%D9%88%D8%A7%D9%85%20%D9%88%20%D9%85%D9%82%D8%A7%D9%88%D9%85%D8%AA%20%D8%B3%D8%A7%D8%B2%D9%87%20%D8%A8%D8%AA%D9%86%DB%8C.pdf" target="_blank">دانلود pdf مقاله</a></p><p>ویراستار و همکار تحقیقاتی:<a href="https://firstibox.glitch.me/" target="_blank"> ایلیا هادی نژاد</a></p><p>این مقاله توسط واحد تحقیق و توسعه شرکت بسپار بتن ایرانیان هوشمند (استرامیکس) بررسی و تأیید علمی شده است.</p></div>
-        <div class='blogTags'><a data-cursor="pointerClickable" href="">#مقاوم‌سازی بتن</a><span>&nbsp;&nbsp;/&nbsp;&nbsp;</span><a data-cursor="pointerClickable" href="">#سازه‌های بتنی</a><span>&nbsp;&nbsp;/&nbsp;&nbsp;</span><a data-cursor="pointerClickable" href="">#دوام بتندوام بتن</a><span>&nbsp;&nbsp;/&nbsp;&nbsp;</span><a data-cursor="pointerClickable" href="">#مواد افزودنی بتن</a><span>&nbsp;&nbsp;/&nbsp;&nbsp;</span><a data-cursor="pointerClickable" href="">#ضعف‌های سازه‌های بتنی</a><span>&nbsp;&nbsp;/&nbsp;&nbsp;</span><a data-cursor="pointerClickable" href="">#ترک‌خوردگی بتن</a><span>&nbsp;&nbsp;/&nbsp;&nbsp;</span><a data-cursor="pointerClickable" href="">#خوردگی میلگردها</a><span>&nbsp;&nbsp;/&nbsp;&nbsp;</span><a data-cursor="pointerClickable" href="">#مقاومت فشاری بتن</a><span>&nbsp;&nbsp;/&nbsp;&nbsp;</span><a data-cursor="pointerClickable" href="">#آب‌بندی بتن</a><span>&nbsp;&nbsp;/&nbsp;&nbsp;</span><a data-cursor="pointerClickable" href="">#افزایش عمر مفید سازه‌ها</a><span>&nbsp;&nbsp;/&nbsp;&nbsp;</span><a data-cursor="pointerClickable" href="">#تکنیک‌های مقاوم‌سازی بتن</a><span>&nbsp;&nbsp;/&nbsp;&nbsp;</span><a data-cursor="pointerClickable" href="">#بتن ضد یخ‌زدگی</a><span>&nbsp;&nbsp;/&nbsp;&nbsp;</span><a data-cursor="pointerClickable" href="">#ژل‌های میکروسیلیس</a><span>&nbsp;&nbsp;/&nbsp;&nbsp;</span><a data-cursor="pointerClickable" href="">#ساختمان‌های بتنی</a><span>&nbsp;&nbsp;/&nbsp;&nbsp;</span><a data-cursor="pointerClickable" href="">#تعمیر و نگهداری سازه‌های بتنی</a><span>&nbsp;&nbsp;/&nbsp;&nbsp;</span><a data-cursor="pointerClickable" href="">#بتن مقاوم در برابر شرایط محیطی</a></div>
-      </section>
-      <section class='section3'>
-        <div class='cardsContainer'></div>
-      </section>
-      <section class='section4' data-cursor='pointerWhite'>
-        <p>بهترین مطالب هر ما</p>
-        <p>ارسال میشه به صندوق پستی شما!</p>
-        <input data-cursor='pointerClickable' type='email' id='email' name='email' placeholder='ایمیل'
-          oninput='validateEmailInput(this)' />
-        <p id='emailFeedback'></p>
-        <p>این بالا کلیک کن و ایمیلت رو بنویس</p>
-        <p class='mouseSticky' data-cursor='pointerClickable' onclick='processEmailInput()'>
-          <span class='iconFlesh'></span>ثبت
-        </p>
-        <div>
-          <a data-cursor='pointerFocus' href='../'>صفحه‌ی اصلی</a>
-          <a data-cursor='pointerFocus' href='../products/index.html'>کاتالوگ محصولات</a>
-          <a data-cursor='pointerFocus'>info@strumix.com</a>
-          <a data-cursor='pointerFocus' href='../contact/index.html'>ارتباط با ما</a>
-        </div>
-      </section>
-      <section class='section5SpaceHolder'></section>
-    </div>
-    <section class='section5' data-cursor='pointerWhite'>
-      <div>
-        <div class='infiniteScrollText' data-cursor='pointerWaveBorder'>
-          <div>
-            <span>Strumix&nbsp;&nbsp;-&nbsp;&nbsp;</span>
-            <span>Strumix&nbsp;&nbsp;-&nbsp;&nbsp;</span>
-            <span>Strumix&nbsp;&nbsp;-&nbsp;&nbsp;</span>
-            <span>Strumix&nbsp;&nbsp;-&nbsp;&nbsp;</span>
-            <span>Strumix&nbsp;&nbsp;-&nbsp;&nbsp;</span>
-            <span>Strumix&nbsp;&nbsp;-&nbsp;&nbsp;</span>
-            <span>Strumix&nbsp;&nbsp;-&nbsp;&nbsp;</span>
-            <span>Strumix&nbsp;&nbsp;-&nbsp;&nbsp;</span>
-            <span>Strumix&nbsp;&nbsp;-&nbsp;&nbsp;</span>
-          </div>
-        </div>
-        <div class='infiniteScrollText' data-cursor='pointerWaveBorder'>
-          <div>
-            <span>&nbsp;-&nbsp;بسپار بتن ايرانيان هوشمند</span>
-            <span>&nbsp;-&nbsp;بسپار بتن ايرانيان هوشمند</span>
-            <span>&nbsp;-&nbsp;بسپار بتن ايرانيان هوشمند</span>
-            <span>&nbsp;-&nbsp;بسپار بتن ايرانيان هوشمند</span>
-          </div>
-        </div>
+  <body>
+    <section class="splashScreen" data-cursor="pointerWaveBorder">
+      <p>
+        Strumix
+        <svg viewBox="0 0 337 255" fill="none">
+          <path class="svg-path" />
+        </svg>
+      </p>
+      <p>بسپار بتن ايرانيان هوشمند</p>
+    </section>
+    <section class="settings">
+      <div class="changeTheme">
+        <img src="../assets/VectorNight.svg" alt="Vector dark mode" />
+      </div>
+      <div class="copyButton">
+        <p>کپی لینک صفحه!</p>
+        <img src="../assets/VectorShare.svg" alt="Vector copy" />
       </div>
       <div>
-        <a data-cursor='pointerClickable' href='' target='_blank'>
-          <span class='iconFlesh'></span>
-          <p>نمایش یکی از مقالات به صورت تصادفی</p>
-          <span></span>
+        <img src="../assets/VectorPhone.svg" alt="Vector phone" />
+      </div>
+      <div>
+        <a target="_blank" href="https://api.whatsapp.com/send?phone=989122087393">
+          <p>پشتیبانی فنی</p>
         </a>
-        <a data-cursor='pointerClickable' href='./index.html'>
-          <span class='iconFlesh'></span>
-          <p>لیست مقالات</p>
-          <span></span>
+        <a target="_blank" href="https://api.whatsapp.com/send?phone=989928210625">
+          <p>پشتیبانی فروش</p>
         </a>
-        <a data-cursor='pointerClickable' target='_blank' href='https://www.instagram.com/strumix.co/'>
-          <span class='iconFlesh'></span>
-          <p>اخبار و مقالات دیگر در اینستاگرام ما</p>
-          <span></span>
+        <a href="tel:02144403448">
+          <p>تلفن تماس</p>
+          <p>021-44403448</p>
+        </a>
+        <a href="tel:021-44000408">
+          <p>تلفن تماس 2</p>
+          <p>021-44000408</p>
+        </a>
+        <a href="mailto:info@strumix.com">
+          <p>ایمیل</p>
+          <p>info@strumix.com</p>
         </a>
       </div>
     </section>
-  </main>
-</body>
-
+    <main id="smooth-wrapper">
+      <div id="smooth-content">
+        <section class="hero">
+          <img src="../assets/VectorLogo.svg" alt="Strumix logo" />
+          <h1>بهبود دوام و مقاومت سازه‌های بتنی</h1>
+        </section>
+        <section class="section2">
+          <header class="magnetic-wrap">
+            <a class="mouseSticky" href="./" data-cursor="pointerClickable">لیست مقالات</a>
+            <a class="mouseSticky" href="../" data-cursor="pointerClickable">صفحه‌ی اصلی</a>
+            <a class="mouseSticky" href="../products/index.html" data-cursor="pointerClickable">کاتالوگ محصولات</a>
+            <a class="mouseSticky" href="../contact/index.html" data-cursor="pointerClickable">ارتباط با ما</a>
+            <a class="mouseSticky" href="../" data-cursor="pointerClickable">استرامیکس</a>
+            <span>&nbsp;&nbsp;/&nbsp;&nbsp;</span>
+            <a class="mouseSticky" data-cursor="pointerClickable">۱شهریور۱۴۰۳</a>
+          </header>
+          <div class="mainBlogContainer">
+            <p class="ql-align-justify">مقاوم‌سازی سازه‌های بتنی به عنوان یکی از مهم‌ترین مباحث در مهندسی عمران و معماری شناخته می‌شود. با توجه به رشد روزافزون جمعیت و توسعه شهرنشینی، ساخت و سازهای بتنی در مناطق مختلف با شرایط محیطی گوناگون انجام می‌شود. این شرایط محیطی می‌تواند شامل تغییرات شدید دما، رطوبت بالا، وجود مواد خورنده، و حتی زلزله باشد. در چنین شرایطی، تضمین دوام و پایداری سازه‌های بتنی اهمیت زیادی دارد.</p>
+            <p class="ql-align-justify">یکی از اصلی‌ترین چالش‌های موجود در این حوزه، ضعف‌های ذاتی بتن در برابر شرایط محیطی سخت است. این ضعف‌ها می‌توانند منجر به کاهش مقاومت سازه، افزایش ترک‌خوردگی، و در نهایت کاهش عمر مفید ساختمان شوند. به همین دلیل، استفاده از مواد افزودنی مناسب و تکنیک‌های آب‌بندی به منظور بهبود مقاومت و دوام بتن بسیار حیاتی است.</p>
+            <p class="ql-align-justify">در این مقاله، به بررسی مقاومت بتن و نقش مواد افزودنی و آب‌بندی در افزایش آن پرداخته می‌شود. همچنین، انواع ضعف‌های سازه‌های بتنی مورد بررسی قرار می‌گیرند تا شناخت دقیقی از چالش‌های موجود در این زمینه به دست آید. علاوه بر این، عواملی که در انتخاب بهترین روش مقاوم‌سازی ساختمان‌های اسکلت بتنی نقش دارند، مورد تجزیه و تحلیل قرار خواهند گرفت. هدف از این مقاله، ارائه راهکارهای عملی و کاربردی برای افزایش دوام و مقاومت سازه‌های بتنی در برابر شرایط محیطی سخت است.</p>
+            <p class="ql-align-justify">&nbsp;</p>
+            <h1 class="ql-align-justify"><span class="ql-font-Doran">مقاومت بتن چیست؟</span></h1>
+            <h1 class="ql-align-justify"><span class="ql-font-Doran">﻿</span><img src="../serverAssets/blogs/1724342052_ بتن چیست؟.jpg" /></h1>
+            <h2><span class="ql-font-Doran">مقاومت فشاری بتن (Compressive Strength)</span></h2>
+            <p>·&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;تعریف: میزان تحمل بتن در برابر نیروهای فشاری قبل از شکست.</p>
+            <p>·&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;اهمیت: این نوع مقاومت بیشترین اهمیت را در سازه‌های بتنی دارد و معمولاً به عنوان معیاری برای کیفیت بتن استفاده می‌شود.</p>
+            <p>·&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;اندازه‌گیری: معمولاً بر روی نمونه‌های مکعبی یا استوانه‌ای انجام می‌شود و نتایج آن بر حسب مگاپاسکال (MPa) یا پوند بر اینچ مربع (psi) بیان می‌شود.</p>
+            <h2><span class="ql-font-Doran">مقاومت کششی بتن (Tensile Strength)</span></h2>
+            <p>·&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;تعریف: میزان تحمل بتن در برابر نیروهای کششی قبل از شکست.</p>
+            <p>·&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;اهمیت: مقاومت کششی بتن بسیار کمتر از مقاومت فشاری است و به همین دلیل، در طراحی سازه‌های بتنی معمولاً بتن با میلگردهای فولادی ترکیب می‌شود.</p>
+            <p>·&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;اندازه‌گیری: از روش‌های مختلفی مانند آزمون شکافتگی یا آزمون خمشی برای تعیین مقاومت کششی بتن استفاده می‌شود.</p>
+            <h2><span class="ql-font-Doran">مقاومت خمشی بتن (Flexural Strength)</span></h2>
+            <p>·&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;تعریف: میزان تحمل بتن در برابر نیروهای خمشی.</p>
+            <p>·&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;اهمیت: این نوع مقاومت برای طراحی دال‌ها و تیرهای بتنی بسیار مهم است.</p>
+            <p>·&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;اندازه‌گیری: از آزمون خمش سه نقطه‌ای بر روی نمونه‌های پرتو بتنی استفاده می‌شود.</p>
+            <h2><span class="ql-font-Doran">مقاومت برشی (Shear Strength)</span></h2>
+            <p>·&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;تعریف: میزان تحمل بتن در برابر نیروهای برشی.</p>
+            <p class="ql-align-justify">·&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;اهمیت: این نوع مقاومت برای طراحی عناصر سازه‌ای مانند تیرها و ستون‌ها مهم است.</p>
+            <p>&nbsp;</p>
+            <h1><span class="ql-font-Doran">عوامل مؤثر بر مقاومت بتن </span></h1>
+            <h2><span class="ql-font-Doran">مواد افزودنی بتن (Admixtures)</span></h2>
+            <p>·&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;استفاده از مواد افزودنی مانند فوق‌روان‌کننده‌ها، تسریع‌کننده‌ها، و میکروسیلیس می‌تواند بهبود قابل توجهی در مقاومت بتن ایجاد کند.</p>
+            <h2><span class="ql-font-Doran">نسبت آب به سیمان (Water-Cement Ratio)</span></h2>
+            <p>·&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;کاهش نسبت آب به سیمان باعث افزایش مقاومت بتن می‌شود، زیرا آب زیاد باعث ایجاد حفره‌ها و کاهش تراکم بتن می‌شود.</p>
+            <p>نوع و کیفیت سیمان</p>
+            <p>·&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;نوع سیمان و کیفیت آن بر مقاومت نهایی بتن تأثیر مستقیم دارد.</p>
+            <h2><span class="ql-font-Doran">سنگدانه‌ها (Aggregates)</span></h2>
+            <p>·&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;نوع، اندازه، شکل و کیفیت سنگدانه‌ها می‌تواند مقاومت بتن را تحت تأثیر قرار دهد. سنگدانه‌های با کیفیت بالا و تراکم مناسب به افزایش مقاومت بتن کمک می‌کنند.</p>
+            <p>شرایط عمل‌آوری (Curing Conditions)</p>
+            <p class="ql-align-justify">·&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;شرایط عمل‌آوری بتن، شامل دما و رطوبت، بر فرآیند هیدراتاسیون سیمان و در نتیجه بر مقاومت نهایی بتن تأثیرگذار است. عمل‌آوری مناسب می‌تواند به افزایش مقاومت بتن کمک کند.</p>
+            <p>&nbsp;</p>
+            <h1><span class="ql-font-Doran">انواع مختلف ضعف‌های سازه‌های بتنی </span></h1>
+            <p>سازه‌های بتنی می‌توانند در طول زمان به دلایل مختلف دچار ضعف‌های متعددی شوند. این ضعف‌ها می‌توانند ناشی از شرایط محیطی، طراحی نادرست، کیفیت پایین مصالح، یا عدم رعایت استانداردهای اجرایی باشند. در ادامه، انواع مختلف ضعف‌های سازه‌های بتنی لیست شده‌اند:</p>
+            <h2><span class="ql-font-Doran">۱. ترک‌خوردگی بتن</span></h2>
+            <p>·&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ترک‌های حرارتی: ناشی از تغییرات دما و انقباض و انبساط بتن.</p>
+            <p>·&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ترک‌های جمع‌شدگی پلاستیک: به دلیل از دست دادن سریع آب در سطح بتن تازه.</p>
+            <p>·&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ترک‌های جمع‌شدگی خشک: به دلیل از دست دادن رطوبت در طول زمان.</p>
+            <p>·&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ترک‌های نشست: به علت نشست یا جابه‌جایی در پایه‌ها و زیرساخت‌ها.</p>
+            <p>·&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ترک‌های خمشی: ناشی از بارگذاری اضافی یا طراحی نادرست.</p>
+            <p>·&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ترک‌های انقباضی: به دلیل کاهش حجم بتن در زمان گیرش.</p>
+            <h2><span class="ql-font-Doran">۲. پوسته‌شدن و جداشدگی بتن</span></h2>
+            <p>·&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;پوسته‌شدن سطحی: به دلیل انجماد و ذوب مکرر در مناطق سردسیر.</p>
+            <p>·&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;جداشدگی لایه‌های بتن: به علت عدم تراکم مناسب یا استفاده از آب اضافی در مخلوط بتن.</p>
+            <p>·&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;جداشدگی سنگدانه‌ها: به دلیل عدم همگنی در مخلوط بتن.</p>
+            <h2><span class="ql-font-Doran">۳. خوردگی میلگردها</span></h2>
+            <p>·&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;خوردگی ناشی از کلریدها: به دلیل نفوذ آب حاوی کلرید (مانند آب دریا) که باعث زنگ‌زدگی میلگردها می‌شود.</p>
+            <p>·&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;خوردگی ناشی از کربناته‌شدن: به دلیل واکنش دی‌اکسید کربن با هیدروکسید کلسیم موجود در بتن که به خوردگی میلگردها منجر می‌شود.</p>
+            <h2><span class="ql-font-Doran">۴. نفوذپذیری و جذب آب</span></h2>
+            <p>·&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;نفوذ آب: به دلیل عدم آب‌بندی مناسب که می‌تواند باعث خرابی و زوال بتن شود.</p>
+            <p>·&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;جذب آب و رطوبت: که می‌تواند منجر به یخ‌زدگی و ترک‌خوردگی یا رشد قارچ و کپک شود.</p>
+            <h2><span class="ql-font-Doran">۵. خرابی‌های شیمیایی</span></h2>
+            <p>·&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;حمله سولفاتی: به دلیل وجود سولفات‌ها در آب یا خاک که با اجزای سیمان واکنش می‌دهند و باعث خرابی بتن می‌شوند.</p>
+            <p>·&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;حمله اسیدی: ناشی از تماس بتن با مواد شیمیایی اسیدی که سیمان را تجزیه می‌کنند.</p>
+            <p>·&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;واکنش قلیایی-سیلیسی (ASR): واکنش بین سیلیس موجود در سنگدانه‌ها و قلیایی‌های سیمان که باعث ترک‌خوردگی و تورم بتن می‌شود.</p>
+            <h2><span class="ql-font-Doran">۶. خرابی‌های فیزیکی</span></h2>
+            <p>·&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;سایش و فرسایش: ناشی از تردد یا جریان آب و مواد ساینده بر روی سطح بتن.</p>
+            <p>·&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;یخ‌زدگی و ذوب مکرر: که باعث ایجاد ترک‌ها و خرابی‌های سطحی می‌شود.</p>
+            <p>·&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;تورم و جمع‌شدگی: ناشی از تغییرات رطوبت یا دما.</p>
+            <h2><span class="ql-font-Doran">۷. ضعف‌های ناشی از بارگذاری</span></h2>
+            <p>·&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;بارگذاری اضافی: که باعث ترک‌خوردگی یا خمیدگی بیش از حد سازه می‌شود.</p>
+            <p>·&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;بارگذاری دینامیکی: ناشی از زلزله، بادهای شدید، یا بارهای ضربه‌ای که باعث خرابی‌های جدی در سازه می‌شود.</p>
+            <p>·&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;نشست پی: که منجر به ترک‌خوردگی و جابه‌جایی سازه می‌شود.</p>
+            <h2><span class="ql-font-Doran">۸. ضعف‌های ناشی از طراحی و اجرا</span></h2>
+            <p>·&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;طراحی نادرست: مانند عدم در نظر گرفتن بارهای محیطی یا دینامیکی.</p>
+            <p>·&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;اجرای نادرست: شامل تراکم ناکافی بتن، استفاده از مخلوط نامناسب، یا عدم رعایت استانداردها در طول ساخت.</p>
+            <p>·&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;کیفیت پایین مصالح: که می‌تواند باعث ضعف کلی سازه شود.</p>
+            <h2><span class="ql-font-Doran">۹. فرسودگی و پیری بتن</span></h2>
+            <p>·&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;پیری بتن: به دلیل اثرات محیطی طولانی‌مدت مانند نفوذ رطوبت، تغییرات دما، و تابش UV که باعث کاهش مقاومت و دوام بتن می‌شود.</p>
+            <p>·&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;کاهش مقاومت مکانیکی: به مرور زمان و تحت تاثیر شرایط محیطی مختلف.</p>
+            <h2><span class="ql-font-Doran">۱۰. آسیب‌های ناشی از عوامل زیست‌محیطی</span></h2>
+            <p>·&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;حمله قارچ‌ها و کپک‌ها: به خصوص در محیط‌های مرطوب که می‌تواند به ساختار بتن آسیب برساند.</p>
+            <p>·&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;رشد گیاهان در ترک‌ها: که می‌تواند باعث گسترش ترک‌ها و کاهش استحکام سازه شود.</p>
+            <p><br /></p>
+            <p>&nbsp;</p>
+            <h1><span class="ql-font-Doran">مقاومت سازه‌های بتنی در برابر شرایط محیطی سخت: نقش مواد افزودنی و آب‌بندی</span></h1>
+            <h2><span class="ql-font-Doran">۱. نقش مواد افزودنی در بهبود مقاومت بتن</span></h2>
+            <p>·&nbsp;&nbsp;&nbsp;مواد افزودنی به موادی اطلاق می‌شود که به مخلوط بتن افزوده می‌شوند تا خواص فیزیکی و شیمیایی آن را بهبود بخشند. این مواد به دسته‌های مختلفی تقسیم می‌شوند که هر یک می‌تواند تأثیرات متفاوتی بر روی بتن داشته باشد.</p>
+            <h3><span class="ql-font-Doran">۱.۱. ابر روان‌کننده‌ها</span></h3>
+            <p>·&nbsp;&nbsp;&nbsp;ابر روان‌کننده‌ها مانند Strusin N510 و&nbsp;Strusin Dragon-WSR501 از جمله مواد افزودنی هستند که باعث کاهش میزان آب مورد نیاز در مخلوط بتن می‌شوند. این مواد با کاهش نسبت آب به سیمان، مقاومت نهایی بتن را افزایش می‌دهند و در عین حال موجب کاهش نفوذپذیری و افزایش دوام آن در برابر شرایط محیطی سخت می‌شوند.</p>
+            <h3><span class="ql-font-Doran">۲.۱. افزودنی‌های آب‌بند کننده</span></h3>
+            <p>·&nbsp;&nbsp;&nbsp;افزودنی‌های آب‌بند کننده مانند Struseal WS و Strusin Dragon-WSR501 به بتن افزوده می‌شوند تا نفوذپذیری آن در برابر آب را کاهش دهند. این مواد با ایجاد یک شبکه کریستالی در داخل بتن، مسیرهای نفوذ آب را مسدود می‌کنند و از ورود آب و مواد خورنده به داخل سازه جلوگیری می‌کنند.</p>
+            <h3><span class="ql-font-Doran">۳.۱. افزودنی‌های ضد یخ‌زدگی</span></h3>
+            <p>·&nbsp;&nbsp;&nbsp;برای سازه‌هایی که در مناطق سردسیر قرار دارند، استفاده از افزودنی‌های ضد یخ‌زدگی مانند Struset Nitro ضروری است. این افزودنی‌ها باعث کاهش نقطه انجماد آب در داخل بتن می‌شوند و از تشکیل یخ در منافذ بتن جلوگیری می‌کنند که این امر مانع از ترک‌خوردگی و شکست بتن در شرایط سرد می‌شود.</p>
+            <h3><span class="ql-font-Doran">۴.۱. ژل‌های میکروسیلیس</span></h3>
+            <p>·&nbsp;&nbsp;&nbsp;ژل‌های میکروسیلیس مانند Strumin Supergel و Strumin Power از جمله افزودنی‌های پوزولانی هستند که به عنوان جایگزین بخشی از سیمان در مخلوط بتن استفاده می‌شوند. این مواد با کاهش نفوذپذیری و افزایش مقاومت بتن در برابر مواد شیمیایی خورنده، نقش مهمی در بهبود دوام سازه‌های بتنی دارند.</p>
+            <p>&nbsp;</p>
+            <h2><span class="ql-font-Doran">۲.نقش آب‌بندی در افزایش دوام سازه‌های بتنی</span></h2>
+            <p>آب‌بندی یکی از مهم‌ترین مراحل در ساخت سازه‌های بتنی است که می‌تواند تأثیر زیادی بر دوام و عملکرد آن‌ها در برابر شرایط محیطی سخت داشته باشد. آب‌بندی به دو دسته کلی تقسیم می‌شود: آب‌بندی داخلی و آب‌بندی خارجی.</p>
+            <h3><span class="ql-font-Doran">۲.۱. آب‌بندی داخلی</span></h3>
+            <p>·&nbsp;&nbsp;&nbsp;آب‌بندی داخلی به فرآیندی اطلاق می‌شود که در آن مواد آب‌بند کننده به مخلوط بتن افزوده می‌شوند تا نفوذپذیری آن کاهش یابد. محصولات مانند Struseal C512 و Struproof Wl از جمله موادی هستند که به عنوان آب‌بند داخلی در بتن استفاده می‌شوند. این مواد با تشکیل کریستال‌های غیرمحلول در منافذ بتن، مسیرهای نفوذ آب را مسدود می‌کنند و از ورود آب به داخل سازه جلوگیری می‌کنند.</p>
+            <p>&nbsp;</p>
+            <h3><span class="ql-font-Doran">۲.۲. آب‌بندی خارجی</span></h3>
+            <p>·&nbsp;&nbsp;&nbsp;آب‌بندی خارجی به فرآیندی اشاره دارد که در آن لایه‌های محافظتی بر روی سطح بتن اعمال می‌شود تا از نفوذ آب و مواد خورنده به داخل سازه جلوگیری شود. محصولات مانند&nbsp;Strutop Brush و Struseal C514 برای آب‌بندی خارجی بتن استفاده می‌شوند. این مواد با ایجاد یک لایه محافظ بر روی سطح بتن، از نفوذ آب و مواد خورنده به داخل سازه جلوگیری می‌کنند و در عین حال اجازه تنفس بتن را می‌دهند تا رطوبت داخلی آن تبخیر شود.</p>
+            <p>&nbsp;</p>
+            <h2><span class="ql-font-Doran">۳. مطالعات موردی و تجربیات عملی</span></h2>
+            <p>در بسیاری از پروژه‌های ساختمانی بزرگ و مهم، استفاده از مواد افزودنی و آب‌بندی نقش حیاتی در افزایش دوام و عملکرد سازه‌های بتنی داشته است. به عنوان مثال، در ساخت سدها، تونل‌ها و پل‌های بزرگ، استفاده از ژل‌های میکروسیلیس و افزودنی‌های آب‌بند کننده از اهمیت ویژه‌ای برخوردار است. این مواد نه تنها مقاومت بتن را در برابر نفوذ آب و مواد خورنده افزایش می‌دهند، بلکه باعث بهبود خواص مکانیکی و افزایش عمر مفید سازه‌ها نیز می‌شوند.</p>
+            <p>&nbsp;</p>
+            <h1><span class="ql-font-Doran">انتخاب بهترین روش مقاوم سازی بتن</span></h1>
+            <h1><img src="../serverAssets/blogs/1724342070_ روش مقاوم سازی بتن.jpg" /></h1>
+            <p>مقاوم‌سازی ساختمان‌های اسکلت بتنی یک فرآیند پیچیده است که تحت تأثیر عوامل مختلفی قرار دارد. انتخاب بهترین روش مقاوم‌سازی بستگی به شرایط خاص هر پروژه، نوع آسیب‌دیدگی، و اهداف مقاوم‌سازی دارد. در زیر به بررسی عوامل مؤثر در انتخاب بهترین روش مقاوم‌سازی ساختمان‌های اسکلت بتنی پرداخته می‌شود:</p>
+            <h2><span class="ql-font-Doran">۱. نوع و میزان آسیب‌دیدگی</span></h2>
+            <p>·&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ترک‌ها و شکستگی‌ها: اگر ساختمان دارای ترک‌ها و شکستگی‌های گسترده باشد، ممکن است نیاز به تقویت با الیاف پلیمری (FRP) یا استفاده از پوشش‌های محافظتی وجود داشته باشد.</p>
+            <p>·&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;خوردگی آرماتورها: در صورت وجود خوردگی در آرماتورهای فولادی، استفاده از مواد ضدخوردگی و پوشش‌های حفاظتی می‌تواند مؤثر باشد.</p>
+            <p>·&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;افت ظرفیت باربری: اگر ساختمان ظرفیت باربری کافی را از دست داده باشد، می‌توان از روش‌های افزایش مقطع یا تقویت با صفحات فولادی استفاده کرد.</p>
+            <h2><span class="ql-font-Doran">۲. نوع سازه و کاربرد آن</span></h2>
+            <p>·&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ساختمان‌های مسکونی: برای ساختمان‌های مسکونی که نیاز به حداقل تداخل در زندگی روزمره دارند، روش‌های غیرمخرب مانند استفاده از کامپوزیت‌های FRP مناسب‌تر هستند.</p>
+            <p>·&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;سازه‌های صنعتی و تجاری: در این سازه‌ها، که ممکن است بارهای دینامیکی بیشتری تحمل کنند، استفاده از روش‌های تقویتی سنگین‌تری مانند جک‌های پیش‌تنیده یا افزودن ستون‌ها و تیرهای جدید ممکن است لازم باشد.</p>
+            <p>&nbsp;</p>
+            <h2><span class="ql-font-Doran">۳. شرایط محیطی</span></h2>
+            <p>·&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;رطوبت و خوردگی: در مناطقی که رطوبت و خطر خوردگی بالا است، استفاده از مواد مقاوم در برابر خوردگی و رطوبت مانند مواد پلیمری و رزین‌ها توصیه می‌شود.</p>
+            <p>·&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;زلزله: در مناطق زلزله‌خیز، تقویت سازه با استفاده از سیستم‌های مقاوم در برابر لرزه مانند دیوارهای برشی یا قاب‌های مقاوم لرزه‌ای ضروری است.</p>
+            <h2><span class="ql-font-Doran">۴. محدودیت‌های اجرایی و مالی</span></h2>
+            <p>·&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;بودجه پروژه: محدودیت‌های مالی می‌تواند تأثیر زیادی بر انتخاب روش مقاوم‌سازی داشته باشد. روش‌های مقرون‌به‌صرفه مانند استفاده از مواد افزایشی ممکن است ترجیح داده شود.</p>
+            <p>·&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;محدودیت‌های فضایی: در صورت محدودیت فضایی، روش‌های کم‌جا مانند استفاده از الیاف پلیمری یا افزایش مقطع داخلی ممکن است مناسب‌تر باشند.</p>
+            <p>·&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;زمان اجرا: زمان مورد نیاز برای اجرای پروژه می‌تواند تعیین‌کننده باشد. روش‌های سریع‌الاجرا مانند استفاده از کامپوزیت‌های FRP یا مواد تزریقی ممکن است ترجیح داده شوند.</p>
+            <h2><span class="ql-font-Doran">۵. اهداف مقاوم‌سازی</span></h2>
+            <p>·&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;افزایش ظرفیت باربری: در مواردی که هدف افزایش ظرفیت باربری سازه است، روش‌های تقویتی سنگین‌تری مانند افزودن ستون‌ها و تیرهای جدید یا استفاده از جک‌های پیش‌تنیده ممکن است مناسب باشد.</p>
+            <p>·&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;بهبود عملکرد لرزه‌ای: در مناطقی با خطر زلزله، بهبود عملکرد لرزه‌ای سازه با استفاده از دیوارهای برشی، قاب‌های مقاوم لرزه‌ای یا میراگرهای لرزه‌ای ممکن است ضروری باشد.</p>
+            <p>·&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;افزایش دوام و عمر مفید سازه: در مواردی که هدف افزایش دوام و عمر مفید سازه است، استفاده از مواد ضدخوردگی، پوشش‌های محافظتی و روش‌های تعمیر و تقویت ترک‌ها و شکستگی‌ها مؤثر خواهد بود.</p>
+            <h2><span class="ql-font-Doran">۶. نوع مصالح مورد استفاده</span></h2>
+            <p>·&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;بتن و فولاد: استفاده از مواد تقویتی مانند الیاف پلیمری (FRP)، صفحات فولادی، و مواد تزریقی می‌تواند به بهبود مقاومت و عملکرد سازه کمک کند.</p>
+            <p>·&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;مواد پلیمری و رزین‌ها: در مواردی که نیاز به مقاومت در برابر خوردگی و رطوبت وجود دارد، استفاده از مواد پلیمری و رزین‌ها توصیه می‌شود.</p>
+            <h2><span class="ql-font-Doran">۷. تأثیر بر ظاهر و معماری ساختمان</span></h2>
+            <p>·&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;حفظ ظاهر معماری: در ساختمان‌های تاریخی یا بناهای با ارزش معماری، انتخاب روش‌های مقاوم‌سازی که تأثیری بر ظاهر ساختمان نداشته باشند، مهم است. روش‌هایی مانند استفاده از کامپوزیت‌های FRP یا تقویت داخلی می‌تواند مناسب باشد.</p>
+            <p>&nbsp;</p>
+            <h2><span class="ql-font-Doran">اما در نهایت؛</span></h2>
+            <p>مقاوم‌سازی سازه‌های بتنی در برابر شرایط محیطی سخت، یک فرآیند پیچیده و حیاتی است که نیاز به بررسی دقیق و انتخاب مناسب‌ترین روش‌ها دارد. در این مقاله، تحلیل‌های گسترده‌ای از مقاومت بتن، انواع ضعف‌های رایج در سازه‌های بتنی، و نقش مواد افزودنی و تکنیک‌های آب‌بندی ارائه شد. همچنین، عوامل کلیدی در انتخاب بهترین روش‌های مقاوم‌سازی بررسی گردید.</p>
+            <p>مقاومت بتن به عنوان یکی از اصلی‌ترین ویژگی‌های فیزیکی و مکانیکی آن، تأثیر زیادی بر پایداری و عمر مفید سازه‌های بتنی دارد. ضعف‌های متداولی همچون ترک‌خوردگی، خوردگی آرماتورها، و افت ظرفیت باربری می‌توانند منجر به کاهش عملکرد و ایمنی سازه‌ها شوند. به همین دلیل، استفاده از مواد افزودنی مانند الیاف پلیمری، رزین‌های ضدخوردگی، و تکنیک‌های آب‌بندی می‌تواند به طور مؤثری به بهبود مقاومت بتن و دوام سازه‌ها کمک کند.</p>
+            <p>انتخاب مناسب‌ترین روش مقاوم‌سازی بستگی به مجموعه‌ای از عوامل شامل نوع و میزان آسیب‌دیدگی، شرایط محیطی، محدودیت‌های اجرایی و مالی، و اهداف مقاوم‌سازی دارد. روش‌هایی مانند استفاده از کامپوزیت‌های FRP، افزایش مقاطع، و جک‌های پیش‌تنیده می‌توانند بر اساس نیازهای خاص هر پروژه به کار گرفته شوند.</p>
+            <p>در نهایت، سرمایه‌گذاری در بهبود مقاومت و دوام سازه‌های بتنی نه تنها به افزایش طول عمر سازه‌ها و کاهش هزینه‌های نگهداری کمک می‌کند، بلکه ایمنی و کارایی ساختمان‌ها را نیز تضمین می‌نماید. به کارگیری تکنیک‌های مناسب مقاوم‌سازی و استفاده از مواد با کیفیت بالا، نقش کلیدی در موفقیت پروژه‌های ساختمانی و عمر مفید سازه‌ها ایفا می‌کند.</p>
+            <p>&nbsp;</p>
+            <h2><span class="ql-font-Doran">منابع:</span></h2>
+            <p><span class="ql-size-small">روش های مقاوم سازی و تقویت سازه بتنی - نویسنده: مهرداد مشایخ فر، نشریه مجله عمران و پروژه&nbsp;- خرداد ۱۴۰۲</span></p>
+            <p><span class="ql-size-small">مروری بر مباحث مقاوم سازی سازه های بتنی - نویسنده: فربد دائمی، دومین کنفرانس محیط زیست، عمران ،معماری و شهرسازی – ۱۳۹۹</span></p>
+            <p><span class="ql-size-small">روشهای مقاوم سازی سازه های بتنی - نویسندگان: مجتبی اصغری سرخی ، یحیی شربتی ناوان ، الهام بخشیان لموکی ، چهاردهمین کنفرانس دانشجویان مهندسی عمران سراسر کشور – ۱۳۸۷</span></p>
+            <p><span class="ql-size-small">ترمیم و مقاوم سازی سازه های بتنی - نویسنده: علیرضا سرتیپی زاده، نشریه نشریه مطالعات مهندسی انتظامی&nbsp;- زمستان ۱۳۹۰</span></p>
+            <p><span class="ql-size-small">تقویت، ترمیم و مقاوم سازی سازه های بتنی - نویسنده: خالد بهرام زاده، کنفرانس بین المللی معماری، شهرسازی، عمران، هنر و محیط زیست؛ افق های آینده، نگاه به گذشته - ۱۳۹۴</span></p>
+            <p><span class="ql-size-small">Pfeifer, C. (2014). Concrete Durability: A Review. Journal of Structural Engineering, 140(6), 04014010. https://doi.org/10.1061/(ASCE)ST.1943-541X.0000923</span></p>
+            <p><span class="ql-size-small">Neville, A. M. (2010). Properties of Concrete. 5th Edition. Pearson Education.</span></p>
+            <p><span class="ql-size-small">ACI Committee 318. (2019). Building Code Requirements for Structural Concrete (ACI 318-19) and Commentary. American Concrete Institute.</span></p>
+            <p><span class="ql-size-small">Mehta, P. K., &amp; Monteiro, P. J. M. (2014). Concrete: Microstructure, Properties, and Materials. 4th Edition. McGraw-Hill Education.</span></p>
+            <p><span class="ql-size-small">BS 8110-1. (1997). Structural Use of Concrete – Part 1: Code of Practice for Design and Construction. British Standards Institution.</span></p>
+            <p><span class="ql-size-small">Khan, M. N., &amp; Rizvi, S. M. A. (2006). Concrete Technology. 2nd Edition. McGraw-Hill.</span></p>
+            <p><span class="ql-size-small">European Committee for Standardization (CEN). (2004). Eurocode 2: Design of Concrete Structures - Part 1-1: General Rules and Rules for Buildings. European Standard.</span></p>
+            <p><span class="ql-size-small">Siddique, R., &amp; Klaus, J. (2011). Sustainable Construction Materials: Concrete. Springer.</span></p>
+            <p><span class="ql-size-small">Berrocal, J. M., &amp; Torrenti, J. M. (2011). Advanced Concrete Technology. Elsevier.</span></p>
+            <p><span class="ql-size-small">Hewlett, P. C., &amp; Liska, J. (2004). Lea's Chemistry of Cement and Concrete. 4th Edition. Butterworth-Heinemann.</span></p>
+            <p><span class="ql-size-small">Ramsay, J. D. (2000). Concrete Repair and Rehabilitation. CRC Press.</span></p>
+            <p><span class="ql-size-small">Papadakis, V. G., &amp; Vayenas, C. G. (2002). Hydration, Setting, and Durability of Cementitious Materials. Springer.</span></p>
+            <p><span class="ql-size-small">American Concrete Institute (ACI). (2003). Guide for the Repair of Concrete. ACI 546R-03.</span></p>
+            <p><span class="ql-size-small">El-Dakhakhni, W., &amp; El-Khalil, E. (2013). Strengthening of Concrete Structures Using Fiber Reinforced Polymers. Springer.</span></p>
+            <p><span class="ql-size-small">Teng, J. G., &amp; Yu, T. (2009). FRP Strengthened Concrete Structures. Wiley.</span></p>
+            <p>&nbsp;</p>
+            <p><a href="https://cdn.glitch.global/62cf8202-93e0-4197-a517-cb7c64990d83/%D8%A8%D9%87%D8%A8%D9%88%D8%AF%20%D8%AF%D9%88%D8%A7%D9%85%20%D9%88%20%D9%85%D9%82%D8%A7%D9%88%D9%85%D8%AA%20%D8%B3%D8%A7%D8%B2%D9%87%20%D8%A8%D8%AA%D9%86%DB%8C.pdf" target="_blank">دانلود pdf مقاله</a></p>
+            <p>ویراستار و همکار تحقیقاتی:<a href="https://firstibox.glitch.me/" target="_blank"> ایلیا هادی نژاد</a></p>
+            <p>این مقاله توسط واحد تحقیق و توسعه شرکت بسپار بتن ایرانیان هوشمند (استرامیکس) بررسی و تأیید علمی شده است.</p>
+          </div>
+          <div class="blogTags">
+            <a data-cursor="pointerClickable" href="">#مقاوم‌سازی بتن</a><span>&nbsp;&nbsp;/&nbsp;&nbsp;</span><a data-cursor="pointerClickable" href="">#سازه‌های بتنی</a><span>&nbsp;&nbsp;/&nbsp;&nbsp;</span><a data-cursor="pointerClickable" href="">#دوام بتندوام بتن</a><span>&nbsp;&nbsp;/&nbsp;&nbsp;</span><a data-cursor="pointerClickable" href="">#مواد افزودنی بتن</a><span>&nbsp;&nbsp;/&nbsp;&nbsp;</span><a data-cursor="pointerClickable" href="">#ضعف‌های سازه‌های بتنی</a><span>&nbsp;&nbsp;/&nbsp;&nbsp;</span><a data-cursor="pointerClickable" href="">#ترک‌خوردگی بتن</a><span>&nbsp;&nbsp;/&nbsp;&nbsp;</span><a data-cursor="pointerClickable" href="">#خوردگی میلگردها</a><span>&nbsp;&nbsp;/&nbsp;&nbsp;</span><a data-cursor="pointerClickable" href="">#مقاومت فشاری بتن</a><span>&nbsp;&nbsp;/&nbsp;&nbsp;</span><a data-cursor="pointerClickable" href="">#آب‌بندی بتن</a><span>&nbsp;&nbsp;/&nbsp;&nbsp;</span><a data-cursor="pointerClickable" href="">#افزایش عمر مفید سازه‌ها</a
+            ><span>&nbsp;&nbsp;/&nbsp;&nbsp;</span><a data-cursor="pointerClickable" href="">#تکنیک‌های مقاوم‌سازی بتن</a><span>&nbsp;&nbsp;/&nbsp;&nbsp;</span><a data-cursor="pointerClickable" href="">#بتن ضد یخ‌زدگی</a><span>&nbsp;&nbsp;/&nbsp;&nbsp;</span><a data-cursor="pointerClickable" href="">#ژل‌های میکروسیلیس</a><span>&nbsp;&nbsp;/&nbsp;&nbsp;</span><a data-cursor="pointerClickable" href="">#ساختمان‌های بتنی</a><span>&nbsp;&nbsp;/&nbsp;&nbsp;</span><a data-cursor="pointerClickable" href="">#تعمیر و نگهداری سازه‌های بتنی</a><span>&nbsp;&nbsp;/&nbsp;&nbsp;</span><a data-cursor="pointerClickable" href="">#بتن مقاوم در برابر شرایط محیطی</a>
+          </div>
+        </section>
+        <section class="section3">
+          <div class="cardsContainer"></div>
+        </section>
+        <section class="section4" data-cursor="pointerWhite">
+          <p>بهترین مطالب هر ما</p>
+          <p>ارسال میشه به صندوق پستی شما!</p>
+          <input data-cursor="pointerClickable" type="email" id="email" name="email" placeholder="ایمیل" oninput="validateEmailInput(this)" />
+          <p id="emailFeedback"></p>
+          <p>این بالا کلیک کن و ایمیلت رو بنویس</p>
+          <p class="mouseSticky" data-cursor="pointerClickable" onclick="processEmailInput()"><span class="iconFlesh"></span>ثبت</p>
+          <div>
+            <a data-cursor="pointerFocus" href="../">صفحه‌ی اصلی</a>
+            <a data-cursor="pointerFocus" href="../products/index.html">کاتالوگ محصولات</a>
+            <a data-cursor="pointerFocus">info@strumix.com</a>
+            <a data-cursor="pointerFocus" href="../contact/index.html">ارتباط با ما</a>
+          </div>
+        </section>
+        <section class="section5SpaceHolder"></section>
+      </div>
+      <section class="section5" data-cursor="pointerWhite">
+        <div>
+          <div class="infiniteScrollText" data-cursor="pointerWaveBorder">
+            <div>
+              <span>Strumix&nbsp;&nbsp;-&nbsp;&nbsp;</span>
+              <span>Strumix&nbsp;&nbsp;-&nbsp;&nbsp;</span>
+              <span>Strumix&nbsp;&nbsp;-&nbsp;&nbsp;</span>
+              <span>Strumix&nbsp;&nbsp;-&nbsp;&nbsp;</span>
+              <span>Strumix&nbsp;&nbsp;-&nbsp;&nbsp;</span>
+              <span>Strumix&nbsp;&nbsp;-&nbsp;&nbsp;</span>
+              <span>Strumix&nbsp;&nbsp;-&nbsp;&nbsp;</span>
+              <span>Strumix&nbsp;&nbsp;-&nbsp;&nbsp;</span>
+              <span>Strumix&nbsp;&nbsp;-&nbsp;&nbsp;</span>
+            </div>
+          </div>
+          <div class="infiniteScrollText" data-cursor="pointerWaveBorder">
+            <div>
+              <span>&nbsp;-&nbsp;بسپار بتن ايرانيان هوشمند</span>
+              <span>&nbsp;-&nbsp;بسپار بتن ايرانيان هوشمند</span>
+              <span>&nbsp;-&nbsp;بسپار بتن ايرانيان هوشمند</span>
+              <span>&nbsp;-&nbsp;بسپار بتن ايرانيان هوشمند</span>
+            </div>
+          </div>
+        </div>
+        <div>
+          <a data-cursor="pointerClickable" href="" target="_blank">
+            <span class="iconFlesh"></span>
+            <p>نمایش یکی از مقالات به صورت تصادفی</p>
+            <span></span>
+          </a>
+          <a data-cursor="pointerClickable" href="./index.html">
+            <span class="iconFlesh"></span>
+            <p>لیست مقالات</p>
+            <span></span>
+          </a>
+          <a data-cursor="pointerClickable" target="_blank" href="https://www.instagram.com/strumix.co/">
+            <span class="iconFlesh"></span>
+            <p>اخبار و مقالات دیگر در اینستاگرام ما</p>
+            <span></span>
+          </a>
+        </div>
+      </section>
+    </main>
+  </body>
 </html>
