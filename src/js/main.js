@@ -290,33 +290,11 @@ window.addEventListener("load", (event) => {
   var duration = 0.5;
   var easeType = "none";
 
-  menuTimeline
-    .from("nav .products", { y: "-100%", duration: duration, ease: "sine.out" })
-    .to(`${navDivs}(2)`, { opacity: 0, duration: duration, ease: easeType }, 0.5)
-    .to(`${navDivs}(2) > p`, { text: "", duration: duration, ease: easeType }, 0.5)
-    .to(`${navDivs}(3)`, { opacity: 0, duration: duration, ease: easeType }, 0.5)
-    .to(`${navDivs}(3) > p`, { text: "", duration: duration, ease: easeType }, 0.5)
-    .to(`${navDivs}(4)`, { border: "0.1vmin black solid", duration: duration, ease: easeType }, 0.5)
-    .to(`${navDivs}(4) > p`, { text: "محصولات", scale: "1.3", duration: duration, ease: easeType }, 0.5)
-    .to(`${navDivs}(5)`, { opacity: 0, duration: duration, ease: easeType }, 0.5)
-    .to(`${navDivs}(5) > p`, { text: "", duration: duration, ease: easeType }, 0.5)
-    .to(`${navDivs}(6)`, { opacity: 0, duration: duration, ease: easeType }, 0.5)
-    .to(`${navDivs}(6) > p`, { text: "", duration: duration, ease: easeType }, 0.5);
+  menuTimeline.from("nav .products", { y: "-100%", duration: duration, ease: "sine.out" }).to(`${navDivs}(2)`, { opacity: 0, duration: duration, ease: easeType }, 0.5).to(`${navDivs}(2) > p`, { text: "", duration: duration, ease: easeType }, 0.5).to(`${navDivs}(3)`, { opacity: 0, duration: duration, ease: easeType }, 0.5).to(`${navDivs}(3) > p`, { text: "", duration: duration, ease: easeType }, 0.5).to(`${navDivs}(4)`, { border: "0.1vmin black solid", duration: duration, ease: easeType }, 0.5).to(`${navDivs}(4) > p`, { text: "محصولات", scale: "1.3", duration: duration, ease: easeType }, 0.5).to(`${navDivs}(5)`, { opacity: 0, duration: duration, ease: easeType }, 0.5).to(`${navDivs}(5) > p`, { text: "", duration: duration, ease: easeType }, 0.5).to(`${navDivs}(6)`, { opacity: 0, duration: duration, ease: easeType }, 0.5).to(`${navDivs}(6) > p`, { text: "", duration: duration, ease: easeType }, 0.5);
 
   var menuLanguageTimeline = gsap.timeline({ paused: true, reversed: true });
 
-  menuLanguageTimeline
-    .from("nav .products", { y: "-100%", duration: duration, ease: "sine.out" })
-    .to(`${navDivs}(2)`, { opacity: 0, duration: duration, ease: easeType }, 0.5)
-    .to(`${navDivs}(2) > p`, { text: "", duration: duration, ease: easeType }, 0.5)
-    .to(`${navDivs}(3)`, { opacity: 0, duration: duration, ease: easeType }, 0.5)
-    .to(`${navDivs}(3) > p`, { text: "", duration: duration, ease: easeType }, 0.5)
-    .to(`${navDivs}(4)`, { border: "0.1vmin black solid", duration: duration, ease: easeType }, 0.5)
-    .to(`${navDivs}(4) > p`, { text: "زبان وبسایت", scale: "1.3", duration: duration, ease: easeType }, 0.5)
-    .to(`${navDivs}(5)`, { opacity: 0, duration: duration, ease: easeType }, 0.5)
-    .to(`${navDivs}(5) > p`, { text: "", duration: duration, ease: easeType }, 0.5)
-    .to(`${navDivs}(6)`, { opacity: 0, duration: duration, ease: easeType }, 0.5)
-    .to(`${navDivs}(6) > p`, { text: "", duration: duration, ease: easeType }, 0.5);
+  menuLanguageTimeline.from("nav .products", { y: "-100%", duration: duration, ease: "sine.out" }).to(`${navDivs}(2)`, { opacity: 0, duration: duration, ease: easeType }, 0.5).to(`${navDivs}(2) > p`, { text: "", duration: duration, ease: easeType }, 0.5).to(`${navDivs}(3)`, { opacity: 0, duration: duration, ease: easeType }, 0.5).to(`${navDivs}(3) > p`, { text: "", duration: duration, ease: easeType }, 0.5).to(`${navDivs}(4)`, { border: "0.1vmin black solid", duration: duration, ease: easeType }, 0.5).to(`${navDivs}(4) > p`, { text: "زبان وبسایت", scale: "1.3", duration: duration, ease: easeType }, 0.5).to(`${navDivs}(5)`, { opacity: 0, duration: duration, ease: easeType }, 0.5).to(`${navDivs}(5) > p`, { text: "", duration: duration, ease: easeType }, 0.5).to(`${navDivs}(6)`, { opacity: 0, duration: duration, ease: easeType }, 0.5).to(`${navDivs}(6) > p`, { text: "", duration: duration, ease: easeType }, 0.5);
 
   document.querySelector(".hamburger").addEventListener("click", function () {
     if (!menuEnabled) {
@@ -421,7 +399,7 @@ window.addEventListener("load", (event) => {
   });
 
   function fetchDataForProducts() {
-    fetch(new URL("/products/products.json", baseUrl))
+    fetch(new URL("/serverAssets/products.json", baseUrl))
       .then((response) => response.json())
       .then((data) => {
         const selectedProducts = [];
@@ -478,7 +456,7 @@ window.addEventListener("load", (event) => {
       { text: "مقالات", href: baseUrl + "/blogs" },
       { text: "مدارک فنی", href: "#" },
       { text: "ارتباط با ما", href: baseUrl + "/contact" },
-      { text: "زبان وبسایت", href: "#" },
+      { text: "Language | تغییر زبان", href: "#" },
     ];
 
     for (var i = 0; i < links.length; i++) {
@@ -494,7 +472,7 @@ window.addEventListener("load", (event) => {
           generateSection();
         };
       }
-      if (links[i].text === "زبان وبسایت") {
+      if (links[i].text === "Language | تغییر زبان") {
         newLink.onclick = function () {
           toggleLanguageMenu();
           languageSelector.classList.add("visible");

@@ -32,7 +32,7 @@ let data = null;
 const fetchData = async () => {
   if (!data) {
     try {
-      data = await (await fetch("../products/products.json")).json();
+      data = await (await fetch("../serverAssets/products.json")).json();
     } catch (error) {
       console.error("Error fetching data:", error);
     }
@@ -57,10 +57,7 @@ const findProductsByName = (data, productName) => {
     for (const product of category.products) {
       const productNameFa = product.name.fa.toLowerCase();
       const productNameEn = product.name.en.toLowerCase();
-      if (
-        productNameFa.includes(productName.toLowerCase()) ||
-        productNameEn.includes(productName.toLowerCase())
-      ) {
+      if (productNameFa.includes(productName.toLowerCase()) || productNameEn.includes(productName.toLowerCase())) {
         foundProducts.push(product);
       }
     }
@@ -122,9 +119,7 @@ document.addEventListener("DOMContentLoaded", async () => {
     return async () => {
       const data = await fetchData();
       if (data) {
-        const categoryLists = data.categories.filter(
-          (category) => category.subCategory === subCategory
-        );
+        const categoryLists = data.categories.filter((category) => category.subCategory === subCategory);
         bottomSectionContainer.className = "bottomSectionContainer";
         bottomSectionContainer.innerHTML = "";
         let buttons = document.querySelectorAll(".selection .buttonCards");
@@ -143,12 +138,10 @@ document.addEventListener("DOMContentLoaded", async () => {
           });
           bottomSectionContainer.appendChild(buttonCard);
           productCount += renderProducts(category.products);
-          document
-            .getElementById(category.name)
-            .addEventListener("click", () => {
-              fetchAndLogProducts(category.name);
-              smoother.scrollTo(bottomSectionContainer, true, "bottom top");
-            });
+          document.getElementById(category.name).addEventListener("click", () => {
+            fetchAndLogProducts(category.name);
+            smoother.scrollTo(bottomSectionContainer, true, "bottom top");
+          });
         });
         const counter = document.querySelector(".counter");
         counter.textContent = `${productCount} محصول`;
@@ -205,15 +198,9 @@ document.addEventListener("DOMContentLoaded", async () => {
     bottomSectionContainer.innerHTML = "";
   };
 
-  document
-    .getElementById("concreteAdditive")
-    .addEventListener("click", fetchDataAndRender("concreteAdditive"));
-  document
-    .getElementById("constructionChemicals")
-    .addEventListener("click", fetchDataAndRender("constructionChemicals"));
-  document
-    .getElementById("waterstop")
-    .addEventListener("click", fetchDataAndRender("waterstop"));
+  document.getElementById("concreteAdditive").addEventListener("click", fetchDataAndRender("concreteAdditive"));
+  document.getElementById("constructionChemicals").addEventListener("click", fetchDataAndRender("constructionChemicals"));
+  document.getElementById("waterstop").addEventListener("click", fetchDataAndRender("waterstop"));
   document.getElementById("allProducts").addEventListener("click", () => {
     renderAllProducts();
     smoother.scrollTo(bottomSectionContainer, true, "bottom top");

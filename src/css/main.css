@@ -467,7 +467,8 @@ nav .products > div:nth-child(2) div img {
 }
 nav .products > div:nth-child(2) > a:nth-child(5),
 nav .products > div:nth-child(2) > a:nth-child(6),
-nav .products > div:nth-child(2) > a:nth-child(7) {
+nav .products > div:nth-child(2) > a:nth-child(7),
+nav .products > div:nth-child(2) > a:nth-child(8) {
   display: none;
 }
 

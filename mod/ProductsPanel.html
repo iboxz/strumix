@@ -211,6 +211,11 @@
         font-family: YekanBakhFaNum;
         font-size: 12px;
       }
+      .add-btn {
+        font-family: YekanBakhFaNum;
+        font-size: 12px;
+        text-wrap: nowrap;
+      }
       .editPanelBtn > div:first-of-type {
         display: flex;
         flex-direction: row;
@@ -229,7 +234,7 @@
       <span id="toggleContainerButton" class="fleshDown"></span>
       <hr />
       <div>
-        <button id="addProductButton">
+        <button id="addProductButton" onclick="prepareNewProductPage()">
           <span class="text-container">
             <span class="text">افزودن محصول</span>
           </span>
@@ -237,6 +242,11 @@
         <button id="editProductButton">
           <span class="text-container">
             <span class="text">ویرایش محصول</span>
+          </span>
+        </button>
+        <button id="deleteProductButton">
+          <span class="text-container">
+            <span class="text">حذف محصول</span>
           </span>
         </button>
       </div>
@@ -283,52 +293,49 @@
       <div id="addProductsContainer" class="containerHidden">
         <span style="font-weight: 600">افزودن محصول:</span>
         <hr />
-        <span>آدرس:</span>
-        <input type="text" id="pageUrl" name="pageUrl" />
+        <span>آدرس صفحه:</span>
+        <input type="text" id="newPageUrl" name="newPageUrl" />
         <hr />
-        <span>عنوان:</span>
-        <input type="text" id="pageUrl" name="pageUrl" />
+        <span>عنوان فارسی:</span>
+        <input type="text" id="newTitleFa" name="newTitleFa" />
+        <span>عنوان انگلیسی:</span>
+        <input type="text" id="newTitleEn" name="newTitleEn" />
         <hr />
         <span>توضیحات:</span>
-        <textarea id="description" name="Description" rows="5"></textarea>
+        <textarea id="newDescription" name="newDescription" rows="5"></textarea>
         <hr />
-        <label for="category">دسته بندی</label>
-        <select id="categorySelector">
+        <label for="newCategory">دسته‌بندی:</label>
+        <select id="newCategorySelector">
           <option value="" selected disabled>انتخاب کنید</option>
+          <!-- گزینه‌های دسته‌بندی را با توجه به داده‌های خود اضافه کنید -->
         </select>
         <hr />
         <span>تصویر:</span>
-        <input type="file" title="file" id="file" name="uploadFile" accept=".png, .jpg" />
+        <input type="file" id="newImageFile" name="newImageFile" accept=".png, .jpg" />
         <hr />
         <span>کاتالوگ محصول:</span>
-        <input type="file" title="file" id="file" name="uploadFile" accept=".pdf" />
+        <input type="file" id="newPdfFile" name="newPdfFile" accept=".pdf" />
         <hr />
-        <button id="toggleButton">
+        <hr />
+        <button onclick="submitNewProduct()">
           <span class="text-container">
-            <span class="text">ویرایش داده‌های نمودار</span>
+            <span class="text">ذخیره محصول جدید</span>
           </span>
         </button>
+      </div>
+      <div id="deleteProductsContainer" class="containerHidden">
+        <span style="font-weight: 600">حذف محصول:</span>
         <hr />
-        <button onclick="saveAllSections()">
+        <span>انتخاب محصول:</span>
+        <select id="deleteProductSelect">
+          <option value="" selected disabled>انتخاب کنید</option>
+        </select>
+        <hr />
+        <button onclick="deleteSelectedProduct()">
           <span class="text-container">
-            <span class="text">ذخیره</span>
+            <span class="text">حذف محصول</span>
           </span>
         </button>
-        <div id="editPanel" class="hidden">
-          <label for="labels">برچسب‌ها (با کاما جدا شوند):</label>
-          <input type="text" id="labels" />
-          <label for="labelYellow">برچسب زرد:</label>
-          <input type="text" id="labelYellow" />
-          <label for="labelRed">برچسب قرمز:</label>
-          <input type="text" id="labelRed" />
-          <label for="dataYellow">داده‌های زرد (با کاما جدا شوند):</label>
-          <input type="text" id="dataYellow" />
-          <label for="dataRed">داده‌های قرمز (با کاما جدا شوند):</label>
-          <input type="text" id="dataRed" />
-          <label for="titleText">عنوان:</label>
-          <input type="text" id="titleText" />
-          <button id="saveButton">ذخیره</button>
-        </div>
       </div>
       <div id="message"></div>
     </div>
@@ -338,25 +345,24 @@
       const password = sessionStorage.getItem("password");
 
       /*       document.addEventListener("DOMContentLoaded", function () {
-      const formData = new FormData();
-      formData.append("username", username);
-      formData.append("password", password);
+        const formData = new FormData();
+        formData.append("username", username);
+        formData.append("password", password);
 
-      fetch("login.php", {
-        method: "POST",
-        body: formData,
-      })
-        .then((response) => response.text())
-        .then((text) => {
-          if (text != "true") {
-            document.body.innerHTML = "";
-
-            document.body.innerHTML =
-              '<a style="display: block; width: 100%; text-align: center; font-size: larger;" href="index.html">لاگین کنید</a>';
-          }
+        fetch("login.php", {
+          method: "POST",
+          body: formData,
         })
-        .catch((error) => console.error("Error:", error));
-    }); */
+          .then((response) => response.text())
+          .then((text) => {
+            if (text != "true") {
+              document.body.innerHTML = "";
+
+              document.body.innerHTML = '<a style="display: block; width: 100%; text-align: center; font-size: larger;" href="index.html">لاگین کنید</a>';
+            }
+          })
+          .catch((error) => console.error("Error:", error));
+      }); */
 
       // تعریف متغیرهای مورد نیاز
       var pageUrl = "";
@@ -379,56 +385,6 @@
         [".button-container-add", ".button-container-main", ".button-container", ".add-btn"].forEach((selector) => {
           document.querySelectorAll(selector).forEach((btn) => btn.remove());
         });
-      }
-
-      // تابع آپلود فایل PDF
-      async function uploadPDF() {
-        const fileInput = document.getElementById("fileEdit");
-        const file = fileInput.files[0];
-        if (!file || file.type !== "application/pdf") {
-          displayMessage("لطفاً یک فایل PDF معتبر انتخاب کنید.");
-          return;
-        }
-        const formData = new FormData();
-        formData.append("file", file);
-        formData.append("title", pageUrl);
-        formData.append("username", username);
-        formData.append("password", password);
-        try {
-          const response = await fetch("uploadProductPdf.php", { method: "POST", body: formData });
-          const text = await response.text();
-          if (text.includes("PDF uploaded successfully!")) {
-            displayMessage("PDF با موفقیت بارگذاری شد!");
-          } else {
-            displayMessage(text);
-            throw new Error(`Upload response: ${text}`);
-          }
-        } catch (error) {
-          displayMessage(error);
-        }
-      }
-
-      // تابع آپلود محتوای صفحه
-      async function uploadContent() {
-        const body = document.querySelector("main").innerHTML;
-        const formData = new FormData();
-        formData.append("url", pageUrl);
-        formData.append("body", body);
-        ["labels", "labelYellow", "labelRed", "dataYellow", "dataRed", "titleText"].forEach((param) => {
-          formData.append(param, window[param]);
-        });
-        formData.append("username", username);
-        formData.append("password", password);
-        try {
-          const response = await fetch("uploadNewProduct.php", { method: "POST", body: formData });
-          const text = await response.text();
-          displayMessage(text);
-          if (!text.includes("صفحه با موفقیت به‌روزرسانی شد")) {
-            throw new Error(text);
-          }
-        } catch (error) {
-          displayMessage(error.message);
-        }
       }
 
       // تابع پر کردن ورودی‌ها
@@ -679,7 +635,7 @@
       function loadJSON(callback) {
         const xhr = new XMLHttpRequest();
         xhr.overrideMimeType("application/json");
-        xhr.open("GET", "../products/products.json", true);
+        xhr.open("GET", "../serverAssets/products.json", true);
         xhr.onreadystatechange = function () {
           if (xhr.readyState === 4 && xhr.status === 200) {
             callback(xhr.responseText);
@@ -693,26 +649,22 @@
         const categories = jsonData.categories;
         const productSelect = document.getElementById("productSelect");
         let productCount = 0;
-        const uniqueProducts = new Set();
 
         categories.forEach((category) => {
           category.products.forEach((product) => {
             const productKey = product.name.fa;
-            if (!uniqueProducts.has(productKey)) {
-              uniqueProducts.add(productKey);
-              productCount++;
-              const option = document.createElement("option");
-              option.textContent = productCount + ". " + product.name.fa;
-              option.value = product.url;
-              productSelect.appendChild(option);
-            }
+            productCount++;
+            const option = document.createElement("option");
+            option.textContent = productCount + ". " + product.name.fa;
+            option.value = product.url;
+            productSelect.appendChild(option);
           });
         });
       }
       function populateCategorySelector(data) {
         const jsonData = JSON.parse(data);
         const categories = jsonData.categories;
-        const categorySelector = document.getElementById("categorySelector");
+        const categorySelector = document.getElementById("newCategorySelector");
 
         categories.forEach((category) => {
           const option = document.createElement("option");
@@ -721,9 +673,10 @@
           categorySelector.appendChild(option);
         });
       }
-      
+
       loadJSON(populateProductsTitles);
       loadJSON(populateCategorySelector);
+      loadJSON(populateDeleteProductSelect);
 
       function fetchProductPage(productUrl) {
         fetch(`../products/${productUrl}.html`)
@@ -792,6 +745,7 @@
       const buttons = [
         { button: document.getElementById("addProductButton"), container: document.getElementById("addProductsContainer") },
         { button: document.getElementById("editProductButton"), container: document.getElementById("editProductsContainer") },
+        { button: document.getElementById("deleteProductsContainer"), container: document.getElementById("deleteProductsContainer") },
       ];
 
       function hideAllSections() {
@@ -804,6 +758,73 @@
           container.classList.remove("containerHidden");
         });
       });
+      //---------
+      const newTitleFaInput = document.getElementById("newTitleFa");
+      const newTitleEnInput = document.getElementById("newTitleEn");
+      const newDescriptionInput = document.getElementById("newDescription");
+      const newPageUrlInput = document.getElementById("newPageUrl");
+
+      newTitleFaInput.addEventListener("input", function () {
+        document.querySelectorAll(".hero h1").forEach(function (element) {
+          element.textContent = newTitleFaInput.value;
+        });
+        updateImageAlt(); // به‌روزرسانی ویژگی alt تصویر
+      });
+
+      newTitleEnInput.addEventListener("input", function () {
+        document.querySelectorAll(".hero h2").forEach(function (element) {
+          element.textContent = newTitleEnInput.value;
+        });
+        updateImageAlt(); // به‌روزرسانی ویژگی alt تصویر
+      });
+
+      newDescriptionInput.addEventListener("input", function () {
+        const targetP = document.querySelector(".section2 > div > p");
+        if (targetP) {
+          targetP.textContent = newDescriptionInput.value;
+        }
+      });
+
+      // تابع برای وریفای و تصحیح ورودی فیلد URL
+      function validateUrlInput(value) {
+        value = value.toLowerCase();
+        value = value.replace(/\s+/g, "-");
+        value = value.replace(/[^a-z0-9\-]/g, "");
+        return value;
+      }
+
+      newPageUrlInput.addEventListener("input", function () {
+        const originalValue = this.value;
+        const validatedValue = validateUrlInput(originalValue);
+
+        if (originalValue !== validatedValue) {
+          this.value = validatedValue;
+        }
+
+        // به‌روزرسانی ویژگی src تصویر
+        const imgElement = document.querySelector(".hero img");
+        if (imgElement) {
+          imgElement.src = `../assets/productImg/${validatedValue}.jpg`;
+        }
+
+        // به‌روزرسانی ویژگی href لینک
+        const anchorElement = document.querySelector(".section2 > div > a");
+        if (anchorElement) {
+          anchorElement.href = `../serverAssets/productCatalogue/${validatedValue}.pdf`;
+        }
+      });
+
+      // تابع برای به‌روزرسانی ویژگی alt تصویر
+      function updateImageAlt() {
+        const imgElement = document.querySelector(".hero img");
+        if (imgElement) {
+          const titleFa = newTitleFaInput.value || "";
+          const titleEn = newTitleEnInput.value || "";
+          imgElement.alt = `${titleFa} تصویر - ${titleEn} image`;
+        }
+      }
+
+      updateImageAlt();
       /*------------------ ادیت صفحه محصولات----------------------*/
       async function submitProductEdits() {
         // حذف خصوصیات و کلاس‌های اضافی از عناصر قابل ویرایش
@@ -869,6 +890,212 @@
         } catch (error) {
           displayMessage(error.message);
         }
+      }
+
+      /*---------------------------------*/
+      function prepareNewProductPage() {
+        const pageUrl = document.getElementById("newPageUrl").value.trim();
+        const titleEn = document.getElementById("newTitleEn").value.trim();
+        const titleFa = document.getElementById("newTitleFa").value.trim();
+        const description = document.getElementById("newDescription").value.trim();
+
+        const newProductContent = `
+    <div id="smooth-content">
+      <section class="hero" data-cursor="pointerWaveBorder">
+        <div>
+          <h2>${titleEn}</h2>
+          <h1>${titleFa}</h1>
+        </div>
+        <img src="../assets/productImg/${pageUrl}.jpg" alt="${titleFa} تصویر - ${titleEn} image" />
+      </section>
+      <section class="section2">
+        <div>
+          <p></p>
+          <a href="../serverAssets/productCatalogue/${pageUrl}.pdf" data-cursor="pointerNavbar" target="_blank">
+            <span class="iconDownload"></span>
+          </a>
+        </div>
+        <div class="flexGrow"><h3></h3></div>
+      </section>
+      <section class="section3">
+        <img src="../assets/VectorProduct.svg" alt="" />
+        <div><h3></h3></div>
+        <div class="leftSide"><h3></h3></div>
+      </section>
+      <section class="section4">
+        <div><h3></h3></div>
+        <div><h3></h3></div>
+        <div><h3></h3></div>
+        <div><h3></h3></div>
+        <div><h3></h3></div>
+      </section>
+      <section class="otherProduct">
+        <div class="otherProductWrapper">
+          <div class="mainContainer">
+            <h3>دیگر محصولات</h3>
+            <div class="otherProductContent"></div>
+          </div>
+          <div class="otherProductHeader">
+            <div class="otherProductArrow disabled arrow-next"></div>
+            <div class="otherProductArrow arrow-prev"></div>
+          </div>
+        </div>
+      </section>
+    </div>
+  `;
+
+        // اضافه کردن محتوای جدید به main
+        const smoothWrapper = document.getElementById("smooth-wrapper");
+        smoothWrapper.innerHTML = newProductContent;
+
+        // فعال کردن دکمه‌ها و قابلیت ویرایش
+
+        editAllSections();
+        addParagraphAndListToH3();
+        addIconsToDivs();
+        initializeChart();
+
+        // نمایش پیام موفقیت
+        displayMessage("محصول جدید به صفحه اضافه شد. اکنون می‌توانید محتوای آن را ویرایش کنید.");
+      }
+
+      async function submitNewProduct() {
+        // دریافت اطلاعات مورد نیاز
+        const pageUrl = document.getElementById("newPageUrl").value.trim();
+        const titleFa = document.getElementById("newTitleFa").value.trim();
+        const titleEn = document.getElementById("newTitleEn").value.trim();
+        const description = document.getElementById("newDescription").value.trim();
+        const category = document.getElementById("newCategorySelector").value;
+        const imageFile = document.getElementById("newImageFile").files[0];
+        const pdfFile = document.getElementById("newPdfFile").files[0];
+
+        // بررسی اینکه فیلدهای ضروری پر شده باشند
+        if (!pageUrl || !titleFa || !titleEn || !description || !category) {
+          displayMessage("لطفاً تمامی فیلدهای مورد نیاز را تکمیل کنید.");
+          return;
+        }
+
+        // پاک‌سازی ویژگی‌های ویرایش و دکمه‌های اضافی در محدوده smooth-wrapper
+        cleanEditables();
+
+        // دریافت محتوای newProductContent پس از پاکسازی
+        const smoothWrapper = document.getElementById("smooth-content");
+        const newProductContent = smoothWrapper.innerHTML;
+        console.log(newProductContent);
+        // ایجاد FormData برای ارسال به سرور
+        const formData = new FormData();
+        formData.append("url", pageUrl);
+        formData.append("newProductContent", newProductContent);
+        formData.append("titleFa", titleFa);
+        formData.append("titleEn", titleEn);
+        formData.append("description", description);
+        formData.append("category", category);
+        formData.append("username", username);
+        formData.append("password", password);
+
+        // اضافه کردن فایل تصویر (در صورت وجود)
+        if (imageFile && (imageFile.type === "image/jpeg" || imageFile.type === "image/png")) {
+          formData.append("imageFile", imageFile);
+        } else {
+          displayMessage("لطفاً یک فایل تصویر معتبر برای محصول انتخاب کنید.");
+          return;
+        }
+
+        // اضافه کردن فایل PDF (در صورت وجود)
+        if (pdfFile && pdfFile.type === "application/pdf") {
+          formData.append("pdfFile", pdfFile);
+        } else {
+          displayMessage("لطفاً کاتالوگ محصول را به صورت فایل PDF انتخاب کنید.");
+          return;
+        }
+
+        // ارسال اطلاعات به سرور
+        try {
+          const response = await fetch("productAddNew.php", {
+            method: "POST",
+            body: formData,
+          });
+          const result = await response.text();
+          displayMessage(result);
+
+          if (result.includes("محصول با موفقیت اضافه شد.")) {
+            // باز کردن لینک صفحه در صفحه‌ای جدید
+            const productPageUrl = `../products/${pageUrl}.html`;
+            window.open(productPageUrl, "_blank");
+          }
+        } catch (error) {
+          console.error("Error:", error);
+          displayMessage("خطا در افزودن محصول جدید.");
+        }
+      }
+      /*---------------------------------*/
+      function populateDeleteProductSelect(data) {
+        const jsonData = JSON.parse(data);
+        const categories = jsonData.categories;
+        const deleteProductSelect = document.getElementById("deleteProductSelect");
+        let productCount = 0;
+        categories.forEach((category) => {
+          category.products.forEach((product) => {
+            const productKey = product.name.fa;
+            productCount++;
+            const option = document.createElement("option");
+            option.textContent = productCount + ". " + product.name.fa;
+            option.value = product.url;
+            deleteProductSelect.appendChild(option);
+          });
+        });
+      }
+
+      // نمایش فرم حذف محصولات هنگام کلیک روی دکمه حذف
+      document.getElementById("deleteProductButton").addEventListener("click", () => {
+        hideAllSections();
+        document.getElementById("deleteProductsContainer").classList.remove("containerHidden");
+      });
+
+      // تابع برای حذف محصول انتخاب‌شده
+      function deleteSelectedProduct() {
+        const selectedProductUrl = document.getElementById("deleteProductSelect").value;
+        if (!selectedProductUrl) {
+          alert("لطفاً یک محصول را انتخاب کنید.");
+          return;
+        }
+
+        // پرسیدن تأیید از کاربر
+        if (!confirm("آیا از حذف این محصول اطمینان دارید؟")) {
+          return;
+        }
+
+        // آماده‌سازی داده‌ها برای ارسال به سرور
+        const formData = new FormData();
+        formData.append("url", selectedProductUrl);
+        formData.append("username", username);
+        formData.append("password", password);
+
+        // ارسال درخواست به سرور برای حذف محصول
+        fetch("productDelete.php", {
+          method: "POST",
+          body: formData,
+        })
+          .then((response) => response.text())
+          .then((text) => {
+            displayMessage(text);
+            if (text.includes("محصول با موفقیت حذف شد.")) {
+              // حذف محصول از لیست انتخاب
+              const deleteProductSelect = document.getElementById("deleteProductSelect");
+              const options = deleteProductSelect.options;
+              for (let i = 0; i < options.length; i++) {
+                if (options[i].value === selectedProductUrl) {
+                  deleteProductSelect.remove(i);
+                  break;
+                }
+              }
+              // در صورت نیاز، لیست محصولات را به‌روزرسانی کنید
+            }
+          })
+          .catch((error) => {
+            console.error("Error:", error);
+            displayMessage("خطا در حذف محصول.");
+          });
       }
     </script>
   </body>

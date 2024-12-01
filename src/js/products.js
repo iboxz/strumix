@@ -141,7 +141,7 @@ function getRandomItems(array, count) {
   return array.sort(() => 0.5 - Math.random()).slice(0, count);
 }
 
-fetch("./products.json")
+fetch("../serverAssets/products.json")
   .then((response) => response.json())
   .then((data) => {
     const currentUrl = window.location.href;
