@@ -364,10 +364,8 @@
           .catch((error) => console.error("Error:", error));
       });
 
-      // تعریف متغیرهای مورد نیاز
       var pageUrl = "";
 
-      // تابع نمایش پیام‌ها
       function displayMessage(message) {
         const messageDiv = document.getElementById("message");
         messageDiv.innerHTML += message + "<br>";
@@ -768,14 +766,14 @@
         document.querySelectorAll(".hero h1").forEach(function (element) {
           element.textContent = newTitleFaInput.value;
         });
-        updateImageAlt(); // به‌روزرسانی ویژگی alt تصویر
+        updateImageAlt(); // Update the alt attribute of the image
       });
 
       newTitleEnInput.addEventListener("input", function () {
         document.querySelectorAll(".hero h2").forEach(function (element) {
           element.textContent = newTitleEnInput.value;
         });
-        updateImageAlt(); // به‌روزرسانی ویژگی alt تصویر
+        updateImageAlt(); // Update the alt attribute of the image
       });
 
       newDescriptionInput.addEventListener("input", function () {
@@ -785,12 +783,22 @@
         }
       });
 
-      // تابع برای وریفای و تصحیح ورودی فیلد URL
+      // Function to validate and correct the URL input
       function validateUrlInput(value) {
         value = value.toLowerCase();
-        value = value.replace(/\s+/g, "-");
-        value = value.replace(/[^a-z0-9\-]/g, "");
-        return value;
+        value = value.replace(/\s+/g, "-"); // Replace spaces with hyphens
+
+        // Split the value into filename and extension
+        const parts = value.split(".");
+        let filename = parts[0].replace(/[^a-z0-9\-]/g, ""); // Allow letters, numbers, and hyphens in the filename
+        let extension = "";
+
+        if (parts.length > 1) {
+          extension = parts[parts.length - 1].replace(/[^a-z0-9]/g, ""); // Allow letters and numbers in the extension
+        }
+
+        // Recombine the filename and extension
+        return extension ? `${filename}.${extension}` : filename;
       }
 
       newPageUrlInput.addEventListener("input", function () {
@@ -801,20 +809,21 @@
           this.value = validatedValue;
         }
 
-        // به‌روزرسانی ویژگی src تصویر
+        // Update the image src attribute
         const imgElement = document.querySelector(".hero img");
         if (imgElement) {
-          imgElement.src = `../assets/productImg/${validatedValue}.jpg`;
+          imgElement.src = `../assets/productImg/${validatedValue}`;
         }
 
-        // به‌روزرسانی ویژگی href لینک
+        // Update the anchor href attribute
         const anchorElement = document.querySelector(".section2 > div > a");
         if (anchorElement) {
-          anchorElement.href = `../serverAssets/productCatalogue/${validatedValue}.pdf`;
+          const filenameWithoutExtension = validatedValue.split(".")[0];
+          anchorElement.href = `../serverAssets/productCatalogue/${filenameWithoutExtension}.pdf`;
         }
       });
 
-      // تابع برای به‌روزرسانی ویژگی alt تصویر
+      // Function to update the alt attribute of the image
       function updateImageAlt() {
         const imgElement = document.querySelector(".hero img");
         if (imgElement) {
