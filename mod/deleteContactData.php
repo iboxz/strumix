@@ -16,8 +16,12 @@ if ($connAuthorisation->connect_error) {
     die('Database connection failed');
 }
 
-$sqlAuthorisation = "SELECT * FROM modEntry WHERE email = '$userUsername' AND password = '$userPassword'";
-$resultAuthorisation = $connAuthorisation->query($sqlAuthorisation);
+// استفاده از Prepared Statements برای جلوگیری از SQL Injection
+$sqlAuthorisation = "SELECT * FROM modEntry WHERE email = ? AND password = ?";
+$stmtAuth = $connAuthorisation->prepare($sqlAuthorisation);
+$stmtAuth->bind_param("ss", $userUsername, $userPassword);
+$stmtAuth->execute();
+$resultAuthorisation = $stmtAuth->get_result();
 
 if ($resultAuthorisation->num_rows > 0) {
 
@@ -35,11 +39,12 @@ if ($resultAuthorisation->num_rows > 0) {
     }
 
     $conn->set_charset("utf8mb4");
+    $response = array();
 
     if ($table === 'job') {
-        $sql = "DELETE FROM job WHERE id=?";
+        $fetchSql = "SELECT file_path FROM job WHERE id = ?";
     } elseif ($table === 'branch') {
-        $sql = "DELETE FROM branch WHERE id=?";
+        $fetchSql = "SELECT id FROM branch WHERE id = ?";
     } else {
         $response = array(
             'status' => 'error',
@@ -49,10 +54,42 @@ if ($resultAuthorisation->num_rows > 0) {
         exit();
     }
 
-    $stmt = $conn->prepare($sql);
-    $stmt->bind_param("i", $id);
+    $fetchStmt = $conn->prepare($fetchSql);
+    $fetchStmt->bind_param("s", $id);
+    $fetchStmt->execute();
+    $fetchResult = $fetchStmt->get_result();
 
-    $response = array();
+    if ($fetchResult->num_rows > 0) {
+        $row = $fetchResult->fetch_assoc();
+        $file_path = $row['file_path'];
+
+        // حذف فایل از سرور
+        if ($file_path && file_exists("../serverAssets/applicationFiles/" . $file_path)) {
+            if (!unlink("../serverAssets/applicationFiles/" . $file_path)) {
+                $response['status'] = 'error';
+                $response['message'] = 'خطا در حذف فایل از سرور.';
+                echo json_encode($response);
+                exit();
+            }
+        }
+    } else {
+        $response['status'] = 'error';
+        $response['message'] = 'رکورد مورد نظر یافت نشد.';
+        echo json_encode($response);
+        exit();
+    }
+    $fetchStmt->close();
+
+    // حالا رکورد را از دیتابیس حذف می‌کنیم
+    if ($table === 'job') {
+        $sql = "DELETE FROM job WHERE id=?";
+    } elseif ($table === 'branch') {
+        $sql = "DELETE FROM branch WHERE id=?";
+    }
+
+    $stmt = $conn->prepare($sql);
+    $stmt->bind_param("s", $id);
+
     if ($stmt->execute()) {
         $response['status'] = 'success';
     } else {
@@ -69,4 +106,5 @@ if ($resultAuthorisation->num_rows > 0) {
     echo "خطا: اطلاعات ورود به سیستم صحیح نیست.";
 }
 
+$stmtAuth->close();
 $connAuthorisation->close();
