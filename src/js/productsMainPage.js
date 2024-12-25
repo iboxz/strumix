@@ -32,7 +32,10 @@ let data = null;
 const fetchData = async () => {
   if (!data) {
     try {
-      data = await (await fetch("../serverAssets/products.json")).json();
+      const today = new Date();
+      const version = `${today.getFullYear()}${(today.getMonth() + 1).toString().padStart(2, "0")}${today.getDate().toString().padStart(2, "0")}`;
+
+      data = await (await fetch(`../serverAssets/products.json?version=${version}`)).json();
     } catch (error) {
       console.error("Error fetching data:", error);
     }

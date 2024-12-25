@@ -224,6 +224,18 @@
       .otherProduct {
         display: none;
       }
+      .hero img {
+        position: relative;
+      }
+      .hero img::after {
+        content: "";
+        position: absolute;
+        inset: -10px 0 0 0;
+        background-image: url("");
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+      }
     </style>
   </head>
 
@@ -358,7 +370,8 @@
             if (text != "true") {
               document.body.innerHTML = "";
 
-              document.body.innerHTML = '<a style="display: block; width: 100%; text-align: center; font-size: larger;" href="index.html">لاگین کنید</a>';
+              document.body.innerHTML =
+                '<a style="display: block; width: 100%; text-align: center; font-size: larger;" href="index.html">لاگین کنید</a>';
             }
           })
           .catch((error) => console.error("Error:", error));
@@ -533,7 +546,12 @@
         const siblings = Array.from(h3.parentNode.childNodes);
         for (let i = siblings.length - 1; i >= 0; i--) {
           const elem = siblings[i];
-          if (elem !== h3 && !elem.classList?.contains("button-container-main") && ["P", "UL", "TABLE", "DIV"].includes(elem.nodeName) && (elem.nodeName !== "DIV" || elem.classList.contains("chartContainer"))) {
+          if (
+            elem !== h3 &&
+            !elem.classList?.contains("button-container-main") &&
+            ["P", "UL", "TABLE", "DIV"].includes(elem.nodeName) &&
+            (elem.nodeName !== "DIV" || elem.classList.contains("chartContainer"))
+          ) {
             elem.remove();
             break;
           }
@@ -924,19 +942,30 @@
             <span class="iconDownload"></span>
           </a>
         </div>
-        <div class="flexGrow"><h3></h3></div>
+        <div class="flexGrow"><h3>کاربری</h3></div>
       </section>
       <section class="section3">
         <img src="../assets/VectorProduct.svg" alt="" />
-        <div><h3></h3></div>
-        <div class="leftSide"><h3></h3></div>
+        <div><h3>عملکرد و مزایا</h3><h3>استاندارد ها</h3></div>
+        <div class="leftSide"><h3>اطلاعات محصول</h3>
+          <div>
+              <div>
+                <h4>عنوان</h4>
+                <p>متن</p>
+              </div>
+              <div>
+                <h4>عنوان</h4>
+                <p>متن</p>
+              </div>
+            </div>
+        </div>
       </section>
       <section class="section4">
-        <div><h3></h3></div>
-        <div><h3></h3></div>
-        <div><h3></h3></div>
-        <div><h3></h3></div>
-        <div><h3></h3></div>
+        <div><h3>اطلاعات عملکرد فنی</h3></div>
+        <div><h3>اطلاعات نحوه مصرف</h3></div>
+        <div><h3>محدودیت ها</h3></div>
+        <div><h3>محیط زیست، سلامت و ایمنی</h3></div>
+        <div><h3>مرجع اطلاعات</h3></div>
       </section>
       <section class="otherProduct">
         <div class="otherProductWrapper">
@@ -1106,6 +1135,27 @@
             displayMessage("خطا در حذف محصول.");
           });
       }
+
+      const imageEditInput = document.getElementById("newImageFile");
+
+      imageEditInput.addEventListener("change", function (event) {
+        const file = event.target.files[0];
+        if (!file) return;
+
+        const imageUrl = URL.createObjectURL(file);
+
+        for (const styleSheet of document.styleSheets) {
+          try {
+            for (const rule of styleSheet.cssRules) {
+              if (rule.selectorText === ".hero img::after") {
+                rule.style.backgroundImage = `url("${imageUrl}")`;
+              }
+            }
+          } catch (e) {
+            console.warn(e);
+          }
+        }
+      });
     </script>
   </body>
 </html>

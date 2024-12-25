@@ -169,7 +169,6 @@
       $(document).ready(function () {
         let data; // Define the data variable
 
-        // خواندن داده‌ها از فایل JSON
         $.getJSON("../serverAssets/technicalDoc.json", { _: new Date().getTime() }, function (fetchedData) {
           data = fetchedData; // Initialize the data variable
 
