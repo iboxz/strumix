@@ -5,9 +5,9 @@ $userUsername = htmlspecialchars($userUsername);
 $userPassword = htmlspecialchars($userPassword);
 
 $servernameAuthorisation = 'localhost';
-$usernameAuthorisation = "strumixii_mod";
-$passwordAuthorisation = "3.MWU!7!G^5v";
-$dbnameAuthorisation = 'strumixii_Mod_data';
+$usernameAuthorisation  = "strumixii_mod";
+$passwordAuthorisation  = "3.MWU!7!G^5v";
+$dbnameAuthorisation    = 'strumixii_Mod_data';
 
 $connAuthorisation = new mysqli($servernameAuthorisation, $usernameAuthorisation, $passwordAuthorisation, $dbnameAuthorisation);
 $connAuthorisation->set_charset("utf8mb4");
@@ -16,7 +16,7 @@ if ($connAuthorisation->connect_error) {
     die('Database connection failed: ' . $connAuthorisation->connect_error);
 }
 
-$sqlAuthorisation = "SELECT * FROM modEntry WHERE email = '$userUsername' AND password = '$userPassword'";
+$sqlAuthorisation    = "SELECT * FROM modEntry WHERE email='$userUsername' AND password='$userPassword'";
 $resultAuthorisation = $connAuthorisation->query($sqlAuthorisation);
 
 if ($resultAuthorisation->num_rows > 0) {
@@ -25,18 +25,34 @@ if ($resultAuthorisation->num_rows > 0) {
         $url = htmlspecialchars($_POST['url']);
 
         // حذف محصول از فایل products.json
-        $jsonFile = '../serverAssets/products.json';
+        $jsonFile   = '../serverAssets/products.json';
         $jsonString = file_get_contents($jsonFile);
-        $data = json_decode($jsonString, true);
+        $data       = json_decode($jsonString, true);
 
         $productFound = false;
+
+        // پیمایش دسته‌ها
         foreach ($data['categories'] as &$category) {
-            foreach ($category['products'] as $key => $product) {
-                if ($product['url'] == $url) {
-                    // حذف محصول از آرایه
-                    unset($category['products'][$key]);
-                    $productFound = true;
-                    break 2; // خروج از هر دو حلقه
+            // بررسی مقدار products
+            if (isset($category['products'])) {
+
+                // اگر ساختار به‌صورت شی (object) است، آن را به آرایه تبدیل می‌کنیم
+                if (is_object($category['products'])) {
+                    $category['products'] = (array)$category['products'];
+                }
+
+                // برای هماهنگی و از بین بردن ایندکس‌های نامنظم، از array_values استفاده می‌کنیم
+                $category['products'] = array_values($category['products']);
+
+                foreach ($category['products'] as $key => $product) {
+                    if ($product['url'] === $url) {
+                        // حذف محصول از آرایه
+                        unset($category['products'][$key]);
+                        // مجدد ایندکس‌ها را مرتب می‌کنیم
+                        $category['products'] = array_values($category['products']);
+                        $productFound = true;
+                        break 2; // خروج از هر دو حلقه
+                    }
                 }
             }
         }
@@ -101,4 +117,3 @@ if ($resultAuthorisation->num_rows > 0) {
     echo "خطا: اطلاعات ورود به سیستم صحیح نیست.";
 }
 $connAuthorisation->close();
-?>

@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="fa">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ادمین - مرتب‌سازی محصولات و دسته‌ها</title>
+    <!-- کتابخانه‌های jQuery و jQuery UI برای درگ و دراپ -->
+    <link
+      rel="stylesheet"
+      href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css"
+    />
+    <style>
+      :root {
+        --primary-color: rgb(8, 143, 158);
+        --secondary-color: rgb(5, 85, 94);
+        --border-color: #ababab;
+        --background-color: #db4949;
+        --font-family-main: rokh, sans-serif;
+        --font-family-alt: Arial, YekanBakhFaNum, Helvetica, sans-serif;
+      }
+
+      body {
+        margin: 0;
+        background: #f2ecdc;
+        font-family: var(--font-family-main);
+        direction: rtl;
+        padding: 20px;
+      }
+
+      h1 {
+        margin-bottom: 20px;
+      }
+
+      /* لیست کلی دسته‌ها، برای قابلیت درگ و دراپ خودِ دسته‌ها */
+      #categories {
+        list-style-type: none;
+        padding: 0;
+        margin: 0;
+      }
+
+      /* هر آیتم (دسته) را به شکل یک بلاک نمایش می‌دهیم */
+      .category {
+        margin-bottom: 30px;
+        border: 1px dashed var(--border-color);
+        padding: 10px;
+        background: #fff;
+        cursor: move; /* نشانگر موس در حالت درگ دسته */
+        position: relative;
+      }
+
+      .category h2 {
+        margin: 0 0 10px 0;
+      }
+
+      /* قابلیت درگ و دراپ زیرمجموعه‌ها (محصولات) */
+      .subCategory {
+        margin: 10px 0 20px 0;
+        border: 1px solid var(--border-color);
+        padding: 10px;
+      }
+
+      .subCategory h3 {
+        margin: 0 0 10px 0;
+      }
+
+      /* لیست محصولات داخل هر زیرمجموعه */
+      .products {
+        list-style-type: none;
+        padding: 0;
+        min-height: 50px;
+        border: 1px dashed #ccc;
+        margin: 10px 0;
+      }
+
+      .products li {
+        margin: 5px;
+        padding: 10px;
+        border: 1px solid #ccc;
+        cursor: move;
+        position: relative;
+        background: #fff;
+      }
+
+      .buttons {
+        position: absolute;
+        left: 0;
+        top: 50%;
+        transform: translateY(-50%);
+      }
+
+      .buttons button {
+        margin-left: 5px;
+        background: var(--primary-color);
+        color: #fff;
+        border: transparent;
+        border-radius: 4px;
+        padding: 6px 10px;
+        font-family: var(--font-family-main);
+      }
+
+      .buttons button:hover {
+        background: var(--secondary-color);
+      }
+
+      button#saveOrder {
+        background: var(--primary-color);
+        color: #fff;
+        border: transparent;
+        border-radius: 4px;
+        padding: 8px 16px;
+        font-family: var(--font-family-main);
+        cursor: pointer;
+      }
+
+      button#saveOrder:hover {
+        background: var(--secondary-color);
+      }
+    </style>
+  </head>
+  <body>
+    <h1>مرتب‌سازی محصولات و دسته‌ها</h1>
+
+    <!-- لیست اصلی دسته‌ها -->
+    <ul id="categories"></ul>
+
+    <!-- دکمه ذخیره ترتیب -->
+    <button id="saveOrder">ذخیره ترتیب</button>
+
+    <!-- کتابخانه‌های jQuery و jQuery UI -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"></script>
+
+    <script>
+      // در صورت نیاز می‌توانید یوزرنیم و پسورد را از sessionStorage یا کوکی بگیرید
+      const username = sessionStorage.getItem("username") || "admin";
+      const password = sessionStorage.getItem("password") || "12345";
+
+      $(document).ready(function () {
+        let allData;
+
+        // دریافت اطلاعات از فایل JSON
+        $.getJSON("../serverAssets/products.json", function (fetchedData) {
+          allData = fetchedData;
+          const categoriesArray = allData.categories;
+
+          // ساخت آیتم‌های دسته به‌صورت li در داخل ul#categories
+          categoriesArray.forEach((catData, catIndex) => {
+            // هر دسته یک li است
+            const $catLi = $("<li>")
+              .addClass("category")
+              .attr("data-catindex", catIndex);
+
+            // نام انگلیسی - فارسی دسته
+            $catLi.append(`<h2>${catData.name} - ${catData.faName}</h2>`);
+
+            // اگر آرایه محصولات دارد
+            if (catData.products && Array.isArray(catData.products)) {
+              // ساخت یک بخش زیرمجموعه
+              const $subDiv = $("<div>").addClass("subCategory");
+              $subDiv.append(`<h3>محصولات</h3>`);
+
+              // لیست محصولات
+              const $proList = $("<ul>").addClass("products");
+              catData.products.forEach((productObj, prodIndex) => {
+                const productNameFa = productObj.name ? productObj.name.fa : "نام فارسی ندارد";
+                const productNameEn = productObj.name ? productObj.name.en : "No English Name";
+                const productUrl = productObj.url ? productObj.url : "no-url";
+
+                const $li = $(`
+                  <li data-catindex="${catIndex}" data-prodindex="${prodIndex}">
+                    ${productNameEn} - ${productNameFa}
+                    <div class="buttons">
+                      <button class="view">بررسی محصول</button>
+                    </div>
+                  </li>
+                `);
+                // ذخیره URL یا هر داده‌ی مورد نیاز
+                $li.data("productUrl", productUrl);
+
+                $proList.append($li);
+              });
+
+              $subDiv.append($proList);
+              $catLi.append($subDiv);
+            }
+
+            // افزودن این دسته به لیست اصلی
+            $("#categories").append($catLi);
+          });
+
+          // درگ‌ودراپ فقط عمودی و بدون افکت بازگشت
+          $("#categories").sortable({
+            axis: "y",
+            revert: false,
+          });
+
+          $(".products").sortable({
+            connectWith: ".products",
+            axis: "y",
+            revert: false,
+          });
+        });
+
+        // رویداد دکمه "بررسی محصول" => باز شدن صفحه جدید ../products/${productData.url} در تب جدید
+        $(document).on("click", ".view", function () {
+          const catIndex = $(this).closest("li").data("catindex");
+          const prodIndex = $(this).closest("li").data("prodindex");
+          const productData = allData.categories[catIndex].products[prodIndex];
+          window.open(`../products/${productData.url}`, "_blank");
+        });
+
+        // رویداد کلیک دکمه "ذخیره ترتیب"
+        $("#saveOrder").click(async function () {
+          const newOrder = [];
+
+          // جمع‌آوری ترتیب جدید
+          $("#categories")
+            .find(".category")
+            .each(function () {
+              const cIndex = $(this).data("catindex");
+              const catTitle = $(this).find("h2").text();
+
+              const subCatWrapper = [];
+              $(this)
+                .find(".subCategory")
+                .each(function () {
+                  const subCatTitle = $(this).find("h3").text();
+                  const productsArr = [];
+
+                  $(this)
+                    .find("li")
+                    .each(function () {
+                      const cIdx = $(this).data("catindex");
+                      const pIdx = $(this).data("prodindex");
+                      const productText = $(this).contents().first()[0].textContent.trim();
+                      productsArr.push({
+                        catIndex: cIdx,
+                        prodIndex: pIdx,
+                        productText,
+                      });
+                    });
+
+                  subCatWrapper.push({
+                    subCategoryTitle: subCatTitle,
+                    products: productsArr,
+                  });
+                });
+
+              newOrder.push({
+                oldCatIndex: cIndex,
+                categoryTitle: catTitle,
+                subCategories: subCatWrapper,
+              });
+            });
+
+          // با استفاده از fetch یا Ajax، داده را به فایل PHP می‌فرستیم
+          try {
+            const response = await fetch("./ProductListingUpdate.php", {
+              method: "POST",
+              headers: {
+                "Content-Type": "application/json",
+              },
+              body: JSON.stringify({
+                username: username,
+                password: password,
+                newOrder: newOrder,
+              }),
+            });
+
+            const result = await response.json();
+            if (result.status === "success") {
+              alert(result.message || "ترتیب با موفقیت ذخیره شد.");
+            } else {
+              console.error("Error:", result.message);
+              alert("خطا در ذخیره ترتیب: " + (result.message || ""));
+            }
+          } catch (error) {
+            console.error("Fetch Error:", error);
+            alert("خطا در ارسال درخواست به سرور.");
+          }
+
+          // همچنین می‌توانید برای تست این بخش را نگهدارید
+          console.log("New Order:", JSON.stringify(newOrder, null, 2));
+        });
+      });
+    </script>
+  </body>
+</html>
