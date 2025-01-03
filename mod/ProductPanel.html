@@ -269,12 +269,26 @@
           <option value="" selected disabled>انتخاب کنید</option>
         </select>
         <hr />
+        <span>عنوان فارسی محصول:</span>
+        <input type="text" id="titleFaEdit" />
+        <hr />
+
+        <span>عنوان انگلیسی محصول:</span>
+        <input type="text" id="titleEnEdit" />
+        <hr />
+
+        <span>توضیحات محصول:</span>
+        <textarea id="descriptionEdit" rows="4"></textarea>
+
+        <hr />
         <span>تصویر محصول:</span>
         <input type="file" title="file" id="imageEdit" name="uploadFile" accept=".png, .jpg" />
         <hr />
+
         <span>کاتالوگ محصول:</span>
         <input type="file" title="file" id="fileEdit" name="uploadFile" accept=".pdf" />
         <hr />
+
         <button id="toggleButton">
           <span class="text-container">
             <span class="text">ویرایش داده‌های نمودار</span>
@@ -328,6 +342,11 @@
         <span>کاتالوگ محصول:</span>
         <input type="file" id="newPdfFile" name="newPdfFile" accept=".pdf" />
         <hr />
+        <hr />
+        <span>دریافت دیتا محصولات موجود:</span>
+        <select id="fetchExistingDataSelect">
+          <option value="" selected disabled>انتخاب کنید</option>
+        </select>
         <hr />
         <button onclick="submitNewProduct()">
           <span class="text-container">
@@ -741,13 +760,28 @@
           });
       }
 
-      document.getElementById("productSelect").addEventListener("change", function () {
+      document.getElementById("productSelect").addEventListener("change", handleProductChange);
+
+      function handleProductChange() {
         const selectedUrl = this.value;
         if (selectedUrl) {
-          fetchProductPage(selectedUrl);
-          pageUrl = selectedUrl;
+          loadJSON((data) => {
+            const jsonData = JSON.parse(data);
+            jsonData.categories.forEach((category) => {
+              category.products.forEach((product) => {
+                if (product.url === selectedUrl) {
+                  document.getElementById("titleFaEdit").value = product.name.fa || "";
+                  document.getElementById("titleEnEdit").value = product.name.en || "";
+                  document.getElementById("descriptionEdit").value = product.description || "";
+
+                  fetchProductPage(selectedUrl);
+                  pageUrl = selectedUrl;
+                }
+              });
+            });
+          });
         }
-      });
+      }
 
       /*------ تغییر وضعیت نمایش پنل------------*/
       const toggleContainerButton = document.getElementById("toggleContainerButton");
@@ -774,83 +808,186 @@
           container.classList.remove("containerHidden");
         });
       });
-      //---------
-      const newTitleFaInput = document.getElementById("newTitleFa");
-      const newTitleEnInput = document.getElementById("newTitleEn");
-      const newDescriptionInput = document.getElementById("newDescription");
-      const newPageUrlInput = document.getElementById("newPageUrl");
+      //---------// Utility function to sanitize URLs
 
-      newTitleFaInput.addEventListener("input", function () {
-        document.querySelectorAll(".hero h1").forEach(function (element) {
-          element.textContent = newTitleFaInput.value;
-        });
-        updateImageAlt(); // Update the alt attribute of the image
-      });
-
-      newTitleEnInput.addEventListener("input", function () {
-        document.querySelectorAll(".hero h2").forEach(function (element) {
-          element.textContent = newTitleEnInput.value;
-        });
-        updateImageAlt(); // Update the alt attribute of the image
-      });
-
-      newDescriptionInput.addEventListener("input", function () {
-        const targetP = document.querySelector(".section2 > div > p");
-        if (targetP) {
-          targetP.textContent = newDescriptionInput.value;
-        }
-      });
-
-      // Function to validate and correct the URL input
+      // تابعی برای اعتبارسنجی ورودی URL
       function validateUrlInput(value) {
-        value = value.toLowerCase();
-        value = value.replace(/\s+/g, "-"); // Replace spaces with hyphens
-
-        // Split the value into filename and extension
+        value = value.toLowerCase().replace(/\s+/g, "-");
         const parts = value.split(".");
-        let filename = parts[0].replace(/[^a-z0-9\-]/g, ""); // Allow letters, numbers, and hyphens in the filename
-        let extension = "";
-
-        if (parts.length > 1) {
-          extension = parts[parts.length - 1].replace(/[^a-z0-9]/g, ""); // Allow letters and numbers in the extension
-        }
-
-        // Recombine the filename and extension
+        let filename = parts[0].replace(/[^a-z0-9\-]/g, "");
+        let extension = parts.length > 1 ? parts.pop().replace(/[^a-z0-9]/g, "") : "";
         return extension ? `${filename}.${extension}` : filename;
       }
 
-      newPageUrlInput.addEventListener("input", function () {
-        const originalValue = this.value;
-        const validatedValue = validateUrlInput(originalValue);
+      // تابعی برای دریافت تاریخ و زمان فعلی به فرمت YYYYMMDDHHMMSS
+      function getCurrentDateTime() {
+        const today = new Date();
+        const year = today.getFullYear();
+        const month = `0${today.getMonth() + 1}`.slice(-2);
+        const day = `0${today.getDate()}`.slice(-2);
+        const hours = `0${today.getHours()}`.slice(-2);
+        const minutes = `0${today.getMinutes()}`.slice(-2);
+        const seconds = `0${today.getSeconds()}`.slice(-2);
+        return `${year}${month}${day}${hours}${minutes}${seconds}`;
+      }
 
-        if (originalValue !== validatedValue) {
-          this.value = validatedValue;
+      // تابعی برای افزودن یا به‌روزرسانی پارامتر ورژن در URL
+      function addOrUpdateVersion(url, version) {
+        try {
+          // ایجاد یک آبجکت URL با استفاده از window.location.origin به عنوان مبنا
+          const urlObj = new URL(url, window.location.origin);
+          // تنظیم یا افزودن پارامتر 'v'
+          urlObj.searchParams.set("v", version);
+          // بازگرداندن مسیر و پارامترهای URL بدون پروتکل و دامنه
+          return urlObj.pathname + urlObj.search;
+        } catch (e) {
+          // در صورت بروز خطا (مثلاً URL غیرمعتبر)، از روش دستی استفاده می‌کنیم
+          const hasQuery = url.includes("?");
+          const baseUrl = hasQuery ? url.split("?")[0] : url;
+          const params = new URLSearchParams(hasQuery ? url.split("?")[1] : "");
+          params.set("v", version);
+          return `${baseUrl}?${params.toString()}`;
         }
+      }
 
-        // Update the image src attribute
-        const imgElement = document.querySelector(".hero img");
-        if (imgElement) {
-          imgElement.src = `../assets/productImg/${validatedValue}`;
-        }
+      // پیکربندی‌های Mapping برای فیلدهای ورودی و هدف‌های آن‌ها
+      const bindings = [
+        {
+          inputId: "newTitleFa",
+          selector: ".hero h1",
+          attribute: "textContent",
+          updater: null, // بدون اپدیتر اضافی
+          updateAlt: true,
+        },
+        {
+          inputId: "newTitleEn",
+          selector: ".hero h2",
+          attribute: "textContent",
+          updater: null,
+          updateAlt: true,
+        },
+        {
+          inputId: "newDescription",
+          selector: ".section2 > div:first-child > p",
+          attribute: "textContent",
+          updater: null,
+          updateAlt: false,
+        },
+        {
+          inputId: "newPageUrl",
+          selector: ".hero img",
+          attribute: "src",
+          updater: (value) => `../assets/productImg/${validateUrlInput(value)}`,
+          additional: {
+            selector: ".section2 > div > a",
+            attribute: "href",
+            valueMapper: (value) => {
+              const filename = validateUrlInput(value).split(".")[0];
+              return `../serverAssets/productCatalogue/${filename}.pdf`;
+            },
+          },
+        },
+        // Binding جدید برای imageEdit بدون استفاده از data-original-src
+        {
+          inputId: "imageEdit",
+          selector: ".hero img",
+          attribute: "src",
+          updater: (file) => {
+            if (file && file[0]) {
+              const imgElement = document.querySelector(".hero img");
+              if (imgElement) {
+                const currentSrc = imgElement.getAttribute("src");
+                const newVersion = getCurrentDateTime();
+                const updatedSrc = addOrUpdateVersion(currentSrc, newVersion);
+                imgElement.src = updatedSrc;
+                updateImageAlt();
+              }
+            }
+          },
+          updateAlt: true,
+        },
+        // ورودی‌های ویرایش
+        {
+          inputId: "titleFaEdit",
+          selector: ".hero h1",
+          attribute: "textContent",
+          updater: null,
+          updateAlt: true,
+          isEdit: true,
+        },
+        {
+          inputId: "titleEnEdit",
+          selector: ".hero h2",
+          attribute: "textContent",
+          updater: null,
+          updateAlt: true,
+          isEdit: true,
+        },
+        {
+          inputId: "descriptionEdit",
+          selector: ".section2 > div:first-child > p",
+          attribute: "textContent",
+          updater: null,
+          updateAlt: false,
+          isEdit: true,
+        },
+      ];
 
-        // Update the anchor href attribute
-        const anchorElement = document.querySelector(".section2 > div > a");
-        if (anchorElement) {
-          const filenameWithoutExtension = validatedValue.split(".")[0];
-          anchorElement.href = `../serverAssets/productCatalogue/${filenameWithoutExtension}.pdf`;
-        }
-      });
-
-      // Function to update the alt attribute of the image
+      // تابعی برای بروزرسانی alt تصویر
       function updateImageAlt() {
         const imgElement = document.querySelector(".hero img");
         if (imgElement) {
-          const titleFa = newTitleFaInput.value || "";
-          const titleEn = newTitleEnInput.value || "";
+          const titleFa = document.getElementById("newTitleFa")?.value || document.getElementById("titleFaEdit")?.value || "";
+          const titleEn = document.getElementById("newTitleEn")?.value || document.getElementById("titleEnEdit")?.value || "";
           imgElement.alt = `${titleFa} تصویر - ${titleEn} image`;
         }
       }
 
+      // Initialize bindings
+      bindings.forEach((binding) => {
+        const inputElement = document.getElementById(binding.inputId);
+        if (!inputElement) return;
+
+        // انتخاب نوع رویداد
+        const eventType = binding.inputId === "imageEdit" ? "change" : "input";
+
+        inputElement.addEventListener(eventType, function () {
+          let value;
+
+          if (binding.inputId === "imageEdit") {
+            // برای input نوع فایل، فایل انتخاب شده را پاس می‌دهیم
+            binding.updater(this.files);
+          } else {
+            value = this.value;
+
+            if (binding.inputId === "newPageUrl") {
+              value = validateUrlInput(value);
+              this.value = value; // بازتاب اعتبارسنجی در اینپوت
+            }
+
+            document.querySelectorAll(binding.selector).forEach((element) => {
+              element[binding.attribute] = binding.updater ? binding.updater(value) : value;
+            });
+
+            if (binding.additional) {
+              const additionalElement = document.querySelector(binding.additional.selector);
+              if (additionalElement) {
+                additionalElement[binding.additional.attribute] = binding.additional.valueMapper(value);
+              }
+            }
+
+            if (binding.updateAlt) {
+              updateImageAlt();
+            }
+
+            if (binding.isEdit && (binding.inputId === "titleFaEdit" || binding.inputId === "titleEnEdit")) {
+              updateImageAlt();
+            }
+          }
+        });
+      });
+
+      // اجرای تابع بروزرسانی alt در ابتدای بارگذاری صفحه
       updateImageAlt();
       /*------------------ ادیت صفحه محصولات----------------------*/
       async function submitProductEdits() {
@@ -876,6 +1013,10 @@
         const pdfInput = document.getElementById("fileEdit");
         const pdfFile = pdfInput.files[0];
 
+        const titleFa = document.getElementById("titleFaEdit").value.trim();
+        const titleEn = document.getElementById("titleEnEdit").value.trim();
+        const description = document.getElementById("descriptionEdit").value.trim();
+
         // ایجاد FormData
         const formData = new FormData();
         formData.append("url", pageUrl);
@@ -886,6 +1027,11 @@
         formData.append("dataYellow", window.dataYellow);
         formData.append("dataRed", window.dataRed);
         formData.append("titleText", window.titleText);
+
+        formData.append("titleFa", titleFa);
+        formData.append("titleEn", titleEn);
+        formData.append("description", description);
+
         formData.append("username", username);
         formData.append("password", password);
 
@@ -908,9 +1054,7 @@
           const text = await response.text();
           displayMessage(text);
 
-          // بررسی موفقیت‌آمیز بودن ذخیره‌سازی
           if (text.includes("صفحه و فایل‌ها با موفقیت به‌روزرسانی شدند.")) {
-            // باز کردن لینک صفحه در صفحه‌ای جدید
             const productPageUrl = `../products/${pageUrl}.html`;
             window.open(productPageUrl, "_blank");
           }
@@ -1127,7 +1271,6 @@
                   break;
                 }
               }
-              // در صورت نیاز، لیست محصولات را به‌روزرسانی کنید
             }
           })
           .catch((error) => {
@@ -1156,6 +1299,68 @@
           }
         }
       });
+
+      function populateFetchExistingDataSelector(data) {
+        const jsonData = JSON.parse(data);
+        const categories = jsonData.categories;
+        const fetchSelect = document.getElementById("fetchExistingDataSelect");
+        let productCount = 0;
+
+        categories.forEach((category) => {
+          category.products.forEach((product) => {
+            productCount++;
+            const option = document.createElement("option");
+            option.textContent = productCount + ". " + product.name.fa;
+            option.value = product.url;
+            fetchSelect.appendChild(option);
+          });
+        });
+      }
+
+      function handleFetchExistingDataChange() {
+        const selectedUrl = this.value;
+        if (!selectedUrl) return;
+
+        loadJSON((data) => {
+          const jsonData = JSON.parse(data);
+          jsonData.categories.forEach((category) => {
+            category.products.forEach((product) => {
+              if (product.url === selectedUrl) {
+                document.getElementById("newTitleFa").value = product.name.fa || "";
+                document.getElementById("newTitleEn").value = product.name.en || "";
+                document.getElementById("newDescription").value = product.description || "";
+              }
+            });
+          });
+        });
+
+        fetch(`../products/${selectedUrl}.html`)
+          .then((response) => response.text())
+          .then((html) => {
+            const parser = new DOMParser();
+            const doc = parser.parseFromString(html, "text/html");
+            const mainProductsContainer = doc.querySelector("main");
+            if (mainProductsContainer) {
+              const smoothWrapper = document.getElementById("smooth-wrapper");
+              smoothWrapper.innerHTML = mainProductsContainer.innerHTML;
+
+              const heroImg = smoothWrapper.querySelector(".hero img");
+              if (heroImg) {
+                heroImg.src = "";
+              }
+
+              editAllSections();
+              addParagraphAndListToH3();
+              addIconsToDivs();
+              initializeChart();
+            }
+          })
+          .catch((error) => {
+            console.error("Error fetching product content:", error);
+          });
+      }
+      loadJSON(populateFetchExistingDataSelector);
+      document.getElementById("fetchExistingDataSelect").addEventListener("change", handleFetchExistingDataChange);
     </script>
   </body>
 </html>
