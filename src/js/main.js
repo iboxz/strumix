@@ -251,8 +251,12 @@ window.addEventListener("load", (event) => {
   const languageParagraph = createEl("p", {}, "زبان وبسایت");
   const languageSpan = createEl("span", { class: "vectorLanguage" });
 
+  const divPhoneNum = createEl("div");
+  const phoneNumParagraph = createEl("p", {}, "02144000408 · 02144403448");
+
   languageParagraph.appendChild(languageSpan);
   divLanguage.appendChild(languageParagraph);
+  divPhoneNum.appendChild(phoneNumParagraph);
 
   const hamburgerSpan1 = createEl("span");
   const hamburgerSpan2 = createEl("span");
@@ -270,8 +274,7 @@ window.addEventListener("load", (event) => {
   }
 
   productsParagraph.appendChild(productsSpan);
-  navigation.append(divLogo, divProducts, divArticles, divTechnical, divContact, divLanguage, divHamburger, sectionProducts);
-  divLogo.append(logoImg);
+  navigation.append(logoImg, divProducts, divArticles, divTechnical, divContact, divLanguage, divPhoneNum, divHamburger, sectionProducts);
   divProducts.append(productsParagraph);
   divArticles.append(articlesParagraph);
   divContact.append(contactParagraph);
@@ -296,12 +299,12 @@ window.addEventListener("load", (event) => {
     .to(`${navDivs}(2) > p`, { text: "", duration: duration, ease: easeType }, 0.5)
     .to(`${navDivs}(3)`, { opacity: 0, duration: duration, ease: easeType }, 0.5)
     .to(`${navDivs}(3) > p`, { text: "", duration: duration, ease: easeType }, 0.5)
-    .to(`${navDivs}(4)`, { border: "0.1vmin black solid", duration: duration, ease: easeType }, 0.5)
-    .to(`${navDivs}(4) > p`, { text: "محصولات", scale: "1.3", duration: duration, ease: easeType }, 0.5)
-    .to(`${navDivs}(5)`, { opacity: 0, duration: duration, ease: easeType }, 0.5)
-    .to(`${navDivs}(5) > p`, { text: "", duration: duration, ease: easeType }, 0.5)
+    .to(`${navDivs}(4)`, { opacity: 0, duration: duration, ease: easeType }, 0.5)
+    .to(`${navDivs}(4) > p`, { text: "", duration: duration, ease: easeType }, 0.5)
+    .to(`${navDivs}(5) > p`, { text: "محصولات", scale: "1.3", duration: duration, ease: easeType }, 0.5)
     .to(`${navDivs}(6)`, { opacity: 0, duration: duration, ease: easeType }, 0.5)
-    .to(`${navDivs}(6) > p`, { text: "", duration: duration, ease: easeType }, 0.5);
+    .to(`${navDivs}(6) > p`, { text: "", duration: duration, ease: easeType }, 0.5)
+    .to(`nav`, { background: "hsla(39, 100%, 70%, 0)", duration: duration, ease: easeType }, 0.5);
 
   var menuLanguageTimeline = gsap.timeline({ paused: true, reversed: true });
 
@@ -311,10 +314,9 @@ window.addEventListener("load", (event) => {
     .to(`${navDivs}(2) > p`, { text: "", duration: duration, ease: easeType }, 0.5)
     .to(`${navDivs}(3)`, { opacity: 0, duration: duration, ease: easeType }, 0.5)
     .to(`${navDivs}(3) > p`, { text: "", duration: duration, ease: easeType }, 0.5)
-    .to(`${navDivs}(4)`, { border: "0.1vmin black solid", duration: duration, ease: easeType }, 0.5)
-    .to(`${navDivs}(4) > p`, { text: "زبان وبسایت", scale: "1.3", duration: duration, ease: easeType }, 0.5)
-    .to(`${navDivs}(5)`, { opacity: 0, duration: duration, ease: easeType }, 0.5)
-    .to(`${navDivs}(5) > p`, { text: "", duration: duration, ease: easeType }, 0.5)
+    .to(`${navDivs}(4)`, { opacity: 0, duration: duration, ease: easeType }, 0.5)
+    .to(`${navDivs}(4) > p`, { text: "", duration: duration, ease: easeType }, 0.5)
+    .to(`${navDivs}(5) > p`, { text: "زبان وبسایت", scale: "1.3", duration: duration, ease: easeType }, 0.5)
     .to(`${navDivs}(6)`, { opacity: 0, duration: duration, ease: easeType }, 0.5)
     .to(`${navDivs}(6) > p`, { text: "", duration: duration, ease: easeType }, 0.5);
 
@@ -347,7 +349,7 @@ window.addEventListener("load", (event) => {
   let menuEnabled = false;
   let menulanguageEnabled = false;
 
-  document.querySelector("nav > div:nth-child(1)").addEventListener("click", function () {
+  document.querySelector("nav > img:nth-child(1)").addEventListener("click", function () {
     window.open(baseUrl, "_self");
   });
 
@@ -364,7 +366,7 @@ window.addEventListener("load", (event) => {
   document.querySelector("nav > div:nth-child(3)").addEventListener("click", function () {
     window.open(baseUrl + "/blogs", "_self");
   });
-  document.querySelector("nav > div:nth-child(4)").addEventListener("click", function () {
+  document.querySelector("nav > div:nth-child(5)").addEventListener("click", function () {
     if (menuEnabled) {
       toggleMenu();
       menuEnabled = false;
@@ -374,11 +376,11 @@ window.addEventListener("load", (event) => {
       toggleLanguageMenu();
       languageSelector.classList.remove("visible");
     } else {
-      generateSection();
+      window.open(baseUrl + "/contact", "_self");
     }
   });
-  document.querySelector("nav > div:nth-child(5)").addEventListener("click", function () {
-    window.open(baseUrl + "/contact", "_self");
+  document.querySelector("nav > div:nth-child(4)").addEventListener("click", function () {
+    generateSection();
   });
   document.querySelector("nav > div:nth-child(6)").addEventListener("click", function () {
     if (menuEnabled) {
@@ -522,18 +524,24 @@ window.addEventListener("load", (event) => {
   var prevScrollpos = window.pageYOffset;
 
   function hideNavbarOnScroll() {
-    var currentScrollPos = window.pageYOffset;
-
-    const nav = document.querySelector("nav");
-    if (prevScrollpos > currentScrollPos) {
-      nav.style.top = "0";
+    const currentScrollPos = window.pageYOffset;
+    if (window.innerWidth < 700) {
+      if (prevScrollpos > currentScrollPos) {
+        navigation.style.top = "0";
+      } else {
+        navigation.style.top = "-15vmax";
+      }
     } else {
-      nav.style.top = "-15vmax";
+      navigation.style.top = "2vmin";
     }
 
     prevScrollpos = currentScrollPos;
   }
-
+  window.addEventListener("resize", () => {
+    if (window.innerWidth >= 700) {
+      navigation.style.top = "2vmin";
+    }
+  });
   document.addEventListener("scroll", hideNavbarOnScroll);
 
   const path = document.querySelector(".splashScreen svg path");
@@ -675,7 +683,7 @@ window.addEventListener("load", (event) => {
 
   const copyrightParagraph = document.createElement("p");
   copyrightParagraph.innerHTML =
-    'Copyright © 2024 strumix / All rights reserved / Developed by <a target="_blank" data-cursor="pointerNavbar" href="https://firstibox.glitch.me/">FirstIBOX</a> / <a target="_blank" data-cursor="pointerNavbar" href="https://strumix.com/privacyPolicy">Privacy Policy</a>';
+    'Copyright © 2025 strumix / All rights reserved / Developed by <a target="_blank" data-cursor="pointerNavbar" href="https://firstibox.glitch.me/">FirstIBOX</a> / <a target="_blank" data-cursor="pointerNavbar" href="https://strumix.com/privacyPolicy">Privacy Policy</a>';
 
   section.appendChild(div1);
   section.appendChild(div2);

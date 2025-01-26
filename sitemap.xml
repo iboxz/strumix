@@ -3,22 +3,7 @@
 	<url>
 		<loc>https://www.strumix.com</loc>
 		<priority>1.00</priority>
-		<lastmod>2025-01-03</lastmod>
-	</url>
-	<url>
-		<loc>https://www.strumix.com/blogs</loc>
-		<priority>0.75</priority>
-		<lastmod>2024-10-29</lastmod>
-	</url>
-	<url>
-		<loc>https://www.strumix.com/contact</loc>
-		<priority>0.75</priority>
-		<lastmod>2024-12-01</lastmod>
-	</url>
-	<url>
-		<loc>https://www.strumix.com/en</loc>
-		<priority>0.75</priority>
-		<lastmod>2024-12-01</lastmod>
+		<lastmod>2025-01-26</lastmod>
 	</url>
 	<url>
 		<loc>https://www.strumix.com/products</loc>
@@ -26,577 +11,22 @@
 		<lastmod>2024-12-25</lastmod>
 	</url>
 	<url>
-		<loc>https://www.strumix.com/blogs/Building-water-repellants</loc>
-		<priority>0.50</priority>
+		<loc>https://www.strumix.com/en</loc>
+		<priority>0.75</priority>
 		<lastmod>2024-12-01</lastmod>
 	</url>
 	<url>
-		<loc>https://www.strumix.com/blogs/concrete-accelerators</loc>
-		<priority>0.50</priority>
+		<loc>https://www.strumix.com/contact</loc>
+		<priority>0.75</priority>
 		<lastmod>2024-12-01</lastmod>
 	</url>
 	<url>
-		<loc>https://www.strumix.com/blogs/Concrete-additives-in-8-minutes</loc>
-		<priority>0.50</priority>
-		<lastmod>2024-12-01</lastmod>
-	</url>
-	<url>
-		<loc>https://www.strumix.com/blogs/concrete-curing-methods</loc>
-		<priority>0.50</priority>
-		<lastmod>2024-12-01</lastmod>
-	</url>
-	<url>
-		<loc>https://www.strumix.com/blogs/concrete-release-agent-1</loc>
-		<priority>0.50</priority>
-		<lastmod>2024-12-01</lastmod>
-	</url>
-	<url>
-		<loc>https://www.strumix.com/blogs/Crystalline-Waterproofing-Admixtures-1</loc>
-		<priority>0.50</priority>
-		<lastmod>2024-12-01</lastmod>
-	</url>
-	<url>
-		<loc>https://www.strumix.com/blogs/Crystalline-Waterproofing-Admixtures-Struseal-C512</loc>
-		<priority>0.50</priority>
-		<lastmod>2024-12-01</lastmod>
-	</url>
-	<url>
-		<loc>https://www.strumix.com/blogs/enhancing-concrete-durability</loc>
-		<priority>0.50</priority>
-		<lastmod>2024-12-01</lastmod>
-	</url>
-	<url>
-		<loc>https://www.strumix.com/blogs/Fiber-concrete</loc>
-		<priority>0.50</priority>
-		<lastmod>2024-12-01</lastmod>
-	</url>
-	<url>
-		<loc>https://www.strumix.com/blogs/latex-polymers-in-concrete</loc>
-		<priority>0.50</priority>
-		<lastmod>2024-12-01</lastmod>
-	</url>
-	<url>
-		<loc>https://www.strumix.com/blogs/nanotechnology-in-construction-industry</loc>
-		<priority>0.50</priority>
-		<lastmod>2024-12-01</lastmod>
-	</url>
-	<url>
-		<loc>https://www.strumix.com/blogs/polycarboxylate-ether-structure-1</loc>
-		<priority>0.50</priority>
-		<lastmod>2024-12-01</lastmod>
-	</url>
-	<url>
-		<loc>https://www.strumix.com/blogs/Reducing-cement-consumption</loc>
-		<priority>0.50</priority>
-		<lastmod>2024-12-01</lastmod>
-	</url>
-	<url>
-		<loc>https://www.strumix.com/blogs/whats-concrete-admixture</loc>
-		<priority>0.50</priority>
-		<lastmod>2024-12-01</lastmod>
-	</url>
-	<url>
-		<loc>https://www.strumix.com/contact/branch</loc>
-		<priority>0.50</priority>
-		<lastmod>2024-12-01</lastmod>
-	</url>
-	<url>
-		<loc>https://www.strumix.com/contact/job</loc>
-		<priority>0.50</priority>
-		<lastmod>2024-12-21</lastmod>
-	</url>
-	<url>
-		<loc>https://www.strumix.com/en/contact</loc>
-		<priority>0.50</priority>
-		<lastmod>2024-12-01</lastmod>
-	</url>
-	<url>
-		<loc>https://www.strumix.com/en/privacyPolicy</loc>
-		<priority>0.50</priority>
-		<lastmod>2024-12-01</lastmod>
-	</url>
-	<url>
-		<loc>https://www.strumix.com/en/products</loc>
-		<priority>0.50</priority>
-		<lastmod>2024-12-01</lastmod>
-	</url>
-	<url>
-		<loc>https://www.strumix.com/products/plastic-spacers</loc>
-		<priority>0.50</priority>
-		<lastmod>2024-12-01</lastmod>
-	</url>
-	<url>
-		<loc>https://www.strumix.com/products/strubar</loc>
-		<priority>0.50</priority>
-		<lastmod>2024-12-01</lastmod>
-	</url>
-	<url>
-		<loc>https://www.strumix.com/products/strubond-acro7</loc>
-		<priority>0.50</priority>
-		<lastmod>2024-12-01</lastmod>
-	</url>
-	<url>
-		<loc>https://www.strumix.com/products/strubond-acro8</loc>
-		<priority>0.50</priority>
-		<lastmod>2024-12-01</lastmod>
-	</url>
-	<url>
-		<loc>https://www.strumix.com/products/strubond-ep500</loc>
-		<priority>0.50</priority>
-		<lastmod>2024-12-01</lastmod>
-	</url>
-	<url>
-		<loc>https://www.strumix.com/products/strubond-strong7</loc>
-		<priority>0.50</priority>
-		<lastmod>2024-12-01</lastmod>
-	</url>
-	<url>
-		<loc>https://www.strumix.com/products/strubond-strong8</loc>
-		<priority>0.50</priority>
-		<lastmod>2024-12-01</lastmod>
-	</url>
-	<url>
-		<loc>https://www.strumix.com/products/struclean-cm11</loc>
-		<priority>0.50</priority>
-		<lastmod>2024-12-01</lastmod>
-	</url>
-	<url>
-		<loc>https://www.strumix.com/products/struclean-epo</loc>
-		<priority>0.50</priority>
-		<lastmod>2024-12-01</lastmod>
-	</url>
-	<url>
-		<loc>https://www.strumix.com/products/strucure-lata</loc>
-		<priority>0.50</priority>
-		<lastmod>2024-12-01</lastmod>
-	</url>
-	<url>
-		<loc>https://www.strumix.com/products/strucure-para</loc>
-		<priority>0.50</priority>
-		<lastmod>2024-12-01</lastmod>
-	</url>
-	<url>
-		<loc>https://www.strumix.com/products/strucure-sw50</loc>
-		<priority>0.50</priority>
-		<lastmod>2024-12-01</lastmod>
-	</url>
-	<url>
-		<loc>https://www.strumix.com/products/strufiber-fp12</loc>
-		<priority>0.50</priority>
-		<lastmod>2024-12-01</lastmod>
-	</url>
-	<url>
-		<loc>https://www.strumix.com/products/strufloor-dalcoub</loc>
-		<priority>0.50</priority>
-		<lastmod>2024-12-01</lastmod>
-	</url>
-	<url>
-		<loc>https://www.strumix.com/products/strufloor-epo1205</loc>
-		<priority>0.50</priority>
-		<lastmod>2024-12-01</lastmod>
-	</url>
-	<url>
-		<loc>https://www.strumix.com/products/strufloor-s80</loc>
-		<priority>0.50</priority>
-		<lastmod>2024-12-01</lastmod>
-	</url>
-	<url>
-		<loc>https://www.strumix.com/products/strugrout-e760</loc>
-		<priority>0.50</priority>
-		<lastmod>2024-12-01</lastmod>
-	</url>
-	<url>
-		<loc>https://www.strumix.com/products/strugrout-es500</loc>
-		<priority>0.50</priority>
-		<lastmod>2024-12-01</lastmod>
-	</url>
-	<url>
-		<loc>https://www.strumix.com/products/strugrout-g750</loc>
-		<priority>0.50</priority>
-		<lastmod>2024-12-01</lastmod>
-	</url>
-	<url>
-		<loc>https://www.strumix.com/products/strugrout-ker320</loc>
-		<priority>0.50</priority>
-		<lastmod>2024-12-01</lastmod>
-	</url>
-	<url>
-		<loc>https://www.strumix.com/products/strugrout-n880</loc>
-		<priority>0.50</priority>
-		<lastmod>2024-12-01</lastmod>
-	</url>
-	<url>
-		<loc>https://www.strumix.com/products/strumin-complex</loc>
-		<priority>0.50</priority>
-		<lastmod>2024-12-01</lastmod>
-	</url>
-	<url>
-		<loc>https://www.strumix.com/products/strumin-dura</loc>
-		<priority>0.50</priority>
-		<lastmod>2024-12-01</lastmod>
-	</url>
-	<url>
-		<loc>https://www.strumix.com/products/strumin-gc</loc>
-		<priority>0.50</priority>
-		<lastmod>2024-12-01</lastmod>
-	</url>
-	<url>
-		<loc>https://www.strumix.com/products/strumin-power</loc>
-		<priority>0.50</priority>
-		<lastmod>2024-12-01</lastmod>
-	</url>
-	<url>
-		<loc>https://www.strumix.com/products/strumin-sl</loc>
-		<priority>0.50</priority>
-		<lastmod>2024-12-01</lastmod>
-	</url>
-	<url>
-		<loc>https://www.strumix.com/products/strumin-slc</loc>
-		<priority>0.50</priority>
-		<lastmod>2024-12-01</lastmod>
-	</url>
-	<url>
-		<loc>https://www.strumix.com/products/strumin-supergel</loc>
-		<priority>0.50</priority>
-		<lastmod>2024-12-01</lastmod>
-	</url>
-	<url>
-		<loc>https://www.strumix.com/products/strumould-shv</loc>
-		<priority>0.50</priority>
-		<lastmod>2024-12-01</lastmod>
-	</url>
-	<url>
-		<loc>https://www.strumix.com/products/strumould-slv</loc>
-		<priority>0.50</priority>
-		<lastmod>2024-12-01</lastmod>
-	</url>
-	<url>
-		<loc>https://www.strumix.com/products/strumould-wra</loc>
-		<priority>0.50</priority>
-		<lastmod>2024-12-01</lastmod>
-	</url>
-	<url>
-		<loc>https://www.strumix.com/products/struplast-a322</loc>
-		<priority>0.50</priority>
-		<lastmod>2024-12-01</lastmod>
-	</url>
-	<url>
-		<loc>https://www.strumix.com/products/struplast-a480</loc>
-		<priority>0.50</priority>
-		<lastmod>2024-12-01</lastmod>
-	</url>
-	<url>
-		<loc>https://www.strumix.com/products/struplast-air</loc>
-		<priority>0.50</priority>
-		<lastmod>2024-12-01</lastmod>
-	</url>
-	<url>
-		<loc>https://www.strumix.com/products/struplast-n321</loc>
-		<priority>0.50</priority>
-		<lastmod>2024-12-01</lastmod>
-	</url>
-	<url>
-		<loc>https://www.strumix.com/products/struplast-n322</loc>
-		<priority>0.50</priority>
-		<lastmod>2024-12-01</lastmod>
-	</url>
-	<url>
-		<loc>https://www.strumix.com/products/struplast-n410</loc>
-		<priority>0.50</priority>
-		<lastmod>2024-12-01</lastmod>
-	</url>
-	<url>
-		<loc>https://www.strumix.com/products/struplast-n470</loc>
-		<priority>0.50</priority>
-		<lastmod>2024-12-01</lastmod>
-	</url>
-	<url>
-		<loc>https://www.strumix.com/products/struplast-n480</loc>
-		<priority>0.50</priority>
-		<lastmod>2024-12-01</lastmod>
-	</url>
-	<url>
-		<loc>https://www.strumix.com/products/struplast-r322</loc>
-		<priority>0.50</priority>
-		<lastmod>2024-12-01</lastmod>
-	</url>
-	<url>
-		<loc>https://www.strumix.com/products/struplast-r470</loc>
-		<priority>0.50</priority>
-		<lastmod>2024-12-01</lastmod>
-	</url>
-	<url>
-		<loc>https://www.strumix.com/products/struplast-r480</loc>
-		<priority>0.50</priority>
-		<lastmod>2024-12-01</lastmod>
-	</url>
-	<url>
-		<loc>https://www.strumix.com/products/struplast-smc-n</loc>
-		<priority>0.50</priority>
-		<lastmod>2024-12-01</lastmod>
-	</url>
-	<url>
-		<loc>https://www.strumix.com/products/struplast-vm750p</loc>
-		<priority>0.50</priority>
-		<lastmod>2024-12-01</lastmod>
-	</url>
-	<url>
-		<loc>https://www.strumix.com/products/struproof-hp</loc>
-		<priority>0.50</priority>
-		<lastmod>2024-12-01</lastmod>
-	</url>
-	<url>
-		<loc>https://www.strumix.com/products/struproof-wl</loc>
-		<priority>0.50</priority>
-		<lastmod>2024-12-01</lastmod>
-	</url>
-	<url>
-		<loc>https://www.strumix.com/products/struproof-ws</loc>
-		<priority>0.50</priority>
-		<lastmod>2024-12-01</lastmod>
-	</url>
-	<url>
-		<loc>https://www.strumix.com/products/struseal-c512</loc>
-		<priority>0.50</priority>
-		<lastmod>2024-12-01</lastmod>
-	</url>
-	<url>
-		<loc>https://www.strumix.com/products/struseal-c513</loc>
-		<priority>0.50</priority>
-		<lastmod>2024-12-01</lastmod>
-	</url>
-	<url>
-		<loc>https://www.strumix.com/products/struseal-c514</loc>
-		<priority>0.50</priority>
-		<lastmod>2024-12-01</lastmod>
-	</url>
-	<url>
-		<loc>https://www.strumix.com/products/struseal-c515</loc>
-		<priority>0.50</priority>
-		<lastmod>2024-12-01</lastmod>
-	</url>
-	<url>
-		<loc>https://www.strumix.com/products/struseal-c516</loc>
-		<priority>0.50</priority>
-		<lastmod>2024-12-01</lastmod>
-	</url>
-	<url>
-		<loc>https://www.strumix.com/products/struset-afc</loc>
-		<priority>0.50</priority>
-		<lastmod>2024-12-01</lastmod>
-	</url>
-	<url>
-		<loc>https://www.strumix.com/products/struset-nail</loc>
-		<priority>0.50</priority>
-		<lastmod>2024-12-01</lastmod>
-	</url>
-	<url>
-		<loc>https://www.strumix.com/products/struset-nitro</loc>
-		<priority>0.50</priority>
-		<lastmod>2024-12-01</lastmod>
-	</url>
-	<url>
-		<loc>https://www.strumix.com/products/struset-rst</loc>
-		<priority>0.50</priority>
-		<lastmod>2024-12-01</lastmod>
-	</url>
-	<url>
-		<loc>https://www.strumix.com/products/struset-sla</loc>
-		<priority>0.50</priority>
-		<lastmod>2024-12-01</lastmod>
-	</url>
-	<url>
-		<loc>https://www.strumix.com/products/struset-spa</loc>
-		<priority>0.50</priority>
-		<lastmod>2024-12-01</lastmod>
-	</url>
-	<url>
-		<loc>https://www.strumix.com/products/strusin-a510</loc>
-		<priority>0.50</priority>
-		<lastmod>2024-12-01</lastmod>
-	</url>
-	<url>
-		<loc>https://www.strumix.com/products/strusin-a520</loc>
-		<priority>0.50</priority>
-		<lastmod>2024-12-01</lastmod>
-	</url>
-	<url>
-		<loc>https://www.strumix.com/products/strusin-a530</loc>
-		<priority>0.50</priority>
-		<lastmod>2024-12-01</lastmod>
-	</url>
-	<url>
-		<loc>https://www.strumix.com/products/strusin-lsr</loc>
-		<priority>0.50</priority>
-		<lastmod>2024-12-01</lastmod>
-	</url>
-	<url>
-		<loc>https://www.strumix.com/products/strusin-n220</loc>
-		<priority>0.50</priority>
-		<lastmod>2024-12-01</lastmod>
-	</url>
-	<url>
-		<loc>https://www.strumix.com/products/strusin-n500</loc>
-		<priority>0.50</priority>
-		<lastmod>2024-12-01</lastmod>
-	</url>
-	<url>
-		<loc>https://www.strumix.com/products/strusin-n510</loc>
-		<priority>0.50</priority>
-		<lastmod>2024-12-01</lastmod>
-	</url>
-	<url>
-		<loc>https://www.strumix.com/products/strusin-n515</loc>
-		<priority>0.50</priority>
-		<lastmod>2024-12-01</lastmod>
-	</url>
-	<url>
-		<loc>https://www.strumix.com/products/strusin-n520</loc>
-		<priority>0.50</priority>
-		<lastmod>2024-12-01</lastmod>
-	</url>
-	<url>
-		<loc>https://www.strumix.com/products/strusin-n530</loc>
-		<priority>0.50</priority>
-		<lastmod>2024-12-01</lastmod>
-	</url>
-	<url>
-		<loc>https://www.strumix.com/products/strusin-pls22</loc>
-		<priority>0.50</priority>
-		<lastmod>2024-12-01</lastmod>
-	</url>
-	<url>
-		<loc>https://www.strumix.com/products/strusin-r510</loc>
-		<priority>0.50</priority>
-		<lastmod>2024-12-01</lastmod>
-	</url>
-	<url>
-		<loc>https://www.strumix.com/products/strusin-r520</loc>
-		<priority>0.50</priority>
-		<lastmod>2024-12-01</lastmod>
-	</url>
-	<url>
-		<loc>https://www.strumix.com/products/strusin-r530</loc>
-		<priority>0.50</priority>
-		<lastmod>2024-12-01</lastmod>
-	</url>
-	<url>
-		<loc>https://www.strumix.com/products/struswell</loc>
-		<priority>0.50</priority>
-		<lastmod>2024-12-01</lastmod>
-	</url>
-	<url>
-		<loc>https://www.strumix.com/products/strutile-c10</loc>
-		<priority>0.50</priority>
-		<lastmod>2024-12-01</lastmod>
-	</url>
-	<url>
-		<loc>https://www.strumix.com/products/strutile-c20</loc>
-		<priority>0.50</priority>
-		<lastmod>2024-12-01</lastmod>
-	</url>
-	<url>
-		<loc>https://www.strumix.com/products/strutile-c50</loc>
-		<priority>0.50</priority>
-		<lastmod>2024-12-01</lastmod>
-	</url>
-	<url>
-		<loc>https://www.strumix.com/products/strutile-gr110</loc>
-		<priority>0.50</priority>
-		<lastmod>2024-12-01</lastmod>
-	</url>
-	<url>
-		<loc>https://www.strumix.com/products/strutile-heblex</loc>
-		<priority>0.50</priority>
-		<lastmod>2024-12-01</lastmod>
-	</url>
-	<url>
-		<loc>https://www.strumix.com/products/strutile-ph4</loc>
-		<priority>0.50</priority>
-		<lastmod>2024-12-01</lastmod>
-	</url>
-	<url>
-		<loc>https://www.strumix.com/products/struton-hs101</loc>
-		<priority>0.50</priority>
-		<lastmod>2024-12-01</lastmod>
-	</url>
-	<url>
-		<loc>https://www.strumix.com/products/struton-hs102</loc>
-		<priority>0.50</priority>
-		<lastmod>2024-12-01</lastmod>
-	</url>
-	<url>
-		<loc>https://www.strumix.com/products/strutop-bp120</loc>
-		<priority>0.50</priority>
-		<lastmod>2024-12-01</lastmod>
-	</url>
-	<url>
-		<loc>https://www.strumix.com/products/strutop-brush</loc>
-		<priority>0.50</priority>
-		<lastmod>2024-12-01</lastmod>
-	</url>
-	<url>
-		<loc>https://www.strumix.com/products/strutop-cem260</loc>
-		<priority>0.50</priority>
-		<lastmod>2024-12-01</lastmod>
-	</url>
-	<url>
-		<loc>https://www.strumix.com/products/strutop-em130</loc>
-		<priority>0.50</priority>
-		<lastmod>2024-12-01</lastmod>
-	</url>
-	<url>
-		<loc>https://www.strumix.com/products/strutop-flex</loc>
-		<priority>0.50</priority>
-		<lastmod>2024-12-01</lastmod>
-	</url>
-	<url>
-		<loc>https://www.strumix.com/products/strutop-gard-la</loc>
-		<priority>0.50</priority>
-		<lastmod>2024-12-01</lastmod>
-	</url>
-	<url>
-		<loc>https://www.strumix.com/products/strutop-gard-pa</loc>
-		<priority>0.50</priority>
-		<lastmod>2024-12-01</lastmod>
-	</url>
-	<url>
-		<loc>https://www.strumix.com/products/strutop-js1</loc>
-		<priority>0.50</priority>
-		<lastmod>2024-12-01</lastmod>
-	</url>
-	<url>
-		<loc>https://www.strumix.com/products/strutop-js3</loc>
-		<priority>0.50</priority>
-		<lastmod>2024-12-01</lastmod>
-	</url>
-	<url>
-		<loc>https://www.strumix.com/products/strutop-lac</loc>
-		<priority>0.50</priority>
-		<lastmod>2024-12-01</lastmod>
-	</url>
-	<url>
-		<loc>https://www.strumix.com/products/strutop-repo55</loc>
-		<priority>0.50</priority>
-		<lastmod>2024-12-01</lastmod>
-	</url>
-	<url>
-		<loc>https://www.strumix.com/products/strutop-rm450</loc>
-		<priority>0.50</priority>
-		<lastmod>2024-12-01</lastmod>
-	</url>
-	<url>
-		<loc>https://www.strumix.com/products/strutop-rm650</loc>
-		<priority>0.50</priority>
-		<lastmod>2024-12-01</lastmod>
-	</url>
-	<url>
-		<loc>https://www.strumix.com/products/strutop-sb900</loc>
-		<priority>0.50</priority>
-		<lastmod>2024-12-01</lastmod>
+		<loc>https://www.strumix.com/blogs</loc>
+		<priority>0.75</priority>
+		<lastmod>2024-10-29</lastmod>
 	</url>
 	<url>
-		<loc>https://www.strumix.com/products/strutop-soft</loc>
+		<loc>https://www.strumix.com/products/strutop-wr7</loc>
 		<priority>0.50</priority>
 		<lastmod>2024-12-01</lastmod>
 	</url>
@@ -606,277 +36,582 @@
 		<lastmod>2024-12-01</lastmod>
 	</url>
 	<url>
-		<loc>https://www.strumix.com/products/strutop-wr7</loc>
+		<loc>https://www.strumix.com/products/strutop-soft</loc>
 		<priority>0.50</priority>
 		<lastmod>2024-12-01</lastmod>
 	</url>
 	<url>
-		<loc>https://www.strumix.com/en/products/concrete-plastic-accessories</loc>
-		<priority>0.25</priority>
+		<loc>https://www.strumix.com/products/strutop-sb900</loc>
+		<priority>0.50</priority>
 		<lastmod>2024-12-01</lastmod>
 	</url>
 	<url>
-		<loc>https://www.strumix.com/en/products/dalcoub</loc>
-		<priority>0.25</priority>
+		<loc>https://www.strumix.com/products/strutop-rm650</loc>
+		<priority>0.50</priority>
 		<lastmod>2024-12-01</lastmod>
 	</url>
 	<url>
-		<loc>https://www.strumix.com/en/products/strubar</loc>
-		<priority>0.25</priority>
+		<loc>https://www.strumix.com/products/strutop-rm450</loc>
+		<priority>0.50</priority>
 		<lastmod>2024-12-01</lastmod>
 	</url>
 	<url>
-		<loc>https://www.strumix.com/en/products/strubond-acro7</loc>
-		<priority>0.25</priority>
+		<loc>https://www.strumix.com/products/strutop-repo55</loc>
+		<priority>0.50</priority>
 		<lastmod>2024-12-01</lastmod>
 	</url>
 	<url>
-		<loc>https://www.strumix.com/en/products/strubond-acro8</loc>
-		<priority>0.25</priority>
+		<loc>https://www.strumix.com/products/strutop-lac</loc>
+		<priority>0.50</priority>
 		<lastmod>2024-12-01</lastmod>
 	</url>
 	<url>
-		<loc>https://www.strumix.com/en/products/strubond-magma</loc>
-		<priority>0.25</priority>
+		<loc>https://www.strumix.com/products/strutop-js3</loc>
+		<priority>0.50</priority>
 		<lastmod>2024-12-01</lastmod>
 	</url>
 	<url>
-		<loc>https://www.strumix.com/en/products/strubond-strong7</loc>
-		<priority>0.25</priority>
+		<loc>https://www.strumix.com/products/strutop-js1</loc>
+		<priority>0.50</priority>
 		<lastmod>2024-12-01</lastmod>
 	</url>
 	<url>
-		<loc>https://www.strumix.com/en/products/strubond-strong8</loc>
-		<priority>0.25</priority>
+		<loc>https://www.strumix.com/products/strutop-gard-pa</loc>
+		<priority>0.50</priority>
 		<lastmod>2024-12-01</lastmod>
 	</url>
 	<url>
-		<loc>https://www.strumix.com/en/products/strucure-sw50</loc>
-		<priority>0.25</priority>
+		<loc>https://www.strumix.com/products/strutop-gard-la</loc>
+		<priority>0.50</priority>
 		<lastmod>2024-12-01</lastmod>
 	</url>
 	<url>
-		<loc>https://www.strumix.com/en/products/strufiber-fp</loc>
-		<priority>0.25</priority>
+		<loc>https://www.strumix.com/products/strutop-flex</loc>
+		<priority>0.50</priority>
 		<lastmod>2024-12-01</lastmod>
 	</url>
 	<url>
-		<loc>https://www.strumix.com/en/products/strufloor-s70</loc>
-		<priority>0.25</priority>
+		<loc>https://www.strumix.com/products/strutop-em130</loc>
+		<priority>0.50</priority>
 		<lastmod>2024-12-01</lastmod>
 	</url>
 	<url>
-		<loc>https://www.strumix.com/en/products/strugrout-e760</loc>
-		<priority>0.25</priority>
+		<loc>https://www.strumix.com/products/strutop-cem260</loc>
+		<priority>0.50</priority>
 		<lastmod>2024-12-01</lastmod>
 	</url>
 	<url>
-		<loc>https://www.strumix.com/en/products/strugrout-es500</loc>
-		<priority>0.25</priority>
+		<loc>https://www.strumix.com/products/strutop-brush</loc>
+		<priority>0.50</priority>
 		<lastmod>2024-12-01</lastmod>
 	</url>
 	<url>
-		<loc>https://www.strumix.com/en/products/strugrout-g750</loc>
-		<priority>0.25</priority>
+		<loc>https://www.strumix.com/products/strutop-bp120</loc>
+		<priority>0.50</priority>
 		<lastmod>2024-12-01</lastmod>
 	</url>
 	<url>
-		<loc>https://www.strumix.com/en/products/strugrout-ker320</loc>
-		<priority>0.25</priority>
+		<loc>https://www.strumix.com/products/struton-hs102</loc>
+		<priority>0.50</priority>
 		<lastmod>2024-12-01</lastmod>
 	</url>
 	<url>
-		<loc>https://www.strumix.com/en/products/strugrout-n880</loc>
-		<priority>0.25</priority>
+		<loc>https://www.strumix.com/products/struton-hs101</loc>
+		<priority>0.50</priority>
 		<lastmod>2024-12-01</lastmod>
 	</url>
 	<url>
-		<loc>https://www.strumix.com/en/products/strumin-complex</loc>
-		<priority>0.25</priority>
+		<loc>https://www.strumix.com/products/strutile-ph4</loc>
+		<priority>0.50</priority>
 		<lastmod>2024-12-01</lastmod>
 	</url>
 	<url>
-		<loc>https://www.strumix.com/en/products/strumin-dura</loc>
-		<priority>0.25</priority>
+		<loc>https://www.strumix.com/products/strutile-heblex</loc>
+		<priority>0.50</priority>
 		<lastmod>2024-12-01</lastmod>
 	</url>
 	<url>
-		<loc>https://www.strumix.com/en/products/strumin-mp980</loc>
-		<priority>0.25</priority>
+		<loc>https://www.strumix.com/products/strutile-gr110</loc>
+		<priority>0.50</priority>
 		<lastmod>2024-12-01</lastmod>
 	</url>
 	<url>
-		<loc>https://www.strumix.com/en/products/strumin-sl</loc>
-		<priority>0.25</priority>
+		<loc>https://www.strumix.com/products/strutile-c50</loc>
+		<priority>0.50</priority>
 		<lastmod>2024-12-01</lastmod>
 	</url>
 	<url>
-		<loc>https://www.strumix.com/en/products/strumould-slv</loc>
-		<priority>0.25</priority>
+		<loc>https://www.strumix.com/products/strutile-c20</loc>
+		<priority>0.50</priority>
 		<lastmod>2024-12-01</lastmod>
 	</url>
 	<url>
-		<loc>https://www.strumix.com/en/products/strumould-wra</loc>
-		<priority>0.25</priority>
+		<loc>https://www.strumix.com/products/strutile-c10</loc>
+		<priority>0.50</priority>
 		<lastmod>2024-12-01</lastmod>
 	</url>
 	<url>
-		<loc>https://www.strumix.com/en/products/struplast-air</loc>
-		<priority>0.25</priority>
+		<loc>https://www.strumix.com/products/struswell</loc>
+		<priority>0.50</priority>
 		<lastmod>2024-12-01</lastmod>
 	</url>
 	<url>
-		<loc>https://www.strumix.com/en/products/struplast-n321</loc>
-		<priority>0.25</priority>
+		<loc>https://www.strumix.com/products/strusin-r530</loc>
+		<priority>0.50</priority>
 		<lastmod>2024-12-01</lastmod>
 	</url>
 	<url>
-		<loc>https://www.strumix.com/en/products/struplast-n322</loc>
-		<priority>0.25</priority>
+		<loc>https://www.strumix.com/products/strusin-r520</loc>
+		<priority>0.50</priority>
 		<lastmod>2024-12-01</lastmod>
 	</url>
 	<url>
-		<loc>https://www.strumix.com/en/products/struplast-n410</loc>
-		<priority>0.25</priority>
+		<loc>https://www.strumix.com/products/strusin-r510</loc>
+		<priority>0.50</priority>
 		<lastmod>2024-12-01</lastmod>
 	</url>
 	<url>
-		<loc>https://www.strumix.com/en/products/struplast-n470</loc>
-		<priority>0.25</priority>
+		<loc>https://www.strumix.com/products/strusin-pls22</loc>
+		<priority>0.50</priority>
 		<lastmod>2024-12-01</lastmod>
 	</url>
 	<url>
-		<loc>https://www.strumix.com/en/products/struplast-n480</loc>
-		<priority>0.25</priority>
+		<loc>https://www.strumix.com/products/strusin-n530</loc>
+		<priority>0.50</priority>
 		<lastmod>2024-12-01</lastmod>
 	</url>
 	<url>
-		<loc>https://www.strumix.com/en/products/struplast-vm750p</loc>
-		<priority>0.25</priority>
+		<loc>https://www.strumix.com/products/strusin-n520</loc>
+		<priority>0.50</priority>
 		<lastmod>2024-12-01</lastmod>
 	</url>
 	<url>
-		<loc>https://www.strumix.com/en/products/struproof-hp</loc>
-		<priority>0.25</priority>
+		<loc>https://www.strumix.com/products/strusin-n515</loc>
+		<priority>0.50</priority>
 		<lastmod>2024-12-01</lastmod>
 	</url>
 	<url>
-		<loc>https://www.strumix.com/en/products/struproof-wl</loc>
-		<priority>0.25</priority>
+		<loc>https://www.strumix.com/products/strusin-n510</loc>
+		<priority>0.50</priority>
 		<lastmod>2024-12-01</lastmod>
 	</url>
 	<url>
-		<loc>https://www.strumix.com/en/products/struseal-c512</loc>
-		<priority>0.25</priority>
+		<loc>https://www.strumix.com/products/strusin-n500</loc>
+		<priority>0.50</priority>
 		<lastmod>2024-12-01</lastmod>
 	</url>
 	<url>
-		<loc>https://www.strumix.com/en/products/struseal-c514</loc>
-		<priority>0.25</priority>
+		<loc>https://www.strumix.com/products/strusin-n220</loc>
+		<priority>0.50</priority>
 		<lastmod>2024-12-01</lastmod>
 	</url>
 	<url>
-		<loc>https://www.strumix.com/en/products/struseal-c515</loc>
-		<priority>0.25</priority>
+		<loc>https://www.strumix.com/products/strusin-lsr</loc>
+		<priority>0.50</priority>
 		<lastmod>2024-12-01</lastmod>
 	</url>
 	<url>
-		<loc>https://www.strumix.com/en/products/struset-nitro</loc>
-		<priority>0.25</priority>
+		<loc>https://www.strumix.com/products/strusin-a530</loc>
+		<priority>0.50</priority>
 		<lastmod>2024-12-01</lastmod>
 	</url>
 	<url>
-		<loc>https://www.strumix.com/en/products/struset-rst</loc>
-		<priority>0.25</priority>
+		<loc>https://www.strumix.com/products/strusin-a520</loc>
+		<priority>0.50</priority>
 		<lastmod>2024-12-01</lastmod>
 	</url>
 	<url>
-		<loc>https://www.strumix.com/en/products/struset-sla</loc>
-		<priority>0.25</priority>
+		<loc>https://www.strumix.com/products/strusin-a510</loc>
+		<priority>0.50</priority>
 		<lastmod>2024-12-01</lastmod>
 	</url>
 	<url>
-		<loc>https://www.strumix.com/en/products/struset-spa</loc>
-		<priority>0.25</priority>
+		<loc>https://www.strumix.com/products/struset-spa</loc>
+		<priority>0.50</priority>
 		<lastmod>2024-12-01</lastmod>
 	</url>
 	<url>
-		<loc>https://www.strumix.com/en/products/strusin-n500</loc>
-		<priority>0.25</priority>
+		<loc>https://www.strumix.com/products/struset-sla</loc>
+		<priority>0.50</priority>
 		<lastmod>2024-12-01</lastmod>
 	</url>
 	<url>
-		<loc>https://www.strumix.com/en/products/strusin-n510</loc>
-		<priority>0.25</priority>
+		<loc>https://www.strumix.com/products/struset-rst</loc>
+		<priority>0.50</priority>
 		<lastmod>2024-12-01</lastmod>
 	</url>
 	<url>
-		<loc>https://www.strumix.com/en/products/strusin-n520</loc>
-		<priority>0.25</priority>
+		<loc>https://www.strumix.com/products/struset-nitro</loc>
+		<priority>0.50</priority>
 		<lastmod>2024-12-01</lastmod>
 	</url>
 	<url>
-		<loc>https://www.strumix.com/en/products/strusin-n530</loc>
-		<priority>0.25</priority>
+		<loc>https://www.strumix.com/products/struset-nail</loc>
+		<priority>0.50</priority>
 		<lastmod>2024-12-01</lastmod>
 	</url>
 	<url>
-		<loc>https://www.strumix.com/en/products/strusin-pls22</loc>
-		<priority>0.25</priority>
+		<loc>https://www.strumix.com/products/struset-afc</loc>
+		<priority>0.50</priority>
 		<lastmod>2024-12-01</lastmod>
 	</url>
 	<url>
-		<loc>https://www.strumix.com/en/products/strutile-c10</loc>
-		<priority>0.25</priority>
+		<loc>https://www.strumix.com/products/struseal-c516</loc>
+		<priority>0.50</priority>
 		<lastmod>2024-12-01</lastmod>
 	</url>
 	<url>
-		<loc>https://www.strumix.com/en/products/strutile-c20</loc>
-		<priority>0.25</priority>
+		<loc>https://www.strumix.com/products/struseal-c515</loc>
+		<priority>0.50</priority>
 		<lastmod>2024-12-01</lastmod>
 	</url>
 	<url>
-		<loc>https://www.strumix.com/en/products/strutile-c50</loc>
-		<priority>0.25</priority>
+		<loc>https://www.strumix.com/products/struseal-c514</loc>
+		<priority>0.50</priority>
 		<lastmod>2024-12-01</lastmod>
 	</url>
 	<url>
-		<loc>https://www.strumix.com/en/products/strutile-gr110</loc>
-		<priority>0.25</priority>
+		<loc>https://www.strumix.com/products/struseal-c513</loc>
+		<priority>0.50</priority>
 		<lastmod>2024-12-01</lastmod>
 	</url>
 	<url>
-		<loc>https://www.strumix.com/en/products/strutile-ph4</loc>
-		<priority>0.25</priority>
+		<loc>https://www.strumix.com/products/struseal-c512</loc>
+		<priority>0.50</priority>
 		<lastmod>2024-12-01</lastmod>
 	</url>
 	<url>
-		<loc>https://www.strumix.com/en/products/strutop-brush</loc>
-		<priority>0.25</priority>
+		<loc>https://www.strumix.com/products/struproof-ws</loc>
+		<priority>0.50</priority>
 		<lastmod>2024-12-01</lastmod>
 	</url>
 	<url>
-		<loc>https://www.strumix.com/en/products/strutop-cem260</loc>
-		<priority>0.25</priority>
+		<loc>https://www.strumix.com/products/struproof-wl</loc>
+		<priority>0.50</priority>
 		<lastmod>2024-12-01</lastmod>
 	</url>
 	<url>
-		<loc>https://www.strumix.com/en/products/strutop-gard-pa</loc>
-		<priority>0.25</priority>
+		<loc>https://www.strumix.com/products/struproof-hp</loc>
+		<priority>0.50</priority>
 		<lastmod>2024-12-01</lastmod>
 	</url>
 	<url>
-		<loc>https://www.strumix.com/en/products/strutop-js3</loc>
-		<priority>0.25</priority>
+		<loc>https://www.strumix.com/products/struplast-vm750p</loc>
+		<priority>0.50</priority>
 		<lastmod>2024-12-01</lastmod>
 	</url>
 	<url>
-		<loc>https://www.strumix.com/en/products/strutop-rm450</loc>
-		<priority>0.25</priority>
+		<loc>https://www.strumix.com/products/struplast-smc-n</loc>
+		<priority>0.50</priority>
 		<lastmod>2024-12-01</lastmod>
 	</url>
 	<url>
-		<loc>https://www.strumix.com/en/products/strutop-rm650</loc>
+		<loc>https://www.strumix.com/products/struplast-r480</loc>
+		<priority>0.50</priority>
+		<lastmod>2024-12-01</lastmod>
+	</url>
+	<url>
+		<loc>https://www.strumix.com/products/struplast-r470</loc>
+		<priority>0.50</priority>
+		<lastmod>2024-12-01</lastmod>
+	</url>
+	<url>
+		<loc>https://www.strumix.com/products/struplast-r322</loc>
+		<priority>0.50</priority>
+		<lastmod>2024-12-01</lastmod>
+	</url>
+	<url>
+		<loc>https://www.strumix.com/products/struplast-n480</loc>
+		<priority>0.50</priority>
+		<lastmod>2024-12-01</lastmod>
+	</url>
+	<url>
+		<loc>https://www.strumix.com/products/struplast-n470</loc>
+		<priority>0.50</priority>
+		<lastmod>2024-12-01</lastmod>
+	</url>
+	<url>
+		<loc>https://www.strumix.com/products/struplast-n410</loc>
+		<priority>0.50</priority>
+		<lastmod>2024-12-01</lastmod>
+	</url>
+	<url>
+		<loc>https://www.strumix.com/products/struplast-n322</loc>
+		<priority>0.50</priority>
+		<lastmod>2024-12-01</lastmod>
+	</url>
+	<url>
+		<loc>https://www.strumix.com/products/struplast-n321</loc>
+		<priority>0.50</priority>
+		<lastmod>2024-12-01</lastmod>
+	</url>
+	<url>
+		<loc>https://www.strumix.com/products/struplast-air</loc>
+		<priority>0.50</priority>
+		<lastmod>2024-12-01</lastmod>
+	</url>
+	<url>
+		<loc>https://www.strumix.com/products/struplast-a480</loc>
+		<priority>0.50</priority>
+		<lastmod>2024-12-01</lastmod>
+	</url>
+	<url>
+		<loc>https://www.strumix.com/products/struplast-a322</loc>
+		<priority>0.50</priority>
+		<lastmod>2024-12-01</lastmod>
+	</url>
+	<url>
+		<loc>https://www.strumix.com/products/strumould-wra</loc>
+		<priority>0.50</priority>
+		<lastmod>2024-12-01</lastmod>
+	</url>
+	<url>
+		<loc>https://www.strumix.com/products/strumould-slv</loc>
+		<priority>0.50</priority>
+		<lastmod>2024-12-01</lastmod>
+	</url>
+	<url>
+		<loc>https://www.strumix.com/products/strumould-shv</loc>
+		<priority>0.50</priority>
+		<lastmod>2024-12-01</lastmod>
+	</url>
+	<url>
+		<loc>https://www.strumix.com/products/strumin-supergel</loc>
+		<priority>0.50</priority>
+		<lastmod>2024-12-01</lastmod>
+	</url>
+	<url>
+		<loc>https://www.strumix.com/products/strumin-slc</loc>
+		<priority>0.50</priority>
+		<lastmod>2024-12-01</lastmod>
+	</url>
+	<url>
+		<loc>https://www.strumix.com/products/strumin-sl</loc>
+		<priority>0.50</priority>
+		<lastmod>2024-12-01</lastmod>
+	</url>
+	<url>
+		<loc>https://www.strumix.com/products/strumin-power</loc>
+		<priority>0.50</priority>
+		<lastmod>2024-12-01</lastmod>
+	</url>
+	<url>
+		<loc>https://www.strumix.com/products/strumin-gc</loc>
+		<priority>0.50</priority>
+		<lastmod>2024-12-01</lastmod>
+	</url>
+	<url>
+		<loc>https://www.strumix.com/products/strumin-dura</loc>
+		<priority>0.50</priority>
+		<lastmod>2024-12-01</lastmod>
+	</url>
+	<url>
+		<loc>https://www.strumix.com/products/strumin-complex</loc>
+		<priority>0.50</priority>
+		<lastmod>2024-12-01</lastmod>
+	</url>
+	<url>
+		<loc>https://www.strumix.com/products/strugrout-n880</loc>
+		<priority>0.50</priority>
+		<lastmod>2024-12-01</lastmod>
+	</url>
+	<url>
+		<loc>https://www.strumix.com/products/strugrout-ker320</loc>
+		<priority>0.50</priority>
+		<lastmod>2024-12-01</lastmod>
+	</url>
+	<url>
+		<loc>https://www.strumix.com/products/strugrout-g750</loc>
+		<priority>0.50</priority>
+		<lastmod>2024-12-01</lastmod>
+	</url>
+	<url>
+		<loc>https://www.strumix.com/products/strugrout-es500</loc>
+		<priority>0.50</priority>
+		<lastmod>2024-12-01</lastmod>
+	</url>
+	<url>
+		<loc>https://www.strumix.com/products/strugrout-e760</loc>
+		<priority>0.50</priority>
+		<lastmod>2024-12-01</lastmod>
+	</url>
+	<url>
+		<loc>https://www.strumix.com/products/strufloor-s80</loc>
+		<priority>0.50</priority>
+		<lastmod>2024-12-01</lastmod>
+	</url>
+	<url>
+		<loc>https://www.strumix.com/products/strufloor-epo1205</loc>
+		<priority>0.50</priority>
+		<lastmod>2024-12-01</lastmod>
+	</url>
+	<url>
+		<loc>https://www.strumix.com/products/strufloor-dalcoub</loc>
+		<priority>0.50</priority>
+		<lastmod>2024-12-01</lastmod>
+	</url>
+	<url>
+		<loc>https://www.strumix.com/products/strufiber-fp12</loc>
+		<priority>0.50</priority>
+		<lastmod>2024-12-01</lastmod>
+	</url>
+	<url>
+		<loc>https://www.strumix.com/products/strucure-sw50</loc>
+		<priority>0.50</priority>
+		<lastmod>2024-12-01</lastmod>
+	</url>
+	<url>
+		<loc>https://www.strumix.com/products/strucure-para</loc>
+		<priority>0.50</priority>
+		<lastmod>2024-12-01</lastmod>
+	</url>
+	<url>
+		<loc>https://www.strumix.com/products/strucure-lata</loc>
+		<priority>0.50</priority>
+		<lastmod>2024-12-01</lastmod>
+	</url>
+	<url>
+		<loc>https://www.strumix.com/products/struclean-epo</loc>
+		<priority>0.50</priority>
+		<lastmod>2024-12-01</lastmod>
+	</url>
+	<url>
+		<loc>https://www.strumix.com/products/struclean-cm11</loc>
+		<priority>0.50</priority>
+		<lastmod>2024-12-01</lastmod>
+	</url>
+	<url>
+		<loc>https://www.strumix.com/products/strubond-strong8</loc>
+		<priority>0.50</priority>
+		<lastmod>2024-12-01</lastmod>
+	</url>
+	<url>
+		<loc>https://www.strumix.com/products/strubond-strong7</loc>
+		<priority>0.50</priority>
+		<lastmod>2024-12-01</lastmod>
+	</url>
+	<url>
+		<loc>https://www.strumix.com/products/strubond-ep500</loc>
+		<priority>0.50</priority>
+		<lastmod>2024-12-01</lastmod>
+	</url>
+	<url>
+		<loc>https://www.strumix.com/products/strubond-acro8</loc>
+		<priority>0.50</priority>
+		<lastmod>2024-12-01</lastmod>
+	</url>
+	<url>
+		<loc>https://www.strumix.com/products/strubond-acro7</loc>
+		<priority>0.50</priority>
+		<lastmod>2024-12-01</lastmod>
+	</url>
+	<url>
+		<loc>https://www.strumix.com/products/strubar</loc>
+		<priority>0.50</priority>
+		<lastmod>2024-12-01</lastmod>
+	</url>
+	<url>
+		<loc>https://www.strumix.com/products/plastic-spacers</loc>
+		<priority>0.50</priority>
+		<lastmod>2024-12-01</lastmod>
+	</url>
+	<url>
+		<loc>https://www.strumix.com/en/products</loc>
+		<priority>0.50</priority>
+		<lastmod>2024-12-01</lastmod>
+	</url>
+	<url>
+		<loc>https://www.strumix.com/en/privacyPolicy</loc>
+		<priority>0.50</priority>
+		<lastmod>2024-12-01</lastmod>
+	</url>
+	<url>
+		<loc>https://www.strumix.com/en/contact</loc>
+		<priority>0.50</priority>
+		<lastmod>2024-12-01</lastmod>
+	</url>
+	<url>
+		<loc>https://www.strumix.com/contact/job</loc>
+		<priority>0.50</priority>
+		<lastmod>2024-12-21</lastmod>
+	</url>
+	<url>
+		<loc>https://www.strumix.com/contact/branch</loc>
+		<priority>0.50</priority>
+		<lastmod>2024-12-01</lastmod>
+	</url>
+	<url>
+		<loc>https://www.strumix.com/blogs/whats-concrete-admixture</loc>
+		<priority>0.50</priority>
+		<lastmod>2024-12-01</lastmod>
+	</url>
+	<url>
+		<loc>https://www.strumix.com/blogs/Reducing-cement-consumption</loc>
+		<priority>0.50</priority>
+		<lastmod>2024-12-01</lastmod>
+	</url>
+	<url>
+		<loc>https://www.strumix.com/blogs/polycarboxylate-ether-structure-1</loc>
+		<priority>0.50</priority>
+		<lastmod>2024-12-01</lastmod>
+	</url>
+	<url>
+		<loc>https://www.strumix.com/blogs/nanotechnology-in-construction-industry</loc>
+		<priority>0.50</priority>
+		<lastmod>2024-12-01</lastmod>
+	</url>
+	<url>
+		<loc>https://www.strumix.com/blogs/latex-polymers-in-concrete</loc>
+		<priority>0.50</priority>
+		<lastmod>2024-12-01</lastmod>
+	</url>
+	<url>
+		<loc>https://www.strumix.com/blogs/Fiber-concrete</loc>
+		<priority>0.50</priority>
+		<lastmod>2024-12-01</lastmod>
+	</url>
+	<url>
+		<loc>https://www.strumix.com/blogs/enhancing-concrete-durability</loc>
+		<priority>0.50</priority>
+		<lastmod>2024-12-01</lastmod>
+	</url>
+	<url>
+		<loc>https://www.strumix.com/blogs/Crystalline-Waterproofing-Admixtures-Struseal-C512</loc>
+		<priority>0.50</priority>
+		<lastmod>2024-12-01</lastmod>
+	</url>
+	<url>
+		<loc>https://www.strumix.com/blogs/Crystalline-Waterproofing-Admixtures-1</loc>
+		<priority>0.50</priority>
+		<lastmod>2024-12-01</lastmod>
+	</url>
+	<url>
+		<loc>https://www.strumix.com/blogs/concrete-release-agent-1</loc>
+		<priority>0.50</priority>
+		<lastmod>2024-12-01</lastmod>
+	</url>
+	<url>
+		<loc>https://www.strumix.com/blogs/concrete-curing-methods</loc>
+		<priority>0.50</priority>
+		<lastmod>2024-12-01</lastmod>
+	</url>
+	<url>
+		<loc>https://www.strumix.com/blogs/Concrete-additives-in-8-minutes</loc>
+		<priority>0.50</priority>
+		<lastmod>2024-12-01</lastmod>
+	</url>
+	<url>
+		<loc>https://www.strumix.com/blogs/concrete-accelerators</loc>
+		<priority>0.50</priority>
+		<lastmod>2024-12-01</lastmod>
+	</url>
+	<url>
+		<loc>https://www.strumix.com/blogs/Building-water-repellants</loc>
+		<priority>0.50</priority>
+		<lastmod>2024-12-01</lastmod>
+	</url>
+	<url>
+		<loc>https://www.strumix.com/en/products/strutop-wr7</loc>
 		<priority>0.25</priority>
 		<lastmod>2024-12-01</lastmod>
 	</url>
@@ -886,7 +621,272 @@
 		<lastmod>2024-12-01</lastmod>
 	</url>
 	<url>
-		<loc>https://www.strumix.com/en/products/strutop-wr7</loc>
+		<loc>https://www.strumix.com/en/products/strutop-rm650</loc>
+		<priority>0.25</priority>
+		<lastmod>2024-12-01</lastmod>
+	</url>
+	<url>
+		<loc>https://www.strumix.com/en/products/strutop-rm450</loc>
+		<priority>0.25</priority>
+		<lastmod>2024-12-01</lastmod>
+	</url>
+	<url>
+		<loc>https://www.strumix.com/en/products/strutop-js3</loc>
+		<priority>0.25</priority>
+		<lastmod>2024-12-01</lastmod>
+	</url>
+	<url>
+		<loc>https://www.strumix.com/en/products/strutop-gard-pa</loc>
+		<priority>0.25</priority>
+		<lastmod>2024-12-01</lastmod>
+	</url>
+	<url>
+		<loc>https://www.strumix.com/en/products/strutop-cem260</loc>
+		<priority>0.25</priority>
+		<lastmod>2024-12-01</lastmod>
+	</url>
+	<url>
+		<loc>https://www.strumix.com/en/products/strutop-brush</loc>
+		<priority>0.25</priority>
+		<lastmod>2024-12-01</lastmod>
+	</url>
+	<url>
+		<loc>https://www.strumix.com/en/products/strutile-ph4</loc>
+		<priority>0.25</priority>
+		<lastmod>2024-12-01</lastmod>
+	</url>
+	<url>
+		<loc>https://www.strumix.com/en/products/strutile-gr110</loc>
+		<priority>0.25</priority>
+		<lastmod>2024-12-01</lastmod>
+	</url>
+	<url>
+		<loc>https://www.strumix.com/en/products/strutile-c50</loc>
+		<priority>0.25</priority>
+		<lastmod>2024-12-01</lastmod>
+	</url>
+	<url>
+		<loc>https://www.strumix.com/en/products/strutile-c20</loc>
+		<priority>0.25</priority>
+		<lastmod>2024-12-01</lastmod>
+	</url>
+	<url>
+		<loc>https://www.strumix.com/en/products/strutile-c10</loc>
+		<priority>0.25</priority>
+		<lastmod>2024-12-01</lastmod>
+	</url>
+	<url>
+		<loc>https://www.strumix.com/en/products/strusin-pls22</loc>
+		<priority>0.25</priority>
+		<lastmod>2024-12-01</lastmod>
+	</url>
+	<url>
+		<loc>https://www.strumix.com/en/products/strusin-n530</loc>
+		<priority>0.25</priority>
+		<lastmod>2024-12-01</lastmod>
+	</url>
+	<url>
+		<loc>https://www.strumix.com/en/products/strusin-n520</loc>
+		<priority>0.25</priority>
+		<lastmod>2024-12-01</lastmod>
+	</url>
+	<url>
+		<loc>https://www.strumix.com/en/products/strusin-n510</loc>
+		<priority>0.25</priority>
+		<lastmod>2024-12-01</lastmod>
+	</url>
+	<url>
+		<loc>https://www.strumix.com/en/products/strusin-n500</loc>
+		<priority>0.25</priority>
+		<lastmod>2024-12-01</lastmod>
+	</url>
+	<url>
+		<loc>https://www.strumix.com/en/products/struset-spa</loc>
+		<priority>0.25</priority>
+		<lastmod>2024-12-01</lastmod>
+	</url>
+	<url>
+		<loc>https://www.strumix.com/en/products/struset-sla</loc>
+		<priority>0.25</priority>
+		<lastmod>2024-12-01</lastmod>
+	</url>
+	<url>
+		<loc>https://www.strumix.com/en/products/struset-rst</loc>
+		<priority>0.25</priority>
+		<lastmod>2024-12-01</lastmod>
+	</url>
+	<url>
+		<loc>https://www.strumix.com/en/products/struset-nitro</loc>
+		<priority>0.25</priority>
+		<lastmod>2024-12-01</lastmod>
+	</url>
+	<url>
+		<loc>https://www.strumix.com/en/products/struseal-c515</loc>
+		<priority>0.25</priority>
+		<lastmod>2024-12-01</lastmod>
+	</url>
+	<url>
+		<loc>https://www.strumix.com/en/products/struseal-c514</loc>
+		<priority>0.25</priority>
+		<lastmod>2024-12-01</lastmod>
+	</url>
+	<url>
+		<loc>https://www.strumix.com/en/products/struseal-c512</loc>
+		<priority>0.25</priority>
+		<lastmod>2024-12-01</lastmod>
+	</url>
+	<url>
+		<loc>https://www.strumix.com/en/products/struproof-wl</loc>
+		<priority>0.25</priority>
+		<lastmod>2024-12-01</lastmod>
+	</url>
+	<url>
+		<loc>https://www.strumix.com/en/products/struproof-hp</loc>
+		<priority>0.25</priority>
+		<lastmod>2024-12-01</lastmod>
+	</url>
+	<url>
+		<loc>https://www.strumix.com/en/products/struplast-vm750p</loc>
+		<priority>0.25</priority>
+		<lastmod>2024-12-01</lastmod>
+	</url>
+	<url>
+		<loc>https://www.strumix.com/en/products/struplast-n480</loc>
+		<priority>0.25</priority>
+		<lastmod>2024-12-01</lastmod>
+	</url>
+	<url>
+		<loc>https://www.strumix.com/en/products/struplast-n470</loc>
+		<priority>0.25</priority>
+		<lastmod>2024-12-01</lastmod>
+	</url>
+	<url>
+		<loc>https://www.strumix.com/en/products/struplast-n410</loc>
+		<priority>0.25</priority>
+		<lastmod>2024-12-01</lastmod>
+	</url>
+	<url>
+		<loc>https://www.strumix.com/en/products/struplast-n322</loc>
+		<priority>0.25</priority>
+		<lastmod>2024-12-01</lastmod>
+	</url>
+	<url>
+		<loc>https://www.strumix.com/en/products/struplast-n321</loc>
+		<priority>0.25</priority>
+		<lastmod>2024-12-01</lastmod>
+	</url>
+	<url>
+		<loc>https://www.strumix.com/en/products/struplast-air</loc>
+		<priority>0.25</priority>
+		<lastmod>2024-12-01</lastmod>
+	</url>
+	<url>
+		<loc>https://www.strumix.com/en/products/strumould-wra</loc>
+		<priority>0.25</priority>
+		<lastmod>2024-12-01</lastmod>
+	</url>
+	<url>
+		<loc>https://www.strumix.com/en/products/strumould-slv</loc>
+		<priority>0.25</priority>
+		<lastmod>2024-12-01</lastmod>
+	</url>
+	<url>
+		<loc>https://www.strumix.com/en/products/strumin-sl</loc>
+		<priority>0.25</priority>
+		<lastmod>2024-12-01</lastmod>
+	</url>
+	<url>
+		<loc>https://www.strumix.com/en/products/strumin-mp980</loc>
+		<priority>0.25</priority>
+		<lastmod>2024-12-01</lastmod>
+	</url>
+	<url>
+		<loc>https://www.strumix.com/en/products/strumin-dura</loc>
+		<priority>0.25</priority>
+		<lastmod>2024-12-01</lastmod>
+	</url>
+	<url>
+		<loc>https://www.strumix.com/en/products/strumin-complex</loc>
+		<priority>0.25</priority>
+		<lastmod>2024-12-01</lastmod>
+	</url>
+	<url>
+		<loc>https://www.strumix.com/en/products/strugrout-n880</loc>
+		<priority>0.25</priority>
+		<lastmod>2024-12-01</lastmod>
+	</url>
+	<url>
+		<loc>https://www.strumix.com/en/products/strugrout-ker320</loc>
+		<priority>0.25</priority>
+		<lastmod>2024-12-01</lastmod>
+	</url>
+	<url>
+		<loc>https://www.strumix.com/en/products/strugrout-g750</loc>
+		<priority>0.25</priority>
+		<lastmod>2024-12-01</lastmod>
+	</url>
+	<url>
+		<loc>https://www.strumix.com/en/products/strugrout-es500</loc>
+		<priority>0.25</priority>
+		<lastmod>2024-12-01</lastmod>
+	</url>
+	<url>
+		<loc>https://www.strumix.com/en/products/strugrout-e760</loc>
+		<priority>0.25</priority>
+		<lastmod>2024-12-01</lastmod>
+	</url>
+	<url>
+		<loc>https://www.strumix.com/en/products/strufloor-s70</loc>
+		<priority>0.25</priority>
+		<lastmod>2024-12-01</lastmod>
+	</url>
+	<url>
+		<loc>https://www.strumix.com/en/products/strufiber-fp</loc>
+		<priority>0.25</priority>
+		<lastmod>2024-12-01</lastmod>
+	</url>
+	<url>
+		<loc>https://www.strumix.com/en/products/strucure-sw50</loc>
+		<priority>0.25</priority>
+		<lastmod>2024-12-01</lastmod>
+	</url>
+	<url>
+		<loc>https://www.strumix.com/en/products/strubond-strong8</loc>
+		<priority>0.25</priority>
+		<lastmod>2024-12-01</lastmod>
+	</url>
+	<url>
+		<loc>https://www.strumix.com/en/products/strubond-strong7</loc>
+		<priority>0.25</priority>
+		<lastmod>2024-12-01</lastmod>
+	</url>
+	<url>
+		<loc>https://www.strumix.com/en/products/strubond-magma</loc>
+		<priority>0.25</priority>
+		<lastmod>2024-12-01</lastmod>
+	</url>
+	<url>
+		<loc>https://www.strumix.com/en/products/strubond-acro8</loc>
+		<priority>0.25</priority>
+		<lastmod>2024-12-01</lastmod>
+	</url>
+	<url>
+		<loc>https://www.strumix.com/en/products/strubond-acro7</loc>
+		<priority>0.25</priority>
+		<lastmod>2024-12-01</lastmod>
+	</url>
+	<url>
+		<loc>https://www.strumix.com/en/products/strubar</loc>
+		<priority>0.25</priority>
+		<lastmod>2024-12-01</lastmod>
+	</url>
+	<url>
+		<loc>https://www.strumix.com/en/products/dalcoub</loc>
+		<priority>0.25</priority>
+		<lastmod>2024-12-01</lastmod>
+	</url>
+	<url>
+		<loc>https://www.strumix.com/en/products/concrete-plastic-accessories</loc>
 		<priority>0.25</priority>
 		<lastmod>2024-12-01</lastmod>
 	</url>

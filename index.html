@@ -106,6 +106,16 @@
     <script defer src="src/js/main.js?v=1.0.14"></script>
     <script defer src="src/js/index.js?v=1.0.14"></script>
 
+    <script async src="https://unpkg.com/es-module-shims@1.3.6/dist/es-module-shims.js"></script>
+    <script type="importmap">
+      {
+        "imports": {
+          "@splinetool/runtime": "https://unpkg.com/@splinetool/runtime@1.9.59/build/runtime.js"
+        }
+      }
+    </script>
+    <script type="module" src="src/js/treeJsScene.js"></script>
+
     <link rel="stylesheet" href="src/css/main.css?v=1.0.14" />
     <link rel="stylesheet" href="src/css/index.css?v=1.0.14" />
   </head>
@@ -122,40 +132,25 @@
     <main id="smooth-wrapper">
       <div id="smooth-content">
         <section class="hero">
-          <div class="imageSide" data-cursor="pointerWaveBorder">
-            <img src="assets/img/Strumix-product.jpg" alt="" />
-            <div id="movingBox"></div>
+          <div class="background">
+            <div class="titleSide">
+              <span class="top">
+                <hr />
+                <h1>بسپار بتن ايرانيان هوشمند</h1>
+              </span>
+              <h1 class="midOne">strumix</h1>
+              <span class="midTwo">
+                <p>Admixture</p>
+                <p>And</p>
+                <p>Structure</p>
+              </span>
+            </div>
+            <div id="sceneHolder"></div>
           </div>
-          <div class="titleSide">
-            <div class="top" data-cursor="pointerWaveBorder">
-              <hr />
-              <h1>بسپار بتن ايرانيان هوشمند</h1>
-            </div>
-            <h1 class="midOne" data-cursor="pointerWaveBorder">strumix</h1>
-            <div class="midTwo" data-cursor="pointerWaveBorder">
-              <p>Admixture</p>
-              <p>And</p>
-              <p>Structure</p>
-            </div>
-            <div class="midThree">
-              <a data-cursor="pointerNavbar" href="tel:02144000408"> 02144000408<span class="iconPhonecall"></span> </a>
-              <a data-cursor="pointerNavbar" href="tel:02144403448"> 02144403448<span class="iconPhonecall"></span> </a>
-              <a data-cursor="pointerNavbar" href="https://www.instagram.com/strumix.co/" target="_blank">
-                strumix.co<span class="iconInstagram"></span>
-              </a>
-            </div>
-          </div>
-          <img class="scrollFlesh" src="assets/VectorFlesh3.svg" alt="" />
         </section>
-        <section class="section2">
+        <!--         <section class="section2">
           <img src="assets/img/Strumix-poster2.jpg" alt="Strumix" />
-          <div class="cyclingCircles">
-            <div class="Circles">
-              <div class="Circles1"></div>
-              <div class="Circles2"></div>
-            </div>
-          </div>
-        </section>
+        </section> -->
         <section class="section3" data-cursor="pointerWhite">
           <div>
             <img src="assets/img/Strumix-poster1.jpg" alt="Strumix" />
@@ -169,7 +164,7 @@
               افزودنی‌های بتن، واتراستاپ و اسپیسر، همواره در تلاش است تا با استفاده از تکنیک‌های نوین ساخت و ساز، به ارتقای کیفیت صنعت ساخت و ساز کشور
               کمک نماید.
             </p>
-            <hr />
+            <span class="hr">&nbsp;</span>
             <p>
               گروه استراميکس در زمینه‌های مختلف پوشش‌های سطحی آب‌بند، رزین‌های مورد مصرف در بتن و ... با پژوهشگاه رنگ و رزین ایران همکاری مستقیم دارد
               و به عنوان یک شرکت دانش‌محور به تأیید این پژوهشگاه رسیده است. همچنین، مدیریت این گروه توسط صاحبان آن انجام می‌شود که این امر به کوتاه
@@ -180,7 +175,7 @@
         </section>
         <section class="section4">
           <div>
-            <h3><span id="line">&nbsp;</span>محصولات استرامیکس</h3>
+            <h3><span id="line">&nbsp;</span>محصولات</h3>
           </div>
           <div id="concreteAdditive" data-cursor="pointerLink">
             <div>
@@ -257,7 +252,7 @@
         </section>
         <section class="sectionBlogs">
           <div>
-            <h3><span id="line">&nbsp;</span>مقالات استرامیکس</h3>
+            <h3><span id="line">&nbsp;</span>مقالات</h3>
           </div>
           <div class="body"></div>
         </section>
@@ -289,7 +284,7 @@
           </section>
           <section class="section6" data-cursor="pointerWhite">
             <div>
-              <h3><span id="line">&nbsp;</span>برترین پروژه های استرامیکس</h3>
+              <h3><span id="line">&nbsp;</span>برترین پروژه ها</h3>
             </div>
             <div>
               <table>

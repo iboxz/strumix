@@ -10,64 +10,61 @@ h3 {
   font-weight: 700;
 }
 .hero {
-  height: 95vh;
+  height: 140vh;
   display: flex;
   justify-content: center;
-  background: #f2ecdc;
 
   font-family: "Damn", "Rokh";
   font-weight: 400;
   text-transform: uppercase;
+  color: white;
 
   position: relative;
   overflow: hidden;
 }
-.hero .imageSide {
-  position: relative;
-  margin: 10vh 0 0 0;
-}
-.hero .imageSide img {
-  width: 50vmin;
-  height: 70vmin;
-  object-fit: cover;
-  border-radius: 100vmin 100vmin 0 0;
-  z-index: 1;
-  position: relative;
-}
-.hero .imageSide > div {
+.hero .background {
   position: absolute;
-  display: inline;
+  inset: 3vw;
+  border-radius: 1vmin;
+  height: calc(100vh - 15vmin);
+  overflow: hidden;
+  margin-top: 3vmin;
+  display: flex;
+  justify-content: end;
+  align-items: center;
+  background: #000;
+  z-index: -1;
+}
 
-  width: 110vmin;
-  height: 4vmin;
-
-  top: 35%;
-  right: -30%;
-  transform: rotate(-35deg);
-
-  background: #ffffff;
-  mix-blend-mode: difference;
-
-  transition: all ease-out 0.5s;
+.hero #sceneHolder {
+  position: absolute;
+  width: 100vw;
+  height: 100vh;
+  inset: 0;
+  z-index: 0;
 }
 .hero .titleSide {
-  margin: 15vh 5vmin 0 0;
+  position: relative;
+  margin: 0 0 0 10%;
+  width: fit-content;
+  z-index: 1;
+  pointer-events: none;
 }
 .hero .titleSide > .top {
   display: flex;
   align-items: center;
-  font-size: clamp(1rem, 1.7vw, 15rem);
+  font-size: clamp(1rem, 1.2vw, 15rem);
 }
 .hero .titleSide > .top hr {
   width: 10vmin;
   border: 0;
-  border-top: 0.3vmin solid #000000;
+  border-top: 0.3vmin solid white;
   padding: 0;
   margin: 5vmin 1vmin;
   height: 0.1vmin;
 }
 .hero .titleSide > .midOne {
-  font-size: clamp(9rem, 28vw, 80rem);
+  font-size: clamp(9rem, 24vw, 80rem);
   font-weight: 400;
   text-transform: uppercase;
   line-height: 0.9;
@@ -76,12 +73,11 @@ h3 {
   display: flex;
   align-items: end;
   justify-content: left;
-  font-size: clamp(2rem, 4vw, 15rem);
-
+  font-size: clamp(2rem, 3vw, 15rem);
   height: 3vmin;
 }
 .hero .titleSide > .midTwo p:nth-child(2) {
-  font-size: clamp(3rem, 8vw, 20rem);
+  font-size: clamp(3rem, 6vw, 20rem);
   line-height: 0.7;
   margin: 0 1vmin;
 }
@@ -109,9 +105,9 @@ h3 {
 }
 .hero .midThree a {
   padding: 0.7vmin;
-  border: 0.1vmin black solid;
+  border: 0.1vmin white solid;
   border-radius: 1vmin;
-  color: #000000;
+  color: white;
   text-decoration: none;
   margin: 0 0.5vmin;
 }
@@ -119,7 +115,7 @@ h3 {
 .hero .midThree a:hover {
   transform: translate(0.2vmin, 0.2vmin);
 }
-.hero .iconInstagram {
+/* .hero .iconInstagram {
   content: url(../../assets/VectorInstagram.svg);
   vertical-align: middle;
   height: 100%;
@@ -134,111 +130,36 @@ h3 {
   width: 2vmin;
   min-width: 15px;
   margin: 0 1vmin;
-}
-@media only screen and (max-width: 1200px) {
-  .hero > .imageSide {
-    display: none;
-  }
-}
+} */
+
 @media only screen and (max-width: 600px) {
   .hero {
     flex-direction: column;
     align-items: center;
     height: min-content;
-    padding: 20vmin 0 5vmin 0;
+    height: 100vh;
   }
-  .hero > div {
-    margin: 0 !important;
-    padding: 0 !important;
-  }
-  .hero > .imageSide {
-    display: block;
-    order: 1;
-  }
-  .hero .imageSide img {
-    width: 80vmin;
-    height: 45vh;
-  }
-  .hero .midThree {
+  .hero .background {
+    height: calc(100lvh - 7vmin);
+    margin-top: 0vmin;
+
+    display: flex;
     justify-content: center;
-    font-size: clamp(0.7rem, 1vw, 20rem);
-    padding: 3vmin 0;
+    z-index: 0;
+  }
+  .hero .titleSide {
+    margin: 0;
+    width: fit-content;
   }
   .hero .titleSide > .midTwo p:nth-child(2) {
     line-height: 0.5;
   }
 }
-.section2 {
-  display: flex;
-  justify-content: center;
-  background: #f2ecdc;
-  padding: 0 2vw;
 
-  position: relative;
-}
-
-.section2 img {
-  object-fit: cover;
-  object-position: center;
-  width: 70%;
-  height: 100vh;
-
-  border-radius: 5vmin 5vmin 0 0;
-}
-.section2 .cyclingCircles {
-  width: 50%;
-  height: 100%;
-
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  z-index: 11;
-}
-.section2 .Circles {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 100%;
-  height: 100%;
-  position: relative;
-  transform-style: preserve-3d;
-}
-
-.section2 .Circles > div {
-  position: absolute;
-  width: 100%;
-  height: 100%;
-
-  border: 0.3vmin rgb(0, 0, 0) solid;
-  border-radius: 50%;
-}
-.section2 .Circles1 {
-  transform: rotateX(130deg);
-}
-.section2 .Circles2 {
-  transform: rotateX(50deg);
-}
-@media only screen and (max-width: 768px) {
-  .section2 {
-    padding: 0;
-  }
-  .section2 .cyclingCircles {
-    display: none;
-  }
-  .section2 .Circles {
-    display: none;
-  }
-
-  .section2 img {
-    margin: 10vmin 0 0 0;
-    height: 30vh;
-    width: 100%;
-  }
-}
 .section3 {
-  background: #0f0f0f;
+  background: #dedede;
   height: 100vh;
-  border-radius: 5vmin 5vmin 0 0;
+  border-radius: 3vmin 3vmin 0 0;
   padding: 10vmin;
 
   display: flex;
@@ -256,7 +177,7 @@ h3 {
 }
 .section3 .textSide {
   width: fit-content;
-  color: white;
+  color: rgb(0, 0, 0);
   font-size: clamp(0.9rem, 1vw, 100rem);
   display: flex;
   flex-direction: column;
@@ -265,7 +186,7 @@ h3 {
   margin: 10vmin;
 }
 .section3 .textSide h2 {
-  font-family: "Damn", "Rokh";
+  font-family: "Rokh";
   width: 100%;
 
   font-size: clamp(1rem, 1.6vw, 100rem);
@@ -274,10 +195,12 @@ h3 {
   margin: 1.5vmin 0;
   text-align: justify;
   text-justify: auto;
+  font-family: YekanBakhFaNum;
+  font-weight: 200;
 }
 .section3 .textSide p:nth-child(2)::first-line {
   /* text-indent: 2em; */
-  border-right: 10px solid #fff;
+  border-right: 10px solid #000000;
   padding-right: 10px;
 }
 .section3 .textSide p:nth-child(2) > span {
@@ -286,11 +209,15 @@ h3 {
   height: 0.1vmin;
   vertical-align: middle;
   margin-left: 1vmin;
-  background-color: white;
+  background-color: rgb(0, 0, 0);
 }
-.section3 .textSide hr {
-  width: 70%;
-  margin: 3vmin 0;
+.section3 .textSide .hr {
+  display: inline-block;
+  width: 25vmin;
+  height: 0.1vmin;
+  vertical-align: middle;
+  margin-left: 1vmin;
+  background-color: rgb(0, 0, 0);
 }
 @media only screen and (max-width: 768px) {
   .section3 div:nth-child(1) {
@@ -316,7 +243,8 @@ h3 {
 
   background: #f2ecdc;
   height: 100vh;
-  border-radius: 5vmin 5vmin 0 0;
+  border-radius: 3vmin 3vmin 0 0;
+  border: 0.1vmin black solid;
 
   display: flex;
   flex-direction: column;
@@ -498,6 +426,9 @@ h3 {
   object-fit: cover;
 }
 @media only screen and (max-width: 768px) {
+  .section4 {
+    border-radius: 0 0;
+  }
   .section4 > div {
     padding: 4vh 2vmin;
   }
@@ -530,7 +461,7 @@ h3 {
 
   background: #363029;
   height: 100vh;
-  border-radius: 5vmin 5vmin 0 0;
+  border-radius: 3vmin 3vmin 0 0;
 
   display: flex;
   flex-direction: column;
@@ -546,11 +477,10 @@ h3 {
   padding: 5vmin 4vmin;
 
   position: relative;
-  overflow: hidden;
 }
 
 .sectionBlogs > div:first-child {
-  padding: 3vmin 0;
+  padding: 3vmin 0 1.5vmin 0;
   border-bottom: 0.1vmin #cdcdcd solid;
 }
 .sectionBlogs h3 {
@@ -567,9 +497,9 @@ h3 {
 
 .sectionBlogs > .body {
   display: grid;
-  grid-template-columns: repeat(6, 1fr);
-  grid-template-rows: repeat(2, auto);
-  height: 100%;
+  grid-template-columns: repeat(2, 0.7fr) repeat(4, 1fr);
+  grid-template-rows: repeat(2, 1fr);
+  height: 80vh;
 }
 
 .sectionBlogs > .body .cards {
@@ -583,7 +513,7 @@ h3 {
 .sectionBlogs > .body > .cards:nth-child(1) img {
   object-fit: cover;
   width: 100%;
-  height: 50vmin;
+  height: 45vmin;
 }
 
 .sectionBlogs > .body > .cards:nth-child(2) {
@@ -683,7 +613,7 @@ h3 {
   font-family: YekanBakhFaNum;
   font-weight: 100;
   line-height: 1.4;
-  font-size: clamp(0.8rem, 0.8vw, 100rem);
+  font-size: clamp(0.8rem, 0.7vw, 100rem);
   padding-top: 2vmin;
   text-align: justify;
   text-justify: auto;
@@ -693,17 +623,10 @@ h3 {
   text-decoration: none;
   color: white;
 
-  background-image: linear-gradient(
-    to top,
-    transparent 0,
-    #fdd27e 0,
-    #fdd27e 5vmin,
-    transparent 5vmin
-  );
+  background-image: linear-gradient(to top, transparent 0, #fdd27e 0, #fdd27e 5vmin, transparent 5vmin);
   background-repeat: no-repeat;
   background-size: 0 100%;
-  -webkit-transition: color 0.3s ease, background-color 0.3s ease,
-    background-size 0.7s;
+  -webkit-transition: color 0.3s ease, background-color 0.3s ease, background-size 0.7s;
   transition: color 0.3s ease, background-color 0.3s ease, background-size 0.7s;
   background-position: right;
   -webkit-transition-timing-function: cubic-bezier(0.5, 1, 0.89, 1);
@@ -741,7 +664,7 @@ h3 {
 }
 
 .sectionBlogs > .body .cards:last-child p {
-  font-size: clamp(2rem, 2.3vw, 100rem);
+  font-size: clamp(2rem, 2.6vw, 100rem);
   font-family: rokh;
   font-weight: 900;
   text-align: center;
@@ -817,7 +740,7 @@ h3 {
 .noPinSection {
   background: #000000;
   color: wheat;
-  border-radius: 5vmin 5vmin 0 0;
+  border-radius: 3vmin 3vmin 0 0;
   overflow: hidden;
   height: max-content;
 }
@@ -892,8 +815,10 @@ h3 {
 .section6 > div:first-child {
   border-bottom: 0.1vmin white solid;
   font-family: "Rokh";
-  font-size: clamp(1rem, 1.6vw, 100rem);
   padding: 2vmin 0;
+}
+.section6 h3 {
+  font-size: clamp(1rem, 1.6vw, 100rem);
 }
 .section6 > div:nth-child(2) {
   padding: 5vmin 5vw 15vmin 5vw;
@@ -939,6 +864,7 @@ h3 {
   position: relative;
   text-indent: 5vmin;
   font-size: clamp(0.8rem, 1vw, 100rem);
+  font-weight: 100;
 }
 .section6 table td::before {
   content: "";
@@ -947,9 +873,9 @@ h3 {
   top: 50%;
   bottom: 50%;
   transform: translateY(-50%);
-  background: white;
-  height: 0.8vmin;
-  width: 0.8vmin;
+  border: 0.1vmin white solid;
+  height: 0.6vmin;
+  width: 0.6vmin;
   border-radius: 50%;
 }
 
@@ -974,8 +900,7 @@ h3 {
   content: "";
   position: absolute;
   inset: 7vmin;
-  background: url(../../assets/img/Strumix-structure-view4.jpg) center/100% auto
-    no-repeat;
+  background: url(../../assets/img/Strumix-poster2.jpg) center/100% auto no-repeat;
   filter: brightness(0.5);
   z-index: 1;
 }
