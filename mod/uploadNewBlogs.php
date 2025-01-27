@@ -42,7 +42,6 @@ if ($resultAuthorisation->num_rows > 0) {
 
   $url = sanitizeUrl($url);
 
-  $cover = preg_replace('/[^\p{L}\p{N}\-_]/u', '_', $title);
 
   $tags = htmlspecialchars($_POST['tags']);
 
@@ -81,17 +80,17 @@ if ($resultAuthorisation->num_rows > 0) {
   <meta name='robots' content='index, follow' />
   <meta property='og:title' content='" . $title . "' />
   <meta property='og:description' content='" . $description . "' />
-  <meta property='og:image' content='https://strumix.com/serverAssets/blogsCoverImg/" . $cover . ".jpg' />
+  <meta property='og:image' content='https://strumix.com/serverAssets/blogsCoverImg/" . $url . ".jpg' />
   <meta property='og:url' content='https://strumix.com/blogs/" . $url . "' />
   <meta name='twitter:title' content='" . $title . "' />
   <meta name='twitter:description' content='" . $description . "' />
-  <meta name='twitter:image' content='https://strumix.com/serverUploadAssets/blogsCoverImg/" . $cover . ".jpg' />
+  <meta name='twitter:image' content='https://strumix.com/serverUploadAssets/blogsCoverImg/" . $url . ".jpg' />
   <script type='application/ld+json'>
       {
         '@context': 'https://schema.org',
         '@type': 'Article',
         'headline': '" . $title . "',
-        'image': ['https://strumix.com/serverUploadAssets/blogsCoverImg/" . $cover . ".jpg'],
+        'image': ['https://strumix.com/serverUploadAssets/blogsCoverImg/" . $url . ".jpg'],
         'datePublished': '" . $dateEn . "',
         'keywords': '" . $tags . "'
       }

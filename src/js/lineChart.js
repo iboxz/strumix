@@ -49,9 +49,6 @@ async function initializeChart() {
             text: "Time (min)",
             font: { size: 14, family: "Montserrat" },
           },
-          /*        grid: {
-            display: false
-          } */
         },
       },
       plugins: {

@@ -251,6 +251,10 @@ window.addEventListener("load", (event) => {
   languageParagraph.appendChild(languageSpan);
   divLanguage.appendChild(languageParagraph);
 
+  const divPhoneNum = createEl("div");
+  const phoneNumParagraph = createEl("p", {}, "+98-2144000408 · +98-2144403448");
+  divPhoneNum.appendChild(phoneNumParagraph);
+
   const divTechnical = createEl("div");
   const hamburgerSpan1 = createEl("span");
   const hamburgerSpan2 = createEl("span");
@@ -269,8 +273,7 @@ window.addEventListener("load", (event) => {
   }
 
   productsParagraph.appendChild(productsSpan);
-  navigation.append(divLogo, divProducts, divTechnical, divContact, divLanguage, divHamburger, sectionProducts);
-  divLogo.append(logoImg);
+  navigation.append(logoImg, divProducts, divTechnical, divContact, divLanguage, divPhoneNum, divHamburger, sectionProducts);
   divProducts.append(productsParagraph);
   divContact.append(contactParagraph);
   divTechnical.append(technicalParagraph);
@@ -287,10 +290,26 @@ window.addEventListener("load", (event) => {
   var duration = 0.5;
   var easeType = "none";
 
-  menuTimeline.from("nav .products", { y: "-100%", duration: duration, ease: "sine.out" }).to(`${navDivs}(2)`, { opacity: 0, duration: duration, ease: easeType }, 0.5).to(`${navDivs}(2) > p`, { text: "", duration: duration, ease: easeType }, 0.5).to(`${navDivs}(3)`, { border: "0.1vmin black solid", duration: duration, ease: easeType }, 0.5).to(`${navDivs}(3) > p`, { text: "Products", scale: "1.3", duration: duration, ease: easeType }, 0.5).to(`${navDivs}(4)`, { opacity: 0, duration: duration, ease: easeType }, 0.5).to(`${navDivs}(4) > p`, { text: "", duration: duration, ease: easeType }, 0.5).to(`${navDivs}(5)`, { opacity: 0, duration: duration, ease: easeType }, 0.5).to(`${navDivs}(5) > p`, { text: "", duration: duration, ease: easeType }, 0.5);
+  menuTimeline
+    .from("nav .products", { y: "-100%", duration: duration, ease: "sine.out" })
+    .to(`${navDivs}(2)`, { opacity: 0, duration: duration, ease: easeType }, 0.5)
+    .to(`${navDivs}(2) > p`, { text: "", duration: duration, ease: easeType }, 0.5)
+    .to(`${navDivs}(3) > p`, { text: "Products", scale: "1.3", duration: duration, ease: easeType }, 0.5)
+    .to(`${navDivs}(4)`, { opacity: 0, duration: duration, ease: easeType }, 0.5)
+    .to(`${navDivs}(4) > p`, { text: "", duration: duration, ease: easeType }, 0.5)
+    .to(`${navDivs}(5)`, { opacity: 0, duration: duration, ease: easeType }, 0.5)
+    .to(`${navDivs}(5) > p`, { text: "", duration: duration, ease: easeType }, 0.5);
   var menuLanguageTimeline = gsap.timeline({ paused: true, reversed: true });
 
-  menuLanguageTimeline.from("nav .products", { y: "-100%", duration: duration, ease: "sine.out" }).to(`${navDivs}(2)`, { opacity: 0, duration: duration, ease: easeType }, 0.5).to(`${navDivs}(2) > p`, { text: "", duration: duration, ease: easeType }, 0.5).to(`${navDivs}(3)`, { border: "0.1vmin black solid", duration: duration, ease: easeType }, 0.5).to(`${navDivs}(3) > p`, { text: "Language", scale: "1.3", duration: duration, ease: easeType }, 0.5).to(`${navDivs}(4)`, { opacity: 0, duration: duration, ease: easeType }, 0.5).to(`${navDivs}(4) > p`, { text: "", duration: duration, ease: easeType }, 0.5).to(`${navDivs}(5)`, { opacity: 0, duration: duration, ease: easeType }, 0.5).to(`${navDivs}(5) > p`, { text: "", duration: duration, ease: easeType }, 0.5);
+  menuLanguageTimeline
+    .from("nav .products", { y: "-100%", duration: duration, ease: "sine.out" })
+    .to(`${navDivs}(2)`, { opacity: 0, duration: duration, ease: easeType }, 0.5)
+    .to(`${navDivs}(2) > p`, { text: "", duration: duration, ease: easeType }, 0.5)
+    .to(`${navDivs}(3) > p`, { text: "Language", scale: "1.3", duration: duration, ease: easeType }, 0.5)
+    .to(`${navDivs}(4)`, { opacity: 0, duration: duration, ease: easeType }, 0.5)
+    .to(`${navDivs}(4) > p`, { text: "", duration: duration, ease: easeType }, 0.5)
+    .to(`${navDivs}(5)`, { opacity: 0, duration: duration, ease: easeType }, 0.5)
+    .to(`${navDivs}(5) > p`, { text: "", duration: duration, ease: easeType }, 0.5);
 
   document.querySelector(".hamburger").addEventListener("click", function () {
     if (!menuEnabled) {
@@ -321,7 +340,7 @@ window.addEventListener("load", (event) => {
   let menuEnabled = false;
   let menulanguageEnabled = false;
 
-  document.querySelector("nav > div:nth-child(1)").addEventListener("click", function () {
+  document.querySelector("nav > img:nth-child(1)").addEventListener("click", function () {
     window.open(baseUrl, "_self");
   });
 
@@ -365,7 +384,12 @@ window.addEventListener("load", (event) => {
       toggleMenu();
       toggleActiveClass();
       document.body.style.overflow = "visible";
-    } else if (menulanguageEnabled && !event.target.closest("nav") && !event.target.closest(".langPopup") && !event.target.closest(".languageSelector")) {
+    } else if (
+      menulanguageEnabled &&
+      !event.target.closest("nav") &&
+      !event.target.closest(".langPopup") &&
+      !event.target.closest(".languageSelector")
+    ) {
       menulanguageEnabled = false;
       toggleLanguageMenu();
       languageSelector.classList.remove("visible");
@@ -488,22 +512,29 @@ window.addEventListener("load", (event) => {
   var prevScrollpos = window.pageYOffset;
 
   function hideNavbarOnScroll() {
-    var currentScrollPos = window.pageYOffset;
-
-    const nav = document.querySelector("nav");
-    if (prevScrollpos > currentScrollPos) {
-      nav.style.top = "0";
+    const currentScrollPos = window.pageYOffset;
+    if (window.innerWidth < 700) {
+      if (prevScrollpos > currentScrollPos) {
+        navigation.style.top = "0";
+      } else {
+        navigation.style.top = "-15vmax";
+      }
     } else {
-      nav.style.top = "-15vmax";
+      navigation.style.top = "2vmin";
     }
 
     prevScrollpos = currentScrollPos;
   }
-
+  window.addEventListener("resize", () => {
+    if (window.innerWidth >= 700) {
+      navigation.style.top = "2vmin";
+    }
+  });
   document.addEventListener("scroll", hideNavbarOnScroll);
 
   const path = document.querySelector(".splashScreen svg path");
-  var pathData = "M3 252.473C7 236.473 36.2346 186.5 41 179C44.3333 142 80.9 58.4725 198.5 16.4725C222.333 6.30583 282.5 -7.9275 332.5 16.4725C319.167 31.3059 293 71 283.5 83.9727C274 96.9453 245 132.473 183 132.473C150.667 129.982 72.6582 138.3 39.4582 181.5C39.4582 181.5 91.5 54.5 265.5 33";
+  var pathData =
+    "M3 252.473C7 236.473 36.2346 186.5 41 179C44.3333 142 80.9 58.4725 198.5 16.4725C222.333 6.30583 282.5 -7.9275 332.5 16.4725C319.167 31.3059 293 71 283.5 83.9727C274 96.9453 245 132.473 183 132.473C150.667 129.982 72.6582 138.3 39.4582 181.5C39.4582 181.5 91.5 54.5 265.5 33";
 
   path.setAttribute("d", pathData);
   var length = path.getTotalLength();
@@ -631,7 +662,8 @@ window.addEventListener("load", (event) => {
   div2.appendChild(socialMediaDiv);
 
   const copyrightParagraph = document.createElement("p");
-  copyrightParagraph.innerHTML = 'Copyright © 2024 strumix / All rights reserved / Developed by <a target="_blank" data-cursor="pointerNavbar" href="https://firstibox.glitch.me/">FirstIBOX</a> / <a target="_blank" data-cursor="pointerNavbar" href="https://strumix.com/en/privacyPolicy">Privacy Policy</a>';
+  copyrightParagraph.innerHTML =
+    'Copyright © 2024 strumix / All rights reserved / Developed by <a target="_blank" data-cursor="pointerNavbar" href="https://firstibox.glitch.me/">FirstIBOX</a> / <a target="_blank" data-cursor="pointerNavbar" href="https://strumix.com/en/privacyPolicy">Privacy Policy</a>';
 
   section.appendChild(div1);
   section.appendChild(div2);
@@ -710,7 +742,9 @@ window.addEventListener("load", (event) => {
     let check = false;
     (function (a) {
       if (
-        /(android|bb\d+|meego).+mobile|avantgo|bada\/|blackberry|blazer|compal|elaine|fennec|hiptop|iemobile|ip(hone|od)|iris|kindle|lge |maemo|midp|mmp|mobile.+firefox|netfront|opera m(ob|in)i|palm( os)?|phone|p(ixi|re)\/|plucker|pocket|psp|series(4|6)0|symbian|treo|up\.(browser|link)|vodafone|wap|windows ce|xda|xiino/i.test(a) ||
+        /(android|bb\d+|meego).+mobile|avantgo|bada\/|blackberry|blazer|compal|elaine|fennec|hiptop|iemobile|ip(hone|od)|iris|kindle|lge |maemo|midp|mmp|mobile.+firefox|netfront|opera m(ob|in)i|palm( os)?|phone|p(ixi|re)\/|plucker|pocket|psp|series(4|6)0|symbian|treo|up\.(browser|link)|vodafone|wap|windows ce|xda|xiino/i.test(
+          a
+        ) ||
         /1207|6310|6590|3gso|4thp|50[1-6]i|770s|802s|a wa|abac|ac(er|oo|s\-)|ai(ko|rn)|al(av|ca|co)|amoi|an(ex|ny|yw)|aptu|ar(ch|go)|as(te|us)|attw|au(di|\-m|r |s )|avan|be(ck|ll|nq)|bi(lb|rd)|bl(ac|az)|br(e|v)w|bumb|bw\-(n|u)|c55\/|capi|ccwa|cdm\-|cell|chtm|cldc|cmd\-|co(mp|nd)|craw|da(it|ll|ng)|dbte|dc\-s|devi|dica|dmob|do(c|p)o|ds(12|\-d)|el(49|ai)|em(l2|ul)|er(ic|k0)|esl8|ez([4-7]0|os|wa|ze)|fetc|fly(\-|_)|g1 u|g560|gene|gf\-5|g\-mo|go(\.w|od)|gr(ad|un)|haie|hcit|hd\-(m|p|t)|hei\-|hi(pt|ta)|hp( i|ip)|hs\-c|ht(c(\-| |_|a|g|p|s|t)|tp)|hu(aw|tc)|i\-(20|go|ma)|i230|iac( |\-|\/)|ibro|idea|ig01|ikom|im1k|inno|ipaq|iris|ja(t|v)a|jbro|jemu|jigs|kddi|keji|kgt( |\/)|klon|kpt |kwc\-|kyo(c|k)|le(no|xi)|lg( g|\/(k|l|u)|50|54|\-[a-w])|libw|lynx|m1\-w|m3ga|m50\/|ma(te|ui|xo)|mc(01|21|ca)|m\-cr|me(rc|ri)|mi(o8|oa|ts)|mmef|mo(01|02|bi|de|do|t(\-| |o|v)|zz)|mt(50|p1|v )|mwbp|mywa|n10[0-2]|n20[2-3]|n30(0|2)|n50(0|2|5)|n7(0(0|1)|10)|ne((c|m)\-|on|tf|wf|wg|wt)|nok(6|i)|nzph|o2im|op(ti|wv)|oran|owg1|p800|pan(a|d|t)|pdxg|pg(13|\-([1-8]|c))|phil|pire|pl(ay|uc)|pn\-2|po(ck|rt|se)|prox|psio|pt\-g|qa\-a|qc(07|12|21|32|60|\-[2-7]|i\-)|qtek|r380|r600|raks|rim9|ro(ve|zo)|s55\/|sa(ge|ma|mm|ms|ny|va)|sc(01|h\-|oo|p\-)|sdk\/|se(c(\-|0|1)|47|mc|nd|ri)|sgh\-|shar|sie(\-|m)|sk\-0|sl(45|id)|sm(al|ar|b3|it|t5)|so(ft|ny)|sp(01|h\-|v\-|v )|sy(01|mb)|t2(18|50)|t6(00|10|18)|ta(gt|lk)|tcl\-|tdg\-|tel(i|m)|tim\-|t\-mo|to(pl|sh)|ts(70|m\-|m3|m5)|tx\-9|up(\.b|g1|si)|utst|v400|v750|veri|vi(rg|te)|vk(40|5[0-3]|\-v)|vm40|voda|vulc|vx(52|53|60|61|70|80|81|83|85|98)|w3c(\-| )|webc|whit|wi(g |nc|nw)|wmlb|wonu|x700|yas\-|your|zeto|zte\-/i.test(
           a.substr(0, 4)
         )

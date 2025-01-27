@@ -21,7 +21,7 @@ async function updateHTMLFiles(dir) {
           let htmlContent = await fs.readFile(filePath, "utf-8");
 
           // Update the version numbers
-          htmlContent = htmlContent.replace(/v=1\.0\.\d+/g, "v=1.0.14");
+          htmlContent = htmlContent.replace(/v=1\.0\.\d+/g, "v=2.0.0");
 
           await fs.writeFile(filePath, htmlContent, "utf-8");
           console.log(`File ${filePath} successfully updated.`);

@@ -22,9 +22,7 @@ if (!("ontouchstart" in window)) {
 async function initializeTriggers() {
   if (window.innerWidth >= 769) {
     await new Promise((resolve) => setTimeout(resolve, 400));
-    let sections = gsap.utils.toArray(
-      ".section2, .section3, .section4, .noPinSection"
-    );
+    let sections = gsap.utils.toArray(".hero, .section3, .section4, .noPinSection");
 
     sections.forEach((section, i) => {
       let trigger = null;
@@ -64,82 +62,37 @@ async function initializeTriggers() {
 }
 initializeTriggers();
 
-document.addEventListener("mousemove", function (e) {
-  var { innerWidth: pageWidth, innerHeight: pageHeight } = window;
-
-  var mouseXPercent = (e.clientX / pageWidth) * 100;
-  var mouseYPercent = (e.clientY / pageHeight) * 100;
-
-  document.getElementById(
-    "movingBox"
-  ).style.transform = `rotate(-35deg) translate(${
-    (-50 + mouseXPercent) / 6
-  }%, ${(-50 + mouseYPercent) * 2}%)`;
-});
-
-gsap.to("#movingBox", {
-  scrollTrigger: {
-    trigger: "#movingBox",
-    start: "bottom top",
-    end: "bottom top",
-    toggleActions: "play none none reset",
-  },
-  display: "none",
-});
-
-gsap.to(".hero .scrollFlesh", {
-  scrollTrigger: {
-    trigger: ".hero",
-    start: "top top",
-    end: "bottom top",
-    toggleActions: "play none none reverse",
-  },
-  opacity: 0,
-  duration: 0.5,
-});
-
-if (window.innerWidth > 768) {
-  section2Triggers = [];
-  gsap.to(".section2 img", {
+const vh100 = window.innerHeight;
+if (window.innerWidth >= 769) {
+  gsap.to(".hero .background", {
     scrollTrigger: {
-      trigger: ".section2 img",
-      start: "top 90%",
-      end: "bottom 90%",
-      scrub: 2,
+      trigger: ".section3",
+      start: `-${vh100 / 2} 90%`,
+      end: `-${vh100 / 2} 50%`,
+      scrub: 1,
+      // markers: true,
     },
-    width: "100%",
-    margin: "2vw 0",
+    inset: "0vmin",
+    height: "calc(100vh - 0vmin)",
     duration: 1,
+    marginTop: "0vmin",
+    borderRadius: "0vmin",
   });
-  gsap.to(".section2", {
+} else {
+  gsap.to(".hero .background", {
     scrollTrigger: {
-      trigger: ".section2 img",
-      start: "bottom 70%",
-      end: "bottom 50%",
-      scrub: 2,
+      trigger: ".section3",
+      start: `-${vh100 / 10} 90%`,
+      end: `-${vh100 / 10} 50%`,
+      scrub: 1,
     },
-    filter: "blur(5px)",
-  });
-  gsap.to(".section2 .Circles", {
-    scrollTrigger: {
-      trigger: ".section2 .Circles",
-      start: "top 100%",
-      end: "bottom 10%",
-      scrub: 2,
-    },
-    transform: "rotate3d(0, 1, 0, 180deg)",
-  });
-  gsap.to(".cyclingCircles", {
-    scrollTrigger: {
-      trigger: ".section2",
-      start: "100vh top",
-      end: "100vh top",
-      toggleActions: "play none none reset",
-    },
-    display: "none",
+    inset: "0vmin",
+    height: "calc(100vh - 0vmin)",
+    duration: 1,
+    marginTop: "0vmin",
+    borderRadius: "0vmin",
   });
 }
-
 gsap.from(".section3 div:nth-child(1) img", {
   scrollTrigger: {
     trigger: ".section3",
@@ -147,7 +100,7 @@ gsap.from(".section3 div:nth-child(1) img", {
     end: "top top",
     scrub: 4,
   },
-  scale: "1.1"
+  scale: "1.1",
 });
 gsap.to(".section3 .textSide hr", {
   scrollTrigger: {
@@ -263,17 +216,13 @@ const products = {
 };
 
 const section4 = document.querySelector(".section4");
-const boxes = section4.querySelectorAll(
-  "div:not(:first-child):not(:last-child)"
-);
+const boxes = section4.querySelectorAll("div:not(:first-child):not(:last-child)");
 
 boxes.forEach((box) => {
   box.addEventListener("mouseover", function () {
     productImg.style.opacity = "1";
     productImg.style.filter = "blur(0)";
-    productImg.innerHTML = `<img src="../assets/productImg/${
-      products[box.id]
-    }" alt="" />`;
+    productImg.innerHTML = `<img src="../assets/productImg/${products[box.id]}" alt="" />`;
   });
 
   box.addEventListener("mouseout", function () {
@@ -288,7 +237,6 @@ boxes.forEach((box) => {
   });
 });
 
-
 gsap.to(".section5 > div:nth-child(1)", {
   scrollTrigger: {
     trigger: ".section5",
@@ -298,21 +246,15 @@ gsap.to(".section5 > div:nth-child(1)", {
   },
   y: "100%",
 });
-let loops = gsap.utils
-    .toArray(".section5 .infiniteScrollText div")
-    .map((line, i) => {
-      const links = line.querySelectorAll(
-        ".section5  .infiniteScrollText div span"
-      );
-      return horizontalLoop(links, {
-        repeat: -1,
-        speed: 1.5 + i * 0.5,
-        reversed: false,
-        paddingRight: parseFloat(
-          gsap.getProperty(links[0], "marginRight", "px")
-        ),
-      });
-    }),
+let loops = gsap.utils.toArray(".section5 .infiniteScrollText div").map((line, i) => {
+    const links = line.querySelectorAll(".section5  .infiniteScrollText div span");
+    return horizontalLoop(links, {
+      repeat: -1,
+      speed: 1.5 + i * 0.5,
+      reversed: false,
+      paddingRight: parseFloat(gsap.getProperty(links[0], "marginRight", "px")),
+    });
+  }),
   currentScroll = 0,
   scrollDirection = 1;
 
@@ -354,10 +296,7 @@ function horizontalLoop(items, config) {
   gsap.set(items, {
     xPercent: (i, el) => {
       let w = (widths[i] = parseFloat(gsap.getProperty(el, "width", "px")));
-      xPercents[i] = snap(
-        (parseFloat(gsap.getProperty(el, "x", "px")) / w) * 100 +
-          gsap.getProperty(el, "xPercent")
-      );
+      xPercents[i] = snap((parseFloat(gsap.getProperty(el, "x", "px")) / w) * 100 + gsap.getProperty(el, "xPercent"));
       return xPercents[i];
     },
   });
@@ -367,16 +306,14 @@ function horizontalLoop(items, config) {
     items[length - 1].offsetLeft +
     (xPercents[length - 1] / 100) * widths[length - 1] -
     startX +
-    items[length - 1].offsetWidth *
-      gsap.getProperty(items[length - 1], "scaleX") +
+    items[length - 1].offsetWidth * gsap.getProperty(items[length - 1], "scaleX") +
     (parseFloat(config.paddingRight) || 0);
 
   for (i = 0; i < length; i++) {
     item = items[i];
     curX = (xPercents[i] / 100) * widths[i];
     distanceToStart = item.offsetLeft + curX - startX;
-    distanceToLoop =
-      distanceToStart + widths[i] * gsap.getProperty(item, "scaleX");
+    distanceToLoop = distanceToStart + widths[i] * gsap.getProperty(item, "scaleX");
     tl.to(
       item,
       {
@@ -388,14 +325,11 @@ function horizontalLoop(items, config) {
       .fromTo(
         item,
         {
-          xPercent: snap(
-            ((curX - distanceToLoop + totalWidth) / widths[i]) * 100
-          ),
+          xPercent: snap(((curX - distanceToLoop + totalWidth) / widths[i]) * 100),
         },
         {
           xPercent: xPercents[i],
-          duration:
-            (curX - distanceToLoop + totalWidth - curX) / pixelsPerSecond,
+          duration: (curX - distanceToLoop + totalWidth - curX) / pixelsPerSecond,
           immediateRender: false,
         },
         distanceToLoop / pixelsPerSecond
@@ -406,8 +340,7 @@ function horizontalLoop(items, config) {
 
   function toIndex(index, vars) {
     vars = vars || {};
-    Math.abs(index - curIndex) > length / 2 &&
-      (index += index > curIndex ? -length : length);
+    Math.abs(index - curIndex) > length / 2 && (index += index > curIndex ? -length : length);
     let newIndex = gsap.utils.wrap(0, length, index),
       time = times[newIndex];
     if (time > tl.time() !== index > curIndex) {
@@ -440,4 +373,3 @@ gsap.from(CSSRulePlugin.getRule(".section7::before"), {
   },
   backgroundSize: "200% auto",
 });
-

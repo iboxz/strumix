@@ -3,7 +3,7 @@
 	<url>
 		<loc>https://www.strumix.com</loc>
 		<priority>1.00</priority>
-		<lastmod>2025-01-26</lastmod>
+		<lastmod>2025-01-27</lastmod>
 	</url>
 	<url>
 		<loc>https://www.strumix.com/products</loc>
@@ -13,7 +13,7 @@
 	<url>
 		<loc>https://www.strumix.com/en</loc>
 		<priority>0.75</priority>
-		<lastmod>2024-12-01</lastmod>
+		<lastmod>2025-01-27</lastmod>
 	</url>
 	<url>
 		<loc>https://www.strumix.com/contact</loc>
@@ -23,7 +23,7 @@
 	<url>
 		<loc>https://www.strumix.com/blogs</loc>
 		<priority>0.75</priority>
-		<lastmod>2024-10-29</lastmod>
+		<lastmod>2025-01-27</lastmod>
 	</url>
 	<url>
 		<loc>https://www.strumix.com/products/strutop-wr7</loc>
@@ -53,12 +53,12 @@
 	<url>
 		<loc>https://www.strumix.com/products/strutop-rm450</loc>
 		<priority>0.50</priority>
-		<lastmod>2024-12-01</lastmod>
+		<lastmod>2024-12-23</lastmod>
 	</url>
 	<url>
 		<loc>https://www.strumix.com/products/strutop-repo55</loc>
 		<priority>0.50</priority>
-		<lastmod>2024-12-01</lastmod>
+		<lastmod>2024-12-25</lastmod>
 	</url>
 	<url>
 		<loc>https://www.strumix.com/products/strutop-lac</loc>
@@ -93,7 +93,7 @@
 	<url>
 		<loc>https://www.strumix.com/products/strutop-em130</loc>
 		<priority>0.50</priority>
-		<lastmod>2024-12-01</lastmod>
+		<lastmod>2024-12-28</lastmod>
 	</url>
 	<url>
 		<loc>https://www.strumix.com/products/strutop-cem260</loc>
@@ -133,7 +133,7 @@
 	<url>
 		<loc>https://www.strumix.com/products/strutile-gr110</loc>
 		<priority>0.50</priority>
-		<lastmod>2024-12-01</lastmod>
+		<lastmod>2025-01-28</lastmod>
 	</url>
 	<url>
 		<loc>https://www.strumix.com/products/strutile-c50</loc>
@@ -258,17 +258,17 @@
 	<url>
 		<loc>https://www.strumix.com/products/struseal-c516</loc>
 		<priority>0.50</priority>
-		<lastmod>2024-12-01</lastmod>
+		<lastmod>2025-01-28</lastmod>
 	</url>
 	<url>
 		<loc>https://www.strumix.com/products/struseal-c515</loc>
 		<priority>0.50</priority>
-		<lastmod>2024-12-01</lastmod>
+		<lastmod>2025-01-28</lastmod>
 	</url>
 	<url>
 		<loc>https://www.strumix.com/products/struseal-c514</loc>
 		<priority>0.50</priority>
-		<lastmod>2024-12-01</lastmod>
+		<lastmod>2025-01-28</lastmod>
 	</url>
 	<url>
 		<loc>https://www.strumix.com/products/struseal-c513</loc>
@@ -283,7 +283,7 @@
 	<url>
 		<loc>https://www.strumix.com/products/struproof-ws</loc>
 		<priority>0.50</priority>
-		<lastmod>2024-12-01</lastmod>
+		<lastmod>2025-01-28</lastmod>
 	</url>
 	<url>
 		<loc>https://www.strumix.com/products/struproof-wl</loc>
@@ -453,7 +453,7 @@
 	<url>
 		<loc>https://www.strumix.com/products/strufiber-fp12</loc>
 		<priority>0.50</priority>
-		<lastmod>2024-12-01</lastmod>
+		<lastmod>2025-01-28</lastmod>
 	</url>
 	<url>
 		<loc>https://www.strumix.com/products/strucure-sw50</loc>
@@ -543,72 +543,92 @@
 	<url>
 		<loc>https://www.strumix.com/blogs/whats-concrete-admixture</loc>
 		<priority>0.50</priority>
-		<lastmod>2024-12-01</lastmod>
+		<lastmod>2025-01-27</lastmod>
+	</url>
+	<url>
+		<loc>https://www.strumix.com/blogs/what-is-epoxy-grout</loc>
+		<priority>0.50</priority>
+		<lastmod>2025-01-27</lastmod>
+	</url>
+	<url>
+		<loc>https://www.strumix.com/blogs/Types-of-cracks-in-concrete</loc>
+		<priority>0.50</priority>
+		<lastmod>2025-01-27</lastmod>
 	</url>
 	<url>
 		<loc>https://www.strumix.com/blogs/Reducing-cement-consumption</loc>
 		<priority>0.50</priority>
-		<lastmod>2024-12-01</lastmod>
+		<lastmod>2025-01-27</lastmod>
 	</url>
 	<url>
 		<loc>https://www.strumix.com/blogs/polycarboxylate-ether-structure-1</loc>
 		<priority>0.50</priority>
-		<lastmod>2024-12-01</lastmod>
+		<lastmod>2025-01-27</lastmod>
 	</url>
 	<url>
 		<loc>https://www.strumix.com/blogs/nanotechnology-in-construction-industry</loc>
 		<priority>0.50</priority>
-		<lastmod>2024-12-01</lastmod>
+		<lastmod>2025-01-27</lastmod>
 	</url>
 	<url>
 		<loc>https://www.strumix.com/blogs/latex-polymers-in-concrete</loc>
 		<priority>0.50</priority>
-		<lastmod>2024-12-01</lastmod>
+		<lastmod>2025-01-27</lastmod>
 	</url>
 	<url>
 		<loc>https://www.strumix.com/blogs/Fiber-concrete</loc>
 		<priority>0.50</priority>
-		<lastmod>2024-12-01</lastmod>
+		<lastmod>2025-01-27</lastmod>
 	</url>
 	<url>
 		<loc>https://www.strumix.com/blogs/enhancing-concrete-durability</loc>
 		<priority>0.50</priority>
-		<lastmod>2024-12-01</lastmod>
+		<lastmod>2025-01-27</lastmod>
 	</url>
 	<url>
 		<loc>https://www.strumix.com/blogs/Crystalline-Waterproofing-Admixtures-Struseal-C512</loc>
 		<priority>0.50</priority>
-		<lastmod>2024-12-01</lastmod>
+		<lastmod>2025-01-27</lastmod>
 	</url>
 	<url>
 		<loc>https://www.strumix.com/blogs/Crystalline-Waterproofing-Admixtures-1</loc>
 		<priority>0.50</priority>
-		<lastmod>2024-12-01</lastmod>
+		<lastmod>2025-01-27</lastmod>
 	</url>
 	<url>
 		<loc>https://www.strumix.com/blogs/concrete-release-agent-1</loc>
 		<priority>0.50</priority>
-		<lastmod>2024-12-01</lastmod>
+		<lastmod>2025-01-27</lastmod>
+	</url>
+	<url>
+		<loc>https://www.strumix.com/blogs/concrete-curing-techniques</loc>
+		<priority>0.50</priority>
+		<lastmod>2025-01-27</lastmod>
 	</url>
 	<url>
 		<loc>https://www.strumix.com/blogs/concrete-curing-methods</loc>
 		<priority>0.50</priority>
-		<lastmod>2024-12-01</lastmod>
+		<lastmod>2025-01-27</lastmod>
+	</url>
+	<url>
+		<loc>https://www.strumix.com/blogs/concrete-carbonation-acid-attack-prevention</loc>
+		<priority>0.50</priority>
+		<lastmod>2025-01-27</lastmod>
 	</url>
 	<url>
 		<loc>https://www.strumix.com/blogs/Concrete-additives-in-8-minutes</loc>
 		<priority>0.50</priority>
-		<lastmod>2024-12-01</lastmod>
+		<lastmod>2025-01-27</lastmod>
 	</url>
 	<url>
 		<loc>https://www.strumix.com/blogs/concrete-accelerators</loc>
 		<priority>0.50</priority>
-		<lastmod>2024-12-01</lastmod>
+		<lastmod>2025-01-27</lastmod>
 	</url>
 	<url>
 		<loc>https://www.strumix.com/blogs/Building-water-repellants</loc>
 		<priority>0.50</priority>
-		<lastmod>2024-12-01</lastmod>
+		<lastmod>2025-01-27</lastmod>
 	</url>
 	<url>
 		<loc>https://www.strumix.com/en/products/strutop-wr7</loc>
