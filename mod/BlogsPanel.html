@@ -666,8 +666,8 @@
         const pageUrlInput = document.getElementById("pageUrl").value;
         const sanitizedUrl = sanitizeUrl(pageUrlInput);
         const categoryInput = document.getElementById("category").value;
-        const imgWidthInput = document.getElementById("imgWidth").value;
         const previewImageSrc = document.getElementById("previewImage").src;
+        let  imgWidthInput = document.getElementById("imgWidth").value;
 
         if (!imgWidthInput) {
           imgWidthInput = "100";

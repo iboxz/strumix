@@ -84,13 +84,13 @@ if ($resultAuthorisation->num_rows > 0) {
   <meta property='og:url' content='https://strumix.com/blogs/" . $url . "' />
   <meta name='twitter:title' content='" . $title . "' />
   <meta name='twitter:description' content='" . $description . "' />
-  <meta name='twitter:image' content='https://strumix.com/serverUploadAssets/blogsCoverImg/" . $url . ".jpg' />
+  <meta name='twitter:image' content='https://strumix.com/serverAssets/blogsCoverImg/" . $url . ".jpg' />
   <script type='application/ld+json'>
       {
         '@context': 'https://schema.org',
         '@type': 'Article',
         'headline': '" . $title . "',
-        'image': ['https://strumix.com/serverUploadAssets/blogsCoverImg/" . $url . ".jpg'],
+        'image': ['https://strumix.com/serverAssets/blogsCoverImg/" . $url . ".jpg'],
         'datePublished': '" . $dateEn . "',
         'keywords': '" . $tags . "'
       }
