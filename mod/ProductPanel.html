@@ -9,8 +9,8 @@
 
     <link rel="icon" href="../assets/VectorLogo-favicon.svg" type="image/svg+xml" sizes="any" />
 
-    <link rel="stylesheet" href="../src/css/main.css?v=2.0.0" />
-    <link rel="stylesheet" href="../src/css/products.css?v=2.0.0" />
+    <link rel="stylesheet" href="../src/css/main.css?v=2.0.1" />
+    <link rel="stylesheet" href="../src/css/products.css?v=2.0.1" />
 
     <script src="../src/js/chart.js"></script>
     <script defer="" src="../src/js/lineChart.js"></script>
@@ -1343,11 +1343,6 @@
             if (mainProductsContainer) {
               const smoothWrapper = document.getElementById("smooth-wrapper");
               smoothWrapper.innerHTML = mainProductsContainer.innerHTML;
-
-              const heroImg = smoothWrapper.querySelector(".hero img");
-              if (heroImg) {
-                heroImg.src = "";
-              }
 
               editAllSections();
               addParagraphAndListToH3();

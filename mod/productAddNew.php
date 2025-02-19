@@ -126,6 +126,7 @@ if ($resultAuthorisation->num_rows > 0) {
         </svg>
       </p>
       <p>بسپار بتن ايرانيان هوشمند</p>
+      <img src="assets/VectorLogo.svg" alt="Strumix logo" />
     </section>
   </body>
 </html>';
@@ -236,6 +237,30 @@ if ($resultAuthorisation->num_rows > 0) {
         if (!file_put_contents($jsonFile, $newJsonString)) {
             echo 'خطا در به‌روزرسانی فایل JSON.';
             exit;
+        }
+
+        // به روز رسانی فایل sitemap.xml
+        $sitemapFile = '../sitemap.xml';
+        $newUrl = "https://strumix.com/products/" . $url;
+
+        if (file_exists($sitemapFile)) {
+            $doc = new DOMDocument();
+            $doc->preserveWhiteSpace = false;
+            $doc->formatOutput = true;
+            $doc->load($sitemapFile);
+
+            $urlset = $doc->getElementsByTagName('urlset')->item(0);
+            $urlElement = $doc->createElement('url');
+
+            $loc = $doc->createElement('loc', $newUrl);
+            $urlElement->appendChild($loc);
+
+            $lastmod = $doc->createElement('lastmod', date('Y-m-d'));
+            $urlElement->appendChild($lastmod);
+
+            $urlset->appendChild($urlElement);
+
+            $doc->save($sitemapFile);
         }
 
         echo 'محصول با موفقیت اضافه شد.';

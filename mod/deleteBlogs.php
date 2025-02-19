@@ -54,6 +54,39 @@ if ($resultAuthorisation->num_rows > 0) {
                 echo "فایل JSON وجود ندارد.";
             }
 
+            $sitemapFile = '../sitemap.xml';
+            $pageUrl = "https://strumix.com/blogs/" . $url;
+
+            if (file_exists($sitemapFile)) {
+                $doc = new DOMDocument();
+                $doc->preserveWhiteSpace = false;
+                $doc->formatOutput = true;
+                $doc->load($sitemapFile);
+
+                $xpath = new DOMXPath($doc);
+                $namespaceURI = $doc->documentElement->lookupnamespaceURI(NULL);
+                if ($namespaceURI) {
+                    $xpath->registerNamespace('ns', $namespaceURI);
+                    $query = "/ns:urlset/ns:url[ns:loc/text() = '$pageUrl']";
+                } else {
+                    $query = "/urlset/url[loc/text() = '$pageUrl']";
+                }
+
+                $nodes = $xpath->query($query);
+
+                if ($nodes->length > 0) {
+                    foreach ($nodes as $node) {
+                        $node->parentNode->removeChild($node);
+                    }
+                    $doc->save($sitemapFile);
+                    echo "صفحه ($pageUrl) با موفقیت از sitemap حذف شد.";
+                } else {
+                    echo "صفحه ($pageUrl) در sitemap یافت نشد.";
+                }
+            } else {
+                echo "فایل sitemap.xml یافت نشد.";
+            }
+
 
             if (file_exists($filePath)) {
                 if (unlink($filePath)) {

@@ -307,6 +307,32 @@ if ($resultAuthorisation->num_rows > 0) {
                 exit;
             }
 
+            $sitemapFile = '../sitemap.xml';
+            $pageUrl = "https://strumix.com/products/" . $url;
+            $xml = simplexml_load_file($sitemapFile);
+
+            $found = false;
+
+            $currentDate = date('Y-m-d');
+
+            foreach ($xml->url as $urlElement) {
+                if (trim((string)$urlElement->loc) === $pageUrl) {
+                    $urlElement->lastmod = $currentDate;
+                    $found = true;
+                    break;
+                }
+            }
+
+            if ($found) {
+                if ($xml->asXML($sitemapFile)) {
+                    echo "تاریخ آخرین تغییر صفحه به $currentDate به روز رسانی شد.";
+                } else {
+                    echo "خطا در ذخیره فایل سایت مپ.";
+                }
+            } else {
+                echo "صفحه مورد نظر در سایت مپ پیدا نشد.";
+            }
+
             echo 'صفحه و فایل‌ها با موفقیت به‌روزرسانی شدند.';
         } else {
             echo 'فایل HTML محصول وجود ندارد.';
