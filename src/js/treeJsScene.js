@@ -10,8 +10,9 @@ const checkGraphicsCapability = () => {
     const isShaderPrecisionValid = gl.getShaderPrecisionFormat(gl.VERTEX_SHADER, gl.HIGH_FLOAT).precision > 0;
     const isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
 
-    const meetsRequirements = maxTextureSize >= 4096 && isShaderPrecisionValid && navigator.hardwareConcurrency >= 4 && !isMobile;
+    const meetsRequirements = maxTextureSize >= 8192 && isShaderPrecisionValid && navigator.hardwareConcurrency >= 8 && !isMobile;
 
+    console.log(maxTextureSize, navigator.hardwareConcurrency);
     return meetsRequirements;
   } catch (error) {
     return false;
@@ -27,6 +28,7 @@ const createFallbackVideo = () => {
   video.autoplay = true;
   video.muted = true;
   video.loop = true;
+  video.playbackRate = 1.5;
   return video;
 };
 

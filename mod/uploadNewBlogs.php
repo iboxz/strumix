@@ -251,28 +251,46 @@ if ($resultAuthorisation->num_rows > 0) {
   if (file_put_contents($new_file, $html_content)) {
     echo "صفحه جدید با موفقیت ایجاد شد: <a href='" . $new_file . "'>" . $new_file . "</a>";
 
-    // به روز رسانی فایل sitemap.xml
+
     $sitemapFile = '../sitemap.xml';
     $newUrl = "https://strumix.com/blogs/" . $url;
 
     if (file_exists($sitemapFile)) {
-      $doc = new DOMDocument();
+      $doc = new DOMDocument('1.0', 'UTF-8');
       $doc->preserveWhiteSpace = false;
       $doc->formatOutput = true;
       $doc->load($sitemapFile);
 
       $urlset = $doc->getElementsByTagName('urlset')->item(0);
-      $urlElement = $doc->createElement('url');
+      if ($urlset) {
+        $urls = $urlset->getElementsByTagName('url');
+        $toRemove = [];
+        foreach ($urls as $urlElement) {
+          /** @var DOMElement $urlElement */
+          $locNodes = $urlElement->getElementsByTagName('loc');
+          if ($locNodes->length > 0 && trim($locNodes->item(0)->nodeValue) === $newUrl) {
+            $toRemove[] = $urlElement;
+          }
+        }
+        foreach ($toRemove as $urlElement) {
+          $urlset->removeChild($urlElement);
+        }
 
-      $loc = $doc->createElement('loc', $newUrl);
-      $urlElement->appendChild($loc);
+        $newUrlElement = $doc->createElement('url');
+        $loc = $doc->createElement('loc', $newUrl);
+        $newUrlElement->appendChild($loc);
+        $lastmod = $doc->createElement('lastmod', date('Y-m-d'));
+        $newUrlElement->appendChild($lastmod);
 
-      $lastmod = $doc->createElement('lastmod', date('Y-m-d'));
-      $urlElement->appendChild($lastmod);
+        $urlset->appendChild($newUrlElement);
 
-      $urlset->appendChild($urlElement);
-
-      $doc->save($sitemapFile);
+        $doc->save($sitemapFile);
+        echo "سایت مپ با موفقیت به‌روزرسانی شد.";
+      } else {
+        echo "ساختار فایل sitemap.xml نامعتبر است. تگ <urlset> یافت نشد.";
+      }
+    } else {
+      echo "فایل sitemap.xml یافت نشد.";
     }
   } else {
     echo 'خطا در ایجاد صفحه.';
