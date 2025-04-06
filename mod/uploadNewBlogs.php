@@ -85,16 +85,16 @@ if ($resultAuthorisation->num_rows > 0) {
   <meta name='twitter:title' content='" . $title . "' />
   <meta name='twitter:description' content='" . $description . "' />
   <meta name='twitter:image' content='https://strumix.com/serverAssets/blogsCoverImg/" . $url . ".jpg' />
-  <script type='application/ld+json'>
-      {
-        '@context': 'https://schema.org',
-        '@type': 'Article',
-        'headline': '" . $title . "',
-        'image': ['https://strumix.com/serverAssets/blogsCoverImg/" . $url . ".jpg'],
-        'datePublished': '" . $dateEn . "',
-        'keywords': '" . $tags . "'
-      }
-    </script>
+  <script type=\"application/ld+json\">
+  {
+    \"@context\": \"https://schema.org\",
+    \"@type\": \"Article\",
+    \"headline\": \"" . $title . "\",
+    \"image\": [\"https://strumix.com/serverAssets/blogsCoverImg/" . $url . ".jpg\"],
+    \"datePublished\": \"" . $dateEn . "\",
+    \"keywords\": \"" . $tags . "\"
+  }
+  </script>
   <script async='' src='https://www.googletagmanager.com/gtag/js?id=G-4PJ8JE8SW8'></script>
   <script src='../src/js/googleAnalytics.js'></script>
 

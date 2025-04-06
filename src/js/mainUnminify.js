@@ -87,17 +87,18 @@ function activateCustomCursors() {
           cursor.style.display = "none";
           cursorBorder.style.setProperty("--size", "15vmin");
           cursorBorder.style.backgroundColor = "#ffffff90";
-          cursorBorder.style.backdropFilter = "blur(0.5vmin)";
+          cursorBorder.style.backdropFilter = "blur(0.4vmin)";
           cursorBorder.style.backgroundImage = "url(../../assets/VectorFlesh4.svg)";
           cursorBorder.style.backgroundSize = "3vmin 3vmin";
           cursorBorder.style.boxShadow = "0 0 0 0.1vmin black";
-          cursorBorder.style.filter = "invert(99%) sepia(0%) saturate(0%) hue-rotate(141deg) brightness(109%) contrast(101%)";
+          cursorBorder.style.filter = "invert(80%) sepia(0%) saturate(0%) hue-rotate(141deg) brightness(150%) contrast(101%)";
+          cursor.style.transform = "rotate(25deg)";
 
           break;
         case "pointerWaveBorder":
           cursorBorder.style.display = "none";
 
-          cursor.style.setProperty("--sizeMainCursor", "30vmin");
+          cursor.style.setProperty("--sizeMainCursor", "20vmin");
           cursor.style.background = "linear-gradient(120deg, #ffffff, #000000, #ffffff, #000000, #ffffff)";
           cursor.style.backgroundSize = " 1600% 1600%";
 
@@ -225,6 +226,7 @@ window.addEventListener("load", (event) => {
     { name: "افزودنی بتن", id: "concreteAdditive" },
     { name: "مواد شیمیایی صنعت ساختمان", id: "constructionChemicals" },
     { name: "واتراستاپ", id: "waterstop" },
+    { name: "نماهای نوین ساختمانی", id: "modern-building-facades" },
     { name: "اسپیسر پلاستیکی بتن", id: "plastic-spacers" },
     { name: "مواد اولیه افزودنی بتن و شیمی ساختمان", id: "raw-materials" },
   ];
