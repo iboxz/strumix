@@ -571,7 +571,7 @@
   <url>
     <loc>https://strumix.com/products/struplast-vm750p</loc>
     <priority>0.50</priority>
-    <lastmod>2024-12-01</lastmod>
+    <lastmod>2025-04-13</lastmod>
     <xhtml:link rel="alternate" hreflang="en" href="https://strumix.com/en/products/struplast-vm750p"/>
     <xhtml:link rel="alternate" hreflang="fa" href="https://strumix.com/products/struplast-vm750p"/>
   </url>
@@ -972,16 +972,10 @@
     <lastmod>2024-12-01</lastmod>
   </url>
   <url>
-    <loc>https://strumix.com/en/products</loc>
+    <loc>https://strumix.com/en/products/</loc>
     <priority>0.50</priority>
     <lastmod>2024-12-01</lastmod>
-    <xhtml:link rel="alternate" hreflang="en" href="https://strumix.com/en/products"/>
-  </url>
-  <url>
-    <loc>https://strumix.com/en/privacyPolicy</loc>
-    <priority>0.50</priority>
-    <lastmod>2024-12-01</lastmod>
-    <xhtml:link rel="alternate" hreflang="en" href="https://strumix.com/en/privacyPolicy"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://strumix.com/en/products/"/>
   </url>
   <url>
     <loc>https://strumix.com/en/contact</loc>
@@ -1322,5 +1316,53 @@
   <url>
     <loc>https://strumix.com/blogs/reducing-concrete-temperature-hot-weather</loc>
     <lastmod>2025-04-05</lastmod>
+  </url>
+  <url>
+    <loc>https://strumix.com/blogs/waterstop-pvc</loc>
+    <lastmod>2025-04-12</lastmod>
+  </url>
+  <url>
+    <loc>https://strumix.com/blogs/heavy-slab-installation</loc>
+    <lastmod>2025-04-19</lastmod>
+  </url>
+  <url>
+    <loc>https://strumix.com/blogs/waterproofing-pool</loc>
+    <lastmod>2025-04-26</lastmod>
+  </url>
+  <url>
+    <loc>https://strumix.com/blogs/nano-silane-water-repellent-cem260</loc>
+    <lastmod>2025-05-03</lastmod>
+  </url>
+  <url>
+    <loc>https://strumix.com/blogs/uhpc-بتن-فوق-توانمند</loc>
+    <lastmod>2025-05-11</lastmod>
+  </url>
+  <url>
+    <loc>https://strumix.com/blogs/struplast-air-air-entraining-admixture</loc>
+    <lastmod>2025-05-13</lastmod>
+  </url>
+  <url>
+    <loc>https://strumix.com/products/strutop-unithan</loc>
+    <lastmod>2025-05-19</lastmod>
+  </url>
+  <url>
+    <loc>https://strumix.com/blogs/tile-adhesives</loc>
+    <lastmod>2025-05-20</lastmod>
+  </url>
+  <url>
+    <loc>https://strumix.com/blogs/superplasticizer-pce-polycarboxylate-ether-molecular-structure-performance-cement</loc>
+    <lastmod>2025-05-24</lastmod>
+  </url>
+  <url>
+    <loc>https://strumix.com/blogs/slump-loss-in-concrete-causes-and-solutions</loc>
+    <lastmod>2025-05-26</lastmod>
+  </url>
+  <url>
+    <loc>https://strumix.com/blogs/polyurethane-waterbased-topcoat-unithan</loc>
+    <lastmod>2025-05-31</lastmod>
+  </url>
+  <url>
+    <loc>https://strumix.com/blogs/ggbfs-in-concrete-benefits-properties</loc>
+    <lastmod>2025-06-03</lastmod>
   </url>
 </urlset>

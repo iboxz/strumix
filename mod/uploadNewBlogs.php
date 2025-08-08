@@ -60,7 +60,7 @@ if ($resultAuthorisation->num_rows > 0) {
   $new_file = '../blogs/' . $url . '.html';
 
   $html_content = "<!DOCTYPE html>
-<html lang='en'>
+<html lang='fa'>
 
 <head>
   <meta charset='UTF-8' />

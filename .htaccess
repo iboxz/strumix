@@ -2,6 +2,23 @@ DirectoryIndex index.html
 
 RewriteEngine on
 
+# ------------------------------
+# Redirect strumix.ir (www or non-www) to https://strumix.com
+RewriteCond %{HTTP_HOST} ^(www\.)?strumix\.ir$ [NC]
+RewriteRule ^(.*)$ https://strumix.com/$1 [L,R=301]
+
+# ------------------------------
+# Redirect www.strumix.com to strumix.com
+RewriteCond %{HTTP_HOST} ^www\.strumix\.com$ [NC]
+RewriteRule ^(.*)$ https://strumix.com/$1 [L,R=301]
+
+# ------------------------------
+# Force HTTPS for strumix.com (non-www version)
+RewriteCond %{HTTPS} off
+RewriteCond %{HTTP_HOST} ^strumix\.com$ [NC]
+RewriteRule ^(.*)$ https://strumix.com/$1 [L,R=301]
+
+# ------------------------------
 # Redirect .html URLs to clean URLs with proper encoding support
 RewriteCond %{THE_REQUEST} \s/([^\s]+)\.html [NC]
 RewriteRule ^ /%1 [NE,R=301,L]
@@ -10,13 +27,6 @@ RewriteRule ^ /%1 [NE,R=301,L]
 RewriteCond %{REQUEST_FILENAME}.html -f
 RewriteRule ^ %{REQUEST_URI}.html [NC,L]
 
-# Force HTTPS
-RewriteCond %{HTTPS} off
-RewriteRule ^(.*)$ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
-
-# Redirect from strumix.ir to strumix.com
-RewriteCond %{HTTP_HOST} ^(www\.)?strumix\.ir$ [NC]
-RewriteRule ^(.*)$ http://www.strumix.com/$1 [L,R=301]
-
+# ------------------------------
 # Custom 404 error page
 ErrorDocument 404 /404error.html
