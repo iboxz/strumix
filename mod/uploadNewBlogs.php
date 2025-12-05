@@ -176,7 +176,10 @@ if ($resultAuthorisation->num_rows > 0) {
           <span>&nbsp;&nbsp;/&nbsp;&nbsp;</span>
           <a class='mouseSticky' data-cursor='pointerClickable'>" . $date . "</a>
         </header>
-        <div class='mainBlogContainer'>" . $content . "</div>
+        <div class=\"blogCoverImgContainer\">
+          <img src=\"../serverAssets/blogsCoverImg/" . $url . ".jpg\" alt=\"" . (!empty($tags) ? $tags : $title) . "\" />
+          <div class='mainBlogContainer'>" . $content . "</div>
+        </div>
         <div class='blogTags'>" . $blogTagsSection . "</div>
       </section>
       <section class='section3'>

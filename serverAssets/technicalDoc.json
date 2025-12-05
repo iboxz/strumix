@@ -7,12 +7,16 @@
         {
             "text": "بروشور استرامیکس",
             "url": "https:\/\/strumix.com\/serverAssets\/technicalDocuments\/Strumix-cataloge-2018-for-internet-marketing.pdf"
+        },
+        {
+            "text": "دانلود لینک های مفید",
+            "url": "https:\/\/strumix.com\/serverAssets\/technicalDocuments\/Links.pdf"
         }
     ],
     "استانداردها": [
         {
-            "text": "استاندارد فوق روان کننده و روان کننده بتن و استاندارد زودگیر کننده بتن (ضدیخ بتن مسلح فاقد یون کلر)",
-            "url": "https:\/\/strumix.com\/serverAssets\/technicalDocuments\/Standard-Strumix.pdf"
+            "text": "استاندارد فوق روان کننده و روان کننده بتن و استاندارد زودگیرکننده بتن (ضدیخ بتن مسلح فاقد یون کلر)",
+            "url": "https:\/\/strumix.com\/serverAssets\/technicalDocuments\/Standard-STRUMIX.pdf"
         },
         {
             "text": "گواهی نامه استاندارد ISO 9001",
@@ -34,7 +38,7 @@
     "گواهی نامه فنی مرکز تحقیقات راه، مسکن و شهرسازی": [
         {
             "text": "گواهی نامه فنی مرکز تحقیقات راه، مسکن و شهرسازی برای محصول “Strusin فوق روان کننده (ابر روان کننده) بتن بر پایه پلی کربوکسیلات اتر”",
-            "url": "https:\/\/strumix.com\/serverAssets\/technicalDocuments\/Technical-Certificate-Housing-Research-Center-Strusin.jpg"
+            "url": "https:\/\/strumix.com\/serverAssets\/technicalDocuments\/-نامه-فنی-مرکز-تحقیقات-راه-مسکن-و-شهرسازی-Strusin.jpg"
         }
     ],
     "تائیدیه محصولات": [
@@ -79,6 +83,10 @@
         {
             "text": "رزومه استرامیکس در پروژه های ملی",
             "url": "https:\/\/strumix.com\/serverAssets\/technicalDocuments\/Resume-STRUMIX.pdf"
+        },
+        {
+            "text": "مقالات ما - بررسی و مقایسه رفتار فوق‌روان‌کننده‌های پلی‌کربوکسیلات اتر با عملکرد معمولی و حفظ‌کننده اسلامپ طولانی‌مدت در بتن",
+            "url": "https:\/\/strumix.com\/serverAssets\/technicalDocuments\/بررسی-و-مقایسه-رفتار-فوق-روان-کننده-های-پلی-کربوکسیلات-اتر-با-عملکرد.pdf"
         }
     ]
 }
